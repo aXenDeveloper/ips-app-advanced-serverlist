@@ -41,7 +41,7 @@ class _settings extends \IPS\Dispatcher\Controller
 		$form = new \IPS\Helpers\Form;
 		$form->add(new \IPS\Helpers\Form\Text('my_select_box', NULL, TRUE));
 
-		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('menu__aXenServers_settings');
+		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_settings');
 		\IPS\Output::i()->output = $form;
 	}
 

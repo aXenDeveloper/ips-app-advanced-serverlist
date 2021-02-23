@@ -6,6 +6,13 @@
             "do": "",
             "restriction": "settings_manage",
             "subcontrollers": ""
+        },
+        "servers": {
+            "tab": "axenserverlist",
+            "controller": "servers",
+            "do": "",
+            "restriction": "servers_manage",
+            "subcontrollers": ""
         }
     }
 }
