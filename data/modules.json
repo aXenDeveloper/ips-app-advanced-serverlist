@@ -1,0 +1,9 @@
+{
+    "admin": {
+        "servers": {
+            "default_controller": "",
+            "protected": false,
+            "default": null
+        }
+    }
+}

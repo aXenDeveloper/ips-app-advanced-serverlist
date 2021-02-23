@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "settings": {
+            "tab": "axenserverlist",
+            "controller": "settings",
+            "do": "",
+            "restriction": "settings_manage",
+            "subcontrollers": ""
+        }
+    }
+}
