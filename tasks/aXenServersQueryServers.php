@@ -61,11 +61,24 @@ class _aXenServersQueryServers extends \IPS\Task
 
 				foreach ($results as $id => $data) {
 					if ($data['gq_online'] == true) {
-						\IPS\Db::i()->update('axenserverlist_servers', [
-							'axenserverlist_owners'	=> 54,
-							'axenserverlist_current_players'	=> $data['gq_numplayers']
-						], ['axenserverlist_id=?', $row['axenserverlist_id']]);
+						$dataUpdate = [
+							'axenserverlist_status' => 1,
+							'axenserverlist_current_players' => $data['gq_numplayers'],
+							'axenserverlist_max_players' => $data['max_players'],
+							'axenserverlist_name_default' => $data['gq_hostname'],
+							'axenserverlist_map' => $data['gq_mapname']
+						];
+					} else {
+						$dataUpdate = [
+							'axenserverlist_status' => 0,
+							'axenserverlist_current_players' => 0,
+							'axenserverlist_max_players' => 0,
+							'axenserverlist_name_default' => null,
+							'axenserverlist_map' => null
+						];
 					}
+
+					\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 				}
 			} catch (\Exception $e) {
 				\IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);

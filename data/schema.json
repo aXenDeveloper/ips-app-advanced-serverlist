@@ -157,6 +157,42 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "axenserverlist_name_default": {
+                "name": "axenserverlist_name_default",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_map": {
+                "name": "axenserverlist_map",
+                "type": "VARCHAR",
+                "length": 100,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_new": {
+                "name": "axenserverlist_new",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

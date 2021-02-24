@@ -57,6 +57,6 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__title()
   {
-    return $this->axenserverlist_name;
+    return $this->axenserverlist_name_default;
   }
 }
