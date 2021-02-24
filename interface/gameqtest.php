@@ -5,7 +5,7 @@ require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Auto
 
 $servers = array([
   'type'    => 'csgo',
-  'host'    => '147.135.199.66:27015',
+  'host'    => '91.224.117.161:27015',
 ]);
 
 $gq = new \GameQ\GameQ();
