@@ -77,18 +77,6 @@
                         "unsigned": false,
                         "auto_increment": false
                     },
-                    "axenserverlist_type": {
-                        "name": "axenserverlist_type",
-                        "type": "INT",
-                        "length": null,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": "0",
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
                     "axenserverlist_tv": {
                         "name": "axenserverlist_tv",
                         "type": "TEXT",
@@ -157,6 +145,18 @@
                         "values": null,
                         "allow_null": false,
                         "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "auto_increment": false
+                    },
+                    "axenserverlist_type": {
+                        "name": "axenserverlist_type",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": "csgo",
                         "comment": "",
                         "unsigned": false,
                         "auto_increment": false

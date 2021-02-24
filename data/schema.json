@@ -76,12 +76,12 @@
             },
             "axenserverlist_type": {
                 "name": "axenserverlist_type",
-                "type": "INT",
-                "length": null,
+                "type": "VARCHAR",
+                "length": 20,
                 "decimals": null,
                 "values": null,
                 "allow_null": false,
-                "default": "0",
+                "default": "csgo",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
