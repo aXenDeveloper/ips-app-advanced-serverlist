@@ -2,6 +2,18 @@
     "axenserverlist_servers": {
         "name": "axenserverlist_servers",
         "columns": {
+            "axenserverlist_max_players": {
+                "name": "axenserverlist_max_players",
+                "type": "INT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
             "axenserverlist_owners": {
                 "name": "axenserverlist_owners",
                 "type": "VARCHAR",
@@ -34,54 +46,6 @@
                 "values": null,
                 "allow_null": false,
                 "default": "0",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            },
-            "axenserverlist_status": {
-                "name": "axenserverlist_status",
-                "type": "TINYINT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": "0",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            },
-            "axenserverlist_current_players": {
-                "name": "axenserverlist_current_players",
-                "type": "INT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": "0",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            },
-            "axenserverlist_max_players": {
-                "name": "axenserverlist_max_players",
-                "type": "INT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": "0",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            },
-            "axenserverlist_type": {
-                "name": "axenserverlist_type",
-                "type": "VARCHAR",
-                "length": 20,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": "csgo",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
@@ -190,6 +154,54 @@
                 "values": null,
                 "allow_null": false,
                 "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_game": {
+                "name": "axenserverlist_game",
+                "type": "VARCHAR",
+                "length": 20,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "csgo",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_status": {
+                "name": "axenserverlist_status",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_current_players": {
+                "name": "axenserverlist_current_players",
+                "type": "INT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_game_long": {
+                "name": "axenserverlist_game_long",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false

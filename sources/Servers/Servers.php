@@ -18,8 +18,8 @@ class _Servers extends \IPS\Node\Model
    * Database Table
    */
   public static $databaseTable = 'axenserverlist_servers';
-  public static $databaseColumnOrder = 'axenserverlist_position';
-  public static $databaseColumnId = 'axenserverlist_id';
+  public static $databasePrefix = 'axenserverlist_';
+  public static $databaseColumnOrder = 'position';
 
   /**
    * Get URL
@@ -41,33 +41,26 @@ class _Servers extends \IPS\Node\Model
   public function form(&$form)
   {
     $members = array();
-    if (!empty($this->axenserverlist_owners)) {
-      foreach (new \IPS\Patterns\ActiveRecordIterator(\IPS\Db::i()->select('*', 'core_members', array(\IPS\Db::i()->in('member_id', explode(",", $this->axenserverlist_owners)))), 'IPS\Member') as $member) {
+    if (!empty($this->owners)) {
+      foreach (new \IPS\Patterns\ActiveRecordIterator(\IPS\Db::i()->select('*', 'core_members', array(\IPS\Db::i()->in('member_id', explode(",", $this->owners)))), 'IPS\Member') as $member) {
         $members[] = $member;
       }
     }
 
-    $form->add(new \IPS\Helpers\Form\Select('axenserverlist_type', $this->axenserverlist_type, TRUE, array('options' => array(
-      'aa3' => "America's Army 3",
-      'aapg' => "America's Army: Proving Grounds",
-      'arkse' => "ARK: Survival Evolved",
-      'arma' => "ArmA Armed Assault",
-      'arma3' => "Arma3",
-      'armedassault2oa' => "Armed Assault 2: Operation Arrowhead",
-      'ase' => "All-Seeing Eye",
-      'atlas' => "Atlas",
-      'batt1944' => "Battalion 1944",
-      'bf2' => "Battlefield 2",
-      'bf4' => "Battlefield 4"
+    $form->add(new \IPS\Helpers\Form\Select('axenserverlist_game', $this->game, TRUE, array('options' => array(
+      'cs16' => "Counter-Strike 1.6",
+      'csgo' => "Counter-Strike: Global Offensive",
+      'minecraft' => "Minecraft",
+      'minecraftpe' => "MinecraftPE",
+      'teamspeak3' => "Teamspeak 3"
     ), 'multiple' => FALSE)));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->axenserverlist_name, TRUE));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->axenserverlist_ip, TRUE));
-    // $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', \IPS\Member::load($this->axenserverlist_owners), FALSE, array('multiple' => 1)));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->name, TRUE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_gt', $this->axenserverlist_gt, FALSE));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->axenserverlist_tv, FALSE));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_vote', $this->axenserverlist_vote, FALSE));
-    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_topic', $this->axenserverlist_topic, FALSE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_gt', $this->gt, FALSE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, FALSE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_vote', $this->vote, FALSE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_topic', $this->topic, FALSE));
   }
 
   /**
@@ -86,7 +79,6 @@ class _Servers extends \IPS\Node\Model
       $values['axenserverlist_owners'] = implode(',', $members);
     } else {
       $values['axenserverlist_owners'] = NULL;
-      $values['axenserverlist_owners'] = 'all';
     }
 
     return $values;
@@ -99,6 +91,6 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__title()
   {
-    return $this->axenserverlist_name . ' - ' . $this->axenserverlist_ip;
+    return $this->name . ' - ' . $this->ip;
   }
 }
