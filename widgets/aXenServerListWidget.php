@@ -51,9 +51,9 @@ class _aXenServerListWidget extends \IPS\Widget\StaticCache
 		// If you are creating a plugin, uncomment this line:
 		// $this->template( array( \IPS\Theme::i()->getTemplate( 'plugins', 'core', 'global' ), $this->key ) );
 		// And then create your template at located at plugins/<your plugin>/dev/html/aXenServerListWidget.phtml
-
 		$this->template(array(\IPS\Theme::i()->getTemplate('widgets', $this->app, 'front'), $this->key));
-		// parent::init();
+		\IPS\Output::i()->cssFiles = array_merge(\IPS\Output::i()->cssFiles, \IPS\Theme::i()->css('widget.css', 'axenserverlist', 'front'));
+		parent::init();
 	}
 
 	/**

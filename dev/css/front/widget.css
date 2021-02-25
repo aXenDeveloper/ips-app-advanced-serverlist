@@ -1,0 +1,62 @@
+.aXenServerList_item {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.aXenServerList_item\:status {
+  margin: 10px;
+}
+
+.aXenServerList_item\:status > span {
+  display: block;
+  width: 8px;
+  height: 20px;
+  background-color: var(--negative-dark);
+  border-radius: 5px;
+}
+
+.aXenServerList_item\:status-online > span {
+  background-color: var(--positive-dark);
+}
+
+.aXenServerList_item\:img {
+  margin: 0 10px 0 5px;
+}
+
+.aXenServerList_item\:name {
+  flex: 0 1 200px;
+}
+
+.aXenServerList_item\:ip {
+  margin-left: 5px;
+  flex: 0 0 150px;
+}
+
+.aXenServerList_item_players {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.aXenServerList_item_players > span {
+  margin-left: 10px;
+}
+
+.aXenServerList_item_players_svg {
+  width: 35px;
+  height: 35px;
+}
+
+.aXenServerList_item_players_svg\:none {
+  stroke: rgb(var(--theme-area_background_light));
+  fill-opacity: 0;
+  stroke-width: 4;
+}
+
+.aXenServerList_item_players_svg\:fill {
+  stroke: rgb(var(--theme-link_hover));
+  fill-opacity: 0;
+  stroke-width: 4;
+  stroke-dasharray: 97.6754, 97.6754;
+}

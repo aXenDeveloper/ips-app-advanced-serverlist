@@ -17,5 +17,6 @@ $lang = array(
 	'axenserverlist_topic' => 'Topic',
 	'axenserverlist_new' => 'New server?',
 	'block_aXenServerListWidget' => 'Server List',
-	'block_aXenServerListWidget_desc' => 'Widget shows servers'
+	'block_aXenServerListWidget_desc' => 'Widget shows servers',
+	'aXenServerList_widget_title' => 'Our servers'
 );
