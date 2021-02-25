@@ -14,5 +14,8 @@ $lang = array(
 	'axenserverlist_gt' => 'GameTracker',
 	'axenserverlist_tv' => 'TV',
 	'axenserverlist_vote' => 'Vote',
-	'axenserverlist_topic' => 'Topic'
+	'axenserverlist_topic' => 'Topic',
+	'axenserverlist_new' => 'New server?',
+	'block_aXenServerListWidget' => 'Server List',
+	'block_aXenServerListWidget_desc' => 'Widget shows servers'
 );
