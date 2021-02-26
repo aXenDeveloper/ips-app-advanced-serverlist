@@ -1,20 +1,26 @@
 <ips:template parameters="$servers" />
 <h3 class="ipsType_reset ipsWidget_title">{lang="aXenServerList_widget_title"}</h3>
 
-<ul class="ipsList_reset">
+<ul class="aXenServerList">
   {{foreach $servers as $row}}
   <li>
     <ul class="ipsList_reset aXenServerList_item">
-      <li class="aXenServerList_item:status{{if $row['axenserverlist_status']}} aXenServerList_item:status-online{{endif}}"><span></span></li>
-      <li class="aXenServerList_item:img">
-        <img src="https://1shot2kill.pl/uploads/monthly_2020_06/csgo.png" data-ipstooltip _title="Counter Strike Global Offensive" alt="Counter Strike Global Offensive">
+      <li class="aXenServerList_item:status{{if $row['axenserverlist_status']}} aXenServerList_item:status-online{{endif}}">
+        <span></span>
       </li>
+
+      <li class="aXenServerList_item:img">
+        <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+      </li>
+
       <li class="aXenServerList_item:name">
         {$row['axenserverlist_name']}
       </li>
+
       <li class="aXenServerList_item:ip">
         {$row['axenserverlist_ip']}
       </li>
+
       <li class="aXenServerList_item_players">
         {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
 
@@ -24,6 +30,19 @@
         </svg>
 
         <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+      </li>
+
+      {{if settings.aXenServerList_settings_owners}}
+      <li class="aXenServerList_item:owners">
+        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+        {{$member = \IPS\Member::load( $owner );}}
+        <span>{$member->link()|raw}</span>
+        {{endforeach}}
+      </li>
+      {{endif}}
+
+      <li class="aXenServerList_item_more">
+        <a class="ipsButton ipsButton_verySmall ipsButton_important"><i class="fa fa-info" aria-hidden="true"></i></a>
       </li>
     </ul>
   </li>

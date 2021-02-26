@@ -39,7 +39,11 @@ class _settings extends \IPS\Dispatcher\Controller
 	protected function manage()
 	{
 		$form = new \IPS\Helpers\Form;
-		$form->add(new \IPS\Helpers\Form\Text('my_select_box', NULL, TRUE));
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE));
+
+		if ($values = $form->values(TRUE)) {
+			$form->saveAsSettings($values);
+		}
 
 		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_settings');
 		\IPS\Output::i()->output = $form;
