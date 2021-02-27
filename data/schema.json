@@ -205,6 +205,18 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "axenserverlist_connect_link": {
+                "name": "axenserverlist_connect_link",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

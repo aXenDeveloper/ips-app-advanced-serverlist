@@ -67,7 +67,8 @@ class _aXenServersQueryServers extends \IPS\Task
 							'axenserverlist_max_players' => $data['max_players'],
 							'axenserverlist_name_default' => $data['gq_hostname'],
 							'axenserverlist_map' => $data['gq_mapname'],
-							'axenserverlist_game_long' => $data['gq_name']
+							'axenserverlist_game_long' => $data['gq_name'],
+							'axenserverlist_connect_link' => $data['gq_joinlink']
 						];
 					} else {
 						$dataUpdate = [
@@ -75,7 +76,8 @@ class _aXenServersQueryServers extends \IPS\Task
 							'axenserverlist_current_players' => 0,
 							'axenserverlist_max_players' => 0,
 							'axenserverlist_map' => null,
-							'axenserverlist_game_long' => $data['gq_name']
+							'axenserverlist_game_long' => $data['gq_name'],
+							'axenserverlist_connect_link' => $data['gq_joinlink']
 						];
 					}
 

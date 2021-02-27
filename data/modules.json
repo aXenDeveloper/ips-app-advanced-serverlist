@@ -2,8 +2,8 @@
     "admin": {
         "servers": {
             "default_controller": "",
-            "protected": false,
-            "default": null
+            "protected": 0,
+            "default": 0
         }
     }
 }

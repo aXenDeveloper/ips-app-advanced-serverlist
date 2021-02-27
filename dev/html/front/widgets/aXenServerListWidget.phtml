@@ -18,9 +18,12 @@
       </li>
 
       <li class="aXenServerList_item:ip">
-        <a class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop">
+        {{if $row['axenserverlist_connect_link']}}
+        <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip _title="{lang='aXenServerList_connect'}">
           <i class="fa fa-link"></i>
         </a>
+        {{endif}}
+
         {$row['axenserverlist_ip']}
       </li>
 
