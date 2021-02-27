@@ -29,18 +29,6 @@
                         "unsigned": false,
                         "auto_increment": false
                     },
-                    "axenserverlist_gt": {
-                        "name": "axenserverlist_gt",
-                        "type": "TEXT",
-                        "length": null,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
                     "axenserverlist_position": {
                         "name": "axenserverlist_position",
                         "type": "INT",
@@ -67,18 +55,6 @@
                     },
                     "axenserverlist_vote": {
                         "name": "axenserverlist_vote",
-                        "type": "TEXT",
-                        "length": null,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "axenserverlist_topic": {
-                        "name": "axenserverlist_topic",
                         "type": "TEXT",
                         "length": null,
                         "decimals": null,
@@ -211,6 +187,30 @@
                     },
                     "axenserverlist_connect_link": {
                         "name": "axenserverlist_connect_link",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "auto_increment": false
+                    },
+                    "axenserverlist_forum": {
+                        "name": "axenserverlist_forum",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "auto_increment": false
+                    },
+                    "axenserverlist_statistics": {
+                        "name": "axenserverlist_statistics",
                         "type": "TEXT",
                         "length": null,
                         "decimals": null,

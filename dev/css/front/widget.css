@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   margin-left: 5px;
-  flex: 0 1 200px;
+  flex: 0 0 200px;
 }
 
 .aXenServerList_item\:ip > .ipsButton {
@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   margin: 5px 0;
-  flex: 0 1 110px;
+  flex: 0 0 110px;
 }
 
 .aXenServerList_item_players > span {
@@ -92,6 +92,14 @@
   margin: 0 10px 0 auto;
 }
 
+.aXenServerList_item_more_menu {
+  padding: var(--sp-3);
+}
+
+.aXenServerList_item_more_menu > a:not(:last-child) {
+  margin-bottom: var(--sp-3);
+}
+
 /* ========== ROW ========== */
 @media screen and (max-width: 767px) {
   .aXenServerList_item {
@@ -107,14 +115,14 @@
 
   .aXenServerList_item\:ip,
   .aXenServerList_item_players {
-    flex: 1 1 50%;
+    flex: 0 0 50%;
     margin: 0;
     height: 40px;
   }
 
   .aXenServerList_item_title,
   .aXenServerList_item\:owners {
-    flex: 1 1 100%;
+    flex: 0 0 100%;
     height: 30px;
   }
 

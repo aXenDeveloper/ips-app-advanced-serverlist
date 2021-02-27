@@ -1,5 +1,9 @@
 <ips:template parameters="$servers" />
-<h3 class="ipsType_reset ipsWidget_title">{lang="aXenServerList_widget_title"}</h3>
+<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between">
+  <span>{lang="aXenServerList_widget_title"}</span>
+
+  <a href="#" class="ipsJS_show ipsType_noUnderline cForumToggle" data-action="toggleCategory" data-ipstooltip="" _title="Toggle this category"></a>
+</h3>
 
 <ul class="aXenServerList">
   {{foreach $servers as $row}}
@@ -48,20 +52,37 @@
   {{endif}}
 
   <li class="aXenServerList_item_more">
-    <button class="ipsButton ipsButton_fullWidth ipsButton_important" data-ipsDialog data-ipsDialog-title="{$row['axenserverlist_name']} - {$row['axenserverlist_ip']}" data-ipsDialog-content="#aXenServerList_{$row['axenserverlist_id']}">
+    <button class="ipsButton ipsButton_fullWidth ipsButton_important" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu>
       <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
     </button>
 
-    <div class='ipsHide' id="aXenServerList_{$row['axenserverlist_id']}">
-      <div class='ipsPadding'>
-        test {$row['axenserverlist_id']}
-      </div>
+    <div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu ipsMenu_narrow ipsHide">
+      <div class="aXenServerList_item_more_menu ipsPadding:half">
+        {{if !settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
+        <div class="ipsType_center ipsMargin_bottom:half">
+          {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+          {{$member = \IPS\Member::load( $owner );}}
+          <span>{$member->link()|raw}</span>
+          {{endforeach}}
+        </div>
+        {{endif}}
 
-      <ul class="ipsPadding ipsToolList ipsToolList_horizontal ipsList_reset ipsClearfix ipsBorder_top">
-        <li>
-          <button class="ipsButton ipsButton_primary">Test</button>
-        </li>
-      </ul>
+        <a href="{$row['axenserverlist_forum']}" class="ipsButton ipsButton_fullWidth ipsButton_normal">
+          <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
+        </a>
+
+        <a href="{$row['axenserverlist_vote']}" class="ipsButton ipsButton_fullWidth ipsButton_light">
+          <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
+        </a>
+
+        <a href="{$row['axenserverlist_statistics']}" class="ipsButton ipsButton_fullWidth ipsButton_light">
+          <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
+        </a>
+
+        <a href="{$row['axenserverlist_tv']}" class="ipsButton ipsButton_fullWidth ipsButton_light">
+          <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
+        </a>
+      </div>
     </div>
   </li>
 </ul>

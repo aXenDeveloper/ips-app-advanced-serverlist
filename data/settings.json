@@ -2,9 +2,5 @@
     {
         "key": "aXenServerList_settings_owners",
         "default": "1"
-    },
-    {
-        "key": "test1234",
-        "default": "1"
     }
 ]
