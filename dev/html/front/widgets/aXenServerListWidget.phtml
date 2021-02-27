@@ -3,21 +3,24 @@
 
 <ul class="aXenServerList">
   {{foreach $servers as $row}}
-  <li>
+  <li class="ipsDataItem">
     <ul class="ipsList_reset aXenServerList_item">
-      <li class="aXenServerList_item:status{{if $row['axenserverlist_status']}} aXenServerList_item:status-online{{endif}}">
-        <span></span>
-      </li>
+      <li class="aXenServerList_item_title">
+        <span class="aXenServerList_item_title:status{{if $row['axenserverlist_status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      <li class="aXenServerList_item:img">
-        <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
-      </li>
+        <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
 
-      <li class="aXenServerList_item:name">
-        {$row['axenserverlist_name']}
+        <span class="aXenServerList_item_title:name">
+          {$row['axenserverlist_name']}
+        </span>
+
+
       </li>
 
       <li class="aXenServerList_item:ip">
+        <a class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop">
+          <i class="fa fa-link"></i>
+        </a>
         {$row['axenserverlist_ip']}
       </li>
 
@@ -32,7 +35,7 @@
         <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
       </li>
 
-      {{if settings.aXenServerList_settings_owners}}
+      {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
       <li class="aXenServerList_item:owners">
         {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
         {{$member = \IPS\Member::load( $owner );}}
@@ -42,7 +45,9 @@
       {{endif}}
 
       <li class="aXenServerList_item_more">
-        <a class="ipsButton ipsButton_verySmall ipsButton_important"><i class="fa fa-info" aria-hidden="true"></i></a>
+        <a class="ipsButton ipsButton_fullWidth ipsButton_important">
+          <i class="fa fa-info"></i> {lang="aXenServerList_more"}
+        </a>
       </li>
     </ul>
   </li>

@@ -4,22 +4,21 @@
   list-style: none;
 }
 
+/* ========== Item ========== */
 .aXenServerList_item {
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: 25px 16px{{if settings.aXenServerList_settings_owners}} 150px{{else}} 1fr{{endif}} 170px 100px{{if settings.aXenServerList_settings_owners}} 1fr{{endif}} 50px;
-  grid-gap: 5px;
   line-height: 1;
 }
 
-.aXenServerList_item\:status,
-.aXenServerList_item\:img,
-.aXenServerList_item\:owners,
-.aXenServerList_item_more {
-  justify-self: center;
+.aXenServerList_item_title {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  flex: 0 1 200px;
 }
 
-.aXenServerList_item\:status > span {
+.aXenServerList_item_title\:status {
   display: block;
   width: 8px;
   height: 20px;
@@ -27,23 +26,43 @@
   border-radius: 5px;
 }
 
-.aXenServerList_item\:status-online > span {
+.aXenServerList_item_title\:status-online {
   background-color: var(--positive-dark);
 }
 
-.aXenServerList_item\:name {
-  margin-left: 5px;
+.aXenServerList_item_title\:img {
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.aXenServerList_item_title\:name {
+  margin-left: 10px;
 }
 
 .aXenServerList_item\:ip {
+  display: flex;
+  align-items: center;
   margin-left: 5px;
-  flex: 0 0 150px;
+  flex: 0 1 200px;
 }
 
+.aXenServerList_item\:ip > .ipsButton {
+  margin-right: 5px;
+}
+
+.aXenServerList_item\:owners {
+  flex: 1;
+  text-align: center;
+}
+
+/* ========== Players ========== */
 .aXenServerList_item_players {
   display: flex;
   align-items: center;
   margin: 5px 0;
+  flex: 0 1 110px;
 }
 
 .aXenServerList_item_players > span {
@@ -68,7 +87,38 @@
   stroke-dasharray: 97.6754, 97.6754;
 }
 
-.aXenServerList_item\:more {
-  margin-right: 5px;
-  justify-self: end;
+/* ========== More ========== */
+.aXenServerList_item_more {
+  margin: 0 10px 0 auto;
+}
+
+/* ========== ROW ========== */
+@media screen and (max-width: 767px) {
+  .aXenServerList_item {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .aXenServerList_item_title,
+  .aXenServerList_item\:ip,
+  .aXenServerList_item_players {
+    justify-content: center;
+  }
+
+  .aXenServerList_item\:ip,
+  .aXenServerList_item_players {
+    flex: 1 1 50%;
+    margin: 0;
+    height: 40px;
+  }
+
+  .aXenServerList_item_title,
+  .aXenServerList_item\:owners {
+    flex: 1 1 100%;
+    height: 30px;
+  }
+
+  .aXenServerList_item_more {
+    margin: 0;
+  }
 }
