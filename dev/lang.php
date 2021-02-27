@@ -20,6 +20,6 @@ $lang = array(
 	'block_aXenServerListWidget_desc' => 'Widget shows servers',
 	'aXenServerList_widget_title' => 'Our servers',
 	'aXenServerList_settings_owners' => 'Show server owner?',
-	'aXenServerList_more' => 'More',
-	'aXenServerList_connect' => 'Connect'
+	'aXenServerList_widget_more' => 'More',
+	'aXenServerList_widget_connect' => 'Connect'
 );

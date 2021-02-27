@@ -13,13 +13,11 @@
         <span class="aXenServerList_item_title:name">
           {$row['axenserverlist_name']}
         </span>
-
-
       </li>
 
       <li class="aXenServerList_item:ip">
         {{if $row['axenserverlist_connect_link']}}
-        <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip _title="{lang='aXenServerList_connect'}">
+        <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip _title="{lang='aXenServerList_widget_connect'}">
           <i class="fa fa-link"></i>
         </a>
         {{endif}}
@@ -27,32 +25,44 @@
         {$row['axenserverlist_ip']}
       </li>
 
-      <li class="aXenServerList_item_players">
-        {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
-
-        <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
-          <path class="aXenServerList_item_players_svg:none" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)"></path>
-          <path class="aXenServerList_item_players_svg:fill" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(98px - {$calcPlayers}px);"></path>
-        </svg>
-
-        <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
-      </li>
-
-      {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
-      <li class="aXenServerList_item:owners">
-        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
-        {{$member = \IPS\Member::load( $owner );}}
-        <span>{$member->link()|raw}</span>
-        {{endforeach}}
-      </li>
-      {{endif}}
-
-      <li class="aXenServerList_item_more">
-        <a class="ipsButton ipsButton_fullWidth ipsButton_important">
-          <i class="fa fa-info"></i> {lang="aXenServerList_more"}
-        </a>
-      </li>
-    </ul>
   </li>
-  {{endforeach}}
+
+  <li class="aXenServerList_item_players">
+    {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
+      <path class="aXenServerList_item_players_svg:none" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)"></path>
+      <path class="aXenServerList_item_players_svg:fill" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(98px - {$calcPlayers}px);"></path>
+    </svg>
+
+    <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+  </li>
+
+  {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
+  <li class="aXenServerList_item:owners">
+    {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+    {{$member = \IPS\Member::load( $owner );}}
+    <span>{$member->link()|raw}</span>
+    {{endforeach}}
+  </li>
+  {{endif}}
+
+  <li class="aXenServerList_item_more">
+    <button class="ipsButton ipsButton_fullWidth ipsButton_important" data-ipsDialog data-ipsDialog-title="{$row['axenserverlist_name']} - {$row['axenserverlist_ip']}" data-ipsDialog-content="#aXenServerList_{$row['axenserverlist_id']}">
+      <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
+    </button>
+
+    <div class='ipsHide' id="aXenServerList_{$row['axenserverlist_id']}">
+      <div class='ipsPadding'>
+        test {$row['axenserverlist_id']}
+      </div>
+
+      <ul class="ipsPadding ipsToolList ipsToolList_horizontal ipsList_reset ipsClearfix ipsBorder_top">
+        <li>
+          <button class="ipsButton ipsButton_primary">Test</button>
+        </li>
+      </ul>
+    </div>
+  </li>
 </ul>
+{{endforeach}}
