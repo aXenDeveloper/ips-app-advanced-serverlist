@@ -15,6 +15,9 @@
         <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
 
         <span class="aXenServerList_item_title:name">
+          {{if $row['axenserverlist_new']}}
+          <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
+          {{endif}}
           {$row['axenserverlist_name']}
         </span>
       </li>

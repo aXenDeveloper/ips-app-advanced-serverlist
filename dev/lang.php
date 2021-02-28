@@ -26,5 +26,6 @@ $lang = array(
 	'aXenServerList_widget_statistics' => 'Statistics',
 	'aXenServerList_widget_vote' => 'Vote',
 	'aXenServerList_widget_forum' => 'Forum',
-	'aXenServerList_widget_tv' => 'TV'
+	'aXenServerList_widget_tv' => 'TV',
+	'aXenServerList_widget_new' => 'New'
 );

@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   margin: 0 10px;
-  flex: 0 1 200px;
+  flex: 0 1 250px;
 }
 
 .aXenServerList_item_title\:status {
@@ -39,6 +39,12 @@
 
 .aXenServerList_item_title\:name {
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.aXenServerList_item_title\:name > .ipsBadge {
+  margin-right: 5px;
 }
 
 .aXenServerList_item\:ip {

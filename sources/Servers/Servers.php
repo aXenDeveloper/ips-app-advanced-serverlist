@@ -92,6 +92,6 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__title()
   {
-    return $this->name . ' - ' . $this->ip;
+    return $this->name . ' - ' . $this->game . ' - ' . $this->ip;
   }
 }
