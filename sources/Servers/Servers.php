@@ -62,6 +62,16 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_vote', $this->vote, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_forum', $this->forum, FALSE));
     $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_new', $this->new, FALSE));
+
+    $form->add(new \IPS\Helpers\Form\YesNo(
+      'axenserverlist_top_server',
+      $this->top_server,
+      FALSE,
+      array('togglesOn' => array(
+        'axenserverlist_top_server_text'
+      ))
+    ));
+    $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_top_server_text', NULL, FALSE, array('app' => 'app', 'key' => "axenserverlist_top_server_text_{$this->id}"), NULL, NULL, NULL, 'axenserverlist_top_server_text'));
   }
 
   /**
@@ -72,6 +82,7 @@ class _Servers extends \IPS\Node\Model
    */
   public function formatFormValues($values)
   {
+    // Save owners
     if (!empty($values['axenserverlist_owners'])) {
       $members = array();
       foreach ($values['axenserverlist_owners'] as $member) {
@@ -80,6 +91,11 @@ class _Servers extends \IPS\Node\Model
       $values['axenserverlist_owners'] = implode(',', $members);
     } else {
       $values['axenserverlist_owners'] = NULL;
+    }
+
+    // Save Translatable
+    if (isset($values['axenserverlist_top_server_text'])) {
+      \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['axenserverlist_top_server_text']);
     }
 
     return $values;

@@ -27,5 +27,9 @@ $lang = array(
 	'aXenServerList_widget_vote' => 'Vote',
 	'aXenServerList_widget_forum' => 'Forum',
 	'aXenServerList_widget_tv' => 'TV',
-	'aXenServerList_widget_new' => 'New'
+	'aXenServerList_widget_new' => 'New',
+	'axenserverlist_top_server' => 'Highlight the server?',
+	'axenserverlist_top_server_desc' => 'Displays a trophy icon next to the server name.',
+	'axenserverlist_top_server_text' => 'Text for highlight the server in tootlip',
+	'axenserverlist_top_server_text_desc' => "If you don't want to enter anything, just leave this field blank.",
 );
