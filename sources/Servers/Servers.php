@@ -51,11 +51,11 @@ class _Servers extends \IPS\Node\Model
       'cs16' => "Counter-Strike 1.6",
       'csgo' => "Counter-Strike: Global Offensive",
       'minecraft' => "Minecraft",
-      'minecraftpe' => "MinecraftPE",
       'teamspeak3' => "Teamspeak 3"
     ), 'multiple' => FALSE)));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->name, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_statistics', $this->statistics, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, FALSE));
@@ -108,6 +108,8 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__title()
   {
-    return $this->name . ' - ' . $this->game . ' - ' . $this->ip;
+    $getIP = $this->ip_custom ? $this->ip_custom : $this->ip;
+
+    return $this->name . ' - ' . $this->game . ' - ' . $getIP;
   }
 }

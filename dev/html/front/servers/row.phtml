@@ -1,0 +1,109 @@
+<ips:template parameters="$row" />
+<li class="ipsDataItem">
+  <ul class="ipsList_reset aXenServerList_item">
+    <li class="aXenServerList_item_title">
+      <span class="aXenServerList_item_title:status{{if $row['axenserverlist_status']}} aXenServerList_item_title:status-online{{endif}}"></span>
+
+      <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+
+      <span class="aXenServerList_item_title:name">
+        {{if $row['axenserverlist_top_server']}}
+        {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
+        <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip _title="{lang='{$topServerLang}'}" {{endif}}></i>
+        {{endif}}
+
+        {{if $row['axenserverlist_new']}}
+        <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
+        {{endif}}
+
+        {$row['axenserverlist_name']}
+      </span>
+    </li>
+
+    <li class="aXenServerList_item:ip">
+      {{if $row['axenserverlist_connect_link']}}
+      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip _title="{lang='aXenServerList_widget_connect'}">
+        <i class="fa fa-link"></i>
+      </a>
+      {{endif}}
+
+      {{$getIP = $row['axenserverlist_ip_custom'] ? $row['axenserverlist_ip_custom'] : $row['axenserverlist_ip'];}}
+
+      {$getIP}
+    </li>
+
+
+    <li class="aXenServerList_item_players">
+      {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
+        <path class="aXenServerList_item_players_svg:none" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)"></path>
+        <path class="aXenServerList_item_players_svg:fill" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(98px - {$calcPlayers}px);"></path>
+      </svg>
+
+      <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+    </li>
+
+    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
+    <li class="aXenServerList_item_owners">
+      <ul class="aXenServerList_item_owners_ul">
+        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+        <li>
+          {{$member = \IPS\Member::load( $owner );}}
+          {$member->link()|raw}
+        </li>
+        {{endforeach}}
+      </ul>
+    </li>
+    {{endif}}
+
+    {{if !settings.aXenServerList_settings_owners && $row['axenserverlist_owners'] || $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}
+    <li class="aXenServerList_item_more">
+      <button class="ipsButton ipsButton_fullWidth ipsButton_important" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu>
+        <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
+      </button>
+
+      <div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu ipsMenu_narrow ipsHide">
+        <div class="aXenServerList_item_more_menu ipsPadding:half">
+          {{if !settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
+          <div class="ipsType_center{{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}  ipsMargin_bottom:half{{endif}}">
+            <ul class="aXenServerList_item_owners_ul">
+              {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+              <li>
+                {{$member = \IPS\Member::load( $owner );}}
+                {$member->link()|raw}
+              </li>
+              {{endforeach}}
+            </ul>
+          </div>
+          {{endif}}
+
+          {{if $row['axenserverlist_forum']}}
+          <a href="{$row['axenserverlist_forum']}" class="ipsButton ipsButton_fullWidth ipsButton_normal">
+            <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
+          </a>
+          {{endif}}
+
+          {{if $row['axenserverlist_vote']}}
+          <a href="{$row['axenserverlist_vote']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+            <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
+          </a>
+          {{endif}}
+
+          {{if $row['axenserverlist_statistics']}}
+          <a href="{$row['axenserverlist_statistics']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+            <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
+          </a>
+          {{endif}}
+
+          {{if $row['axenserverlist_tv']}}
+          <a href="{$row['axenserverlist_tv']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+            <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
+          </a>
+          {{endif}}
+        </div>
+      </div>
+    </li>
+    {{endif}}
+  </ul>
+</li>

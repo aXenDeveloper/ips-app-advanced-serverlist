@@ -1,8 +1,24 @@
 # (aXen) Server List
 
+Server table showing server information about the status, name, number of players, current map and their owners as applications on IPS Community Suite.
+
+### Other features:
+
+- Set your own fields for the server:
+  - Name,
+  - IP,
+  - Statistics URL,
+  - TV URL,
+  - Vote URL,
+  - Forum URL
+- Highlight for the server,
+- Special badge for the new server,
+- Hiding server owners in button
+
 ## Table of contents 📖
 
 - [Requirements 🏷️](#requirements-)
+- [Compatible servers 💻](#compatible-servers-)
 - [Install 🧰](#install-)
 - [Update 🛠️](#update-)
 - [Graphics 📷](#graphics-)
@@ -13,6 +29,13 @@
 - [IPS Community Suite: 4.5 version](https://invisioncommunity.com/)
 - PHP 7.2+
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses
+
+## Compatible servers 💻
+
+- Counter-Strike 1.6
+- Counter-Strike: Global Offensive
+- Minecraft
+- Teamspeak 3
 
 ## Install 🧰
 
