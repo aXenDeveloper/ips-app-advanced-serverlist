@@ -35,5 +35,8 @@ $lang = array(
 	'axenserverlist_ip_custom_desc' => 'For example: mc.yourwebsite.com',
 	'axenserverlist_name_default' => 'Get name from the server and display?',
 	'axenserverlist_name_default_desc' => 'If this option is enable then shows server name instead of custom name.',
-	'aXenServerList_widget_toggle' => 'Toggle this server list widget'
+	'aXenServerList_widget_toggle' => 'Toggle this server list widget',
+	'aXenServerList_widget_map' => 'Map',
+	'aXenServerList_widget_none' => 'N/A',
+	'aXenServerList_widget_owners' => 'Owners'
 );

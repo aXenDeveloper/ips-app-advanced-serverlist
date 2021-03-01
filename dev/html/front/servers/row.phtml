@@ -58,53 +58,12 @@
     </li>
     {{endif}}
 
-    {{if !settings.aXenServerList_settings_owners && $row['axenserverlist_owners'] || $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}
     <li class="aXenServerList_item_more">
       <button class="ipsButton ipsButton_fullWidth ipsButton_important" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu>
         <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
       </button>
 
-      <div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu ipsMenu_narrow ipsHide">
-        <div class="aXenServerList_item_more_menu ipsPadding:half">
-          {{if !settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
-          <div class="ipsType_center{{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}  ipsMargin_bottom:half{{endif}}">
-            <ul class="aXenServerList_item_owners_ul">
-              {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
-              <li>
-                {{$member = \IPS\Member::load( $owner );}}
-                {$member->link()|raw}
-              </li>
-              {{endforeach}}
-            </ul>
-          </div>
-          {{endif}}
-
-          {{if $row['axenserverlist_forum']}}
-          <a href="{$row['axenserverlist_forum']}" class="ipsButton ipsButton_fullWidth ipsButton_normal">
-            <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
-          </a>
-          {{endif}}
-
-          {{if $row['axenserverlist_vote']}}
-          <a href="{$row['axenserverlist_vote']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
-            <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
-          </a>
-          {{endif}}
-
-          {{if $row['axenserverlist_statistics']}}
-          <a href="{$row['axenserverlist_statistics']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
-            <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
-          </a>
-          {{endif}}
-
-          {{if $row['axenserverlist_tv']}}
-          <a href="{$row['axenserverlist_tv']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
-            <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
-          </a>
-          {{endif}}
-        </div>
-      </div>
+      {template="more" app="axenserverlist" group="servers" location="front" params="$row"}
     </li>
-    {{endif}}
   </ul>
 </li>
