@@ -1,11 +1,11 @@
 <ips:template parameters="$servers" />
-<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between">
+<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_toggle'] )}} aXenServerList_hide{{endif}}">
   <span>{lang="aXenServerList_widget_title"}</span>
 
-  <a href="#" class="ipsJS_show ipsType_noUnderline cForumToggle" data-action="toggleCategory" data-ipstooltip="" _title="Toggle this category"></a>
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle" data-ipstooltip title="{lang='aXenServerList_widget_toggle'}"></a>
 </h3>
 
-<ul class="aXenServerList">
+<ul class="aXenServerList_ul">
   {{foreach $servers as $row}}
   {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
   {{endforeach}}

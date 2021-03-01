@@ -9,7 +9,7 @@
       <span class="aXenServerList_item_title:name">
         {{if $row['axenserverlist_top_server']}}
         {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
-        <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip _title="{lang='{$topServerLang}'}" {{endif}}></i>
+        <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
         {{endif}}
 
         {{if $row['axenserverlist_new']}}
@@ -23,7 +23,7 @@
 
     <li class="aXenServerList_item:ip">
       {{if $row['axenserverlist_connect_link']}}
-      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip _title="{lang='aXenServerList_widget_connect'}">
+      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip title="{lang='aXenServerList_widget_connect'}">
         <i class="fa fa-link"></i>
       </a>
       {{endif}}

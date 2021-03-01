@@ -1,4 +1,33 @@
-.aXenServerList {
+.aXenServerList_hide {
+  opacity: 0.5;
+}
+
+.aXenServerList_hide + .aXenServerList_ul {
+  display: none;
+}
+
+.aXenServerList_hide > .aXenServerList_toggle {
+  transform: rotate(90deg);
+}
+
+.aXenServerList_toggle {
+  font-size: 18px;
+  opacity: 0.2;
+  width: 20px;
+  height: 20px;
+}
+
+.aXenServerList_toggle:hover {
+  opacity: 1;
+}
+
+.aXenServerList_toggle:after {
+  content: '\f078';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+}
+
+.aXenServerList_ul {
   padding: 0;
   margin: 0;
   list-style: none;
