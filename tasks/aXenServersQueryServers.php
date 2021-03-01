@@ -52,36 +52,43 @@ class _aXenServersQueryServers extends \IPS\Task
 				'host' => $row['axenserverlist_ip']
 			);
 
-
 			try {
-				$gq->clearServers();
-				$gq->addServer($server);
+				// Try 3 times
+				for ($i = 1; $i <= 3; $i++) {
+					$gq->clearServers();
+					$gq->addServer($server);
 
-				$results = $gq->process();
+					$results = $gq->process();
 
-				foreach ($results as $id => $data) {
-					if ($data['gq_online'] == true) {
-						$dataUpdate = [
-							'axenserverlist_status' => 1,
-							'axenserverlist_current_players' => $data['gq_numplayers'],
-							'axenserverlist_max_players' => $data['max_players'],
-							'axenserverlist_name_default' => $data['gq_hostname'],
-							'axenserverlist_map' => $data['gq_mapname'],
-							'axenserverlist_game_long' => $data['gq_name'],
-							'axenserverlist_connect_link' => $data['gq_joinlink']
-						];
-					} else {
-						$dataUpdate = [
-							'axenserverlist_status' => 0,
-							'axenserverlist_current_players' => 0,
-							'axenserverlist_max_players' => 0,
-							'axenserverlist_map' => null,
-							'axenserverlist_game_long' => $data['gq_name'],
-							'axenserverlist_connect_link' => $data['gq_joinlink']
-						];
+					foreach ($results as $id => $data) {
+						if ($data['gq_online'] == true) {
+							$dataUpdate = [
+								'axenserverlist_status' => 1,
+								'axenserverlist_current_players' => $data['gq_numplayers'],
+								'axenserverlist_max_players' => $data['max_players'],
+								'axenserverlist_name_default' => $data['gq_hostname'],
+								'axenserverlist_map' => $data['gq_mapname'],
+								'axenserverlist_game_long' => $data['gq_name'],
+								'axenserverlist_connect_link' => $data['gq_joinlink']
+							];
+
+							\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+							break;
+						} else {
+							$dataUpdate = [
+								'axenserverlist_status' => 0,
+								'axenserverlist_current_players' => 0,
+								'axenserverlist_max_players' => 0,
+								'axenserverlist_map' => null,
+								'axenserverlist_game_long' => $data['gq_name'],
+								'axenserverlist_connect_link' => $data['gq_joinlink']
+							];
+
+							if ($i == 3) {
+								\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+							}
+						}
 					}
-
-					\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 				}
 			} catch (\Exception $e) {
 				\IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);
