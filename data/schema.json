@@ -158,18 +158,6 @@
                 "unsigned": false,
                 "values": []
             },
-            "axenserverlist_name_default": {
-                "allow_null": true,
-                "auto_increment": false,
-                "comment": "",
-                "decimals": null,
-                "default": null,
-                "length": 200,
-                "name": "axenserverlist_name_default",
-                "type": "VARCHAR",
-                "unsigned": false,
-                "values": []
-            },
             "axenserverlist_map": {
                 "allow_null": true,
                 "auto_increment": false,
@@ -250,6 +238,30 @@
                 "values": null,
                 "allow_null": true,
                 "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_name_default_text": {
+                "name": "axenserverlist_name_default_text",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_name_default": {
+                "name": "axenserverlist_name_default",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false

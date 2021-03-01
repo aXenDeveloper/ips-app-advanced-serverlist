@@ -16,7 +16,8 @@
         <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
         {{endif}}
 
-        {$row['axenserverlist_name']}
+        {{$getName = $row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name'];}}
+        {$getName}
       </span>
     </li>
 

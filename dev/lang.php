@@ -8,7 +8,7 @@ $lang = array(
 	'menu__axenserverlist_servers_settings' => 'Settings',
 	'menu__axenserverlist_servers_servers' => 'Servers',
 	'axenserverlist_game' => 'Game',
-	'axenserverlist_name' => 'Name',
+	'axenserverlist_name' => 'Custom name',
 	'axenserverlist_ip' => 'IP',
 	'axenserverlist_owners' => 'Owners',
 	'axenserverlist_statistics' => 'Statistics URL',
@@ -33,4 +33,6 @@ $lang = array(
 	'axenserverlist_top_server_text' => 'Text for highlight the server in tootlip',
 	'axenserverlist_ip_custom' => 'Custom IP domian',
 	'axenserverlist_ip_custom_desc' => 'For example: mc.yourwebsite.com',
+	'axenserverlist_name_default' => 'Get name from the server and display?',
+	'axenserverlist_name_default_desc' => 'If this option is enable then shows server name instead of custom name.'
 );

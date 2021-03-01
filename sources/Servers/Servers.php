@@ -54,6 +54,7 @@ class _Servers extends \IPS\Node\Model
       'teamspeak3' => "Teamspeak 3"
     ), 'multiple' => FALSE)));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->name, TRUE));
+    $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_name_default', $this->name_default, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
@@ -108,8 +109,9 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__title()
   {
+    $getName = $this->name_default && $this->name_default_text ? $this->name_default_text : $this->name;
     $getIP = $this->ip_custom ? $this->ip_custom : $this->ip;
 
-    return $this->name . ' - ' . $this->game . ' - ' . $getIP;
+    return $getName . ' - ' . $this->game . ' - ' . $getIP;
   }
 }

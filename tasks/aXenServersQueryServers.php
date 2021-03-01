@@ -66,7 +66,7 @@ class _aXenServersQueryServers extends \IPS\Task
 								'axenserverlist_status' => 1,
 								'axenserverlist_current_players' => $data['gq_numplayers'],
 								'axenserverlist_max_players' => $data['max_players'],
-								'axenserverlist_name_default' => $data['gq_hostname'],
+								'axenserverlist_name_default_text' => $data['gq_hostname'],
 								'axenserverlist_map' => $data['gq_mapname'],
 								'axenserverlist_game_long' => $data['gq_name'],
 								'axenserverlist_connect_link' => $data['gq_joinlink']
