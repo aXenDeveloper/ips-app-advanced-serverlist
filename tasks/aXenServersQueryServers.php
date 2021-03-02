@@ -46,60 +46,90 @@ class _aXenServersQueryServers extends \IPS\Task
 		$gq->setOption('timeout', 3);
 
 		foreach ($getServers as $row) {
-			$server = [
-				'id' => $row['axenserverlist_id'],
-				'type' => $row['axenserverlist_game'],
-				'host' => $row['axenserverlist_ip'],
-			];
-
-			if (isset($row['axenserverlist_query_port'])) {
-				$server['options'] = [
-					'query_port' => $row['axenserverlist_query_port']
+			if ($row['axenserverlist_game'] != 'discord') {
+				$server = [
+					'id' => $row['axenserverlist_id'],
+					'type' => $row['axenserverlist_game'],
+					'host' => $row['axenserverlist_ip'],
 				];
-			};
 
-			try {
-				// Try 3 times
-				for ($i = 1; $i <= 3; $i++) {
-					$gq->clearServers();
-					$gq->addServer($server);
+				if (isset($row['axenserverlist_query_port'])) {
+					$server['options'] = [
+						'query_port' => $row['axenserverlist_query_port']
+					];
+				};
 
-					$results = $gq->process();
+				try {
+					// Try 3 times
+					for ($i = 0; $i < 3; $i++) {
+						$gq->clearServers();
+						$gq->addServer($server);
 
-					foreach ($results as $id => $data) {
-						if ($data['gq_online'] == true) {
-							$dataUpdate = [
-								'axenserverlist_status' => 1,
-								'axenserverlist_current_players' => $data['gq_numplayers'],
-								'axenserverlist_max_players' => $data['gq_maxplayers'],
-								'axenserverlist_name_default_text' => $data['gq_hostname'],
-								'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : NULL,
-								'axenserverlist_game_long' => $data['gq_name'],
-								'axenserverlist_connect_link' => $data['gq_joinlink'],
-								'axenserverlist_protocol' => $data['gq_protocol']
-							];
+						$results = $gq->process();
 
-							\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
-							break;
-						} else {
-							$dataUpdate = [
-								'axenserverlist_status' => 0,
-								'axenserverlist_current_players' => 0,
-								'axenserverlist_max_players' => 0,
-								'axenserverlist_map' => NULL,
-								'axenserverlist_game_long' => $data['gq_name'],
-								'axenserverlist_connect_link' => $data['gq_joinlink'],
-								'axenserverlist_protocol' => $data['gq_protocol']
-							];
+						foreach ($results as $id => $data) {
+							if ($data['gq_online'] == true) {
+								$dataUpdate = [
+									'axenserverlist_status' => 1,
+									'axenserverlist_current_players' => $data['gq_numplayers'],
+									'axenserverlist_max_players' => $data['gq_maxplayers'],
+									'axenserverlist_name_default_text' => $data['gq_hostname'],
+									'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : NULL,
+									'axenserverlist_game_long' => $data['gq_name'],
+									'axenserverlist_connect_link' => $data['gq_joinlink'],
+									'axenserverlist_protocol' => $data['gq_protocol']
+								];
 
-							if ($i == 3) {
 								\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+								continue 2;
+							} else {
+								$dataUpdate = [
+									'axenserverlist_status' => 0,
+									'axenserverlist_current_players' => 0,
+									'axenserverlist_max_players' => 0,
+									'axenserverlist_map' => NULL,
+									'axenserverlist_game_long' => $data['gq_name'],
+									'axenserverlist_connect_link' => $data['gq_joinlink'],
+									'axenserverlist_protocol' => $data['gq_protocol']
+								];
+
+								if ($i == 3) {
+									\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+								}
 							}
 						}
 					}
+				} catch (\Exception $e) {
+					\IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);
 				}
-			} catch (\Exception $e) {
-				\IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);
+			} else {
+				$url = "https://discordapp.com/api/guilds/" . $row['axenserverlist_ip'] . "/widget.json";
+				$dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
+
+				if (!$dataFromJSON['name']) {
+					$dataUpdate = [
+						'axenserverlist_status' => 0,
+						'axenserverlist_current_players' => 0,
+						'axenserverlist_max_players' => 0,
+						'axenserverlist_game_long' => 'Discord',
+						'axenserverlist_protocol' => 'discord'
+					];
+
+					\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+					continue;
+				}
+
+				$dataUpdate = [
+					'axenserverlist_status' => 1,
+					'axenserverlist_current_players' => $dataFromJSON['presence_count'],
+					'axenserverlist_max_players' => $dataFromJSON['presence_count'],
+					'axenserverlist_name_default_text' => $dataFromJSON['name'],
+					'axenserverlist_game_long' => 'Discord',
+					'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
+					'axenserverlist_protocol' => 'discord'
+				];
+
+				\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 			}
 		}
 

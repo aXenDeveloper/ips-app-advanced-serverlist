@@ -15,10 +15,12 @@
   opacity: 0.2;
   width: 20px;
   height: 20px;
+  color: rgb(var(--theme-section_title_font));
 }
 
 .aXenServerList_toggle:hover {
   opacity: 1;
+  color: inherit;
 }
 
 .aXenServerList_toggle:after {

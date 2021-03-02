@@ -39,5 +39,6 @@ $lang = array(
 	'aXenServerList_widget_map' => 'Map',
 	'aXenServerList_widget_none' => 'N/A',
 	'aXenServerList_widget_owners' => 'Owners',
-	'aXenServerList_widget_protocol' => 'Protocol'
+	'aXenServerList_widget_protocol' => 'Protocol',
+	'axenserverlist_query_port' => 'Query port'
 );
