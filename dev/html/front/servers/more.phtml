@@ -26,10 +26,13 @@
         </span>
       </li>
 
-
-
-      <li>test123</li>
-      <li>test123</li>
+      <li>
+        <span><i class="fa fa-server"></i> {lang='aXenServerList_widget_protocol'}</span>
+        <span>
+          {{if $row['axenserverlist_protocol']}}{$row['axenserverlist_protocol']}
+          {{else}}{lang='aXenServerList_widget_none'}{{endif}}
+        </span>
+      </li>
     </ul>
 
     {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}

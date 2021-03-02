@@ -265,6 +265,30 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "axenserverlist_protocol": {
+                "name": "axenserverlist_protocol",
+                "type": "VARCHAR",
+                "length": 100,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_query_port": {
+                "name": "axenserverlist_query_port",
+                "type": "INT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

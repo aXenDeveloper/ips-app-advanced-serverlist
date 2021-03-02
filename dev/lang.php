@@ -38,5 +38,6 @@ $lang = array(
 	'aXenServerList_widget_toggle' => 'Toggle this server list widget',
 	'aXenServerList_widget_map' => 'Map',
 	'aXenServerList_widget_none' => 'N/A',
-	'aXenServerList_widget_owners' => 'Owners'
+	'aXenServerList_widget_owners' => 'Owners',
+	'aXenServerList_widget_protocol' => 'Protocol'
 );

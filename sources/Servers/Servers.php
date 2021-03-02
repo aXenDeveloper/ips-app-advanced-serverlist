@@ -57,6 +57,7 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_name_default', $this->name_default, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_query_port', $this->query_port, FALSE));
     $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_statistics', $this->statistics, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, FALSE));

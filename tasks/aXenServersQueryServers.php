@@ -46,11 +46,17 @@ class _aXenServersQueryServers extends \IPS\Task
 		$gq->setOption('timeout', 3);
 
 		foreach ($getServers as $row) {
-			$server = array(
+			$server = [
 				'id' => $row['axenserverlist_id'],
 				'type' => $row['axenserverlist_game'],
-				'host' => $row['axenserverlist_ip']
-			);
+				'host' => $row['axenserverlist_ip'],
+			];
+
+			if (isset($row['axenserverlist_query_port'])) {
+				$server['options'] = [
+					'query_port' => $row['axenserverlist_query_port']
+				];
+			};
 
 			try {
 				// Try 3 times
@@ -67,9 +73,10 @@ class _aXenServersQueryServers extends \IPS\Task
 								'axenserverlist_current_players' => $data['gq_numplayers'],
 								'axenserverlist_max_players' => $data['gq_maxplayers'],
 								'axenserverlist_name_default_text' => $data['gq_hostname'],
-								'axenserverlist_map' => $data['gq_mapname'],
+								'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : NULL,
 								'axenserverlist_game_long' => $data['gq_name'],
-								'axenserverlist_connect_link' => $data['gq_joinlink']
+								'axenserverlist_connect_link' => $data['gq_joinlink'],
+								'axenserverlist_protocol' => $data['gq_protocol']
 							];
 
 							\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
@@ -79,9 +86,10 @@ class _aXenServersQueryServers extends \IPS\Task
 								'axenserverlist_status' => 0,
 								'axenserverlist_current_players' => 0,
 								'axenserverlist_max_players' => 0,
-								'axenserverlist_map' => null,
+								'axenserverlist_map' => NULL,
 								'axenserverlist_game_long' => $data['gq_name'],
-								'axenserverlist_connect_link' => $data['gq_joinlink']
+								'axenserverlist_connect_link' => $data['gq_joinlink'],
+								'axenserverlist_protocol' => $data['gq_protocol']
 							];
 
 							if ($i == 3) {
