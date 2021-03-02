@@ -33,6 +33,14 @@
           {{else}}{lang='aXenServerList_widget_none'}{{endif}}
         </span>
       </li>
+
+      <li>
+        <span><i class="fa {{if $row['axenserverlist_password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
+        <span>
+          {{if $row['axenserverlist_password']}}{lang='yes'}
+          {{else}}{lang='no'}{{endif}}
+        </span>
+      </li>
     </ul>
 
     {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}

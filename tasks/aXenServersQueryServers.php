@@ -77,7 +77,8 @@ class _aXenServersQueryServers extends \IPS\Task
 									'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : NULL,
 									'axenserverlist_game_long' => $data['gq_name'],
 									'axenserverlist_connect_link' => $data['gq_joinlink'],
-									'axenserverlist_protocol' => $data['gq_protocol']
+									'axenserverlist_protocol' => $data['gq_protocol'],
+									'axenserverlist_password' => $data['gq_password']
 								];
 
 								\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
@@ -90,7 +91,8 @@ class _aXenServersQueryServers extends \IPS\Task
 									'axenserverlist_map' => NULL,
 									'axenserverlist_game_long' => $data['gq_name'],
 									'axenserverlist_connect_link' => $data['gq_joinlink'],
-									'axenserverlist_protocol' => $data['gq_protocol']
+									'axenserverlist_protocol' => $data['gq_protocol'],
+									'axenserverlist_password' => $data['gq_password']
 								];
 
 								if ($i == 3) {

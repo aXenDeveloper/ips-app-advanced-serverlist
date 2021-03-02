@@ -36,6 +36,7 @@ Server table showing server information about the status, name, number of player
 - Counter-Strike: Global Offensive
 - Minecraft
 - Teamspeak 3
+- Discord
 
 ## Install 🧰
 
