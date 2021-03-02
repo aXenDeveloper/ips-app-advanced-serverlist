@@ -41,5 +41,6 @@ $lang = array(
 	'aXenServerList_widget_owners' => 'Owners',
 	'aXenServerList_widget_protocol' => 'Protocol',
 	'axenserverlist_query_port' => 'Query port',
-	'aXenServerList_widget_password' => 'Password'
+	'aXenServerList_widget_password' => 'Password',
+	'aXenServerList_widget_most_players' => 'Most players'
 );

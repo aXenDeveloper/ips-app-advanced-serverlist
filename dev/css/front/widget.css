@@ -40,6 +40,7 @@
   display: flex;
   align-items: center;
   line-height: 1;
+  flex-wrap: wrap;
 }
 
 .aXenServerList_item_title {
@@ -150,6 +151,7 @@
 /* ========== More ========== */
 .aXenServerList_item_more {
   margin: 0 10px 0 auto;
+  padding: 5px;
 }
 
 .aXenServerList_item_more_menu {
@@ -193,7 +195,7 @@
 }
 
 /* ========== RWD ========== */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 979px) {
   .aXenServerList_item {
     flex-wrap: wrap;
     justify-content: center;

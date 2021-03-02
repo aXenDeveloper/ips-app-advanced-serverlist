@@ -81,6 +81,10 @@ class _aXenServersQueryServers extends \IPS\Task
 									'axenserverlist_password' => $data['gq_password']
 								];
 
+								if ($data['gq_numplayers'] > $row['axenserverlist_most_players']) {
+									$dataUpdate['axenserverlist_most_players'] = $data['gq_numplayers'];
+								}
+
 								\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 								continue 2;
 							} else {
@@ -130,6 +134,10 @@ class _aXenServersQueryServers extends \IPS\Task
 					'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
 					'axenserverlist_protocol' => 'discord'
 				];
+
+				if ($dataFromJSON['presence_count'] > $row['axenserverlist_most_players']) {
+					$dataUpdate['axenserverlist_most_players'] = $dataFromJSON['presence_count'];
+				}
 
 				\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 			}

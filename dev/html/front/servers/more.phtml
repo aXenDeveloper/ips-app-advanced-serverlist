@@ -41,6 +41,13 @@
           {{else}}{lang='no'}{{endif}}
         </span>
       </li>
+
+      <li>
+        <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_most_players'}</span>
+        <span>
+          {$row['axenserverlist_most_players']}
+        </span>
+      </li>
     </ul>
 
     {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}
