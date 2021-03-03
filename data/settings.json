@@ -28,6 +28,10 @@
         "default": "1"
     },
     {
+        "key": "aXenServerList_settings_fullWidth",
+        "default": "0"
+    },
+    {
         "key": "aXenServerList_settings_owners",
         "default": "1"
     },

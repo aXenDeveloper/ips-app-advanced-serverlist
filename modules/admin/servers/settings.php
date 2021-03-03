@@ -61,7 +61,15 @@ class _settings extends \IPS\Dispatcher\Controller
 
 
 		$form->addTab('axenserverlist_tab_view');
-		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE));
+		$form->add(new \IPS\Helpers\Form\YesNo(
+			'aXenServerList_settings_fullWidth',
+			\IPS\Settings::i()->aXenServerList_settings_fullWidth,
+			FALSE,
+			array('togglesOff' => array(
+				'aXenServerList_settings_owners'
+			))
+		));
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_owners'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_footer', \IPS\Settings::i()->aXenServerList_settings_footer, FALSE));
 
 		$form->addTab('axenserverlist_tab_scroll');

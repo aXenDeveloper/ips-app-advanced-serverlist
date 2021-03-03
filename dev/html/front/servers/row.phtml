@@ -45,7 +45,7 @@
       <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
     </li>
 
-    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
+    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners'] && !settings.aXenServerList_settings_fullWidth}}
     <li class="aXenServerList_item_owners">
       <ul class="aXenServerList_item_owners_ul">
         {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}

@@ -68,5 +68,7 @@ $lang = array(
 	'aXenServerList_settings_scroll_height_desc' => 'Value in pixels (px).',
 	'aXenServerList_settings_scroll_control' => 'Can users control scrolling?',
 	'aXenServerList_settings_scroll_control_desc' => 'Users will be able to turn the scroll on and off.',
-	'axenserverlist_tab_scroll' => 'Scroll'
+	'axenserverlist_tab_scroll' => 'Scroll',
+	'aXenServerList_settings_fullWidth' => 'Enable table in 2 columns (full width)?',
+	'aXenServerList_settings_fullWidth_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>',
 );

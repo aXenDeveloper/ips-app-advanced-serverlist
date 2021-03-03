@@ -55,7 +55,18 @@
   padding: 0;
   margin: 0;
   list-style: none;
+
+  {{if settings.aXenServerList_settings_fullWidth}}
+  display: flex;
+  flex-wrap: wrap;
+  {{endif}}
 }
+
+{{if settings.aXenServerList_settings_fullWidth}}
+.aXenServerList_ul > li {
+  flex: 0 0 50%
+}
+{{endif}}
 
 /* ========== Item ========== */
 .aXenServerList_item {
@@ -69,7 +80,11 @@
   display: flex;
   align-items: center;
   margin: 0 10px;
+  {{if settings.aXenServerList_settings_fullWidth}}
+  flex: 0 1 190px;
+  {{else}}
   flex: 0 1 250px;
+  {{endif}}
 }
 
 .aXenServerList_item_title\:status {
@@ -240,6 +255,10 @@
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
+  .aXenServerList_ul {
+    flex-direction: column;
+  }
+
   .aXenServerList_item {
     flex-wrap: wrap;
     justify-content: center;
