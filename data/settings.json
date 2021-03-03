@@ -24,6 +24,10 @@
         "default": "#d41919"
     },
     {
+        "key": "aXenServerList_settings_footer",
+        "default": "1"
+    },
+    {
         "key": "aXenServerList_settings_owners",
         "default": "1"
     }

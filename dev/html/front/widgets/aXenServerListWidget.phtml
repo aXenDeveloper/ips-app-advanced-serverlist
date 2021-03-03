@@ -5,8 +5,23 @@
   <a href="#" class="ipsType_noUnderline aXenServerList_toggle" data-ipstooltip title="{lang='aXenServerList_widget_toggle'}"></a>
 </h3>
 
+{{if settings.aXenServerList_settings_footer}}
+{{$totalServers = 0;}}
+{{$totalPlayers = 0;}}
+{{$totalPlayersMax = 0;}}
+{{endif}}
+
 <ul class="aXenServerList_ul">
   {{foreach $servers as $row}}
+
+  {{if settings.aXenServerList_settings_footer}}
+  {{$totalServers += 1;}}
+  {{$totalPlayers += $row['axenserverlist_current_players'];}}
+  {{$totalPlayersMax += $row['axenserverlist_max_players'];}}
+  {{endif}}
+
   {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
   {{endforeach}}
 </ul>
+
+{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}

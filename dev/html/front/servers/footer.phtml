@@ -1,0 +1,21 @@
+<ips:template parameters="$totalServers, $totalPlayers, $totalPlayersMax" />
+<ul class="ipsList_reset ipsFlex ipsFlex-ai:center ipsFlex-jc:around sm:ipsFlex-fd:column">
+  <li class="ipsPadding:half">
+    <span class="ipsBadge ipsBadge_new">
+      {$totalServers}
+    </span> {lang="aXenServerList_widget_totalServers"}
+  </li>
+
+  <li class="ipsPadding:half">
+    <span class="ipsBadge ipsBadge_positive">
+      {$totalPlayers} / {$totalPlayersMax}
+    </span> {lang="aXenServerList_widget_totalPlayers"}
+  </li>
+
+  <li class="ipsPadding:half">
+    {{$totalPlayersPercent = $totalPlayersMax ? round( ($totalPlayers * 100) / $totalPlayersMax ) : 0;}}
+    <span class="ipsBadge ipsBadge_negative">
+      {$totalPlayersPercent}%
+    </span> {lang="aXenServerList_widget_totalPlayersPercent"}
+  </li>
+</ul>
