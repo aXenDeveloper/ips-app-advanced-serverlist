@@ -1,6 +1,6 @@
 {
     "aXenServerListWidget": {
-        "class": "\\IPS\\Widget\\StaticCache",
+        "class": "\\IPS\\Widget",
         "restrict": [
             "sidebar",
             "cms"

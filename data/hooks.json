@@ -1,1 +1,6 @@
-[]
+{
+    "loadJSandCSS": {
+        "type": "C",
+        "class": "\\IPS\\Dispatcher\\Standard"
+    }
+}

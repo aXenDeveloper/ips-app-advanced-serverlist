@@ -1,1 +1,8 @@
-{"application_title":"(aXen) Server List","app_author":"aXenDev","app_directory":"axenserverlist","app_protected":false,"app_website":{"data":{"scheme":"https","host":"axendev.net","port":null,"user":null,"pass":null,"path":"\/","query":"","fragment":null},"queryString":[],"hiddenQueryString":[],"isInternal":false,"isFriendly":false},"app_update_check":""}
+{
+    "application_title": "(aXen) Server List",
+    "app_author": "aXenDev",
+    "app_directory": "axenserverlist",
+    "app_protected": 0,
+    "app_website": "https:\/\/axendev.net\/",
+    "app_update_check": "https:\/\/axendev.net\/myapps\/app\/serverlist\/check.php"
+}

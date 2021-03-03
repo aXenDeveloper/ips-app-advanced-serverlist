@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build>
+ <module key="admin/servers"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
+ <task frequency="P0Y0M0DT0H5M0S">aXenServersQueryServers</task>
+ <setting key="aXenServerList_settings_colors"><![CDATA[{"key":"aXenServerList_settings_colors","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_colors_1_20"><![CDATA[{"key":"aXenServerList_settings_colors_1_20","default":"#3b7fb5"}]]></setting>
+ <setting key="aXenServerList_settings_colors_21_40"><![CDATA[{"key":"aXenServerList_settings_colors_21_40","default":"#4ab53b"}]]></setting>
+ <setting key="aXenServerList_settings_colors_41_60"><![CDATA[{"key":"aXenServerList_settings_colors_41_60","default":"#d47419"}]]></setting>
+ <setting key="aXenServerList_settings_colors_61_80"><![CDATA[{"key":"aXenServerList_settings_colors_61_80","default":"#d44919"}]]></setting>
+ <setting key="aXenServerList_settings_colors_81_100"><![CDATA[{"key":"aXenServerList_settings_colors_81_100","default":"#d41919"}]]></setting>
+ <setting key="aXenServerList_settings_footer"><![CDATA[{"key":"aXenServerList_settings_footer","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_fullWidth"><![CDATA[{"key":"aXenServerList_settings_fullWidth","default":"0"}]]></setting>
+ <setting key="aXenServerList_settings_owners"><![CDATA[{"key":"aXenServerList_settings_owners","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_scroll"><![CDATA[{"key":"aXenServerList_settings_scroll","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_scroll_control"><![CDATA[{"key":"aXenServerList_settings_scroll_control","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_scroll_height"><![CDATA[{"key":"aXenServerList_settings_scroll_height","default":"250"}]]></setting>
+ <widget key="aXenServerListWidget"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":false,"menu_style":"menu","embeddable":false}]]></widget>
+ <hook key="loadJSandCSS"><![CDATA[{"type":"C","class":"\\IPS\\Dispatcher\\Standard"}]]></hook>
+</build>

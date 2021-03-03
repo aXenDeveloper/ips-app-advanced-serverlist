@@ -1,0 +1,24 @@
+{
+    "id": 10000,
+    "name": "1.0.0 Alpha 1",
+    "steps": {
+        "queries": true,
+        "lang": true,
+        "theme": true,
+        "themeSettings": false,
+        "javascript": true,
+        "emailTemplates": false,
+        "hooks": true,
+        "acpSearchKeywords": false,
+        "settings": true,
+        "tasks": true,
+        "modules": true,
+        "widgets": true,
+        "whatsnew": false,
+        "customOptions": false,
+        "customRoutines": false
+    },
+    "forceMainUpgrader": false,
+    "forceManualDownloadNoCiC": false,
+    "forceManualDownloadCiC": false
+}

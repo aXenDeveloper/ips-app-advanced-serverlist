@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="servers" template_name="footer" template_data="$totalServers, $totalPlayers, $totalPlayersMax" template_location="front" template_app="axenserverlist"><![CDATA[<ul class="ipsList_reset ipsFlex ipsFlex-ai:center ipsFlex-jc:around">
+  <li class="ipsPadding:half ipsType_center">
+    <span class="ipsBadge ipsBadge_new">
+      {$totalServers}
+    </span> {lang="aXenServerList_widget_totalServers"}
+  </li>
+
+  <li class="ipsPadding:half ipsType_center">
+    <span class="ipsBadge ipsBadge_positive">
+      {$totalPlayers} / {$totalPlayersMax}
+    </span> {lang="aXenServerList_widget_totalPlayers"}
+  </li>
+
+  <li class="ipsPadding:half ipsType_center">
+    {{$totalPlayersPercent = $totalPlayersMax ? round( ($totalPlayers * 100) / $totalPlayersMax ) : 0;}}
+    <span class="ipsBadge ipsBadge_negative">
+      {$totalPlayersPercent}%
+    </span> {lang="aXenServerList_widget_totalPlayersPercent"}
+  </li>
+</ul>]]></template>
+ <template template_group="servers" template_name="more" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[<div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}ipsMenu_wide{{else}}ipsMenu_normal{{endif}} ipsHide">
+  <div class="aXenServerList_item_more_menu ipsPadding:half">
+    <ul class="aXenServerList_item_more_info{{if !$row['axenserverlist_forum'] || !$row['axenserverlist_vote'] || !$row['axenserverlist_statistics'] || !$row['axenserverlist_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
+      {{if (!settings.aXenServerList_settings_owners && $row['axenserverlist_owners']) || (settings.aXenServerList_settings_fullWidth && $row['axenserverlist_owners'])}}
+      <li>
+        <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_owners'}</span>
+        <span>
+          <ul class="ipsList_reset">
+            {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+            <li>
+              {{$member = \IPS\Member::load( $owner );}}
+              {$member->link()|raw}
+            </li>
+            {{endforeach}}
+          </ul>
+        </span>
+      </li>
+      {{endif}}
+
+      <li>
+        <span><i class="fa fa-map"></i> {lang='aXenServerList_widget_map'}</span>
+        <span>
+          {{if $row['axenserverlist_map']}}{$row['axenserverlist_map']}
+          {{else}}{lang='aXenServerList_widget_none'}{{endif}}
+        </span>
+      </li>
+
+      <li>
+        <span><i class="fa fa-server"></i> {lang='aXenServerList_widget_protocol'}</span>
+        <span>
+          {{if $row['axenserverlist_protocol']}}{$row['axenserverlist_protocol']}
+          {{else}}{lang='aXenServerList_widget_none'}{{endif}}
+        </span>
+      </li>
+
+      <li>
+        <span><i class="fa {{if $row['axenserverlist_password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
+        <span>
+          {{if $row['axenserverlist_password']}}{lang='yes'}
+          {{else}}{lang='no'}{{endif}}
+        </span>
+      </li>
+
+      <li>
+        <span><i class="fa fa-percent"></i> {lang='aXenServerList_widget_percent_players'}</span>
+        <span>
+          {{$calcPercentPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+          {$calcPercentPlayers}%
+        </span>
+      </li>
+
+      <li>
+        <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_most_players'}</span>
+        <span>
+          {$row['axenserverlist_most_players']}
+        </span>
+      </li>
+    </ul>
+
+    {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}
+    <div class="aXenServerList_item_more_menu_links">
+      {{if $row['axenserverlist_forum']}}
+      <a href="{$row['axenserverlist_forum']}" class="ipsButton ipsButton_fullWidth ipsButton_normal">
+        <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
+      </a>
+      {{endif}}
+
+      {{if $row['axenserverlist_vote']}}
+      <a href="{$row['axenserverlist_vote']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+        <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
+      </a>
+      {{endif}}
+
+      {{if $row['axenserverlist_statistics']}}
+      <a href="{$row['axenserverlist_statistics']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+        <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
+      </a>
+      {{endif}}
+
+      {{if $row['axenserverlist_tv']}}
+      <a href="{$row['axenserverlist_tv']}" class="ipsButton ipsButton_fullWidth ipsButton_light" target="_blank" rel="noopener nofollow">
+        <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
+      </a>
+      {{endif}}
+    </div>
+    {{endif}}
+  </div>
+</div>]]></template>
+ <template template_group="servers" template_name="row" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[<li class="ipsDataItem">
+  <ul class="ipsList_reset aXenServerList_item">
+    <li class="aXenServerList_item_title">
+      <span class="aXenServerList_item_title:status{{if $row['axenserverlist_status']}} aXenServerList_item_title:status-online{{endif}}"></span>
+
+      <img src="{setting=" base_url"}applications/axenserverlist/interface/icons/{$row['axenserverlist_game']}.png" class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+
+      <span class="aXenServerList_item_title:name">
+        {{if $row['axenserverlist_top_server']}}
+        {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
+        <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
+        {{endif}}
+
+        {{if $row['axenserverlist_new']}}
+        <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
+        {{endif}}
+
+        {{$getName = $row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name'];}}
+        {$getName}
+      </span>
+    </li>
+
+    <li class="aXenServerList_item:ip">
+      {{if $row['axenserverlist_connect_link']}}
+      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+        <i class="fa fa-link"></i>
+      </a>
+      {{endif}}
+
+      {{$getIP = $row['axenserverlist_ip_custom'] ? $row['axenserverlist_ip_custom'] : $row['axenserverlist_ip'];}}
+
+      {{if $row['axenserverlist_game'] == 'discord' && !$row['axenserverlist_ip_custom']}}
+      {lang="aXenServerList_widget_clickToConnect"}
+      {{else}}{$getIP}{{endif}}
+    </li>
+
+
+    <li class="aXenServerList_item_players">
+      {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
+        <path class="aXenServerList_item_players_svg:none" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)"></path>
+        <path class="aXenServerList_item_players_svg:fill{{if $calcPlayers > 0 && $calcPlayers <= 20}} aXenServerList_item_players_svg:fill_1_20{{elseif $calcPlayers > 20 && $calcPlayers <= 40 }} aXenServerList_item_players_svg:fill_21_40{{elseif $calcPlayers > 40 && $calcPlayers <= 60 }} aXenServerList_item_players_svg:fill_41_60{{elseif $calcPlayers > 60 && $calcPlayers <= 80 }} aXenServerList_item_players_svg:fill_61_80{{elseif $calcPlayers > 80 }} aXenServerList_item_players_svg:fill_81_100{{endif}}" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(98px - {$calcPlayers}px);"></path>
+      </svg>
+
+      <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+    </li>
+
+    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners'] && !settings.aXenServerList_settings_fullWidth}}
+    <li class="aXenServerList_item_owners">
+      <ul class="aXenServerList_item_owners_ul">
+        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+        <li>
+          {{$member = \IPS\Member::load( $owner );}}
+          {$member->link()|raw}
+        </li>
+        {{endforeach}}
+      </ul>
+    </li>
+    {{endif}}
+
+    <li class="aXenServerList_item_more">
+      <button class="ipsButton ipsButton_fullWidth ipsButton_important" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu>
+        <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
+      </button>
+
+      {template="more" app="axenserverlist" group="servers" location="front" params="$row"}
+    </li>
+  </ul>
+</li>]]></template>
+ <template template_group="widgets" template_name="aXenServerListWidget" template_data="$servers" template_location="front" template_app="axenserverlist"><![CDATA[<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] )}} aXenServerList_hide{{endif}}{{if (isset( \IPS\Request::i()->cookie['aXenServerList_widget_scroll'] ) && settings.aXenServerList_settings_scroll) || settings.aXenServerList_settings_scroll && !settings.aXenServerList_settings_scroll_control}} aXenServerList_scroll{{endif}}">
+  <span>{lang="aXenServerList_widget_title"}</span>
+
+  {{if settings.aXenServerList_settings_scroll && settings.aXenServerList_settings_scroll_control}}
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_scroll ipsMargin_right:half" data-ipstooltip title="{lang='aXenServerList_widget_toggle_scroll'}"></a>
+  {{endif}}
+
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_hide" data-ipstooltip title="{lang='aXenServerList_widget_toggle_hide'}"></a>
+</h3>
+
+{{if settings.aXenServerList_settings_footer}}
+{{$totalServers = 0;}}
+{{$totalPlayers = 0;}}
+{{$totalPlayersMax = 0;}}
+{{endif}}
+
+<ul class="aXenServerList_ul">
+  {{foreach $servers as $row}}
+
+  {{if settings.aXenServerList_settings_footer}}
+  {{$totalServers += 1;}}
+  {{$totalPlayers += $row['axenserverlist_current_players'];}}
+  {{$totalPlayersMax += $row['axenserverlist_max_players'];}}
+  {{endif}}
+
+  {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
+  {{endforeach}}
+</ul>
+
+{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}]]></template>
+ <css css_location="front" css_app="axenserverlist" css_attributes="" css_path="." css_name="widget.css"><![CDATA[.aXenServerList > span {
+  margin-right: auto;
+}
+
+{{if settings.aXenServerList_settings_scroll}}
+.aXenServerList_scroll + .aXenServerList_ul {
+  max-height: {setting='aXenServerList_settings_scroll_height'}px;
+  overflow-y: auto;
+}
+{{endif}}
+
+.aXenServerList_hide {
+  opacity: 0.5;
+}
+
+.aXenServerList_hide + .aXenServerList_ul {
+  display: none;
+}
+
+.aXenServerList_hide > .aXenServerList_toggle_hide {
+  transform: rotate(90deg);
+}
+
+.aXenServerList_toggle {
+  font-size: 18px;
+  opacity: 0.2;
+  width: 20px;
+  height: 20px;
+  color: rgb(var(--theme-section_title_font));
+}
+
+.aXenServerList_toggle:hover {
+  opacity: 1;
+  color: inherit;
+}
+
+.aXenServerList_toggle_hide:after {
+  content: '\f078';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+}
+
+
+.aXenServerList_toggle_scroll:after {
+  content: '\f066';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+}
+
+.aXenServerList_scroll > .aXenServerList_toggle_scroll:after {
+  content: '\f065';
+}
+
+.aXenServerList_ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  {{if settings.aXenServerList_settings_fullWidth}}
+  display: flex;
+  flex-wrap: wrap;
+  {{endif}}
+}
+
+{{if settings.aXenServerList_settings_fullWidth}}
+.aXenServerList_ul > li {
+  flex: 0 0 50%
+}
+{{endif}}
+
+/* ========== Item ========== */
+.aXenServerList_item {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  flex-wrap: wrap;
+}
+
+.aXenServerList_item_title {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  {{if settings.aXenServerList_settings_fullWidth}}
+  flex: 0 1 190px;
+  {{else}}
+  flex: 0 1 250px;
+  {{endif}}
+}
+
+.aXenServerList_item_title\:status {
+  display: block;
+  width: 8px;
+  height: 20px;
+  background-color: var(--negative-dark);
+  border-radius: 5px;
+}
+
+.aXenServerList_item_title\:status-online {
+  background-color: var(--positive-dark);
+}
+
+.aXenServerList_item_title\:img {
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.aXenServerList_item_title\:name {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.aXenServerList_item_title\:name > .ipsBadge,
+.aXenServerList_item_title\:name > i.fa-trophy {
+  margin-right: 5px;
+}
+
+.aXenServerList_item_title\:name > i.fa-trophy {
+  color: var(--intermediate-dark);
+}
+
+.aXenServerList_item\:ip {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 0 0 200px;
+}
+
+.aXenServerList_item\:ip > .ipsButton {
+  margin-right: 5px;
+}
+
+.aXenServerList_item_owners {
+  flex: 1;
+  text-align: center;
+}
+
+.aXenServerList_item_owners_ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.aXenServerList_item_owners_ul > li {
+  white-space: nowrap;
+}
+
+.aXenServerList_item_owners_ul > li:not(:last-child) {
+  margin-right: 5px;
+}
+
+/* ========== Players ========== */
+.aXenServerList_item_players {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  flex: 0 0 125px;
+}
+
+.aXenServerList_item_players > span {
+  margin-left: 10px;
+}
+
+.aXenServerList_item_players_svg {
+  width: 35px;
+  height: 35px;
+}
+
+.aXenServerList_item_players_svg\:none {
+  stroke: rgb(var(--theme-area_background_light));
+  fill-opacity: 0;
+  stroke-width: 4;
+}
+
+.aXenServerList_item_players_svg\:fill {
+  stroke: rgb(var(--theme-link_hover));
+  fill-opacity: 0;
+  stroke-width: 4;
+  stroke-dasharray: 97.6754, 97.6754;
+}
+
+{{if settings.aXenServerList_settings_colors}}
+.aXenServerList_item_players_svg\:fill_1_20 {
+  stroke: {settings='aXenServerList_settings_colors_1_20'};
+}
+
+.aXenServerList_item_players_svg\:fill_21_40 {
+  stroke: {setting='aXenServerList_settings_colors_21_40'};
+}
+
+.aXenServerList_item_players_svg\:fill_41_60 {
+  stroke: {setting='aXenServerList_settings_colors_41_60'};
+}
+
+.aXenServerList_item_players_svg\:fill_61_80 {
+  stroke: {setting='aXenServerList_settings_colors_61_80'};
+}
+
+.aXenServerList_item_players_svg\:fill_81_100 {
+  stroke: {setting='aXenServerList_settings_colors_81_100'};
+}
+{{endif}}
+
+/* ========== More ========== */
+.aXenServerList_item_more {
+  margin: 0 10px 0 auto;
+  padding: 5px;
+}
+
+.aXenServerList_item_more_menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aXenServerList_item_more_info > li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aXenServerList_item_more_info > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.aXenServerList_item_more_info > li > span:last-child {
+  margin-left: 10px;
+  min-width: 25%;
+  max-width: 50%;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aXenServerList_item_more_menu .aXenServerList_item_more_info {
+  padding: 0;
+  margin: 0 10px 0 0;
+  list-style: none;
+}
+
+.aXenServerList_item_more_menu > * {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.aXenServerList_item_more_menu .aXenServerList_item_more_menu_links > a:not(:last-child) {
+  margin-bottom: var(--sp-3);
+}
+
+.aXenServerList_item_more_info\:fullWidth {
+  flex: 1;
+}
+
+/* ========== RWD ========== */
+@media screen and (max-width: 979px) {
+  .aXenServerList_ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .aXenServerList_item {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .aXenServerList_item_title,
+  .aXenServerList_item\:ip,
+  .aXenServerList_item_players {
+    justify-content: center;
+  }
+
+  .aXenServerList_item\:ip,
+  .aXenServerList_item_players {
+    flex: 0 0 50%;
+    margin: 0;
+    height: 40px;
+  }
+
+  .aXenServerList_item_title,
+  .aXenServerList_item_owners {
+    flex: 0 0 100%;
+    height: 30px;
+  }
+
+  .aXenServerList_item_more {
+    margin: 0;
+  }
+
+  .aXenServerList_item_more_menu {
+    flex-direction: column;
+  }
+
+  .aXenServerList_item_more_menu_links {
+    margin-top: 10px;
+  }
+}
+]]></css>
+</theme>

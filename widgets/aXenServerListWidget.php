@@ -22,7 +22,7 @@ if (!\defined('\IPS\SUITE_UNIQUE_KEY')) {
 /**
  * aXenServerListWidget Widget
  */
-class _aXenServerListWidget extends \IPS\Widget\StaticCache
+class _aXenServerListWidget extends \IPS\Widget
 {
 	/**
 	 * @brief	Widget Key
@@ -52,8 +52,8 @@ class _aXenServerListWidget extends \IPS\Widget\StaticCache
 		// $this->template( array( \IPS\Theme::i()->getTemplate( 'plugins', 'core', 'global' ), $this->key ) );
 		// And then create your template at located at plugins/<your plugin>/dev/html/aXenServerListWidget.phtml
 		$this->template(array(\IPS\Theme::i()->getTemplate('widgets', $this->app, 'front'), $this->key));
-		\IPS\Output::i()->cssFiles = array_merge(\IPS\Output::i()->cssFiles, \IPS\Theme::i()->css('widget.css', 'axenserverlist', 'front'));
-		\IPS\Output::i()->jsFiles = array_merge(\IPS\Output::i()->jsFiles, \IPS\Output::i()->js('aXenServerList.js', 'axenserverlist', 'front'));
+		// \IPS\Output::i()->cssFiles = array_merge(\IPS\Output::i()->cssFiles, \IPS\Theme::i()->css('widget.css', 'axenserverlist', 'front'));
+		// \IPS\Output::i()->jsFiles = array_merge(\IPS\Output::i()->jsFiles, \IPS\Output::i()->js('aXenServerList.js', 'axenserverlist', 'front'));
 		parent::init();
 	}
 

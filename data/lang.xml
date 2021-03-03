@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="axenserverlist" version="10000">
+  <word key="__app_axenserverlist" js="0">(aXen) Server List</word>
+  <word key="menutab__axenserverlist_icon" js="0">server</word>
+  <word key="menutab__axenserverlist" js="0">Server List</word>
+  <word key="menu__axenserverlist_servers" js="0">Servers management</word>
+  <word key="menu__axenserverlist_servers_settings" js="0">Settings</word>
+  <word key="menu__axenserverlist_servers_servers" js="0">Servers</word>
+  <word key="axenserverlist_game" js="0">Game</word>
+  <word key="axenserverlist_name" js="0">Custom name</word>
+  <word key="axenserverlist_ip" js="0">IP</word>
+  <word key="axenserverlist_owners" js="0">Owners</word>
+  <word key="axenserverlist_statistics" js="0">Statistics URL</word>
+  <word key="axenserverlist_tv" js="0">TV URL</word>
+  <word key="axenserverlist_vote" js="0">Vote URL</word>
+  <word key="axenserverlist_forum" js="0">Forum URL</word>
+  <word key="axenserverlist_new" js="0">New server?</word>
+  <word key="block_aXenServerListWidget" js="0">Server List</word>
+  <word key="block_aXenServerListWidget_desc" js="0">Widget shows servers</word>
+  <word key="aXenServerList_widget_title" js="0">Our servers</word>
+  <word key="aXenServerList_settings_owners" js="0">Show server owners?</word>
+  <word key="aXenServerList_settings_owners_desc" js="0">If this option is disabled then serwer owners shows in more button.</word>
+  <word key="aXenServerList_widget_more" js="0">More</word>
+  <word key="aXenServerList_widget_connect" js="0">Connect</word>
+  <word key="aXenServerList_widget_statistics" js="0">Statistics</word>
+  <word key="aXenServerList_widget_vote" js="0">Vote</word>
+  <word key="aXenServerList_widget_forum" js="0">Forum</word>
+  <word key="aXenServerList_widget_tv" js="0">TV</word>
+  <word key="aXenServerList_widget_new" js="0">New</word>
+  <word key="axenserverlist_top_server" js="0">Highlight the server?</word>
+  <word key="axenserverlist_top_server_desc" js="0">Displays a trophy icon next to the server name.</word>
+  <word key="axenserverlist_top_server_text" js="0">Text for highlight the server in tootlip</word>
+  <word key="axenserverlist_ip_custom" js="0">Custom IP domian</word>
+  <word key="axenserverlist_ip_custom_desc" js="0">For example: mc.yourwebsite.com</word>
+  <word key="axenserverlist_name_default" js="0">Get name from the server and display?</word>
+  <word key="axenserverlist_name_default_desc" js="0">If this option is enable then shows server name instead of custom name.</word>
+  <word key="aXenServerList_widget_toggle_hide" js="0">Toggle this widget</word>
+  <word key="aXenServerList_widget_toggle_scroll" js="0">Toggle scroll</word>
+  <word key="aXenServerList_widget_map" js="0">Map</word>
+  <word key="aXenServerList_widget_none" js="0">N/A</word>
+  <word key="aXenServerList_widget_owners" js="0">Owners</word>
+  <word key="aXenServerList_widget_protocol" js="0">Protocol</word>
+  <word key="axenserverlist_query_port" js="0">Query port</word>
+  <word key="aXenServerList_widget_password" js="0">Password</word>
+  <word key="aXenServerList_widget_most_players" js="0">Most players</word>
+  <word key="aXenServerList_widget_percent_players" js="0">Percentage filling</word>
+  <word key="aXenServerList_settings_colors" js="0">Enable color filling of players?</word>
+  <word key="aXenServerList_settings_colors_desc" js="0"><![CDATA[If disabled, it will get the color from <span style="font-weight: bold;">var(--theme-link_hover)</span>.]]></word>
+  <word key="aXenServerList_settings_colors_1_20" js="0">(1-20) Color filling of players</word>
+  <word key="aXenServerList_settings_colors_21_40" js="0">(21-40) Color filling of players</word>
+  <word key="aXenServerList_settings_colors_41_60" js="0">(41-60) Color filling of players</word>
+  <word key="aXenServerList_settings_colors_61_80" js="0">(61-80) Color filling of players</word>
+  <word key="aXenServerList_settings_colors_81_100" js="0">(81-100) Color filling of players</word>
+  <word key="axenserverlist_tab_basic" js="0">Basic</word>
+  <word key="axenserverlist_tab_urls" js="0">URLs</word>
+  <word key="axenserverlist_tab_advanced" js="0">Advanced</word>
+  <word key="aXenServerList_widget_totalServers" js="0">Total servers</word>
+  <word key="aXenServerList_widget_totalPlayers" js="0">Total players</word>
+  <word key="aXenServerList_widget_totalPlayersPercent" js="0">Filled servers</word>
+  <word key="aXenServerList_settings_footer" js="0">Enable footer?</word>
+  <word key="aXenServerList_settings_footer_desc" js="0">Footer have statistic: Total servers, Total players, Filled servers.</word>
+  <word key="axenserverlist_tab_general" js="0">General</word>
+  <word key="axenserverlist_tab_view" js="0">View</word>
+  <word key="aXenServerList_settings_scroll" js="0">Enable scroll in server list?</word>
+  <word key="aXenServerList_settings_scroll_desc" js="0">If the height exceeds the set value, a scroll will appear.</word>
+  <word key="aXenServerList_settings_scroll_height" js="0">Height server list</word>
+  <word key="aXenServerList_settings_scroll_height_desc" js="0">Value in pixels (px).</word>
+  <word key="aXenServerList_settings_scroll_control" js="0">Can users control scrolling?</word>
+  <word key="aXenServerList_settings_scroll_control_desc" js="0">Users will be able to turn the scroll on and off.</word>
+  <word key="axenserverlist_tab_scroll" js="0">Scroll</word>
+  <word key="aXenServerList_settings_fullWidth" js="0">Enable table in 2 columns (full width)?</word>
+  <word key="aXenServerList_settings_fullWidth_desc" js="0"><![CDATA[<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>]]></word>
+  <word key="aXenServerList_widget_clickToConnect" js="0">Click connect button</word>
+ </app>
+</language>
