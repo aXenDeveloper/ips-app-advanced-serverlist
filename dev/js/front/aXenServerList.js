@@ -1,12 +1,15 @@
-const COOKIE_NAME_TOGGLE = 'aXenServerList_widget_toggle';
+const COOKIE_AXENSERVERLIST_HIDE = 'aXenServerList_widget_hide';
+const COOKIE_AXENSERVERLIST_SCROLL = 'aXenServerList_widget_scroll';
 
-document.querySelector('.aXenServerList_toggle').addEventListener('click', e => {
+const serverList = document.querySelector('.aXenServerList');
+
+// Toogle hide
+document.querySelector('.aXenServerList_toggle_hide').addEventListener('click', e => {
   e.preventDefault();
-  const serverList = document.querySelector('.aXenServerList');
   serverList.classList.toggle('aXenServerList_hide');
 
   if (serverList.classList.contains('aXenServerList_hide')) {
-    ips.utils.cookie.set(COOKIE_NAME_TOGGLE, 1, true);
+    ips.utils.cookie.set(COOKIE_AXENSERVERLIST_HIDE, 1, true);
   } else {
     const serverListContain = document.querySelector('.aXenServerList_ul');
     serverListContain.classList.add('ipsAnim');
@@ -19,6 +22,16 @@ document.querySelector('.aXenServerList_toggle').addEventListener('click', e => 
       serverListContain.classList.remove('ipsAnim_in');
     }, 450);
 
-    ips.utils.cookie.unset(COOKIE_NAME_TOGGLE);
+    ips.utils.cookie.unset(COOKIE_AXENSERVERLIST_HIDE);
   }
+});
+
+// Toogle scroll
+document.querySelector('.aXenServerList_toggle_scroll')?.addEventListener('click', e => {
+  e.preventDefault();
+  serverList.classList.toggle('aXenServerList_scroll');
+
+  if (serverList.classList.contains('aXenServerList_scroll')) {
+    ips.utils.cookie.set(COOKIE_AXENSERVERLIST_SCROLL, 1, true);
+  } else ips.utils.cookie.unset(COOKIE_AXENSERVERLIST_SCROLL);
 });

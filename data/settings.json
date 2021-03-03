@@ -30,5 +30,17 @@
     {
         "key": "aXenServerList_settings_owners",
         "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_scroll",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_scroll_control",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_scroll_height",
+        "default": "250"
     }
 ]

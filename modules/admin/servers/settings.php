@@ -39,7 +39,7 @@ class _settings extends \IPS\Dispatcher\Controller
 	protected function manage()
 	{
 		$form = new \IPS\Helpers\Form;
-		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE));
+		$form->addTab('axenserverlist_tab_general');
 
 		$form->add(new \IPS\Helpers\Form\YesNo(
 			'aXenServerList_settings_colors',
@@ -59,10 +59,28 @@ class _settings extends \IPS\Dispatcher\Controller
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_61_80', \IPS\Settings::i()->aXenServerList_settings_colors_61_80, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_61_80'));
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_81_100', \IPS\Settings::i()->aXenServerList_settings_colors_81_100, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_81_100'));
 
+
+		$form->addTab('axenserverlist_tab_view');
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_footer', \IPS\Settings::i()->aXenServerList_settings_footer, FALSE));
+
+		$form->addTab('axenserverlist_tab_scroll');
+		$form->add(new \IPS\Helpers\Form\YesNo(
+			'aXenServerList_settings_scroll',
+			\IPS\Settings::i()->aXenServerList_settings_scroll,
+			FALSE,
+			array('togglesOn' => array(
+				'aXenServerList_settings_scroll_height',
+				'aXenServerList_settings_scroll_control'
+			))
+		));
+		$form->add(new \IPS\Helpers\Form\Number('aXenServerList_settings_scroll_height', \IPS\Settings::i()->aXenServerList_settings_scroll_height, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_height'));
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_control', \IPS\Settings::i()->aXenServerList_settings_scroll_control, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_control'));
 
 		if ($values = $form->values(TRUE)) {
 			$form->saveAsSettings($values);
+
+			\IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=settings'), 'saved');
 		}
 
 		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_settings');

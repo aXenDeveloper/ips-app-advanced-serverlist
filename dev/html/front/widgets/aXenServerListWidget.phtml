@@ -1,8 +1,12 @@
 <ips:template parameters="$servers" />
-<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_toggle'] )}} aXenServerList_hide{{endif}}">
+<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] )}} aXenServerList_hide{{endif}}{{if (isset( \IPS\Request::i()->cookie['aXenServerList_widget_scroll'] ) && settings.aXenServerList_settings_scroll) || settings.aXenServerList_settings_scroll && !settings.aXenServerList_settings_scroll_control}} aXenServerList_scroll{{endif}}">
   <span>{lang="aXenServerList_widget_title"}</span>
 
-  <a href="#" class="ipsType_noUnderline aXenServerList_toggle" data-ipstooltip title="{lang='aXenServerList_widget_toggle'}"></a>
+  {{if settings.aXenServerList_settings_scroll && settings.aXenServerList_settings_scroll_control}}
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_scroll ipsMargin_right:half" data-ipstooltip title="{lang='aXenServerList_widget_toggle_scroll'}"></a>
+  {{endif}}
+
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_hide" data-ipstooltip title="{lang='aXenServerList_widget_toggle_hide'}"></a>
 </h3>
 
 {{if settings.aXenServerList_settings_footer}}

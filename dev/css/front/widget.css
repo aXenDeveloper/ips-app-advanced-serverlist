@@ -1,3 +1,14 @@
+.aXenServerList > span {
+  margin-right: auto;
+}
+
+{{if settings.aXenServerList_settings_scroll}}
+.aXenServerList_scroll + .aXenServerList_ul {
+  max-height: {setting='aXenServerList_settings_scroll_height'}px;
+  overflow-y: auto;
+}
+{{endif}}
+
 .aXenServerList_hide {
   opacity: 0.5;
 }
@@ -6,7 +17,7 @@
   display: none;
 }
 
-.aXenServerList_hide > .aXenServerList_toggle {
+.aXenServerList_hide > .aXenServerList_toggle_hide {
   transform: rotate(90deg);
 }
 
@@ -23,10 +34,21 @@
   color: inherit;
 }
 
-.aXenServerList_toggle:after {
+.aXenServerList_toggle_hide:after {
   content: '\f078';
   font-family: 'FontAwesome';
   font-size: 18px;
+}
+
+
+.aXenServerList_toggle_scroll:after {
+  content: '\f066';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+}
+
+.aXenServerList_scroll > .aXenServerList_toggle_scroll:after {
+  content: '\f065';
 }
 
 .aXenServerList_ul {
