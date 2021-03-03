@@ -71,4 +71,5 @@ $lang = array(
 	'axenserverlist_tab_scroll' => 'Scroll',
 	'aXenServerList_settings_fullWidth' => 'Enable table in 2 columns (full width)?',
 	'aXenServerList_settings_fullWidth_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>',
+	'aXenServerList_widget_clickToConnect' => 'Click connect button',
 );

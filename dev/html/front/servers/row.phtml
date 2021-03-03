@@ -30,7 +30,9 @@
 
       {{$getIP = $row['axenserverlist_ip_custom'] ? $row['axenserverlist_ip_custom'] : $row['axenserverlist_ip'];}}
 
-      {$getIP}
+      {{if $row['axenserverlist_game'] == 'discord' && !$row['axenserverlist_ip_custom']}}
+      {lang="aXenServerList_widget_clickToConnect"}
+      {{else}}{$getIP}{{endif}}
     </li>
 
 

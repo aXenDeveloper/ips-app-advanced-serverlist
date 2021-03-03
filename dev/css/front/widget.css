@@ -125,7 +125,9 @@
 .aXenServerList_item\:ip {
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  margin: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex: 0 0 200px;
 }
 
@@ -257,6 +259,7 @@
 @media screen and (max-width: 979px) {
   .aXenServerList_ul {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .aXenServerList_item {
