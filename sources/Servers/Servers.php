@@ -47,6 +47,7 @@ class _Servers extends \IPS\Node\Model
       }
     }
 
+    $form->addTab('axenserverlist_tab_basic');
     $form->add(new \IPS\Helpers\Form\Select('axenserverlist_game', $this->game, TRUE, array('options' => array(
       'cs16' => "Counter-Strike 1.6",
       'csgo' => "Counter-Strike: Global Offensive",
@@ -59,13 +60,15 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Number('axenserverlist_query_port', $this->query_port, FALSE));
-    $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
+    $form->addTab('axenserverlist_tab_urls');
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_statistics', $this->statistics, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_vote', $this->vote, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_forum', $this->forum, FALSE));
-    $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_new', $this->new, FALSE));
 
+    $form->addTab('axenserverlist_tab_advanced');
+    $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, FALSE, array('multiple' => null)));
+    $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_new', $this->new, FALSE));
     $form->add(new \IPS\Helpers\Form\YesNo(
       'axenserverlist_top_server',
       $this->top_server,

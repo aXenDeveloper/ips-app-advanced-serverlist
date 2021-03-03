@@ -51,4 +51,7 @@ $lang = array(
 	'aXenServerList_settings_colors_41_60' => '(41-60) Color filling of players',
 	'aXenServerList_settings_colors_61_80' => '(61-80) Color filling of players',
 	'aXenServerList_settings_colors_81_100' => '(81-100) Color filling of players',
+	'axenserverlist_tab_basic' => 'Basic',
+	'axenserverlist_tab_urls' => 'URLs',
+	'axenserverlist_tab_advanced' => 'Advanced'
 );
