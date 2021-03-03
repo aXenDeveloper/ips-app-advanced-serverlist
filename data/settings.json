@@ -1,5 +1,29 @@
 [
     {
+        "key": "aXenServerList_settings_colors",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_colors_1_20",
+        "default": "#3b7fb5"
+    },
+    {
+        "key": "aXenServerList_settings_colors_21_40",
+        "default": "#4ab53b"
+    },
+    {
+        "key": "aXenServerList_settings_colors_41_60",
+        "default": "#d47419"
+    },
+    {
+        "key": "aXenServerList_settings_colors_61_80",
+        "default": "#d44919"
+    },
+    {
+        "key": "aXenServerList_settings_colors_81_100",
+        "default": "#d41919"
+    },
+    {
         "key": "aXenServerList_settings_owners",
         "default": "1"
     }

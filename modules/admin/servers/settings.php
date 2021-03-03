@@ -40,6 +40,23 @@ class _settings extends \IPS\Dispatcher\Controller
 	{
 		$form = new \IPS\Helpers\Form;
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE));
+		$form->add(new \IPS\Helpers\Form\YesNo(
+			'aXenServerList_settings_colors',
+			\IPS\Settings::i()->aXenServerList_settings_colors,
+			FALSE,
+			array('togglesOn' => array(
+				'aXenServerList_settings_colors_1_20',
+				'aXenServerList_settings_colors_21_40',
+				'aXenServerList_settings_colors_41_60',
+				'aXenServerList_settings_colors_61_80',
+				'aXenServerList_settings_colors_81_100'
+			))
+		));
+		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_1_20', \IPS\Settings::i()->aXenServerList_settings_colors_1_20, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_1_20'));
+		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_21_40', \IPS\Settings::i()->aXenServerList_settings_colors_21_40, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_21_40'));
+		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_41_60', \IPS\Settings::i()->aXenServerList_settings_colors_41_60, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_41_60'));
+		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_61_80', \IPS\Settings::i()->aXenServerList_settings_colors_61_80, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_61_80'));
+		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_81_100', \IPS\Settings::i()->aXenServerList_settings_colors_81_100, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_81_100'));
 
 		if ($values = $form->values(TRUE)) {
 			$form->saveAsSettings($values);

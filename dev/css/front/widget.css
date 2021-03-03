@@ -148,6 +148,28 @@
   stroke-dasharray: 97.6754, 97.6754;
 }
 
+{{if settings.aXenServerList_settings_colors}}
+.aXenServerList_item_players_svg\:fill_1_20 {
+  stroke: {settings='aXenServerList_settings_colors_1_20'};
+}
+
+.aXenServerList_item_players_svg\:fill_21_40 {
+  stroke: {setting='aXenServerList_settings_colors_21_40'};
+}
+
+.aXenServerList_item_players_svg\:fill_41_60 {
+  stroke: {setting='aXenServerList_settings_colors_41_60'};
+}
+
+.aXenServerList_item_players_svg\:fill_61_80 {
+  stroke: {setting='aXenServerList_settings_colors_61_80'};
+}
+
+.aXenServerList_item_players_svg\:fill_81_100 {
+  stroke: {setting='aXenServerList_settings_colors_81_100'};
+}
+{{endif}}
+
 /* ========== More ========== */
 .aXenServerList_item_more {
   margin: 0 10px 0 auto;

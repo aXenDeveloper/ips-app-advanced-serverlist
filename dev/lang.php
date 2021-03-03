@@ -42,5 +42,13 @@ $lang = array(
 	'aXenServerList_widget_protocol' => 'Protocol',
 	'axenserverlist_query_port' => 'Query port',
 	'aXenServerList_widget_password' => 'Password',
-	'aXenServerList_widget_most_players' => 'Most players'
+	'aXenServerList_widget_most_players' => 'Most players',
+	'aXenServerList_widget_percent_players' => 'Percentage filling',
+	'aXenServerList_settings_colors' => 'Enable color filling of players?',
+	'aXenServerList_settings_colors_desc' => 'If disabled, it will get the color from <span style="font-weight: bold;">var(--theme-link_hover)</span>.',
+	'aXenServerList_settings_colors_1_20' => '(1-20) Color filling of players',
+	'aXenServerList_settings_colors_21_40' => '(21-40) Color filling of players',
+	'aXenServerList_settings_colors_41_60' => '(41-60) Color filling of players',
+	'aXenServerList_settings_colors_61_80' => '(61-80) Color filling of players',
+	'aXenServerList_settings_colors_81_100' => '(81-100) Color filling of players',
 );
