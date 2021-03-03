@@ -6,14 +6,19 @@ Server table showing server information about the status, name, number of player
 
 - Set your own fields for the server:
   - Name,
+  - Own name,
   - IP,
+  - Own IP,
   - Statistics URL,
   - TV URL,
   - Vote URL,
   - Forum URL
 - Highlight for the server,
 - Special badge for the new server,
-- Hiding server owners in button
+- Hiding server owners in button,
+- The scroll that the user can control,
+- Color filling of players,
+- RWD
 
 ## Table of contents 📖
 
@@ -34,9 +39,9 @@ Server table showing server information about the status, name, number of player
 
 - Counter-Strike 1.6
 - Counter-Strike: Global Offensive
+- Discord
 - Minecraft
 - Teamspeak 3
-- Discord
 
 ## Install 🧰
 

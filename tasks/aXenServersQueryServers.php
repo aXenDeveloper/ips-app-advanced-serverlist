@@ -53,7 +53,7 @@ class _aXenServersQueryServers extends \IPS\Task
 					'host' => $row['axenserverlist_ip'],
 				];
 
-				if (isset($row['axenserverlist_query_port'])) {
+				if ($row['axenserverlist_query_port']) {
 					$server['options'] = [
 						'query_port' => $row['axenserverlist_query_port']
 					];
