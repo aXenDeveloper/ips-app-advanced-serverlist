@@ -79,10 +79,12 @@ class _settings extends \IPS\Dispatcher\Controller
 			FALSE,
 			array('togglesOn' => array(
 				'aXenServerList_settings_scroll_height',
+				'aXenServerList_settings_scroll_default',
 				'aXenServerList_settings_scroll_control'
 			))
 		));
 		$form->add(new \IPS\Helpers\Form\Number('aXenServerList_settings_scroll_height', \IPS\Settings::i()->aXenServerList_settings_scroll_height, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_height'));
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_default', \IPS\Settings::i()->aXenServerList_settings_scroll_default, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_default'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_control', \IPS\Settings::i()->aXenServerList_settings_scroll_control, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_control'));
 
 		if ($values = $form->values(TRUE)) {

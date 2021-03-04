@@ -34,4 +34,6 @@ document.querySelector('.aXenServerList_toggle_scroll')?.addEventListener('click
   if (serverList.classList.contains('aXenServerList_scroll')) {
     ips.utils.cookie.set(COOKIE_AXENSERVERLIST_SCROLL, 1, true);
   } else ips.utils.cookie.unset(COOKIE_AXENSERVERLIST_SCROLL);
+
+  ips.utils.cookie.set(`${COOKIE_AXENSERVERLIST_SCROLL}_manual`, 1, true);
 });

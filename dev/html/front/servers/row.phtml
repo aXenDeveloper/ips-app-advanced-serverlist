@@ -23,7 +23,7 @@
 
     <li class="aXenServerList_item:ip">
       {{if $row['axenserverlist_connect_link']}}
-      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light ipsResponsive_showDesktop" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
       {{endif}}

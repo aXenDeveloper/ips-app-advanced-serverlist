@@ -44,6 +44,10 @@
         "default": "1"
     },
     {
+        "key": "aXenServerList_settings_scroll_default",
+        "default": "0"
+    },
+    {
         "key": "aXenServerList_settings_scroll_height",
         "default": "250"
     }

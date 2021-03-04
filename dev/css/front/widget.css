@@ -13,7 +13,8 @@
   opacity: 0.5;
 }
 
-.aXenServerList_hide + .aXenServerList_ul {
+.aXenServerList_hide + .aXenServerList_ul,
+.aXenServerList_hide ~ .ipsList_reset.ipsFlex {
   display: none;
 }
 
@@ -189,7 +190,7 @@
 
 {{if settings.aXenServerList_settings_colors}}
 .aXenServerList_item_players_svg\:fill_1_20 {
-  stroke: {settings='aXenServerList_settings_colors_1_20'};
+  stroke: {setting='aXenServerList_settings_colors_1_20'};
 }
 
 .aXenServerList_item_players_svg\:fill_21_40 {

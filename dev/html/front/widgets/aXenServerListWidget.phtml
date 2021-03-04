@@ -1,5 +1,5 @@
 <ips:template parameters="$servers" />
-<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] )}} aXenServerList_hide{{endif}}{{if (isset( \IPS\Request::i()->cookie['aXenServerList_widget_scroll'] ) && settings.aXenServerList_settings_scroll) || settings.aXenServerList_settings_scroll && !settings.aXenServerList_settings_scroll_control}} aXenServerList_scroll{{endif}}">
+<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList {{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] )}} aXenServerList_hide{{endif}}{{if settings.aXenServerList_settings_scroll && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll']) && settings.aXenServerList_settings_scroll_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual'])) || !settings.aXenServerList_settings_scroll_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual']) && settings.aXenServerList_settings_scroll_default) )}}aXenServerList_scroll{{endif}}">
   <span>{lang="aXenServerList_widget_title"}</span>
 
   {{if settings.aXenServerList_settings_scroll && settings.aXenServerList_settings_scroll_control}}
