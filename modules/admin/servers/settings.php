@@ -41,6 +41,7 @@ class _settings extends \IPS\Dispatcher\Controller
 		$form = new \IPS\Helpers\Form;
 		$form->addTab('axenserverlist_tab_general');
 
+		$form->addHeader('axenserverlist_header_colorFilling');
 		$form->add(new \IPS\Helpers\Form\YesNo(
 			'aXenServerList_settings_colors',
 			\IPS\Settings::i()->aXenServerList_settings_colors,

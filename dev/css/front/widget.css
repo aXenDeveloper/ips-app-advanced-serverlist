@@ -266,6 +266,23 @@
   flex: 1;
 }
 
+.aXenServerList_item_more_ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ========== Buttons ========== */
+.ipsApp .aXenServerListButton {
+  font-size: 16px;
+  padding: 6px 8px;
+}
+
+.ipsApp .aXenServerListButton_link {
+  font-size: 16px;
+  padding: 6px 8px;
+}
+
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
   .aXenServerList_ul {

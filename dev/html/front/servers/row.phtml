@@ -23,7 +23,7 @@
 
     <li class="aXenServerList_item:ip">
       {{if $row['axenserverlist_connect_link']}}
-      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton ipsButton_verySmall ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
       {{endif}}
@@ -61,11 +61,15 @@
     {{endif}}
 
     <li class="aXenServerList_item_more">
-      <button class="ipsButton ipsButton_fullWidth ipsButton_important" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu>
-        <i class="fa fa-info"></i> {lang="aXenServerList_widget_more"}
-      </button>
+      <ul class="aXenServerList_item_more_ul">
+        <li>
+          <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
+            <i class="fa fa-info-circle"></i>
+          </button>
 
-      {template="more" app="axenserverlist" group="servers" location="front" params="$row"}
+          {template="more" app="axenserverlist" group="servers" location="front" params="$row"}
+        </li>
+      </ul>
     </li>
   </ul>
 </li>

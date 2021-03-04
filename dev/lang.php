@@ -76,5 +76,6 @@ $lang = array(
 	'aXenServerList_settings_scroll_mobile' => '(Mobile) Force a scroll?',
 	'aXenServerList_settings_scroll_mobile_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then changing the scroll by the user is not possible on the mobile!</p>',
 	'aXenServerList_settings_scroll_mobile_value' => '(Mobile) Height server list',
-	'aXenServerList_settings_scroll_mobile_value_desc' => 'Value in pixels (px).'
+	'aXenServerList_settings_scroll_mobile_value_desc' => 'Value in pixels (px).',
+	'axenserverlist_header_colorFilling' => 'Color filling of players'
 );
