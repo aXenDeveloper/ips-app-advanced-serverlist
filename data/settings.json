@@ -50,5 +50,13 @@
     {
         "key": "aXenServerList_settings_scroll_height",
         "default": "250"
+    },
+    {
+        "key": "aXenServerList_settings_scroll_mobile",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_scroll_mobile_value",
+        "default": "250"
     }
 ]

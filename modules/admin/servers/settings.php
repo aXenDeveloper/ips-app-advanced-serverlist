@@ -45,13 +45,15 @@ class _settings extends \IPS\Dispatcher\Controller
 			'aXenServerList_settings_colors',
 			\IPS\Settings::i()->aXenServerList_settings_colors,
 			FALSE,
-			array('togglesOn' => array(
-				'aXenServerList_settings_colors_1_20',
-				'aXenServerList_settings_colors_21_40',
-				'aXenServerList_settings_colors_41_60',
-				'aXenServerList_settings_colors_61_80',
-				'aXenServerList_settings_colors_81_100'
-			))
+			[
+				'togglesOn' => [
+					'aXenServerList_settings_colors_1_20',
+					'aXenServerList_settings_colors_21_40',
+					'aXenServerList_settings_colors_41_60',
+					'aXenServerList_settings_colors_61_80',
+					'aXenServerList_settings_colors_81_100'
+				]
+			]
 		));
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_1_20', \IPS\Settings::i()->aXenServerList_settings_colors_1_20, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_1_20'));
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_21_40', \IPS\Settings::i()->aXenServerList_settings_colors_21_40, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_21_40'));
@@ -65,9 +67,11 @@ class _settings extends \IPS\Dispatcher\Controller
 			'aXenServerList_settings_fullWidth',
 			\IPS\Settings::i()->aXenServerList_settings_fullWidth,
 			FALSE,
-			array('togglesOff' => array(
-				'aXenServerList_settings_owners'
-			))
+			[
+				'togglesOff' => [
+					'aXenServerList_settings_owners'
+				]
+			]
 		));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_owners'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_footer', \IPS\Settings::i()->aXenServerList_settings_footer, FALSE));
@@ -77,15 +81,25 @@ class _settings extends \IPS\Dispatcher\Controller
 			'aXenServerList_settings_scroll',
 			\IPS\Settings::i()->aXenServerList_settings_scroll,
 			FALSE,
-			array('togglesOn' => array(
-				'aXenServerList_settings_scroll_height',
-				'aXenServerList_settings_scroll_default',
-				'aXenServerList_settings_scroll_control'
-			))
+			[
+				'togglesOn' => [
+					'aXenServerList_settings_scroll_height',
+					'aXenServerList_settings_scroll_default',
+					'aXenServerList_settings_scroll_control',
+					'aXenServerList_settings_scroll_mobile'
+				]
+			]
 		));
 		$form->add(new \IPS\Helpers\Form\Number('aXenServerList_settings_scroll_height', \IPS\Settings::i()->aXenServerList_settings_scroll_height, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_height'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_default', \IPS\Settings::i()->aXenServerList_settings_scroll_default, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_default'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_control', \IPS\Settings::i()->aXenServerList_settings_scroll_control, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_control'));
+
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_scroll_mobile', \IPS\Settings::i()->aXenServerList_settings_scroll_mobile, FALSE, [
+			'togglesOn' => [
+				'aXenServerList_settings_scroll_mobile_value'
+			]
+		], NULL, NULL, NULL, 'aXenServerList_settings_scroll_mobile'));
+		$form->add(new \IPS\Helpers\Form\Number('aXenServerList_settings_scroll_mobile_value', \IPS\Settings::i()->aXenServerList_settings_scroll_mobile_value, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_scroll_mobile_value'));
 
 		if ($values = $form->values(TRUE)) {
 			$form->saveAsSettings($values);

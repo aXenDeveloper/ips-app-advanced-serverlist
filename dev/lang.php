@@ -72,5 +72,9 @@ $lang = array(
 	'aXenServerList_settings_fullWidth' => 'Enable table in 2 columns (full width)?',
 	'aXenServerList_settings_fullWidth_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>',
 	'aXenServerList_widget_clickToConnect' => 'Click connect button',
-	'aXenServerList_settings_scroll_default' => 'Enable scroll by default?'
+	'aXenServerList_settings_scroll_default' => 'Enable scroll by default?',
+	'aXenServerList_settings_scroll_mobile' => '(Mobile) Force a scroll?',
+	'aXenServerList_settings_scroll_mobile_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then changing the scroll by the user is not possible on the mobile!</p>',
+	'aXenServerList_settings_scroll_mobile_value' => '(Mobile) Height server list',
+	'aXenServerList_settings_scroll_mobile_value_desc' => 'Value in pixels (px).'
 );

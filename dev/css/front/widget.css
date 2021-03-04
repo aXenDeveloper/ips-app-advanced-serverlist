@@ -9,6 +9,15 @@
 }
 {{endif}}
 
+{{if settings.aXenServerList_settings_scroll_mobile}}
+@media screen and (max-width: 979px) {
+  .aXenServerList_ul {
+    max-height: {setting='aXenServerList_settings_scroll_mobile_value'}px;
+    overflow-y: auto;
+  }
+}
+{{endif}}
+
 .aXenServerList_hide {
   opacity: 0.5;
 }
