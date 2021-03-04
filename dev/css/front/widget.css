@@ -74,7 +74,7 @@
 
 {{if settings.aXenServerList_settings_fullWidth}}
 .aXenServerList_ul > li {
-  flex: 0 0 50%
+  flex: 1 1 50%
 }
 {{endif}}
 
@@ -91,7 +91,7 @@
   align-items: center;
   margin: 0 10px;
   {{if settings.aXenServerList_settings_fullWidth}}
-  flex: 0 1 190px;
+  flex: 1;
   {{else}}
   flex: 0 1 250px;
   {{endif}}
@@ -228,6 +228,11 @@
 .aXenServerList_item_more_menu {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+.aXenServerList_item_more_menu > ul {
+  flex: 0 0 calc(50% - 10px);
 }
 
 .aXenServerList_item_more_info > li {
@@ -250,16 +255,21 @@
 
 .aXenServerList_item_more_menu .aXenServerList_item_more_info {
   padding: 0;
-  margin: 0 10px 0 0;
+  margin: 0;
   list-style: none;
 }
 
-.aXenServerList_item_more_menu > * {
-  flex: 0 0 calc(50% - 10px);
+.aXenServerList_item_more_menu_links {
+  padding: 0;
+  margin: 10px 0 0 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.aXenServerList_item_more_menu .aXenServerList_item_more_menu_links > a:not(:last-child) {
-  margin-bottom: var(--sp-3);
+.aXenServerList_item_more_menu_links > li {
+  flex: 1 1 50%;
+  padding: 5px;
 }
 
 .aXenServerList_item_more_info\:fullWidth {
@@ -281,6 +291,11 @@
 .ipsApp .aXenServerListButton_link {
   font-size: 16px;
   padding: 6px 8px;
+}
+
+/* ========== ipsMenu ========== */
+.aXenServerListMenu {
+  width: 350px;
 }
 
 /* ========== RWD ========== */
@@ -316,13 +331,5 @@
 
   .aXenServerList_item_more {
     margin: 0;
-  }
-
-  .aXenServerList_item_more_menu {
-    flex-direction: column;
-  }
-
-  .aXenServerList_item_more_menu_links {
-    margin-top: 10px;
   }
 }
