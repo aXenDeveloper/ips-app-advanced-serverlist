@@ -1,0 +1,11 @@
+{
+    "added": [
+        "aXenServerList_settings_fullWidth_control",
+        "aXenServerList_settings_fullWidth_default",
+        "aXenServerList_settings_scroll_default",
+        "aXenServerList_settings_scroll_mobile",
+        "aXenServerList_settings_scroll_mobile_value"
+    ],
+    "edited": [],
+    "removed": []
+}

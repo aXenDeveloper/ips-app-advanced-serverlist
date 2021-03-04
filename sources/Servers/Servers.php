@@ -77,7 +77,7 @@ class _Servers extends \IPS\Node\Model
         'axenserverlist_top_server_text'
       ))
     ));
-    $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_top_server_text', NULL, FALSE, array('app' => 'app', 'key' => "axenserverlist_top_server_text_{$this->id}"), NULL, NULL, NULL, 'axenserverlist_top_server_text'));
+    $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_top_server_text', NULL, FALSE, array('app' => 'axenserverlist', 'key' => "axenserverlist_top_server_text_{$this->id}"), NULL, NULL, NULL, 'axenserverlist_top_server_text'));
   }
 
   /**
@@ -103,16 +103,6 @@ class _Servers extends \IPS\Node\Model
     if (isset($values['axenserverlist_top_server_text'])) {
       \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['axenserverlist_top_server_text']);
     }
-
-    require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
-
-    $gq = new \GameQ\GameQ();
-    $gq->setOption('write_wait', 10);
-    $gq->setOption('timeout', 3);
-
-
-
-    // \IPS\Task::queue('axenserverlist', 'aXenServersQueryServers', array(), 1);
     return $values;
   }
 

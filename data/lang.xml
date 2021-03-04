@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10000">
+ <app key="axenserverlist" version="10001">
   <word key="__app_axenserverlist" js="0">(aXen) Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Server List</word>
@@ -67,10 +67,20 @@
   <word key="aXenServerList_settings_scroll_height" js="0">Height server list</word>
   <word key="aXenServerList_settings_scroll_height_desc" js="0">Value in pixels (px).</word>
   <word key="aXenServerList_settings_scroll_control" js="0">Can users control scrolling?</word>
-  <word key="aXenServerList_settings_scroll_control_desc" js="0">Users will be able to turn the scroll on and off.</word>
+  <word key="aXenServerList_settings_scroll_control_desc" js="0">Users will be can to turn the scroll on and off.</word>
   <word key="axenserverlist_tab_scroll" js="0">Scroll</word>
   <word key="aXenServerList_settings_fullWidth" js="0">Enable table in 2 columns (full width)?</word>
   <word key="aXenServerList_settings_fullWidth_desc" js="0"><![CDATA[<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>]]></word>
   <word key="aXenServerList_widget_clickToConnect" js="0">Click connect button</word>
+  <word key="aXenServerList_settings_scroll_default" js="0">Enable scroll by default?</word>
+  <word key="aXenServerList_settings_scroll_mobile" js="0">(Mobile) Force a scroll?</word>
+  <word key="aXenServerList_settings_scroll_mobile_desc" js="0"><![CDATA[<p class="ipsMessage ipsMessage_warning">When this option is enabled then changing the scroll by the user is not possible on the mobile!</p>]]></word>
+  <word key="aXenServerList_settings_scroll_mobile_value" js="0">(Mobile) Height server list</word>
+  <word key="aXenServerList_settings_scroll_mobile_value_desc" js="0">Value in pixels (px).</word>
+  <word key="axenserverlist_header_colorFilling" js="0">Color filling of players</word>
+  <word key="aXenServerList_widget_toggle_fullWidth" js="0">Toggle view</word>
+  <word key="aXenServerList_settings_fullWidth_control" js="0">Can users change view?</word>
+  <word key="aXenServerList_settings_fullWidth_control_desc" js="0">Users will be can to change widget view.</word>
+  <word key="aXenServerList_settings_fullWidth_default" js="0">Enable table in 2 columns (full width) by default?</word>
  </app>
 </language>

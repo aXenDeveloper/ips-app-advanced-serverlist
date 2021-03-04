@@ -1,0 +1,25 @@
+{
+    "normal": {
+        "added": [
+            "aXenServerList_settings_scroll_default",
+            "aXenServerList_settings_scroll_mobile",
+            "aXenServerList_settings_scroll_mobile_desc",
+            "aXenServerList_settings_scroll_mobile_value",
+            "aXenServerList_settings_scroll_mobile_value_desc",
+            "axenserverlist_header_colorFilling",
+            "aXenServerList_widget_toggle_fullWidth",
+            "aXenServerList_settings_fullWidth_control",
+            "aXenServerList_settings_fullWidth_control_desc",
+            "aXenServerList_settings_fullWidth_default"
+        ],
+        "edited": [
+            "aXenServerList_settings_scroll_control_desc"
+        ],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}
