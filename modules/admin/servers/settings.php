@@ -71,9 +71,29 @@ class _settings extends \IPS\Dispatcher\Controller
 			[
 				'togglesOff' => [
 					'aXenServerList_settings_owners'
+				],
+				'togglesOn' => [
+					'aXenServerList_settings_fullWidth_control'
 				]
 			]
 		));
+
+		$form->add(new \IPS\Helpers\Form\YesNo(
+			'aXenServerList_settings_fullWidth_control',
+			\IPS\Settings::i()->aXenServerList_settings_fullWidth_control,
+			FALSE,
+			[
+				'togglesOn' => [
+					'aXenServerList_settings_fullWidth_default'
+				]
+			],
+			NULL,
+			NULL,
+			NULL,
+			'aXenServerList_settings_fullWidth_control'
+		));
+		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_fullWidth_default', \IPS\Settings::i()->aXenServerList_settings_fullWidth_default, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_fullWidth_default'));
+
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_owners', \IPS\Settings::i()->aXenServerList_settings_owners, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_owners'));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_footer', \IPS\Settings::i()->aXenServerList_settings_footer, FALSE));
 

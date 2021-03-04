@@ -67,7 +67,7 @@ $lang = array(
 	'aXenServerList_settings_scroll_height' => 'Height server list',
 	'aXenServerList_settings_scroll_height_desc' => 'Value in pixels (px).',
 	'aXenServerList_settings_scroll_control' => 'Can users control scrolling?',
-	'aXenServerList_settings_scroll_control_desc' => 'Users will be able to turn the scroll on and off.',
+	'aXenServerList_settings_scroll_control_desc' => 'Users will be can to turn the scroll on and off.',
 	'axenserverlist_tab_scroll' => 'Scroll',
 	'aXenServerList_settings_fullWidth' => 'Enable table in 2 columns (full width)?',
 	'aXenServerList_settings_fullWidth_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>',
@@ -77,5 +77,9 @@ $lang = array(
 	'aXenServerList_settings_scroll_mobile_desc' => '<p class="ipsMessage ipsMessage_warning">When this option is enabled then changing the scroll by the user is not possible on the mobile!</p>',
 	'aXenServerList_settings_scroll_mobile_value' => '(Mobile) Height server list',
 	'aXenServerList_settings_scroll_mobile_value_desc' => 'Value in pixels (px).',
-	'axenserverlist_header_colorFilling' => 'Color filling of players'
+	'axenserverlist_header_colorFilling' => 'Color filling of players',
+	'aXenServerList_widget_toggle_fullWidth' => 'Toggle view',
+	'aXenServerList_settings_fullWidth_control' => 'Can users change view?',
+	'aXenServerList_settings_fullWidth_control_desc' => 'Users will be can to change widget view.',
+	'aXenServerList_settings_fullWidth_default' => 'Enable table in 2 columns (full width) by default?',
 );

@@ -47,7 +47,7 @@
       <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
     </li>
 
-    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners'] && !settings.aXenServerList_settings_fullWidth}}
+    {{if settings.aXenServerList_settings_owners && $row['axenserverlist_owners']}}
     <li class="aXenServerList_item_owners">
       <ul class="aXenServerList_item_owners_ul">
         {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
@@ -62,6 +62,38 @@
 
     <li class="aXenServerList_item_more">
       <ul class="aXenServerList_item_more_ul">
+        {{if $row['axenserverlist_forum']}}
+        <li class="aXenServerList_item_more_ul_buttons">
+          <a href="{$row['axenserverlist_forum']}" class="ipsButton aXenServerListButton ipsButton_normal" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
+            <i class="fa fa-comments"></i>
+          </a>
+        </li>
+        {{endif}}
+
+        {{if $row['axenserverlist_vote']}}
+        <li class="aXenServerList_item_more_ul_buttons">
+          <a href="{$row['axenserverlist_vote']}" class="ipsButton aXenServerListButton ipsButton_light" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
+            <i class="fa fa-plus"></i>
+          </a>
+        </li>
+        {{endif}}
+
+        {{if $row['axenserverlist_statistics']}}
+        <li class="aXenServerList_item_more_ul_buttons">
+          <a href="{$row['axenserverlist_statistics']}" class="ipsButton aXenServerListButton ipsButton_light" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
+            <i class="fa fa-bar-chart"></i>
+          </a>
+        </li>
+        {{endif}}
+
+        {{if $row['axenserverlist_tv']}}
+        <li class="aXenServerList_item_more_ul_buttons">
+          <a href="{$row['axenserverlist_tv']}" class="ipsButton aXenServerListButton ipsButton_light" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
+            <i class="fa fa-video-camera"></i>
+          </a>
+        </li>
+        {{endif}}
+
         <li>
           <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
             <i class="fa fa-info-circle"></i>

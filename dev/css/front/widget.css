@@ -44,39 +44,36 @@
   color: inherit;
 }
 
-.aXenServerList_toggle_hide:after {
-  content: '\f078';
+.aXenServerList_toggle:after {
   font-family: 'FontAwesome';
   font-size: 18px;
 }
 
+.aXenServerList_toggle_hide:after {
+  content: '\f078';
+}
 
 .aXenServerList_toggle_scroll:after {
-  content: '\f066';
-  font-family: 'FontAwesome';
-  font-size: 18px;
+  content: '\f065';
 }
 
 .aXenServerList_scroll > .aXenServerList_toggle_scroll:after {
-  content: '\f065';
+  content: '\f066';
+}
+
+.aXenServerList_toggle_fullWidth:after {
+  content: '\f00b';
+}
+
+.aXenServerList_fullWidth .aXenServerList_toggle_fullWidth:after {
+  content: '\f009';
 }
 
 .aXenServerList_ul {
   padding: 0;
   margin: 0;
   list-style: none;
-
-  {{if settings.aXenServerList_settings_fullWidth}}
-  display: flex;
-  flex-wrap: wrap;
-  {{endif}}
 }
-
-{{if settings.aXenServerList_settings_fullWidth}}
-.aXenServerList_ul > li {
-  flex: 1 1 50%
-}
-{{endif}}
 
 /* ========== Item ========== */
 .aXenServerList_item {
@@ -90,11 +87,7 @@
   display: flex;
   align-items: center;
   margin: 0 10px;
-  {{if settings.aXenServerList_settings_fullWidth}}
-  flex: 1;
-  {{else}}
   flex: 0 1 250px;
-  {{endif}}
 }
 
 .aXenServerList_item_title\:status {
@@ -223,6 +216,7 @@
 .aXenServerList_item_more {
   margin: 0 10px 0 auto;
   padding: 5px;
+  flex: 0 0 200px;
 }
 
 .aXenServerList_item_more_menu {
@@ -263,7 +257,7 @@
   padding: 0;
   margin: 10px 0 0 0;
   list-style: none;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
 }
 
@@ -280,6 +274,13 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.aXenServerList_item_more_ul > li:not(:last-child) {
+  margin-right: 5px;
 }
 
 /* ========== Buttons ========== */
@@ -288,15 +289,39 @@
   padding: 6px 8px;
 }
 
-.ipsApp .aXenServerListButton_link {
-  font-size: 16px;
-  padding: 6px 8px;
-}
-
 /* ========== ipsMenu ========== */
 .aXenServerListMenu {
   width: 350px;
 }
+
+/* ========== Full width ========== */
+{{if settings.aXenServerList_settings_fullWidth}}
+.aXenServerList_fullWidth + .aXenServerList_ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.aXenServerList_fullWidth + .aXenServerList_ul > li {
+  flex: 1 1 50%
+}
+
+.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_owners,
+.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_more .aXenServerList_item_more_ul_buttons {
+  display: none;
+}
+
+.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_title {
+  flex: 1;
+}
+
+.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_more {
+  flex: 0;
+}
+
+.aXenServerListMenu_fullWidth .aXenServerList_item_more_menu_links  {
+  display: flex;
+}
+{{endif}}
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {

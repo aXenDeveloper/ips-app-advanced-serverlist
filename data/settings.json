@@ -32,6 +32,14 @@
         "default": "0"
     },
     {
+        "key": "aXenServerList_settings_fullWidth_control",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_fullWidth_default",
+        "default": "0"
+    },
+    {
         "key": "aXenServerList_settings_owners",
         "default": "1"
     },

@@ -1,7 +1,9 @@
 const COOKIE_AXENSERVERLIST_HIDE = 'aXenServerList_widget_hide';
 const COOKIE_AXENSERVERLIST_SCROLL = 'aXenServerList_widget_scroll';
+const COOKIE_AXENSERVERLIST_FULLWIDTH = 'aXenServerList_widget_fullWidth';
 
 const serverList = document.querySelector('.aXenServerList');
+const serverListMenu = document.querySelectorAll('.aXenServerListMenu');
 
 // Toogle hide
 document.querySelector('.aXenServerList_toggle_hide')?.addEventListener('click', e => {
@@ -36,4 +38,18 @@ document.querySelector('.aXenServerList_toggle_scroll')?.addEventListener('click
   } else ips.utils.cookie.unset(COOKIE_AXENSERVERLIST_SCROLL);
 
   ips.utils.cookie.set(`${COOKIE_AXENSERVERLIST_SCROLL}_manual`, 1, true);
+});
+
+// Toogle view
+document.querySelector('.aXenServerList_toggle_fullWidth')?.addEventListener('click', e => {
+  e.preventDefault();
+
+  serverList.classList.toggle('aXenServerList_fullWidth');
+  serverListMenu.forEach(el => el.classList.toggle('aXenServerListMenu_fullWidth'));
+
+  if (serverList.classList.contains('aXenServerList_fullWidth')) {
+    ips.utils.cookie.set(COOKIE_AXENSERVERLIST_FULLWIDTH, 1, true);
+  } else ips.utils.cookie.unset(COOKIE_AXENSERVERLIST_FULLWIDTH);
+
+  ips.utils.cookie.set(`${COOKIE_AXENSERVERLIST_FULLWIDTH}_manual`, 1, true);
 });
