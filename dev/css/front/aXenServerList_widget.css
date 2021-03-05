@@ -214,8 +214,8 @@
 
 /* ========== More ========== */
 .aXenServerList_item_more {
-  margin: 0 10px 0 auto;
-  padding: 5px;
+  margin: 5px 10px 5px auto;
+  padding: 0;
   flex: 0 0 200px;
 }
 
@@ -296,6 +296,22 @@
 /* ========== ipsMenu ========== */
 .aXenServerListMenu {
   width: 350px;
+}
+
+/* ========== Orientation vertical ========== */
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item {
+  display: block;
+}
+
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item > li {
+  margin: 10px;
+}
+
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item > .aXenServerList_item\:ip,
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item > .aXenServerList_item_players,
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item > .aXenServerList_item_title,
+.aXenServerList_vertical + .aXenServerList_ul .aXenServerList_item > .aXenServerList_item_more > .aXenServerList_item_more_ul {
+  justify-content: center;
 }
 
 /* ========== Full width ========== */
