@@ -18,7 +18,8 @@ Server table showing server information about the status, name, number of player
 - Hiding server owners in button,
 - The scroll that the user can control,
 - Color filling of players,
-- RWD
+- RWD,
+- Lazy loading in img icons
 
 ## Table of contents 📖
 

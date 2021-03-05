@@ -123,8 +123,8 @@ class _Servers extends \IPS\Node\Model
     if ($values['axenserverlist_game'] != 'discord') {
       $server = [
         'id' => $this->id,
-        'type' => $values['axenserverlist_game'],
-        'host' => $values['axenserverlist_ip'],
+        'type' => $this->game,
+        'host' => $this->ip,
       ];
 
       if ($values['axenserverlist_query_port']) {
@@ -218,6 +218,45 @@ class _Servers extends \IPS\Node\Model
     $getName = $this->name_default && $this->name_default_text ? $this->name_default_text : $this->name;
     $getIP = $this->ip_custom ? $this->ip_custom : $this->ip;
 
-    return $getName . ' - ' . $this->game . ' - ' . $getIP;
+    return $getName . ' - ' . $getIP;
+  }
+
+  /**
+   * [Node] Get Node Description
+   *
+   * @return	string|null
+   */
+  protected function get__description()
+  {
+    $getGameTitle = $this->game_long ? $this->game_long : $this->game;
+    return $getGameTitle;
+  }
+
+  /**
+   * [Node] Return the custom badge for each row
+   *
+   * @return	NULL|array		Null for no badge, or an array of badge data (0 => CSS class type, 1 => language string, 2 => optional raw HTML to show instead of language string)
+   */
+  protected function get__badge()
+  {
+    if ($this->new == TRUE) {
+      return array(
+        0  => 'ipsBadge ipsBadge_negative',
+        1  => 'aXenServerList_widget_new'
+      );
+    }
+  }
+
+  /**
+   * [Node] Get Icon for tree
+   *
+   * @note	Return the class for the icon (e.g. 'globe', the 'fa fa-' is added automatically so you do not need this here)
+   * @return	string|null
+   */
+  protected function get__icon()
+  {
+    if ($this->top_server == TRUE) {
+      return 'trophy';
+    }
   }
 }

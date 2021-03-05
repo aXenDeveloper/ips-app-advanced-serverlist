@@ -80,4 +80,6 @@ $lang = array(
 	'aXenServerList_settings_fullWidth_control' => 'Can users change view?',
 	'aXenServerList_settings_fullWidth_control_desc' => 'Users will be can to change widget view.',
 	'aXenServerList_settings_fullWidth_default' => 'Enable table in 2 columns (full width) by default?',
+	'r__servers' => 'Server list',
+	'r__servers_manage' => 'Can manage servers?'
 );
