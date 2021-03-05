@@ -253,6 +253,10 @@
   list-style: none;
 }
 
+.aXenServerList_item_more_info .aXenServerList_item_more_info\:owners {
+  display: none;
+}
+
 .aXenServerList_item_more_menu_links {
   padding: 0;
   margin: 10px 0 0 0;
@@ -318,7 +322,8 @@
   flex: 0;
 }
 
-.aXenServerListMenu_fullWidth .aXenServerList_item_more_menu_links  {
+.aXenServerListMenu_fullWidth .aXenServerList_item_more_menu_links,
+.aXenServerListMenu_fullWidth .aXenServerList_item_more_info .aXenServerList_item_more_info\:owners {
   display: flex;
 }
 {{endif}}

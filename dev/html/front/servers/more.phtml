@@ -2,8 +2,8 @@
 <div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu aXenServerListMenu{{if settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerListMenu_fullWidth{{endif}} ipsHide">
   <div class="aXenServerList_item_more_menu ipsPadding:half">
     <ul class="aXenServerList_item_more_info{{if !$row['axenserverlist_forum'] || !$row['axenserverlist_vote'] || !$row['axenserverlist_statistics'] || !$row['axenserverlist_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
-      {{if (!settings.aXenServerList_settings_owners && $row['axenserverlist_owners']) || (settings.aXenServerList_settings_fullWidth && $row['axenserverlist_owners'])}}
-      <li>
+      {{if $row['axenserverlist_owners']}}
+      <li class="aXenServerList_item_more_info:owners">
         <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_owners'}</span>
         <span>
           <ul class="ipsList_reset">

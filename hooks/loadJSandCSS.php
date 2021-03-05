@@ -11,7 +11,7 @@
 		{
 			try {
 				parent::baseCss();
-				\IPS\Output::i()->cssFiles = array_merge(\IPS\Output::i()->cssFiles, \IPS\Theme::i()->css('widget.css', 'axenserverlist', 'front'));
+				\IPS\Output::i()->cssFiles = array_merge(\IPS\Output::i()->cssFiles, \IPS\Theme::i()->css('aXenServerList_widget.css', 'axenserverlist', 'front'));
 			} catch (\RuntimeException $e) {
 				if (method_exists(get_parent_class(), __FUNCTION__)) {
 					return \call_user_func_array('parent::' . __FUNCTION__, \func_get_args());
