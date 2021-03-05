@@ -346,9 +346,13 @@
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
-  .aXenServerList_ul {
+  .aXenServerList ~ .aXenServerList_ul {
     flex-direction: column;
     flex-wrap: nowrap;
+  }
+
+  .aXenServerList ~ .aXenServerList_ul > li {
+    flex: 0 0 100%;
   }
 
   .aXenServerList_item {
@@ -358,7 +362,8 @@
 
   .aXenServerList_item_title,
   .aXenServerList_item\:ip,
-  .aXenServerList_item_players {
+  .aXenServerList_item_players,
+  .aXenServerList_item_more_ul {
     justify-content: center;
   }
 

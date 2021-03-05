@@ -1,0 +1,20 @@
+{
+    "normal": {
+        "added": [
+            "r__servers",
+            "r__servers_manage"
+        ],
+        "edited": [
+            "aXenServerList_settings_fullWidth_desc"
+        ],
+        "removed": [
+            "aXenServerList_settings_owners",
+            "aXenServerList_settings_owners_desc"
+        ]
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

@@ -12,13 +12,12 @@
  <setting key="aXenServerList_settings_fullWidth"><![CDATA[{"key":"aXenServerList_settings_fullWidth","default":"0"}]]></setting>
  <setting key="aXenServerList_settings_fullWidth_control"><![CDATA[{"key":"aXenServerList_settings_fullWidth_control","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_fullWidth_default"><![CDATA[{"key":"aXenServerList_settings_fullWidth_default","default":"0"}]]></setting>
- <setting key="aXenServerList_settings_owners"><![CDATA[{"key":"aXenServerList_settings_owners","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll"><![CDATA[{"key":"aXenServerList_settings_scroll","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll_control"><![CDATA[{"key":"aXenServerList_settings_scroll_control","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll_default"><![CDATA[{"key":"aXenServerList_settings_scroll_default","default":"0"}]]></setting>
  <setting key="aXenServerList_settings_scroll_height"><![CDATA[{"key":"aXenServerList_settings_scroll_height","default":"250"}]]></setting>
  <setting key="aXenServerList_settings_scroll_mobile"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll_mobile_value"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile_value","default":"250"}]]></setting>
- <widget key="aXenServerListWidget"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":false,"menu_style":"menu","embeddable":false}]]></widget>
+ <widget key="aXenServerListWidget"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":false,"menu_style":"menu","embeddable":true}]]></widget>
  <hook key="loadJSandCSS"><![CDATA[{"type":"C","class":"\\IPS\\Dispatcher\\Standard"}]]></hook>
 </build>

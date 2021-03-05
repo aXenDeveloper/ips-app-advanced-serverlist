@@ -1,0 +1,24 @@
+{
+    "id": 10002,
+    "name": "1.0.0 Beta 1",
+    "steps": {
+        "queries": false,
+        "lang": true,
+        "theme": true,
+        "themeSettings": false,
+        "javascript": true,
+        "emailTemplates": false,
+        "hooks": false,
+        "acpSearchKeywords": false,
+        "settings": true,
+        "tasks": false,
+        "modules": false,
+        "widgets": true,
+        "whatsnew": false,
+        "customOptions": false,
+        "customRoutines": false
+    },
+    "forceMainUpgrader": false,
+    "forceManualDownloadNoCiC": false,
+    "forceManualDownloadCiC": false
+}

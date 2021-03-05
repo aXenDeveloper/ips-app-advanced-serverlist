@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10001">
+ <app key="axenserverlist" version="10002">
   <word key="__app_axenserverlist" js="0">(aXen) Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Server List</word>
@@ -19,8 +19,6 @@
   <word key="block_aXenServerListWidget" js="0">Server List</word>
   <word key="block_aXenServerListWidget_desc" js="0">Widget shows servers</word>
   <word key="aXenServerList_widget_title" js="0">Our servers</word>
-  <word key="aXenServerList_settings_owners" js="0">Show server owners?</word>
-  <word key="aXenServerList_settings_owners_desc" js="0">If this option is disabled then serwer owners shows in more button.</word>
   <word key="aXenServerList_widget_more" js="0">More</word>
   <word key="aXenServerList_widget_connect" js="0">Connect</word>
   <word key="aXenServerList_widget_statistics" js="0">Statistics</word>
@@ -70,7 +68,7 @@
   <word key="aXenServerList_settings_scroll_control_desc" js="0">Users will be can to turn the scroll on and off.</word>
   <word key="axenserverlist_tab_scroll" js="0">Scroll</word>
   <word key="aXenServerList_settings_fullWidth" js="0">Enable table in 2 columns (full width)?</word>
-  <word key="aXenServerList_settings_fullWidth_desc" js="0"><![CDATA[<p class="ipsMessage ipsMessage_warning">When this option is enabled then the table should be full width and "Show server owners?" option will be disabled!</p>]]></word>
+  <word key="aXenServerList_settings_fullWidth_desc" js="0"><![CDATA[<p class="ipsMessage ipsMessage_warning">When this option is enabled, the widget area should be the full width of the page!</p>]]></word>
   <word key="aXenServerList_widget_clickToConnect" js="0">Click connect button</word>
   <word key="aXenServerList_settings_scroll_default" js="0">Enable scroll by default?</word>
   <word key="aXenServerList_settings_scroll_mobile" js="0">(Mobile) Force a scroll?</word>
@@ -82,5 +80,7 @@
   <word key="aXenServerList_settings_fullWidth_control" js="0">Can users change view?</word>
   <word key="aXenServerList_settings_fullWidth_control_desc" js="0">Users will be can to change widget view.</word>
   <word key="aXenServerList_settings_fullWidth_default" js="0">Enable table in 2 columns (full width) by default?</word>
+  <word key="r__servers" js="0">Server list</word>
+  <word key="r__servers_manage" js="0">Can manage servers?</word>
  </app>
 </language>
