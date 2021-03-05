@@ -45,8 +45,7 @@
       <li>
         <span><i class="fa fa-percent"></i> {lang='aXenServerList_widget_percent_players'}</span>
         <span>
-          {{$calcPercentPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
-          {$calcPercentPlayers}%
+          {$row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0}%
         </span>
       </li>
 
