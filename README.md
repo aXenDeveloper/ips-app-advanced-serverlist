@@ -77,4 +77,7 @@ _In future versions, new servers will be added to the list._
 
 ## Download from other sources 🔌
 
+- [invisioncommunity.com](https://invisioncommunity.com/files/file/9852-axen-server-list/),
+- [invisionize.pl](https://forum.invisionize.pl/files/file/825-axen-server-list/)
+
 _The resources from the links above are updated on an ongoing basis if the administration approves the file._
