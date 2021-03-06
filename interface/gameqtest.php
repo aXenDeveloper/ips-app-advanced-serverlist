@@ -1,6 +1,6 @@
 <?php
 require_once str_replace('applications/axenserverlist/interface/gameqtest.php', '', str_replace('\\', '/', __FILE__)) . 'init.php';
-require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
+require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
 
 
 $servers = array([

@@ -37,7 +37,7 @@ class _aXenServersQueryServers extends \IPS\Task
 	 */
 	public function execute()
 	{
-		require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
+		require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
 
 		$getServers = \IPS\Db::i()->select('*', 'axenserverlist_servers', NULL, 'axenserverlist_position DESC');
 

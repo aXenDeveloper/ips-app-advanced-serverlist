@@ -117,7 +117,7 @@ class _Servers extends \IPS\Node\Model
       \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
     }
 
-    require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
+    require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
 
     $gq = new \GameQ\GameQ();
     $gq->setOption('write_wait', 10);
