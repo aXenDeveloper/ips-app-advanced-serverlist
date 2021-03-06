@@ -1,4 +1,4 @@
-# (aXen) Server List
+# (aXen) Advanced Server List
 
 Server table showing server information about the status, name, number of players, current map and their owners as applications on IPS Community Suite.
 
@@ -77,7 +77,7 @@ _In future versions, new servers will be added to the list._
 
 ## Download from other sources 🔌
 
-- [invisioncommunity.com](https://invisioncommunity.com/files/file/9852-axen-server-list/),
-- [invisionize.pl](https://forum.invisionize.pl/files/file/825-axen-server-list/)
+- [invisioncommunity.com](https://invisioncommunity.com/files/file/9852-axen-advanced-server-list/),
+- [invisionize.pl](https://forum.invisionize.pl/files/file/825-axen-advanced-server-list/)
 
 _The resources from the links above are updated on an ongoing basis if the administration approves the file._

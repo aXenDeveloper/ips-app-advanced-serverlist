@@ -177,7 +177,7 @@ class _Servers extends \IPS\Node\Model
           }
         }
       } catch (\Exception $e) {
-        \IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);
+        \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
       }
     } else {
       $url = "https://discordapp.com/api/guilds/" . $values['axenserverlist_ip'] . "/widget.json";

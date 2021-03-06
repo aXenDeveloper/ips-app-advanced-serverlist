@@ -5,7 +5,9 @@
             "r__servers_manage"
         ],
         "edited": [
-            "aXenServerList_settings_fullWidth_desc"
+            "aXenServerList_settings_fullWidth_desc",
+            "__app_axenserverlist",
+            "menutab__axenserverlist"
         ],
         "removed": [
             "aXenServerList_settings_owners",

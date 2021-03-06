@@ -106,7 +106,7 @@ class _aXenServersQueryServers extends \IPS\Task
 						}
 					}
 				} catch (\Exception $e) {
-					\IPS\Log::log($e, '(aXen) Server List - Server ID: ' . $server['id']);
+					\IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
 				}
 			} else {
 				$url = "https://discordapp.com/api/guilds/" . $row['axenserverlist_ip'] . "/widget.json";
