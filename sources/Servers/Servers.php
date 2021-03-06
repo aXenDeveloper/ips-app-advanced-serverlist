@@ -99,10 +99,6 @@ class _Servers extends \IPS\Node\Model
       $values['axenserverlist_owners'] = NULL;
     }
 
-    // Save Translatable
-    if (isset($values['axenserverlist_top_server_text'])) {
-      \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['axenserverlist_top_server_text']);
-    }
     return $values;
   }
 
@@ -114,6 +110,13 @@ class _Servers extends \IPS\Node\Model
    */
   public function postSaveForm($values)
   {
+    // Save Translatable
+    if (isset($values['axenserverlist_top_server_text'])) {
+      \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['axenserverlist_top_server_text']);
+    } else {
+      \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
+    }
+
     require_once \IPS\ROOT_PATH . '/applications/axenserverlist/interface/GameQ/Autoloader.php';
 
     $gq = new \GameQ\GameQ();
@@ -218,7 +221,7 @@ class _Servers extends \IPS\Node\Model
     $getName = $this->name_default && $this->name_default_text ? $this->name_default_text : $this->name;
     $getIP = $this->ip_custom ? $this->ip_custom : $this->ip;
 
-    return $getName . ' - ' . $getIP;
+    return "{$getName} - {$getIP}";
   }
 
   /**
@@ -258,5 +261,17 @@ class _Servers extends \IPS\Node\Model
     if ($this->top_server == TRUE) {
       return 'trophy';
     }
+  }
+
+  /**
+   * [ActiveRecord] Delete Record
+   *
+   * @return	void
+   */
+  public function delete()
+  {
+    \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
+
+    return parent::delete();
   }
 }
