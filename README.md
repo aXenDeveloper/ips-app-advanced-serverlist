@@ -58,8 +58,27 @@ Server table showing server information about the status, name, number of player
 - Counter-Strike: Condition Zero
 - Counter-Strike: Global Offensive
 - Counter-Strike: Source
+- DayZ Standalone
+- DayZ Mod
 - Discord
+- Garry's Mod
+- GRAV Online
+- GTA Five M
+- Grand Theft Auto Network
+- Half Life 2: Deathmatch
+- Hurtworld
+- Insurgency
+- Star Wars Jedi Knight: Jedi Academy
+- Star Wars Jedi Knight II: Jedi Outcast
+- Just Cause 2 Multiplayer
+- Just Cause 3
+- Left 4 Dead
+- Left 4 Dead 2
 - Minecraft
+- Medal of honor: Allied Assault
+- Multi Theft Auto
+- Mumble Server
+- Natural Selection 2
 - Teamspeak 3
 
 _In future versions, new servers will be added to the list._
