@@ -49,8 +49,25 @@ class _Servers extends \IPS\Node\Model
 
     $form->addTab('axenserverlist_tab_basic');
     $form->add(new \IPS\Helpers\Form\Select('axenserverlist_game', $this->game, TRUE, array('options' => array(
+      'arkse' => 'ARK: Survival Evolved',
+      'arma3' => 'Arma3',
+      'bf2' => 'Battlefield 2',
+      'bf3' => 'Battlefield 3',
+      'bf4' => 'Battlefield 4',
+      'bf1942' => 'Battlefield 1942',
+      'bfbc2' => 'Battlefield Bad Company 2',
+      'bfh' => 'Battlefield Hardline',
+      'cod' => 'Call of Duty',
+      'cod2' => 'Call of Duty 2',
+      'cod4' => 'Call of Duty 4',
+      'coduo' => 'Call of Duty: United Offensive',
+      'codwaw' => 'Call of Duty: World at War',
+      'conanexiles' => 'Conan Exiles',
+      'contagion' => 'Contagion',
       'cs16' => "Counter-Strike 1.6",
+      'cscz' => 'Counter-Strike: Condition Zero',
       'csgo' => "Counter-Strike: Global Offensive",
+      'css' => 'Counter-Strike: Source',
       'discord' => 'Discord',
       'minecraft' => "Minecraft",
       'teamspeak3' => "Teamspeak 3"

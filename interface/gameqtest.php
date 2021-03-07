@@ -4,8 +4,8 @@ require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/int
 
 
 $servers = array([
-  'type'    => 'minecraft',
-  'host'    => '116.202.232.120:27272',
+  'type'    => 'bf4',
+  'host'    => '192.223.30.148:47200',
 ]);
 
 $gq = new \GameQ\GameQ();

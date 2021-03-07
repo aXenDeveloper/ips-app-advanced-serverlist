@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <javascript app="axenserverlist">
- <file javascript_app="axenserverlist" javascript_location="front" javascript_path="controllers/axenserverlist" javascript_name="aXenServerList.js" javascript_type="controller" javascript_version="10002" javascript_position="1000050"><![CDATA[const COOKIE_AXENSERVERLIST_HIDE = 'aXenServerList_widget_hide';
+ <file javascript_app="axenserverlist" javascript_location="front" javascript_path="controllers/axenserverlist" javascript_name="aXenServerList.js" javascript_type="controller" javascript_version="10003" javascript_position="1000050"><![CDATA[const COOKIE_AXENSERVERLIST_HIDE = 'aXenServerList_widget_hide';
 const COOKIE_AXENSERVERLIST_SCROLL = 'aXenServerList_widget_scroll';
 const COOKIE_AXENSERVERLIST_FULLWIDTH = 'aXenServerList_widget_fullWidth';
 

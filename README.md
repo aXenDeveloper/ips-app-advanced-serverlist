@@ -39,8 +39,25 @@ Server table showing server information about the status, name, number of player
 
 ## Compatible servers 💻
 
+- ARK: Survival Evolved
+- Arma3
+- Battlefield 2
+- Battlefield 3
+- Battlefield 4
+- Battlefield 1942
+- Battlefield Bad Company 2
+- Battlefield Hardline
+- Call of Duty
+- Call of Duty 2
+- Call of Duty 4
+- Call of Duty: United Offensive
+- Call of Duty: World at War
+- Conan Exiles
+- Contagion
 - Counter-Strike 1.6
+- Counter-Strike: Condition Zero
 - Counter-Strike: Global Offensive
+- Counter-Strike: Source
 - Discord
 - Minecraft
 - Teamspeak 3
