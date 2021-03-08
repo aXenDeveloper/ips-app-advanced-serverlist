@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10003">
+ <app key="axenserverlist" version="10004">
   <word key="__app_axenserverlist" js="0">(aXen) Advanced Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Advanced Server List</word>
@@ -10,6 +10,7 @@
   <word key="axenserverlist_game" js="0">Game</word>
   <word key="axenserverlist_name" js="0">Custom name</word>
   <word key="axenserverlist_ip" js="0">IP</word>
+  <word key="axenserverlist_ip_desc" js="0">If your server is Discord then provide ID widget.</word>
   <word key="axenserverlist_owners" js="0">Owners</word>
   <word key="axenserverlist_statistics" js="0">Statistics URL</word>
   <word key="axenserverlist_tv" js="0">TV URL</word>

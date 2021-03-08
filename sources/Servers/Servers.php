@@ -89,7 +89,29 @@ class _Servers extends \IPS\Node\Model
       'mta' => 'Multi Theft Auto',
       'mumble' => 'Mumble Server',
       'ns2' => 'Natural Selection 2',
-      'teamspeak3' => "Teamspeak 3"
+      'quake2' => 'Quake 2 Server',
+      'quake3' => 'Quake 3 Server',
+      'quakelive' => 'Quake Live',
+      'redorchestra2' => 'Red Orchestra 2',
+      'rust' => 'Rust',
+      'samp' => 'San Andreas Multiplayer',
+      'sevendaystodie' => '7 Days to Die',
+      'ship' => 'The Ship',
+      'squad' => 'Squad',
+      'starmade' => 'StarMade',
+      'teamspeak3' => "Teamspeak 3",
+      'teeworlds' => 'Teeworlds Server',
+      'terraria' => 'Terraria',
+      'tf2' => 'Team Fortress 2',
+      'tibia' => 'Tibia',
+      'tshock' => 'Tshock',
+      'unreal2' => 'Unreal 2',
+      'unturned' => 'Unturned',
+      'ut3' => 'Unreal Tournament 3',
+      'ut2004' => 'Unreal Tournament 2004',
+      'ventrilo' => 'Ventrilo',
+      'warsow' => 'Warsow',
+      'won' => 'World Opponent Network'
     ), 'multiple' => FALSE)));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->name, TRUE));
     $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_name_default', $this->name_default, FALSE));

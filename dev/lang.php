@@ -10,6 +10,7 @@ $lang = array(
 	'axenserverlist_game' => 'Game',
 	'axenserverlist_name' => 'Custom name',
 	'axenserverlist_ip' => 'IP',
+	'axenserverlist_ip_desc' => 'If your server is Discord then provide ID widget.',
 	'axenserverlist_owners' => 'Owners',
 	'axenserverlist_statistics' => 'Statistics URL',
 	'axenserverlist_tv' => 'TV URL',

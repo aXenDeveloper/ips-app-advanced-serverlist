@@ -27,6 +27,9 @@ Server table showing server information about the status, name, number of player
 - [Requirements 🏷️](#requirements-)
 - [Compatible servers 💻](#compatible-servers-)
 - [Install 🧰](#install-)
+- [Configuration 🔨](#configuration-)
+  - [Discord Configuration](#dicord-configuration)
+  - [TeamSpeak 3 Permissions](#teamspeak-3-permissions)
 - [Update 🛠️](#update-)
 - [Graphics 📷](#graphics-)
 - [Download from other sources 🔌](#download-from-other-sources-)
@@ -35,7 +38,8 @@ Server table showing server information about the status, name, number of player
 
 - [IPS Community Suite: 4.5 version](https://invisioncommunity.com/)
 - PHP 7.2+
-- [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses
+- [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
+- ❗❗ Unlocked external ports on the website server
 
 ## Compatible servers 💻
 
@@ -79,7 +83,29 @@ Server table showing server information about the status, name, number of player
 - Multi Theft Auto
 - Mumble Server
 - Natural Selection 2
+- Quake 2 Server
+- Quake 3 Server
+- Quake Live
+- Red Orchestra 2
+- Rust
+- San Andreas Multiplayer
+- 7 Days to Die
+- The Ship
+- Squad
+- StarMade
 - Teamspeak 3
+- Teeworlds Server
+- Terraria
+- Team Fortress 2
+- Tibia
+- Tshock
+- Unreal 2
+- Unturned
+- Unreal Tournament 3
+- Unreal Tournament 2004
+- Ventrilo
+- Warsow
+- World Opponent Network
 
 _In future versions, new servers will be added to the list._
 
@@ -90,6 +116,38 @@ _In future versions, new servers will be added to the list._
 2. Click on the link **manual upload**,  
    ![Manual Upload](https://axendev.net/github/app/manual_upload.png)
 3. Select file **.tar** [from packet](https://github.com/aXenDeveloper/ips-app-serverlist/releases) and click install button
+
+## Configuration 🔨
+
+1. Go to: AdminCP -> Advanced Server List -> Servers -> **Create new**,
+2. First you have to choice a game in **Game**,
+3. Provide a custom name in **Custom name** for example: _JailBreak_,
+4. Provide a adress IP in **IP** for exampe: **145.239.16.78:27015**.  
+   ❗❗ Some servers like **TeamSpeak 3** require a **Query port**!
+5. Click **save**.
+
+### Discord configuration
+
+You have to configurate Discord Widget which will return a value:
+
+- name,
+- instant_invite,
+- presence_count
+
+To add a discord server you have to enter the widget ID in the **IP** field.
+
+If you want check return values from your server discord check from json file: `https://discordapp.com/api/guilds/{your ID widget form discord}/widget.json` for example: https://discordapp.com/api/guilds/720054040116854835/widget.json
+
+### TeamSpeak 3 Permissions
+
+If after adding TeamSpeak 3 server but it's still offline then check permissions for **guest** group:
+
+```
+b_virtualserver_info_view
+b_virtualserver_channelgroup_list
+b_virtualserver_client_list
+b_virtualserver_channel_list
+```
 
 ## Update 🛠️
 
