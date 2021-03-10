@@ -134,7 +134,7 @@ You have to configurate Discord Widget which will return a value:
 - instant_invite,
 - presence_count
 
-To add a discord server you have to enter the widget ID in the **IP** field.
+To add a discord server you have to enter the **widget ID** in the **IP** field.
 
 If you want check return values from your server discord check from json file: `https://discordapp.com/api/guilds/{your ID widget form discord}/widget.json` for example: https://discordapp.com/api/guilds/720054040116854835/widget.json
 

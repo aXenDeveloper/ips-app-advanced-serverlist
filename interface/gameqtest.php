@@ -4,8 +4,8 @@ require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/int
 
 
 $servers = array([
-  'type'    => 'bf4',
-  'host'    => '192.223.30.148:47200',
+  'type'    => 'csgo',
+  'host'    => '137.74.5.141:27015',
 ]);
 
 $gq = new \GameQ\GameQ();
