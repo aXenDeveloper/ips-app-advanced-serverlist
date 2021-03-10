@@ -42,8 +42,7 @@ class _aXenServersQueryServers extends \IPS\Task
 		$getServers = \IPS\Db::i()->select('*', 'axenserverlist_servers', NULL, 'axenserverlist_position DESC');
 
 		$gq = new \GameQ\GameQ();
-		// $gq->setOption('write_wait', 10);
-		// $gq->setOption('timeout', 3);
+		$gq->setOption('write_wait', 10);
 
 		foreach ($getServers as $row) {
 			if ($row['axenserverlist_game'] != 'discord') {
@@ -72,7 +71,7 @@ class _aXenServersQueryServers extends \IPS\Task
 								$dataUpdate = [
 									'axenserverlist_status' => 1,
 									'axenserverlist_current_players' => $data['gq_numplayers'],
-									'axenserverlist_max_players' => $data['gq_maxplayers'],
+									'axenserverlist_max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : $data['gq_numplayers'],
 									'axenserverlist_name_default_text' => $data['gq_hostname'],
 									'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : NULL,
 									'axenserverlist_game_long' => $data['gq_name'],

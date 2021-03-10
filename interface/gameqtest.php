@@ -5,10 +5,12 @@ require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/int
 
 $servers = array([
   'type'    => 'csgo',
-  'host'    => '137.74.5.141:27015',
+  'host'    => '137.74.5.141:27015'
 ]);
 
 $gq = new \GameQ\GameQ();
+$gq->setOption('write_wait', 10);
+$gq->setOption('debug', true);
 
 foreach ($servers as $server) {
   try {
