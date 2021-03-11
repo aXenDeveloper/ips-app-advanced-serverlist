@@ -18,19 +18,6 @@
 }
 {{endif}}
 
-.aXenServerList_hide {
-  opacity: 0.5;
-}
-
-.aXenServerList_hide + .aXenServerList_ul,
-.aXenServerList_hide ~ .ipsList_reset.ipsFlex {
-  display: none;
-}
-
-.aXenServerList_hide > .aXenServerList_toggle_hide {
-  transform: rotate(90deg);
-}
-
 .aXenServerList_toggle {
   font-size: 18px;
   opacity: 0.2;
@@ -343,6 +330,21 @@
   display: flex;
 }
 {{endif}}
+
+
+/* ========== Hide ========== */
+.aXenServerList_hide {
+  opacity: 0.5;
+}
+
+.aXenServerList_hide + .aXenServerList_ul,
+.aXenServerList_hide ~ .ipsList_reset.ipsFlex {
+  display: none;
+}
+
+.aXenServerList_hide > .aXenServerList_toggle_hide {
+  transform: rotate(90deg);
+}
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
