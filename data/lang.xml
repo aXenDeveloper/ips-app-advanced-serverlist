@@ -11,7 +11,6 @@
   <word key="axenserverlist_name" js="0">Custom name</word>
   <word key="axenserverlist_ip" js="0">IP</word>
   <word key="axenserverlist_ip_desc" js="0">If your server is Discord then provide ID widget.</word>
-  <word key="axenserverlist_owners" js="0">Owners</word>
   <word key="axenserverlist_statistics" js="0">Statistics URL</word>
   <word key="axenserverlist_tv" js="0">TV URL</word>
   <word key="axenserverlist_vote" js="0">Vote URL</word>
