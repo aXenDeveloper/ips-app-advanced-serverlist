@@ -122,7 +122,7 @@ _In future versions, new servers will be added to the list._
 1. Go to: AdminCP -> Advanced Server List -> Servers -> **Create new**,
 2. First you have to choice a game in **Game**,
 3. Provide a custom name in **Custom name** for example: _JailBreak_,
-4. Provide a adress IP in **IP** for exampe: **145.239.16.78:27015**.  
+4. Provide a address IP in **IP** for example: **145.239.16.78:27015**.  
    ❗❗ Some servers like **TeamSpeak 3** require a **Query port**!
 5. Click **save**.
 
