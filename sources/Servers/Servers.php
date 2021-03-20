@@ -253,8 +253,8 @@ class _Servers extends \IPS\Node\Model
 
       $dataUpdate = [
         'axenserverlist_status' => 1,
-        'axenserverlist_current_players' => $dataFromJSON['presence_count'],
-        'axenserverlist_max_players' => $dataFromJSON['presence_count'],
+        'axenserverlist_current_players' => $dataFromJSON['presence_count'] || 0,
+        'axenserverlist_max_players' => $dataFromJSON['presence_count'] || 0,
         'axenserverlist_name_default_text' => $dataFromJSON['name'],
         'axenserverlist_game_long' => 'Discord',
         'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
