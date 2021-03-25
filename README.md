@@ -28,7 +28,7 @@ Server table showing server information about the status, name, number of player
 - [Compatible servers 💻](#compatible-servers-)
 - [Install 🧰](#install-)
 - [Configuration 🔨](#configuration-)
-  - [Discord Configuration](#dicord-configuration)
+  - [Discord Configuration](#discord-configuration)
   - [TeamSpeak 3 Permissions](#teamspeak-3-permissions)
 - [Update 🛠️](#update-)
 - [Graphics 📷](#graphics-)
@@ -112,10 +112,10 @@ _In future versions, new servers will be added to the list._
 ## Install 🧰
 
 1. Go to: AdminCP -> System -> SITE FEATURES -> **Appliactions**,  
-   ![Select Plugin](https://axendev.net/github/app/admincp_select.png)
+   ![Select Plugin](https://files.axendev.net/github/app/admincp_select.png)
 2. Click on the link **manual upload**,  
-   ![Manual Upload](https://axendev.net/github/app/manual_upload.png)
-3. Select file **.tar** [from packet](https://github.com/aXenDeveloper/ips-app-serverlist/releases) and click install button
+   ![Manual Upload](https://files.axendev.net/github/app/manual_upload.png)
+3. Select file **.tar** [from packet](https://github.com/aXenDeveloper/ips-app-advanced-serverlist/releases) and click install button
 
 ## Configuration 🔨
 
@@ -152,22 +152,22 @@ b_virtualserver_channel_list
 ## Update 🛠️
 
 1. Go to: AdminCP -> System -> SITE FEATURES -> **Appliactions**,  
-   ![Select Plugin](https://axendev.net/github/app/admincp_select.png)
+   ![Select Plugin](https://files.axendev.net/github/app/admincp_select.png)
 2. Search appliaction and click **Upload a new version**,  
-   ![Upload a new version](https://axendev.net/github/app/new_version_upload.png)
+   ![Upload a new version](https://files.axendev.net/github/app/new_version_upload.png)
 3. Select file **.tar** from packet and click install button.
 
 ## Graphics 📷
 
-![1](https://axendev.net/myapps/app/serverlist/1.png)
-![2](https://axendev.net/myapps/app/serverlist/2.png)
-![3](https://axendev.net/myapps/app/serverlist/3.png)
-![4](https://axendev.net/myapps/app/serverlist/4.png)
-![5](https://axendev.net/myapps/app/serverlist/5.png)
-![6](https://axendev.net/myapps/app/serverlist/6.png)
-![7](https://axendev.net/myapps/app/serverlist/7.png)
-![8](https://axendev.net/myapps/app/serverlist/8.png)
-![9](https://axendev.net/myapps/app/serverlist/9.png)
+![1](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
+![2](https://files.axendev.net/projects/ips/applications/serverlist/2.png)
+![3](https://files.axendev.net/projects/ips/applications/serverlist/3.png)
+![4](https://files.axendev.net/projects/ips/applications/serverlist/4.png)
+![5](https://files.axendev.net/projects/ips/applications/serverlist/5.png)
+![6](https://files.axendev.net/projects/ips/applications/serverlist/6.png)
+![7](https://files.axendev.net/projects/ips/applications/serverlist/7.png)
+![8](https://files.axendev.net/projects/ips/applications/serverlist/8.png)
+![9](https://files.axendev.net/projects/ips/applications/serverlist/9.png)
 
 ## Download from other sources 🔌
 
