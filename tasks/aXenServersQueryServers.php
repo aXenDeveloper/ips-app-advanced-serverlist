@@ -108,37 +108,41 @@ class _aXenServersQueryServers extends \IPS\Task
 					\IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
 				}
 			} else {
-				$url = "https://discordapp.com/api/guilds/" . $row['axenserverlist_ip'] . "/widget.json";
-				$dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
+				try {
+					$url = "https://discordapp.com/api/guilds/" . $row['axenserverlist_ip'] . "/widget.json";
+					$dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
 
-				if (!$dataFromJSON['name']) {
+					if (!$dataFromJSON['name']) {
+						$dataUpdate = [
+							'axenserverlist_status' => 0,
+							'axenserverlist_current_players' => 0,
+							'axenserverlist_max_players' => 0,
+							'axenserverlist_game_long' => 'Discord',
+							'axenserverlist_protocol' => 'discord'
+						];
+
+						\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
+						continue;
+					}
+
 					$dataUpdate = [
-						'axenserverlist_status' => 0,
-						'axenserverlist_current_players' => 0,
-						'axenserverlist_max_players' => 0,
+						'axenserverlist_status' => 1,
+						'axenserverlist_current_players' => $dataFromJSON['presence_count'],
+						'axenserverlist_max_players' => $dataFromJSON['presence_count'],
+						'axenserverlist_name_default_text' => $dataFromJSON['name'],
 						'axenserverlist_game_long' => 'Discord',
+						'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
 						'axenserverlist_protocol' => 'discord'
 					];
 
+					if ($dataFromJSON['presence_count'] > $row['axenserverlist_most_players']) {
+						$dataUpdate['axenserverlist_most_players'] = $dataFromJSON['presence_count'];
+					}
+
 					\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
-					continue;
+				} catch (\Exception $e) {
+					\IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
 				}
-
-				$dataUpdate = [
-					'axenserverlist_status' => 1,
-					'axenserverlist_current_players' => $dataFromJSON['presence_count'] || 0,
-					'axenserverlist_max_players' => $dataFromJSON['presence_count'] || 0,
-					'axenserverlist_name_default_text' => $dataFromJSON['name'],
-					'axenserverlist_game_long' => 'Discord',
-					'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
-					'axenserverlist_protocol' => 'discord'
-				];
-
-				if ($dataFromJSON['presence_count'] > $row['axenserverlist_most_players']) {
-					$dataUpdate['axenserverlist_most_players'] = $dataFromJSON['presence_count'];
-				}
-
-				\IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $row['axenserverlist_id']]);
 			}
 		}
 
