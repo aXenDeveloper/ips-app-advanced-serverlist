@@ -1,1 +1,7 @@
-[]
+{
+    "core": {
+        "FrontNavigation": {
+            "Servers": "IPS\\axenserverlist\\extensions\\core\\FrontNavigation\\Servers"
+        }
+    }
+}

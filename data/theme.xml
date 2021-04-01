@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="pages" template_name="aXenServerListPage" template_data="$servers, $orientation" template_location="front" template_app="axenserverlist"><![CDATA[
+<div class="ipsWidget ipsWidget_horizontal ipsBox">
+  {template="aXenServerListWidget" app="axenserverlist" group="widgets" location="front" params="$servers, $orientation"}
+</div>]]></template>
  <template template_group="servers" template_name="footer" template_data="$totalServers, $totalPlayers, $totalPlayersMax" template_location="front" template_app="axenserverlist"><![CDATA[<ul class="ipsList_reset ipsFlex ipsFlex-ai:center ipsFlex-jc:around">
   <li class="ipsPadding:half ipsType_center">
     <span class="ipsBadge ipsBadge_new">

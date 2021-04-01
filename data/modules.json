@@ -5,5 +5,12 @@
             "protected": 0,
             "default": 0
         }
+    },
+    "front": {
+        "servers": {
+            "default": 0,
+            "default_controller": "servers",
+            "protected": 0
+        }
     }
 }

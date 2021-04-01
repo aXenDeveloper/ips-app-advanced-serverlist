@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10007">
+ <app key="axenserverlist" version="10008">
   <word key="__app_axenserverlist" js="0">(aXen) Advanced Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Advanced Server List</word>
@@ -82,5 +82,8 @@
   <word key="aXenServerList_settings_fullWidth_default" js="0">Enable table in 2 columns (full width) by default?</word>
   <word key="r__servers" js="0">Server list</word>
   <word key="r__servers_manage" js="0">Can manage servers?</word>
+  <word key="module__axenserverlist_servers" js="0">Advanced Server List</word>
+  <word key="aXenServerList_page" js="0">Server list</word>
+  <word key="frontnavigation_axenserverlist" js="0">Servers</word>
  </app>
 </language>

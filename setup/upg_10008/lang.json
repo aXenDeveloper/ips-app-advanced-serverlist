@@ -1,0 +1,16 @@
+{
+    "normal": {
+        "added": [
+            "module__axenserverlist_servers",
+            "aXenServerList_page",
+            "frontnavigation_axenserverlist"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}
