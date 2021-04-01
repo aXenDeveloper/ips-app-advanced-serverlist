@@ -3,6 +3,10 @@
  <module key="admin/servers"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
  <module key="front/servers"><![CDATA[{"default":0,"default_controller":"servers","protected":0}]]></module>
  <task frequency="P0Y0M0DT0H5M0S">aXenServersQueryServers</task>
+ <setting key="aXenServerList_settings_buttons_forum"><![CDATA[{"key":"aXenServerList_settings_buttons_forum","default":"ipsButton_normal"}]]></setting>
+ <setting key="aXenServerList_settings_buttons_statistics"><![CDATA[{"key":"aXenServerList_settings_buttons_statistics","default":"ipsButton_light"}]]></setting>
+ <setting key="aXenServerList_settings_buttons_tv"><![CDATA[{"key":"aXenServerList_settings_buttons_tv","default":"ipsButton_light"}]]></setting>
+ <setting key="aXenServerList_settings_buttons_vote"><![CDATA[{"key":"aXenServerList_settings_buttons_vote","default":"ipsButton_light"}]]></setting>
  <setting key="aXenServerList_settings_colors"><![CDATA[{"key":"aXenServerList_settings_colors","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_colors_1_20"><![CDATA[{"key":"aXenServerList_settings_colors_1_20","default":"#3b7fb5"}]]></setting>
  <setting key="aXenServerList_settings_colors_21_40"><![CDATA[{"key":"aXenServerList_settings_colors_21_40","default":"#4ab53b"}]]></setting>
@@ -19,10 +23,6 @@
  <setting key="aXenServerList_settings_scroll_height"><![CDATA[{"key":"aXenServerList_settings_scroll_height","default":"250"}]]></setting>
  <setting key="aXenServerList_settings_scroll_mobile"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll_mobile_value"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile_value","default":"250"}]]></setting>
- <setting key="axenserverlist_settings_buttons_forum"><![CDATA[{"key":"axenserverlist_settings_buttons_forum","default":"ipsButton_normal"}]]></setting>
- <setting key="axenserverlist_settings_buttons_statistics"><![CDATA[{"key":"axenserverlist_settings_buttons_statistics","default":"ipsButton_light"}]]></setting>
- <setting key="axenserverlist_settings_buttons_tv"><![CDATA[{"key":"axenserverlist_settings_buttons_tv","default":"ipsButton_light"}]]></setting>
- <setting key="axenserverlist_settings_buttons_vote"><![CDATA[{"key":"axenserverlist_settings_buttons_vote","default":"ipsButton_light"}]]></setting>
  <widget key="aXenServerListWidget"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":false,"menu_style":"menu","embeddable":true}]]></widget>
  <hook key="loadJSandCSS"><![CDATA[{"type":"C","class":"\\IPS\\Dispatcher\\Standard"}]]></hook>
 </build>

@@ -118,6 +118,7 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Number('axenserverlist_query_port', $this->query_port == 0 ? NULL : $this->query_port, FALSE));
+    $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_debug', $this->debug, FALSE));
     $form->addTab('axenserverlist_tab_urls');
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_statistics', $this->statistics, FALSE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, FALSE));
@@ -304,7 +305,12 @@ class _Servers extends \IPS\Node\Model
    */
   protected function get__badge()
   {
-    if ($this->new == TRUE) {
+    if ($this->debug == TRUE) {
+      return array(
+        0  => 'ipsBadge ipsBadge_style2',
+        1  => 'axenserverlist_debug'
+      );
+    } else if ($this->new == TRUE) {
       return array(
         0  => 'ipsBadge ipsBadge_negative',
         1  => 'aXenServerList_widget_new'

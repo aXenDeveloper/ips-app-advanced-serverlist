@@ -103,26 +103,26 @@ class _settings extends \IPS\Dispatcher\Controller
 
 		$form->addHeader('axenserverlist_header_buttons');
 		$form->add(new \IPS\Helpers\Form\Select(
-			'axenserverlist_settings_buttons_vote',
-			\IPS\Settings::i()->axenserverlist_settings_buttons_vote,
+			'aXenServerList_settings_buttons_vote',
+			\IPS\Settings::i()->aXenServerList_settings_buttons_vote,
 			TRUE,
 			['options' => $buttonsType, 'multiple' => FALSE]
 		));
 		$form->add(new \IPS\Helpers\Form\Select(
-			'axenserverlist_settings_buttons_statistics',
-			\IPS\Settings::i()->axenserverlist_settings_buttons_statistics,
+			'aXenServerList_settings_buttons_statistics',
+			\IPS\Settings::i()->aXenServerList_settings_buttons_statistics,
 			TRUE,
 			['options' => $buttonsType, 'multiple' => FALSE]
 		));
 		$form->add(new \IPS\Helpers\Form\Select(
-			'axenserverlist_settings_buttons_tv',
-			\IPS\Settings::i()->axenserverlist_settings_buttons_tv,
+			'aXenServerList_settings_buttons_tv',
+			\IPS\Settings::i()->aXenServerList_settings_buttons_tv,
 			TRUE,
 			['options' => $buttonsType, 'multiple' => FALSE]
 		));
 		$form->add(new \IPS\Helpers\Form\Select(
-			'axenserverlist_settings_buttons_forum',
-			\IPS\Settings::i()->axenserverlist_settings_buttons_forum,
+			'aXenServerList_settings_buttons_forum',
+			\IPS\Settings::i()->aXenServerList_settings_buttons_forum,
 			TRUE,
 			['options' => $buttonsType, 'multiple' => FALSE]
 		));

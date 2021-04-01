@@ -104,12 +104,16 @@
 }
 
 .aXenServerList_item_title\:name > .ipsBadge,
-.aXenServerList_item_title\:name > i.fa-trophy {
+.aXenServerList_item_title\:name > i {
   margin-right: 5px;
 }
 
 .aXenServerList_item_title\:name > i.fa-trophy {
   color: var(--intermediate-dark);
+}
+
+.aXenServerList_item_title\:name > i.fa-exclamation-triangle {
+  color: var(--informational-dark);
 }
 
 .aXenServerList_item\:ip {

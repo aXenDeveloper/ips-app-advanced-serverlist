@@ -12,6 +12,10 @@
         {{endif}}
 
         <span class="aXenServerList_item_title:name">
+          {{if $row['axenserverlist_debug']}}
+          <i class="fa fa-exclamation-triangle" data-ipstooltip title="{lang='aXenServerList_debug_icon'}"></i>
+          {{endif}}
+
           {{if $row['axenserverlist_top_server']}}
           {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
           <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
@@ -66,7 +70,7 @@
       <ul class="aXenServerList_item_more_ul">
         {{if $row['axenserverlist_vote']}}
         <li class="aXenServerList_item_more_ul_buttons">
-          <a href="{$row['axenserverlist_vote']}" class="ipsButton aXenServerListButton {setting='axenserverlist_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
+          <a href="{$row['axenserverlist_vote']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
             <i class="fa fa-plus"></i>
           </a>
         </li>
@@ -74,7 +78,7 @@
 
         {{if $row['axenserverlist_statistics']}}
         <li class="aXenServerList_item_more_ul_buttons">
-          <a href="{$row['axenserverlist_statistics']}" class="ipsButton aXenServerListButton {setting='axenserverlist_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
+          <a href="{$row['axenserverlist_statistics']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
             <i class="fa fa-bar-chart"></i>
           </a>
         </li>
@@ -82,7 +86,7 @@
 
         {{if $row['axenserverlist_tv']}}
         <li class="aXenServerList_item_more_ul_buttons">
-          <a href="{$row['axenserverlist_tv']}" class="ipsButton aXenServerListButton {setting='axenserverlist_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
+          <a href="{$row['axenserverlist_tv']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
             <i class="fa fa-video-camera"></i>
           </a>
         </li>
@@ -90,7 +94,7 @@
 
         {{if $row['axenserverlist_forum']}}
         <li class="aXenServerList_item_more_ul_buttons">
-          <a href="{$row['axenserverlist_forum']}" class="ipsButton aXenServerListButton {setting='axenserverlist_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
+          <a href="{$row['axenserverlist_forum']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
             <i class="fa fa-comments"></i>
           </a>
         </li>

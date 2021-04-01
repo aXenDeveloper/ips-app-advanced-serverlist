@@ -3,13 +3,15 @@
         "added": {
             "0": "module__axenserverlist_servers",
             "2": "frontnavigation_axenserverlist",
-            "3": "axenserverlist_tab_personalization",
-            "4": "axenserverlist_tab_personalization_buttons",
-            "5": "axenserverlist_header_buttons",
-            "6": "axenserverlist_settings_buttons_vote",
-            "7": "axenserverlist_settings_buttons_statistics",
-            "8": "axenserverlist_settings_buttons_tv",
-            "9": "axenserverlist_settings_buttons_forum"
+            "10": "aXenServerList_tab_personalization",
+            "11": "aXenServerList_tab_personalization_buttons",
+            "12": "aXenServerList_header_buttons",
+            "13": "aXenServerList_settings_buttons_vote",
+            "14": "aXenServerList_settings_buttons_statistics",
+            "15": "aXenServerList_settings_buttons_tv",
+            "16": "aXenServerList_settings_buttons_forum",
+            "17": "aXenServerList_debug_icon",
+            "18": "axenserverlist_debug"
         },
         "edited": [],
         "removed": [

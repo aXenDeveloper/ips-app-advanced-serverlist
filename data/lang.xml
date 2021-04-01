@@ -83,12 +83,14 @@
   <word key="r__servers_manage" js="0">Can manage servers?</word>
   <word key="module__axenserverlist_servers" js="0">Servers</word>
   <word key="frontnavigation_axenserverlist" js="0">Servers</word>
-  <word key="axenserverlist_tab_personalization" js="0">Personalization</word>
-  <word key="axenserverlist_tab_personalization_buttons" js="0">Buttons</word>
-  <word key="axenserverlist_header_buttons" js="0">Buttons</word>
-  <word key="axenserverlist_settings_buttons_vote" js="0">Vote</word>
-  <word key="axenserverlist_settings_buttons_statistics" js="0">Statistics</word>
-  <word key="axenserverlist_settings_buttons_tv" js="0">TV</word>
-  <word key="axenserverlist_settings_buttons_forum" js="0">Forum</word>
+  <word key="aXenServerList_tab_personalization" js="0">Personalization</word>
+  <word key="aXenServerList_tab_personalization_buttons" js="0">Buttons</word>
+  <word key="aXenServerList_header_buttons" js="0">Buttons</word>
+  <word key="aXenServerList_settings_buttons_vote" js="0">Vote</word>
+  <word key="aXenServerList_settings_buttons_statistics" js="0">Statistics</word>
+  <word key="aXenServerList_settings_buttons_tv" js="0">TV</word>
+  <word key="aXenServerList_settings_buttons_forum" js="0">Forum</word>
+  <word key="aXenServerList_debug_icon" js="0">Debug mode is enabled on this server</word>
+  <word key="axenserverlist_debug" js="0">Debug mode</word>
  </app>
 </language>

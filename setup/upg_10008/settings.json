@@ -1,10 +1,10 @@
 {
-    "added": [
-        "axenserverlist_settings_buttons_forum",
-        "axenserverlist_settings_buttons_statistics",
-        "axenserverlist_settings_buttons_tv",
-        "axenserverlist_settings_buttons_vote"
-    ],
+    "added": {
+        "4": "aXenServerList_settings_buttons_forum",
+        "5": "aXenServerList_settings_buttons_statistics",
+        "6": "aXenServerList_settings_buttons_tv",
+        "7": "aXenServerList_settings_buttons_vote"
+    },
     "edited": [],
     "removed": []
 }
