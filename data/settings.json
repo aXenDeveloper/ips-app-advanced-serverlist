@@ -62,5 +62,21 @@
     {
         "key": "aXenServerList_settings_scroll_mobile_value",
         "default": "250"
+    },
+    {
+        "key": "axenserverlist_settings_buttons_forum",
+        "default": "ipsButton_normal"
+    },
+    {
+        "key": "axenserverlist_settings_buttons_statistics",
+        "default": "ipsButton_light"
+    },
+    {
+        "key": "axenserverlist_settings_buttons_tv",
+        "default": "ipsButton_light"
+    },
+    {
+        "key": "axenserverlist_settings_buttons_vote",
+        "default": "ipsButton_light"
     }
 ]

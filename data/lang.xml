@@ -59,7 +59,6 @@
   <word key="aXenServerList_settings_footer" js="0">Enable footer?</word>
   <word key="aXenServerList_settings_footer_desc" js="0">Footer have statistic: Total servers, Total players, Filled servers.</word>
   <word key="axenserverlist_tab_general" js="0">General</word>
-  <word key="axenserverlist_tab_view" js="0">View</word>
   <word key="aXenServerList_settings_scroll" js="0">Enable scroll in server list?</word>
   <word key="aXenServerList_settings_scroll_desc" js="0">If the height exceeds the set value, a scroll will appear.</word>
   <word key="aXenServerList_settings_scroll_height" js="0">Height server list</word>
@@ -82,8 +81,14 @@
   <word key="aXenServerList_settings_fullWidth_default" js="0">Enable table in 2 columns (full width) by default?</word>
   <word key="r__servers" js="0">Server list</word>
   <word key="r__servers_manage" js="0">Can manage servers?</word>
-  <word key="module__axenserverlist_servers" js="0">Advanced Server List</word>
-  <word key="aXenServerList_page" js="0">Server list</word>
+  <word key="module__axenserverlist_servers" js="0">Servers</word>
   <word key="frontnavigation_axenserverlist" js="0">Servers</word>
+  <word key="axenserverlist_tab_personalization" js="0">Personalization</word>
+  <word key="axenserverlist_tab_personalization_buttons" js="0">Buttons</word>
+  <word key="axenserverlist_header_buttons" js="0">Buttons</word>
+  <word key="axenserverlist_settings_buttons_vote" js="0">Vote</word>
+  <word key="axenserverlist_settings_buttons_statistics" js="0">Statistics</word>
+  <word key="axenserverlist_settings_buttons_tv" js="0">TV</word>
+  <word key="axenserverlist_settings_buttons_forum" js="0">Forum</word>
  </app>
 </language>

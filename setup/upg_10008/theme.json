@@ -35,6 +35,10 @@
             "front\/servers\/footer",
             "front\/servers\/more",
             "front\/servers\/row",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
             "front\/widgets\/aXenServerListWidget"
         ],
         "removed": []
@@ -42,6 +46,7 @@
     "css": {
         "added": [],
         "edited": [
+            "front\/widget.css",
             "front\/widget.css",
             "front\/widget.css",
             "front\/widget.css",

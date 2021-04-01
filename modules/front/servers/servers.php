@@ -23,7 +23,7 @@ class _servers extends \IPS\Dispatcher\Controller
 	public function execute()
 	{
 		$select = \IPS\Db::i()->select('*', 'axenserverlist_servers', NULL, 'axenserverlist_position ASC');
-		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('aXenServerList_page');
+		\IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('module__axenserverlist_servers');
 		\IPS\Output::i()->output = \IPS\Theme::i()->getTemplate('pages', 'axenserverlist', 'front')->aXenServerListPage($select, 'horizontal');
 		parent::execute();
 	}

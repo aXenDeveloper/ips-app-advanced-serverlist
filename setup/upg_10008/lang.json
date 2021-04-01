@@ -1,12 +1,20 @@
 {
     "normal": {
-        "added": [
-            "module__axenserverlist_servers",
-            "aXenServerList_page",
-            "frontnavigation_axenserverlist"
-        ],
+        "added": {
+            "0": "module__axenserverlist_servers",
+            "2": "frontnavigation_axenserverlist",
+            "3": "axenserverlist_tab_personalization",
+            "4": "axenserverlist_tab_personalization_buttons",
+            "5": "axenserverlist_header_buttons",
+            "6": "axenserverlist_settings_buttons_vote",
+            "7": "axenserverlist_settings_buttons_statistics",
+            "8": "axenserverlist_settings_buttons_tv",
+            "9": "axenserverlist_settings_buttons_forum"
+        },
         "edited": [],
-        "removed": []
+        "removed": [
+            "axenserverlist_tab_view"
+        ]
     },
     "js": {
         "added": [],

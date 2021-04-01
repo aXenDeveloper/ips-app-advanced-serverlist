@@ -63,7 +63,7 @@ class _settings extends \IPS\Dispatcher\Controller
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_81_100', \IPS\Settings::i()->aXenServerList_settings_colors_81_100, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_81_100'));
 
 
-		$form->addTab('axenserverlist_tab_view');
+		$form->addTab('axenserverlist_tab_personalization');
 		$form->add(new \IPS\Helpers\Form\YesNo(
 			'aXenServerList_settings_fullWidth',
 			\IPS\Settings::i()->aXenServerList_settings_fullWidth,
@@ -90,8 +90,42 @@ class _settings extends \IPS\Dispatcher\Controller
 			'aXenServerList_settings_fullWidth_control'
 		));
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_fullWidth_default', \IPS\Settings::i()->aXenServerList_settings_fullWidth_default, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_fullWidth_default'));
-
 		$form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_footer', \IPS\Settings::i()->aXenServerList_settings_footer, FALSE));
+
+		$buttonsType = [
+			'ipsButton_normal' => 'ipsButton_normal',
+			'ipsButton_primary' => 'ipsButton_primary',
+			'ipsButton_alternate' => 'ipsButton_alternate',
+			'ipsButton_important' => 'ipsButton_important',
+			'ipsButton_light' => 'ipsButton_light',
+			'ipsButton_veryLight' => 'ipsButton_veryLight'
+		];
+
+		$form->addHeader('axenserverlist_header_buttons');
+		$form->add(new \IPS\Helpers\Form\Select(
+			'axenserverlist_settings_buttons_vote',
+			\IPS\Settings::i()->axenserverlist_settings_buttons_vote,
+			TRUE,
+			['options' => $buttonsType, 'multiple' => FALSE]
+		));
+		$form->add(new \IPS\Helpers\Form\Select(
+			'axenserverlist_settings_buttons_statistics',
+			\IPS\Settings::i()->axenserverlist_settings_buttons_statistics,
+			TRUE,
+			['options' => $buttonsType, 'multiple' => FALSE]
+		));
+		$form->add(new \IPS\Helpers\Form\Select(
+			'axenserverlist_settings_buttons_tv',
+			\IPS\Settings::i()->axenserverlist_settings_buttons_tv,
+			TRUE,
+			['options' => $buttonsType, 'multiple' => FALSE]
+		));
+		$form->add(new \IPS\Helpers\Form\Select(
+			'axenserverlist_settings_buttons_forum',
+			\IPS\Settings::i()->axenserverlist_settings_buttons_forum,
+			TRUE,
+			['options' => $buttonsType, 'multiple' => FALSE]
+		));
 
 		$form->addTab('axenserverlist_tab_scroll');
 		$form->add(new \IPS\Helpers\Form\YesNo(
