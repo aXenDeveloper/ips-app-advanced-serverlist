@@ -15,6 +15,7 @@
 
 {{if settings.aXenServerList_settings_footer}}
 {{$totalServers = 0;}}
+{{$totalServersDebug = 0;}}
 {{$totalPlayers = 0;}}
 {{$totalPlayersMax = 0;}}
 {{endif}}
@@ -28,8 +29,12 @@
   {{$totalPlayersMax += $row['axenserverlist_max_players'];}}
   {{endif}}
 
+  {{if $row['axenserverlist_debug']}}
+  {{$totalServersDebug += 1;}}
+  {{endif}}
+
   {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
   {{endforeach}}
 </ul>
 
-{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}
+{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalServersDebug, $totalPlayers, $totalPlayersMax"}

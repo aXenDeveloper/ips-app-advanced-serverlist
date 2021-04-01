@@ -1,10 +1,18 @@
-<ips:template parameters="$totalServers, $totalPlayers, $totalPlayersMax" />
+<ips:template parameters="$totalServers, $totalServersDebug, $totalPlayers, $totalPlayersMax" />
 <ul class="ipsList_reset ipsFlex ipsFlex-ai:center ipsFlex-jc:around">
   <li class="ipsPadding:half ipsType_center">
     <span class="ipsBadge ipsBadge_new">
       {$totalServers}
     </span> {lang="aXenServerList_widget_totalServers"}
   </li>
+
+  {{if $totalServersDebug}}
+  <li class="ipsPadding:half ipsType_center">
+    <span class="ipsBadge ipsBadge_style2">
+      {$totalServersDebug}
+    </span> {lang="aXenServerList_widget_totalServersDebug"}
+  </li>
+  {{endif}}
 
   <li class="ipsPadding:half ipsType_center">
     <span class="ipsBadge ipsBadge_positive">
