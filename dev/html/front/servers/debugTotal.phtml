@@ -1,0 +1,41 @@
+<ips:template parameters="$servers" />
+{{$totalServersDebug = 0;}}
+
+{{foreach $servers as $row}}
+{{if $row['axenserverlist_debug']}}
+{{$totalServersDebug += 1;}}
+{{endif}}
+{{endforeach}}
+
+{{if $totalServersDebug}}
+<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right:half" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
+
+<div id="aXenServerList_toggle_debug_menu" class="ipsMenu ipsMenu_wide ipsHide">
+  <div class="aXenServerList_debug ipsPadding:half">
+    <ul class="aXenServerList_debug_list">
+      {{foreach $servers as $row}}
+      {{if $row['axenserverlist_debug']}}
+      <li>
+        <span>
+          {{$icons = $row["axenserverlist_game"] . '.png';}}
+          {{if settings.lazy_load_enabled}}
+          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+          {{else}}
+            <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+            {{endif}}
+
+            <span class="aXenServerList_debug:name">{$row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name']}</span>
+        </span>
+
+        <span>
+          {{$topServerLang = 'axenserverlist_debug_text_' . $row['axenserverlist_id'];}}
+          {lang="$topServerLang"}
+        </span>
+
+      </li>
+      {{endif}}
+      {{endforeach}}
+    </ul>
+  </div>
+</div>
+{{endif}}

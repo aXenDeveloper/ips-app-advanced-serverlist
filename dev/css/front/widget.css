@@ -220,7 +220,8 @@
   flex: 0 0 200px;
 }
 
-.aXenServerList_item_more_menu {
+.aXenServerList_item_more_menu,
+.aXenServerList_debug {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -230,16 +231,19 @@
   flex: 0 0 calc(50% - 10px);
 }
 
-.aXenServerList_item_more_info > li {
+.aXenServerList_item_more_info > li,
+.aXenServerList_debug_list > li {
   display: flex;
   justify-content: space-between;
 }
 
-.aXenServerList_item_more_info > li:not(:last-child) {
+.aXenServerList_item_more_info > li:not(:last-child),
+.aXenServerList_debug_list > li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.aXenServerList_item_more_info > li > span:last-child {
+.aXenServerList_item_more_info > li > span:last-child,
+.aXenServerList_debug_list > li > span:last-child {
   margin-left: 10px;
   min-width: 25%;
   max-width: 50%;
@@ -248,7 +252,8 @@
   text-overflow: ellipsis;
 }
 
-.aXenServerList_item_more_menu .aXenServerList_item_more_info {
+.aXenServerList_item_more_menu .aXenServerList_item_more_info,
+.aXenServerList_debug .aXenServerList_debug_list {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -286,6 +291,17 @@
 
 .aXenServerList_item_more_ul > li:not(:last-child) {
   margin-right: 5px;
+}
+
+/* ========== Debug ========== */
+.aXenServerList_debug\:img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.aXenServerList_debug\:name {
+  margin-left: 5px;
 }
 
 /* ========== Buttons ========== */

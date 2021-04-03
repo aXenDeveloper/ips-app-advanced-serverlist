@@ -22,18 +22,6 @@ Server table showing server information about the status, name, number of player
 - Lazy loading in img icons,
 - Table in 2 columns that the user can control
 
-## Table of contents 📖
-
-- [Requirements 🏷️](#requirements-)
-- [Compatible servers 💻](#compatible-servers-)
-- [Install 🧰](#install-)
-- [Configuration 🔨](#configuration-)
-  - [Discord Configuration](#discord-configuration)
-  - [TeamSpeak 3 Permissions](#teamspeak-3-permissions)
-- [Update 🛠️](#update-)
-- [Graphics 📷](#graphics-)
-- [Download from other sources 🔌](#download-from-other-sources-)
-
 ## Requirements 🏷️
 
 - [IPS Community Suite: 4.5 version](https://invisioncommunity.com/)
