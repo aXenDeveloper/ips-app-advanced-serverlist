@@ -1,6 +1,15 @@
 <ips:template parameters="$row" />
 <div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu aXenServerListMenu{{if settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerListMenu_fullWidth{{endif}} ipsHide">
   <div class="aXenServerList_item_more_menu ipsPadding:half">
+
+    {{if $row['axenserverlist_debug'] && $row['axenserverlist_debug_text'] }}
+    <div class="ipsMessage ipsMessage_warning">
+      {{$topServerLang = 'axenserverlist_debug_text_' . $row['axenserverlist_id'];}}
+      {lang="$topServerLang"}
+    </div>
+    {{endif}}
+
+
     <ul class="aXenServerList_item_more_info{{if !$row['axenserverlist_forum'] || !$row['axenserverlist_vote'] || !$row['axenserverlist_statistics'] || !$row['axenserverlist_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
       {{if $row['axenserverlist_owners']}}
       <li class="aXenServerList_item_more_info:owners">

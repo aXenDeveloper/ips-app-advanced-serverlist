@@ -92,5 +92,7 @@
   <word key="aXenServerList_settings_buttons_forum" js="0">Forum</word>
   <word key="aXenServerList_debug_icon" js="0">Debug mode is enabled on this server</word>
   <word key="axenserverlist_debug" js="0">Debug mode</word>
+  <word key="aXenServerList_widget_toggle_debug" js="0">Debug mode information</word>
+  <word key="axenserverlist_debug_text" js="0">[Debug mode] Reason</word>
  </app>
 </language>

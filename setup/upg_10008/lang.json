@@ -11,7 +11,9 @@
             "15": "aXenServerList_settings_buttons_tv",
             "16": "aXenServerList_settings_buttons_forum",
             "17": "aXenServerList_debug_icon",
-            "18": "axenserverlist_debug"
+            "18": "axenserverlist_debug",
+            "20": "aXenServerList_widget_toggle_debug",
+            "21": "axenserverlist_debug_text"
         },
         "edited": [],
         "removed": [

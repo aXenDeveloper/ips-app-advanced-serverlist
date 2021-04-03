@@ -92,5 +92,6 @@ $lang = array(
 	'aXenServerList_settings_buttons_forum' => 'Forum',
 	'aXenServerList_debug_icon' => 'Debug mode is enabled on this server',
 	'axenserverlist_debug' => 'Debug mode',
-	'aXenServerList_widget_totalServersDebug' => 'Servers with debug mode enabled'
+	'aXenServerList_widget_toggle_debug' => 'Debug mode information',
+	'axenserverlist_debug_text' => '[Debug mode] Reason'
 );

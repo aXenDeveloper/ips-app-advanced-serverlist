@@ -325,6 +325,18 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "axenserverlist_debug_text": {
+                "name": "axenserverlist_debug_text",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

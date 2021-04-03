@@ -22,8 +22,9 @@
   font-size: 18px;
   opacity: 0.2;
   width: 20px;
-  height: 20px;
+  height: 16px;
   color: rgb(var(--theme-section_title_font));
+  position: relative;
 }
 
 .aXenServerList_toggle:hover {
@@ -42,6 +43,15 @@
 
 .aXenServerList_toggle_scroll:after {
   content: '\f065';
+}
+
+.aXenServerList_toggle_debug {
+  color: var(--informational-dark);
+  opacity: 1;
+}
+
+.aXenServerList_toggle_debug:after {
+  content: '\f071';
 }
 
 .aXenServerList_scroll > .aXenServerList_toggle_scroll:after {

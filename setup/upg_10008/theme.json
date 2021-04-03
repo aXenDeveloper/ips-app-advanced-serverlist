@@ -1,9 +1,18 @@
 {
     "html": {
         "added": [
-            "front\/pages\/aXenServerListPage"
+            "front\/pages\/aXenServerListPage",
+            "front\/servers\/title"
         ],
         "edited": [
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/widgets\/aXenServerListWidget",
             "front\/servers\/footer",
             "front\/servers\/more",
             "front\/servers\/row",
@@ -50,6 +59,8 @@
     "css": {
         "added": [],
         "edited": [
+            "front\/widget.css",
+            "front\/widget.css",
             "front\/widget.css",
             "front\/widget.css",
             "front\/widget.css",
