@@ -1,4 +1,4 @@
-<ips:template parameters="$servers" />
+<ips:template parameters="$servers, $fullWidthPage" />
 {{$totalServersDebug = 0;}}
 
 {{foreach $servers as $row}}
@@ -8,7 +8,7 @@
 {{endforeach}}
 
 {{if $totalServersDebug}}
-<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
+<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right{{if !$fullWidthPage}} md:ipsMargin_right:none{{endif}}" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
 
 <div id="aXenServerList_toggle_debug_menu" class="ipsMenu ipsMenu_wide ipsHide">
   <div class="aXenServerList_debug ipsPadding:half">

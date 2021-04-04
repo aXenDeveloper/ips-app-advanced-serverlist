@@ -3,7 +3,7 @@
 }
 
 {{if settings.aXenServerList_settings_scroll}}
-.aXenServerList_scroll + .aXenServerList_ul {
+.aXenServerList_scroll + .aXenServerList_ul_scroll {
   max-height: {setting='aXenServerList_settings_scroll_height'}px;
   overflow-y: auto;
 }
@@ -11,7 +11,7 @@
 
 {{if settings.aXenServerList_settings_scroll_mobile}}
 @media screen and (max-width: 979px) {
-  .aXenServerList_ul {
+  .aXenServerList_ul_scroll {
     max-height: {setting='aXenServerList_settings_scroll_mobile_value'}px;
     overflow-y: auto;
   }
@@ -333,6 +333,7 @@
 
 /* ========== Full width ========== */
 {{if settings.aXenServerList_settings_fullWidth}}
+@media screen and (min-width: 979px) {
 .aXenServerList_fullWidth + .aXenServerList_ul {
   display: flex;
   flex-wrap: wrap;
@@ -359,6 +360,7 @@
 .aXenServerListMenu_fullWidth .aXenServerList_item_more_info .aXenServerList_item_more_info\:owners {
   display: flex;
 }
+}
 {{endif}}
 
 
@@ -378,12 +380,12 @@
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
-  .aXenServerList ~ .aXenServerList_ul {
+  .aXenServerList ~ .aXenServerList_ul_scroll {
     flex-direction: column;
     flex-wrap: nowrap;
   }
 
-  .aXenServerList ~ .aXenServerList_ul > li {
+  .aXenServerList ~ .aXenServerList_ul_scroll > li {
     flex: 0 0 100%;
   }
 

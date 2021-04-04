@@ -1,0 +1,24 @@
+{
+    "id": 10009,
+    "name": "1.1.0 Alpha 3",
+    "steps": {
+        "queries": true,
+        "lang": false,
+        "theme": true,
+        "themeSettings": false,
+        "javascript": true,
+        "emailTemplates": false,
+        "hooks": false,
+        "acpSearchKeywords": false,
+        "settings": false,
+        "tasks": false,
+        "modules": false,
+        "widgets": false,
+        "whatsnew": false,
+        "customOptions": false,
+        "customRoutines": false
+    },
+    "forceMainUpgrader": false,
+    "forceManualDownloadNoCiC": false,
+    "forceManualDownloadCiC": false
+}

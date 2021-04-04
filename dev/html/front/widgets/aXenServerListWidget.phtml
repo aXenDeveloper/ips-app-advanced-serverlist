@@ -1,4 +1,4 @@
-<ips:template parameters="$servers, $orientation" />
+<ips:template parameters="$servers, $orientation, $fullWidthPage" />
 
 {{if settings.aXenServerList_settings_footer}}
 {{$totalServers = 0;}}
@@ -6,9 +6,9 @@
 {{$totalPlayersMax = 0;}}
 {{endif}}
 
-{template="title" app="axenserverlist" group="servers" location="front" params="$servers, $orientation"}
+{template="title" app="axenserverlist" group="servers" location="front" params="$servers, $orientation, $fullWidthPage"}
 
-<ul class="aXenServerList_ul">
+<ul class="aXenServerList_ul{{if $fullWidthPage}} aXenServerList_ul_scroll{{endif}}">
   {{foreach $servers as $row}}
 
   {{if settings.aXenServerList_settings_footer}}

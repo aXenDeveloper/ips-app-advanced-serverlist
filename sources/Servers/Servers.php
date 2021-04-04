@@ -132,7 +132,7 @@ class _Servers extends \IPS\Node\Model
 
     $form->add(new \IPS\Helpers\Form\YesNo(
       'axenserverlist_debug_text_YesNo',
-      $this->debug,
+      $this->debug_text_YesNo,
       FALSE,
       [
         'togglesOn' => [
@@ -206,7 +206,7 @@ class _Servers extends \IPS\Node\Model
       \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
     }
 
-    if (isset($values['axenserverlist_debug_text'])) {
+    if ($values['axenserverlist_debug_text_YesNo']) {
       \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}", $values['axenserverlist_debug_text']);
     } else {
       \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}");

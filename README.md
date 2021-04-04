@@ -95,9 +95,7 @@ Server table showing server information about the status, name, number of player
 - Warsow
 - World Opponent Network
 
-_In future versions, new servers will be added to the list._
-
-## Install 🧰
+## 🧰 Install
 
 1. Go to: AdminCP -> System -> SITE FEATURES -> **Appliactions**,  
    ![Select Plugin](https://files.axendev.net/github/app/admincp_select.png)
@@ -105,7 +103,7 @@ _In future versions, new servers will be added to the list._
    ![Manual Upload](https://files.axendev.net/github/app/manual_upload.png)
 3. Select file **.tar** [from packet](https://github.com/aXenDeveloper/ips-app-advanced-serverlist/releases) and click install button
 
-## Configuration 🔨
+## 🔨 Configuration
 
 1. Go to: AdminCP -> Advanced Server List -> Servers -> **Create new**,
 2. First you have to choice a game in **Game**,
@@ -137,7 +135,7 @@ b_virtualserver_client_list
 b_virtualserver_channel_list
 ```
 
-## Update 🛠️
+## 🛠️ Update
 
 1. Go to: AdminCP -> System -> SITE FEATURES -> **Appliactions**,  
    ![Select Plugin](https://files.axendev.net/github/app/admincp_select.png)
@@ -145,7 +143,7 @@ b_virtualserver_channel_list
    ![Upload a new version](https://files.axendev.net/github/app/new_version_upload.png)
 3. Select file **.tar** from packet and click install button.
 
-## Graphics 📷
+## 📷 Graphics
 
 ![1](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
 ![2](https://files.axendev.net/projects/ips/applications/serverlist/2.png)
@@ -157,7 +155,7 @@ b_virtualserver_channel_list
 ![8](https://files.axendev.net/projects/ips/applications/serverlist/8.png)
 ![9](https://files.axendev.net/projects/ips/applications/serverlist/9.png)
 
-## Download from other sources 🔌
+## 🔌 Download from other sources
 
 - [invisioncommunity.com](https://invisioncommunity.com/files/file/9852-axen-advanced-server-list/),
 - [invisionize.pl](https://forum.invisionize.pl/files/file/825-axen-advanced-server-list/)
