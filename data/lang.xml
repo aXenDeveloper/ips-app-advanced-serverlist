@@ -92,7 +92,10 @@
   <word key="aXenServerList_settings_buttons_forum" js="0">Forum</word>
   <word key="aXenServerList_debug_icon" js="0">Debug mode is enabled on this server</word>
   <word key="axenserverlist_debug" js="0">Debug mode</word>
-  <word key="aXenServerList_widget_toggle_debug" js="0">Debug mode information</word>
+  <word key="aXenServerList_widget_toggle_debug" js="0">Show servers with Debug mode</word>
   <word key="axenserverlist_debug_text" js="0">[Debug mode] Reason</word>
+  <word key="axenserverlist_owners" js="0">Owners</word>
+  <word key="axenserverlist_debug_text_YesNo" js="0">[Debug mode] Enable reason?</word>
+  <word key="axenserverlist_debug_text_YesNo_desc" js="0">The reason will appear in the more tab for the given server and in the summary at the top of the table.</word>
  </app>
 </language>

@@ -118,14 +118,34 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, TRUE));
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Number('axenserverlist_query_port', $this->query_port == 0 ? NULL : $this->query_port, FALSE));
+
     $form->add(new \IPS\Helpers\Form\YesNo(
       'axenserverlist_debug',
       $this->debug,
       FALSE,
-      array('togglesOn' => array(
-        'axenserverlist_debug_text'
-      ))
+      [
+        'togglesOn' => [
+          'axenserverlist_debug_text_YesNo'
+        ]
+      ]
     ));
+
+    $form->add(new \IPS\Helpers\Form\YesNo(
+      'axenserverlist_debug_text_YesNo',
+      $this->debug,
+      FALSE,
+      [
+        'togglesOn' => [
+          'axenserverlist_debug_text'
+        ]
+      ],
+      NULL,
+      NULL,
+      NULL,
+      'axenserverlist_debug_text_YesNo'
+    ));
+
+
     $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_debug_text', NULL, FALSE, array('app' => 'axenserverlist', 'key' => "axenserverlist_debug_text_{$this->id}"), NULL, NULL, NULL, 'axenserverlist_debug_text'));
 
 
@@ -354,7 +374,9 @@ class _Servers extends \IPS\Node\Model
    */
   public function delete()
   {
-    \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
+    foreach (array('room_name' => "axenserverlist_top_server_text_{$this->_id}", 'room_rules' => "axenserverlist_debug_text_{$this->id}") as $fieldKey => $langKey) {
+      \IPS\Lang::deleteCustom('axenserverlist', $langKey);
+    }
 
     return parent::delete();
   }

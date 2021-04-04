@@ -94,5 +94,7 @@ $lang = array(
 	'axenserverlist_debug' => 'Debug mode',
 	'aXenServerList_widget_toggle_debug' => 'Show servers with Debug mode',
 	'axenserverlist_debug_text' => '[Debug mode] Reason',
-	'axenserverlist_owners' => 'Owners'
+	'axenserverlist_owners' => 'Owners',
+	'axenserverlist_debug_text_YesNo' => '[Debug mode] Enable reason?',
+	'axenserverlist_debug_text_YesNo_desc' => 'The reason will appear in the more tab for the given server and in the summary at the top of the table.'
 );

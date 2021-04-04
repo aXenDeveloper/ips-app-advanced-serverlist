@@ -8,7 +8,7 @@
 {{endforeach}}
 
 {{if $totalServersDebug}}
-<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right:half" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
+<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
 
 <div id="aXenServerList_toggle_debug_menu" class="ipsMenu ipsMenu_wide ipsHide">
   <div class="aXenServerList_debug ipsPadding:half">
@@ -28,7 +28,7 @@
         </span>
 
         <span>
-          {{$topServerLang = 'axenserverlist_debug_text_' . $row['axenserverlist_id'];}}
+          {{$topServerLang = $row['axenserverlist_debug_text_YesNo'] ? 'axenserverlist_debug_text_' . $row['axenserverlist_id'] : 'aXenServerList_debug_icon';}}
           {lang="$topServerLang"}
         </span>
 

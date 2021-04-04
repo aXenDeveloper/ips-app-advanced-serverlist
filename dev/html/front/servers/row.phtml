@@ -18,7 +18,7 @@
 
           {{if $row['axenserverlist_top_server']}}
           {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
-          <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && $row['axenserverlist_top_server_text']}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
+          <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && isset($row['axenserverlist_top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
           {{endif}}
 
           {{if $row['axenserverlist_new']}}
