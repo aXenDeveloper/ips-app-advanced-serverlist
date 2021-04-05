@@ -20,7 +20,9 @@ Server table showing server information about the status, name, number of player
 - Color filling of players,
 - RWD,
 - Lazy loading in img icons,
-- Table in 2 columns that the user can control
+- Table in 2 columns that the user can control,
+- Debug mode for server (A reason can be enter),
+- Separate page for server list
 
 ## 🏷️ Requirements
 
