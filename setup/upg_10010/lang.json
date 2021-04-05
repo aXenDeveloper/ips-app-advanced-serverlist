@@ -1,0 +1,19 @@
+{
+    "normal": {
+        "added": [
+            "axenserverlist_tab_personalization",
+            "axenserverlist_header_buttons"
+        ],
+        "edited": [],
+        "removed": [
+            "aXenServerList_tab_personalization",
+            "aXenServerList_tab_personalization_buttons",
+            "aXenServerList_header_buttons"
+        ]
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

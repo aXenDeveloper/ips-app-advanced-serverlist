@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10009">
+ <app key="axenserverlist" version="10010">
   <word key="__app_axenserverlist" js="0">(aXen) Advanced Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Advanced Server List</word>
@@ -83,9 +83,8 @@
   <word key="r__servers_manage" js="0">Can manage servers?</word>
   <word key="module__axenserverlist_servers" js="0">Servers</word>
   <word key="frontnavigation_axenserverlist" js="0">Servers</word>
-  <word key="aXenServerList_tab_personalization" js="0">Personalization</word>
-  <word key="aXenServerList_tab_personalization_buttons" js="0">Buttons</word>
-  <word key="aXenServerList_header_buttons" js="0">Buttons</word>
+  <word key="axenserverlist_tab_personalization" js="0">Personalization</word>
+  <word key="axenserverlist_header_buttons" js="0">Buttons</word>
   <word key="aXenServerList_settings_buttons_vote" js="0">Vote</word>
   <word key="aXenServerList_settings_buttons_statistics" js="0">Statistics</word>
   <word key="aXenServerList_settings_buttons_tv" js="0">TV</word>

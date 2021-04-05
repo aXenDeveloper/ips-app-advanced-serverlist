@@ -22,14 +22,14 @@ Server table showing server information about the status, name, number of player
 - Lazy loading in img icons,
 - Table in 2 columns that the user can control
 
-## Requirements 🏷️
+## 🏷️ Requirements
 
 - [IPS Community Suite: 4.5 version](https://invisioncommunity.com/)
 - PHP 7.2+
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
 - ❗❗ Unlocked external ports on the website server
 
-## Compatible servers 💻
+## 💻 Compatible servers
 
 - ARK: Survival Evolved
 - Arma3

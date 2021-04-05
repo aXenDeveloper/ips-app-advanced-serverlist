@@ -2,9 +2,9 @@
 <theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
  <template template_group="pages" template_name="aXenServerListPage" template_data="$servers, $orientation" template_location="front" template_app="axenserverlist"><![CDATA[
 <div class="ipsWidget ipsWidget_horizontal ipsBox">
-  {template="aXenServerListWidget" app="axenserverlist" group="widgets" location="front" params="$servers, $orientation"}
+  {template="aXenServerListWidget" app="axenserverlist" group="widgets" location="front" params="$servers, $orientation, FALSE"}
 </div>]]></template>
- <template template_group="servers" template_name="debugTotal" template_data="$servers" template_location="front" template_app="axenserverlist"><![CDATA[{{$totalServersDebug = 0;}}
+ <template template_group="servers" template_name="debugTotal" template_data="$servers, $fullWidthPage" template_location="front" template_app="axenserverlist"><![CDATA[{{$totalServersDebug = 0;}}
 
 {{foreach $servers as $row}}
 {{if $row['axenserverlist_debug']}}
@@ -13,7 +13,7 @@
 {{endforeach}}
 
 {{if $totalServersDebug}}
-<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
+<a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_debug ipsMargin_right{{if !$fullWidthPage}} md:ipsMargin_right:none{{endif}}" id="aXenServerList_toggle_debug" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_toggle_debug'}"><span class='ipsNotificationCount'>{$totalServersDebug}</span></a>
 
 <div id="aXenServerList_toggle_debug_menu" class="ipsMenu ipsMenu_wide ipsHide">
   <div class="aXenServerList_debug ipsPadding:half">
@@ -279,31 +279,33 @@
     </li>
   </ul>
 </li>]]></template>
- <template template_group="servers" template_name="title" template_data="$servers, $orientation" template_location="front" template_app="axenserverlist"><![CDATA[<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList{{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] )}} aXenServerList_hide{{endif}}{{if settings.aXenServerList_settings_scroll && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll']) && settings.aXenServerList_settings_scroll_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual'])) || !settings.aXenServerList_settings_scroll_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual']) && settings.aXenServerList_settings_scroll_default) )}} aXenServerList_scroll{{endif}}{{if $orientation != 'vertical' && settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerList_fullWidth{{endif}}{{if $orientation == 'vertical'}} aXenServerList_vertical{{endif}}">
+ <template template_group="servers" template_name="title" template_data="$servers, $orientation, $fullWidthPage" template_location="front" template_app="axenserverlist"><![CDATA[<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList{{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] ) && $fullWidthPage}} aXenServerList_hide{{endif}}{{if settings.aXenServerList_settings_scroll && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll']) && settings.aXenServerList_settings_scroll_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual'])) || !settings.aXenServerList_settings_scroll_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual']) && settings.aXenServerList_settings_scroll_default) ) && $fullWidthPage}} aXenServerList_scroll{{endif}}{{if $orientation != 'vertical' && settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerList_fullWidth{{endif}}{{if $orientation == 'vertical'}} aXenServerList_vertical{{endif}}">
   <span>{lang="aXenServerList_widget_title"}</span>
 
-  {template="debugTotal" app="axenserverlist" group="servers" location="front" params="$servers"}
+  {template="debugTotal" app="axenserverlist" group="servers" location="front" params="$servers, $fullWidthPage"}
 
-  {{if settings.aXenServerList_settings_scroll && settings.aXenServerList_settings_scroll_control}}
+  {{if settings.aXenServerList_settings_scroll && settings.aXenServerList_settings_scroll_control && $fullWidthPage}}
   <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_scroll ipsMargin_right{{if settings.aXenServerList_settings_scroll_mobile}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_toggle_scroll'}"></a>
   {{endif}}
 
   {{if settings.aXenServerList_settings_fullWidth && settings.aXenServerList_settings_fullWidth_control && $orientation != 'vertical'}}
-  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_fullWidth ipsMargin_right ipsResponsive_showDesktop" data-ipstooltip title="{lang='aXenServerList_widget_toggle_fullWidth'}"></a>
+  <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_fullWidth{{if $fullWidthPage}} ipsMargin_right{{endif}} ipsResponsive_showDesktop" data-ipstooltip title="{lang='aXenServerList_widget_toggle_fullWidth'}"></a>
   {{endif}}
 
+  {{if $fullWidthPage}}
   <a href="#" class="ipsType_noUnderline aXenServerList_toggle aXenServerList_toggle_hide" data-ipstooltip title="{lang='aXenServerList_widget_toggle_hide'}"></a>
+  {{endif}}
 </h3>]]></template>
- <template template_group="widgets" template_name="aXenServerListWidget" template_data="$servers, $orientation" template_location="front" template_app="axenserverlist"><![CDATA[
+ <template template_group="widgets" template_name="aXenServerListWidget" template_data="$servers, $orientation, $fullWidthPage" template_location="front" template_app="axenserverlist"><![CDATA[
 {{if settings.aXenServerList_settings_footer}}
 {{$totalServers = 0;}}
 {{$totalPlayers = 0;}}
 {{$totalPlayersMax = 0;}}
 {{endif}}
 
-{template="title" app="axenserverlist" group="servers" location="front" params="$servers, $orientation"}
+{template="title" app="axenserverlist" group="servers" location="front" params="$servers, $orientation, $fullWidthPage"}
 
-<ul class="aXenServerList_ul">
+<ul class="aXenServerList_ul{{if $fullWidthPage}} aXenServerList_ul_scroll{{endif}}">
   {{foreach $servers as $row}}
 
   {{if settings.aXenServerList_settings_footer}}
@@ -322,7 +324,7 @@
 }
 
 {{if settings.aXenServerList_settings_scroll}}
-.aXenServerList_scroll + .aXenServerList_ul {
+.aXenServerList_scroll + .aXenServerList_ul_scroll {
   max-height: {setting='aXenServerList_settings_scroll_height'}px;
   overflow-y: auto;
 }
@@ -330,7 +332,7 @@
 
 {{if settings.aXenServerList_settings_scroll_mobile}}
 @media screen and (max-width: 979px) {
-  .aXenServerList_ul {
+  .aXenServerList_ul_scroll {
     max-height: {setting='aXenServerList_settings_scroll_mobile_value'}px;
     overflow-y: auto;
   }
@@ -652,6 +654,7 @@
 
 /* ========== Full width ========== */
 {{if settings.aXenServerList_settings_fullWidth}}
+@media screen and (min-width: 979px) {
 .aXenServerList_fullWidth + .aXenServerList_ul {
   display: flex;
   flex-wrap: wrap;
@@ -678,6 +681,7 @@
 .aXenServerListMenu_fullWidth .aXenServerList_item_more_info .aXenServerList_item_more_info\:owners {
   display: flex;
 }
+}
 {{endif}}
 
 
@@ -697,12 +701,12 @@
 
 /* ========== RWD ========== */
 @media screen and (max-width: 979px) {
-  .aXenServerList ~ .aXenServerList_ul {
+  .aXenServerList ~ .aXenServerList_ul_scroll {
     flex-direction: column;
     flex-wrap: nowrap;
   }
 
-  .aXenServerList ~ .aXenServerList_ul > li {
+  .aXenServerList ~ .aXenServerList_ul_scroll > li {
     flex: 0 0 100%;
   }
 
