@@ -344,7 +344,7 @@
   opacity: 0.2;
   width: 20px;
   height: 16px;
-  color: rgb(var(--theme-section_title_font));
+  color: rgb( var(--theme-widget_title_font) );
   position: relative;
 }
 
