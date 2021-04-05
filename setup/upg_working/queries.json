@@ -1,0 +1,40 @@
+[
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_debug_text_YesNo",
+            {
+                "name": "axenserverlist_debug_text_YesNo",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_debug_text_YesNo",
+            {
+                "name": "axenserverlist_debug_text_YesNo",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    }
+]

@@ -15,6 +15,27 @@
             "front\/servers\/more",
             "front\/servers\/row",
             "front\/servers\/title",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/pages\/aXenServerListPage",
+            "front\/servers\/debugTotal",
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/servers\/title",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/pages\/aXenServerListPage",
+            "front\/servers\/debugTotal",
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/servers\/title",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/pages\/aXenServerListPage",
+            "front\/servers\/debugTotal",
+            "front\/servers\/footer",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/servers\/title",
             "front\/widgets\/aXenServerListWidget"
         ],
         "removed": []
@@ -22,6 +43,9 @@
     "css": {
         "added": [],
         "edited": [
+            "front\/widget.css",
+            "front\/widget.css",
+            "front\/widget.css",
             "front\/widget.css",
             "front\/widget.css"
         ],

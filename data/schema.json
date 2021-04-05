@@ -344,8 +344,8 @@
                 "length": null,
                 "decimals": null,
                 "values": null,
-                "allow_null": false,
-                "default": "0",
+                "allow_null": true,
+                "default": null,
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
