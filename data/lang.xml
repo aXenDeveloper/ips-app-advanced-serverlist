@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10010">
+ <app key="axenserverlist" version="10011">
   <word key="__app_axenserverlist" js="0">(aXen) Advanced Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
   <word key="menutab__axenserverlist" js="0">Advanced Server List</word>

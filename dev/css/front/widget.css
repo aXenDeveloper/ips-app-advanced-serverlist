@@ -188,7 +188,7 @@
   stroke: rgb(var(--theme-link_hover));
   fill-opacity: 0;
   stroke-width: 4;
-  stroke-dasharray: 97.6754, 97.6754;
+  stroke-dasharray: 97.6754, 100;
 }
 
 {{if settings.aXenServerList_settings_colors}}

@@ -1,5 +1,5 @@
-[
-    {
+{
+    "1": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_servers",
@@ -18,7 +18,7 @@
             }
         ]
     },
-    {
+    "2": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_servers",
@@ -37,4 +37,4 @@
             }
         ]
     }
-]
+}
