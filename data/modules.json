@@ -1,7 +1,7 @@
 {
     "admin": {
         "servers": {
-            "default_controller": "",
+            "default_controller": "servers",
             "protected": 0,
             "default": 0
         }

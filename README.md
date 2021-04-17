@@ -1,3 +1,5 @@
+![Image header](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
+
 # (aXen) Advanced Server List
 
 Server table showing server information about the status, name, number of players, current map and their owners as applications on IPS Community Suite.
@@ -147,7 +149,6 @@ b_virtualserver_channel_list
 
 ## 📷 Graphics
 
-![1](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
 ![2](https://files.axendev.net/projects/ips/applications/serverlist/2.png)
 ![3](https://files.axendev.net/projects/ips/applications/serverlist/3.png)
 ![4](https://files.axendev.net/projects/ips/applications/serverlist/4.png)
