@@ -344,7 +344,7 @@
 }
 
 .aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_owners,
-.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_more .aXenServerList_item_more_ul_buttons {
+.aXenServerList_fullWidth + .aXenServerList_ul > li .aXenServerList_item_more > .aXenServerList_item_more_ul > li:not(:last-child) {
   display: none;
 }
 

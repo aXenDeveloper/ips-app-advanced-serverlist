@@ -1,4 +1,4 @@
-![Image header](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
+![Header image](https://files.axendev.net/projects/ips/applications/serverlist/1.png)
 
 # (aXen) Advanced Server List
 
