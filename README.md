@@ -139,6 +139,10 @@ b_virtualserver_client_list
 b_virtualserver_channel_list
 ```
 
+## 🔨 Debug tool
+
+If server is offline you can see whats is going on by debug tool [===> Click <===](https://github.com/aXenDeveloper/ips-app-advanced-serverlist-debug)
+
 ## 🛠️ Update
 
 1. Go to: AdminCP -> System -> SITE FEATURES -> **Appliactions**,  
