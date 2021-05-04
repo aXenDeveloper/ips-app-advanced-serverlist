@@ -139,9 +139,9 @@ b_virtualserver_client_list
 b_virtualserver_channel_list
 ```
 
-## 🔨 Debug tool
+## 🔧 Debug tool
 
-If server is offline you can see whats is going on by debug tool [===> Click <===](https://github.com/aXenDeveloper/ips-app-advanced-serverlist-debug)
+If server is offline you can see what's is going on by debug tool [===> Click <===](https://github.com/aXenDeveloper/ips-app-advanced-serverlist-debug).
 
 ## 🛠️ Update
 
