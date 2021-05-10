@@ -82,6 +82,8 @@ class _Servers extends \IPS\Node\Model
       'jedioutcast' => 'Star Wars Jedi Knight II: Jedi Outcast',
       'justcause2' => 'Just Cause 2 Multiplayer',
       'justcause3' => 'Just Cause 3',
+      'killingfloor' => 'Killing Floor',
+      'killingfloor2' => 'Killing Floor 2',
       'l4d' => 'Left 4 Dead',
       'l4d2' => 'Left 4 Dead 2',
       'minecraft' => "Minecraft",
