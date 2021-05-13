@@ -111,6 +111,7 @@ class _Servers extends \IPS\Node\Model
       'unturned' => 'Unturned',
       'ut3' => 'Unreal Tournament 3',
       'ut2004' => 'Unreal Tournament 2004',
+      'valheim' => 'Valheim',
       'ventrilo' => 'Ventrilo',
       'warsow' => 'Warsow',
       'won' => 'World Opponent Network'
