@@ -36,9 +36,44 @@ class _servers extends \IPS\Node\Controller
 			'icon'	=> 'plus',
 			'title'	=> 'menu__axenserverlist_servers_servers',
 			'link'	=> $this->url->setQueryString('do', 'form'),
-			'data'	=> [ 'ipsDialog' => '', 'ipsDialog-title' => \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_servers') ],
+			'data'	=> ['ipsDialog' => '', 'ipsDialog-title' => \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_servers')],
 			'primary' => true
 		];
+
+		\IPS\Output::i()->sidebar['actions']['refresh'] = array(
+			'icon'	=> 'refresh',
+			'link'	=> \IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers&do=refresh'),
+			'title'	=> 'menu__axenserverlist_servers_servers_refresh'
+		);
+	}
+
+	public function reloadServersData()
+	{
+		\IPS\Task::constructFromData(\IPS\Db::i()->select('*', 'core_tasks', ['app=? AND `key`=?', 'axenserverlist', 'aXenServersQueryServers'])->first())->run();
+	}
+
+	/**
+	 * Refresh server list
+	 *
+	 * @return	void
+	 */
+	protected function refresh()
+	{
+		try {
+			$task = \IPS\Task::constructFromData(\IPS\Db::i()->select('*', 'core_tasks', array('`app`=? AND `key`=?', 'axenserverlist', 'aXenServersQueryServers'))->first());
+
+			if ($task->running) {
+				$task->unlock();
+			}
+
+			$output = $task->run();
+			if ($output !== NULL) throw \Exception;
+
+			\IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers'), 'aXenServerList_popup_refresh');
+		} catch (\Exception $e) {
+			\IPS\Log::debug($e, '(aXen) Advanced Server List - Update data servers');
+			return;
+		}
 	}
 
 	/**
