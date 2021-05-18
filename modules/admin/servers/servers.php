@@ -26,6 +26,22 @@ class _servers extends \IPS\Node\Controller
 	protected $nodeClass = 'IPS\axenserverlist\Servers';
 
 	/**
+	 * Get Root Buttons
+	 *
+	 * @return	array
+	 */
+	public function _getRootButtons()
+	{
+		\IPS\Output::i()->sidebar['actions']['add'] = [
+			'icon'	=> 'plus',
+			'title'	=> 'menu__axenserverlist_servers_servers',
+			'link'	=> $this->url->setQueryString('do', 'form'),
+			'data'	=> [ 'ipsDialog' => '', 'ipsDialog-title' => \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_servers') ],
+			'primary' => true
+		];
+	}
+
+	/**
 	 * Execute
 	 *
 	 * @return	void
