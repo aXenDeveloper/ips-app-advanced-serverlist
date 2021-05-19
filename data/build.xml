@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build>
- <module key="admin/servers"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
+ <module key="admin/servers"><![CDATA[{"default_controller":"servers","protected":0,"default":0}]]></module>
  <module key="front/servers"><![CDATA[{"default":0,"default_controller":"servers","protected":0}]]></module>
  <task frequency="P0Y0M0DT0H5M0S">aXenServersQueryServers</task>
  <setting key="aXenServerList_settings_buttons_forum"><![CDATA[{"key":"aXenServerList_settings_buttons_forum","default":"ipsButton_normal"}]]></setting>

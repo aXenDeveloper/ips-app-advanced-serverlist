@@ -122,6 +122,20 @@ class _Servers extends \IPS\Node\Model
     $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, FALSE));
     $form->add(new \IPS\Helpers\Form\Number('axenserverlist_query_port', $this->query_port == 0 ? NULL : $this->query_port, FALSE));
 
+
+    $form->add(new \IPS\Helpers\Form\YesNo(
+      'axenserverlist_custom_connect',
+      $this->custom_connect,
+      FALSE,
+      [
+        'togglesOn' => [
+          'axenserverlist_custom_connect_link'
+        ]
+      ]
+    ));
+    $form->add(new \IPS\Helpers\Form\Text('axenserverlist_custom_connect_link', $this->custom_connect_link, FALSE, [], NULL, NULL, NULL, 'axenserverlist_custom_connect_link'));
+
+    $form->addTab('axenserverlist_tab_debug');
     $form->add(new \IPS\Helpers\Form\YesNo(
       'axenserverlist_debug',
       $this->debug,

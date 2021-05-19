@@ -349,6 +349,30 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "axenserverlist_custom_connect": {
+                "name": "axenserverlist_custom_connect",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "axenserverlist_custom_connect_link": {
+                "name": "axenserverlist_custom_connect_link",
+                "type": "VARCHAR",
+                "length": 150,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

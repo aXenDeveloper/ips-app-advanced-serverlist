@@ -24,12 +24,14 @@ Server table showing server information about the status, name, number of player
 - Lazy loading in img icons,
 - Table in 2 columns that the user can control,
 - Debug mode for server (A reason can be enter),
-- Separate page for server list
+- Separate page for server list,
+- Refresh data servers button in AdminCP,
+- Custom connect URL to the server
 
 ## 🏷️ Requirements
 
-- [IPS Community Suite: 4.5 version](https://invisioncommunity.com/)
-- PHP 7.2+
+- [IPS Community Suite: 4.5 or 4.6 version](https://invisioncommunity.com/)
+- PHP 7.3+
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
 - ❗❗ Unlocked external ports on the website server
 
@@ -68,6 +70,8 @@ Server table showing server information about the status, name, number of player
 - Star Wars Jedi Knight II: Jedi Outcast
 - Just Cause 2 Multiplayer
 - Just Cause 3
+- Killing Floor
+- Killing Floor 2
 - Left 4 Dead
 - Left 4 Dead 2
 - Minecraft
@@ -95,6 +99,7 @@ Server table showing server information about the status, name, number of player
 - Unturned
 - Unreal Tournament 3
 - Unreal Tournament 2004
+- Valheim
 - Ventrilo
 - Warsow
 - World Opponent Network

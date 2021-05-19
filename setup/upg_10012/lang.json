@@ -1,0 +1,21 @@
+{
+    "normal": {
+        "added": [
+            "aXenServerList_popup_refresh",
+            "menu__axenserverlist_servers_servers_refresh",
+            "axenserverlist_tab_debug",
+            "axenserverlist_custom_connect",
+            "axenserverlist_custom_connect_link",
+            "axenserverlist_custom_connect_link_desc"
+        ],
+        "edited": [
+            "axenserverlist_debug"
+        ],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

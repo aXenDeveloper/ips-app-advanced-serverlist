@@ -90,12 +90,16 @@ $lang = array(
 	'aXenServerList_settings_buttons_tv' => 'TV',
 	'aXenServerList_settings_buttons_forum' => 'Forum',
 	'aXenServerList_debug_icon' => 'Debug mode is enabled on this server',
-	'axenserverlist_debug' => 'Debug mode',
+	'axenserverlist_debug' => 'Enable debug mode?',
 	'aXenServerList_widget_toggle_debug' => 'Show servers with Debug mode',
 	'axenserverlist_debug_text' => '[Debug mode] Reason',
 	'axenserverlist_owners' => 'Owners',
 	'axenserverlist_debug_text_YesNo' => '[Debug mode] Enable reason?',
 	'axenserverlist_debug_text_YesNo_desc' => 'The reason will appear in the more tab for the given server and in the summary at the top of the table.',
 	'aXenServerList_popup_refresh' => 'Servers data updated',
-	'menu__axenserverlist_servers_servers_refresh' => 'Refresh data'
+	'menu__axenserverlist_servers_servers_refresh' => 'Refresh data',
+	'axenserverlist_tab_debug' => 'Debug mode',
+	'axenserverlist_custom_connect' => 'Enable your own link to connect to the server?',
+	'axenserverlist_custom_connect_link' => 'Own link to connect to the server',
+	'axenserverlist_custom_connect_link_desc' => '<span style="color: red;">There must be a URL link here that you can paste into your browser!</span>'
 );

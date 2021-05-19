@@ -4,5 +4,6 @@
     "app_directory": "axenserverlist",
     "app_protected": 0,
     "app_website": "https:\/\/axendev.net\/",
-    "app_update_check": "https:\/\/files.axendev.net\/projects\/ips\/applications\/serverlist\/check.php"
+    "app_update_check": "https:\/\/files.axendev.net\/projects\/ips\/applications\/serverlist\/check.php",
+    "app_hide_tab": 0
 }
