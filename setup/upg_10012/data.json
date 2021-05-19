@@ -10,7 +10,7 @@
         "emailTemplates": false,
         "hooks": false,
         "acpSearchKeywords": false,
-        "settings": false,
+        "settings": true,
         "tasks": false,
         "modules": true,
         "widgets": false,

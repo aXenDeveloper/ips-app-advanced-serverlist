@@ -78,5 +78,9 @@
     {
         "key": "aXenServerList_settings_scroll_mobile_value",
         "default": "250"
+    },
+    {
+        "key": "aXenServerList_settings_serverQuery_maxQuery",
+        "default": "3"
     }
 ]

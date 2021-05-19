@@ -31,7 +31,8 @@ Server table showing server information about the status, name, number of player
 ## 🏷️ Requirements
 
 - [IPS Community Suite: 4.5 or 4.6 version](https://invisioncommunity.com/)
-- PHP 7.3+
+- PHP 7.3+ - For IPS 4.5
+- PHP 7.4+ - For IPS 4.6
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
 - ❗❗ Unlocked external ports on the website server
 
@@ -166,6 +167,7 @@ If server is offline you can see what's is going on by debug tool [===> Click <=
 ![7](https://files.axendev.net/projects/ips/applications/serverlist/7.png)
 ![8](https://files.axendev.net/projects/ips/applications/serverlist/8.png)
 ![9](https://files.axendev.net/projects/ips/applications/serverlist/9.png)
+![10](https://files.axendev.net/projects/ips/applications/serverlist/10.png)
 
 ## 🔌 Download from other sources
 

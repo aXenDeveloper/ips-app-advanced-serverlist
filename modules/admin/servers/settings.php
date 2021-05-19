@@ -62,6 +62,8 @@ class _settings extends \IPS\Dispatcher\Controller
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_61_80', \IPS\Settings::i()->aXenServerList_settings_colors_61_80, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_61_80'));
 		$form->add(new \IPS\Helpers\Form\Color('aXenServerList_settings_colors_81_100', \IPS\Settings::i()->aXenServerList_settings_colors_81_100, FALSE, [], NULL, NULL, NULL, 'aXenServerList_settings_colors_81_100'));
 
+		$form->addHeader('axenserverlist_header_serverQuery');
+		$form->add(new \IPS\Helpers\Form\Number('aXenServerList_settings_serverQuery_maxQuery', \IPS\Settings::i()->aXenServerList_settings_serverQuery_maxQuery, TRUE, ['min' => 1, 'max' => 5]));
 
 		$form->addTab('axenserverlist_tab_personalization');
 		$form->add(new \IPS\Helpers\Form\YesNo(

@@ -101,5 +101,8 @@ $lang = array(
 	'axenserverlist_tab_debug' => 'Debug mode',
 	'axenserverlist_custom_connect' => 'Enable your own link to connect to the server?',
 	'axenserverlist_custom_connect_link' => 'Own link to connect to the server',
-	'axenserverlist_custom_connect_link_desc' => '<span style="color: red;">There must be a URL link here that you can paste into your browser!</span>'
+	'axenserverlist_custom_connect_link_desc' => '<span style="color: red;">There must be a URL link here that you can paste into your browser!</span>',
+	'axenserverlist_header_serverQuery' => 'Server query',
+	'aXenServerList_settings_serverQuery_maxQuery' => 'Maximum number of queries',
+	'aXenServerList_settings_serverQuery_maxQuery_desc' => 'When the server does not respond, the application will ask the server as many times as is set in the settings.<br><span style="color: red;">This value too high may affect the speed of the server your community is running on!</span>'
 );

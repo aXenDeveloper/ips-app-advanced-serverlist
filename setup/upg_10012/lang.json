@@ -6,7 +6,10 @@
             "axenserverlist_tab_debug",
             "axenserverlist_custom_connect",
             "axenserverlist_custom_connect_link",
-            "axenserverlist_custom_connect_link_desc"
+            "axenserverlist_custom_connect_link_desc",
+            "axenserverlist_header_serverQuery",
+            "aXenServerList_settings_serverQuery_maxQuery",
+            "aXenServerList_settings_serverQuery_maxQuery_desc"
         ],
         "edited": [
             "axenserverlist_debug"

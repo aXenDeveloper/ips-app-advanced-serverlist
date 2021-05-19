@@ -102,5 +102,8 @@
   <word key="axenserverlist_custom_connect" js="0">Enable your own link to connect to the server?</word>
   <word key="axenserverlist_custom_connect_link" js="0">Own link to connect to the server</word>
   <word key="axenserverlist_custom_connect_link_desc" js="0"><![CDATA[<span style="color: red;">There must be a URL link here that you can paste into your browser!</span>]]></word>
+  <word key="axenserverlist_header_serverQuery" js="0">Server query</word>
+  <word key="aXenServerList_settings_serverQuery_maxQuery" js="0">Maximum number of queries</word>
+  <word key="aXenServerList_settings_serverQuery_maxQuery_desc" js="0"><![CDATA[When the server does not respond, the application will ask the server as many times as is set in the settings.<br><span style="color: red;">This value too high may affect the speed of the server your community is running on!</span>]]></word>
  </app>
 </language>
