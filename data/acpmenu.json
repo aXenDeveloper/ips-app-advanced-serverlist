@@ -1,18 +1,16 @@
 {
     "servers": {
-        "settings": {
-            "tab": "axenserverlist",
-            "controller": "settings",
-            "do": "",
-            "restriction": "settings_manage",
-            "subcontrollers": ""
-        },
         "servers": {
-            "tab": "axenserverlist",
+            "tab": "community",
             "controller": "servers",
             "do": "",
-            "restriction": "servers_manage",
-            "subcontrollers": ""
+            "restriction": "servers_manage"
+        },
+        "settings": {
+            "tab": "community",
+            "controller": "settings",
+            "do": "",
+            "restriction": "settings_manage"
         }
     }
 }
