@@ -3,7 +3,7 @@
 $lang = array(
 	'__app_axenserverlist'	=>  '(aXen) Advanced Server List',
 	'menutab__axenserverlist_icon' => 'server',
-	'menu__axenserverlist_servers' => 'Servers management',
+	'menu__axenserverlist_servers' => 'Advanced Server List',
 	'menu__axenserverlist_servers_settings' => 'Settings',
 	'menu__axenserverlist_servers_servers' => 'Servers',
 	'axenserverlist_game' => 'Game',
