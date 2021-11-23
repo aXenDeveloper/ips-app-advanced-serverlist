@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="axenserverlist" version="10014">
+ <app key="axenserverlist" version="10015">
   <word key="__app_axenserverlist" js="0">(aXen) Advanced Server List</word>
   <word key="menutab__axenserverlist_icon" js="0">server</word>
-  <word key="menu__axenserverlist_servers" js="0">Servers management</word>
+  <word key="menu__axenserverlist_servers" js="0">Advanced Server List</word>
   <word key="menu__axenserverlist_servers_settings" js="0">Settings</word>
   <word key="menu__axenserverlist_servers_servers" js="0">Servers</word>
   <word key="axenserverlist_game" js="0">Game</word>

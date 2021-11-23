@@ -1,7 +1,9 @@
 {
     "normal": {
         "added": [],
-        "edited": [],
+        "edited": [
+            "menu__axenserverlist_servers"
+        ],
         "removed": [
             "menutab__axenserverlist"
         ]
