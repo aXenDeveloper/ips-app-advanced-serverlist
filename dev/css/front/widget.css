@@ -3,9 +3,11 @@
 }
 
 {{if settings.aXenServerList_settings_scroll}}
-.aXenServerList_scroll + .aXenServerList_ul_scroll {
-  max-height: {setting='aXenServerList_settings_scroll_height'}px;
-  overflow-y: auto;
+@media screen and (min-width: 980px) {
+  .aXenServerList_scroll + .aXenServerList_ul_scroll {
+    max-height: {setting='aXenServerList_settings_scroll_height'}px;
+    overflow-y: auto;
+  }
 }
 {{endif}}
 
