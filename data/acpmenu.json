@@ -1,5 +1,12 @@
 {
     "servers": {
+        "mods": {
+            "tab": "community",
+            "controller": "mods",
+            "do": "",
+            "restriction": "mods_manage",
+            "subcontrollers": ""
+        },
         "servers": {
             "tab": "community",
             "controller": "servers",
