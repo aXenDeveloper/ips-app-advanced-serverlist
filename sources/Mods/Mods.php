@@ -29,12 +29,35 @@ class _Mods extends \IPS\Node\Model
      */
     public function form(&$form)
     {
-        $form->add(new \IPS\Helpers\Form\Select('axenserverlist_game', $this->game, true, ['options' => [
-            'api' => 'Custom API',
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_name', $this->name, true));
+        $form->add(new \IPS\Helpers\Form\Upload('aXenServerList_settings_mods_icon', $this->icon ? \IPS\File::get('axenserverlist_mods', $this->icon) : null, false, ['image' => true, 'storageExtension' => 'axenserverlist_mods']));
+        $form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_settings_mods_api', $this->api, false,
+            [
+                'togglesOff' => ['aXenServerList_settings_mods_protocol'],
+                'togglesOn' => [
+                    'aXenServerList_settings_mods_api_url',
+                    'aXenServerList_settings_mods_api_current_players',
+                    'aXenServerList_settings_mods_api_max_players',
+                    'aXenServerList_settings_mods_api_password',
+                    'aXenServerList_settings_mods_api_map',
+                    'aXenServerList_settings_mods_api_platform',
+                ],
+            ]
+        ));
+
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_url', $this->api_url, true, [], null, null, null, 'aXenServerList_settings_mods_api_url'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_current_players', $this->api_current_players, false, [], null, null, null, 'aXenServerList_settings_mods_api_current_players'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_max_players', $this->api_max_players, false, [], null, null, null, 'aXenServerList_settings_mods_api_max_players'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_password', $this->api_password, false, [], null, null, null, 'aXenServerList_settings_mods_api_password'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_map', $this->api_map, false, [], null, null, null, 'aXenServerList_settings_mods_api_map'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_settings_mods_api_platform', $this->api_platform, false, [], null, null, null, 'aXenServerList_settings_mods_api_platform'));
+
+        $form->add(new \IPS\Helpers\Form\Select('aXenServerList_settings_mods_protocol', $this->protocol, false, ['options' => [
             'aa3' => "America's Army 3",
             'aapg' => "America's Army: Proving Grounds",
             'arkse' => 'ARK: Survival Evolved',
             'arma3' => 'Arma3',
+            'api' => "API",
             'bf2' => 'Battlefield 2',
             'bf3' => 'Battlefield 3',
             'bf4' => 'Battlefield 4',
@@ -95,10 +118,9 @@ class _Mods extends \IPS\Node\Model
             'unturned' => 'Unturned',
             'ut3' => 'Unreal Tournament 3',
             'ut2004' => 'Unreal Tournament 2004',
-            'valheim' => 'Valheim',
             'ventrilo' => 'Ventrilo',
             'warsow' => 'Warsow',
             'won' => 'World Opponent Network',
-        ], 'multiple' => false]));
+        ], 'multiple' => false], null, null, null, 'aXenServerList_settings_mods_protocol'));
     }
 }

@@ -35,7 +35,6 @@ class _mods extends \IPS\Node\Controller
             'icon' => 'plus',
             'title' => 'menu__axenserverlist_servers_servers',
             'link' => $this->url->setQueryString('do', 'form'),
-            'data' => ['ipsDialog' => '', 'ipsDialog-title' => \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_servers')],
             'primary' => true,
         ];
     }
