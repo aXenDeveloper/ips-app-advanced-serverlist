@@ -104,4 +104,15 @@ $lang = array(
     'axenserverlist_header_serverQuery' => 'Server query',
     'aXenServerList_settings_serverQuery_maxQuery' => 'Maximum number of queries',
     'aXenServerList_settings_serverQuery_maxQuery_desc' => 'When the server does not respond, the application will ask the server as many times as is set in the settings.<br><span style="color: red;">This value too high may affect the speed of the server your community is running on!</span>',
+
+    "aXenServerList_admin_table_mods_new" => "Add New Mod",
+    'aXenServerList_admin_table_mods_icon' => "Icon",
+    'aXenServerList_admin_table_mods_name' => "Name",
+    'aXenServerList_admin_table_mods_protocol' => "Protocol",
+    'aXenServerList_admin_table_mods_api_url' => "API Address URL Field",
+    'aXenServerList_admin_table_mods_api_current_players' => "API Current Players Field",
+    'aXenServerList_admin_table_mods_api_max_players' => "API Max Players",
+    'aXenServerList_admin_table_mods_api_password' => "API Password Field",
+    'aXenServerList_admin_table_mods_api_map' => "API Map API Field",
+    'aXenServerList_admin_table_mods_api_platform' => "API Platform API Field",
 );
