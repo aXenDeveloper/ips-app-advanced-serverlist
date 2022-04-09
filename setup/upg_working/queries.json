@@ -101,6 +101,18 @@
                         "unsigned": false,
                         "auto_increment": false
                     },
+                    "protocol": {
+                        "name": "protocol",
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": "",
+                        "comment": "",
+                        "unsigned": false,
+                        "auto_increment": false
+                    },
                     "api_url": {
                         "name": "api_url",
                         "type": "VARCHAR",
@@ -125,14 +137,14 @@
                         "unsigned": false,
                         "auto_increment": false
                     },
-                    "protocol": {
-                        "name": "protocol",
-                        "type": "VARCHAR",
-                        "length": 100,
+                    "position": {
+                        "name": "position",
+                        "type": "BIGINT",
+                        "length": null,
                         "decimals": null,
                         "values": null,
                         "allow_null": false,
-                        "default": "",
+                        "default": 0,
                         "comment": "",
                         "unsigned": false,
                         "auto_increment": false
