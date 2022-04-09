@@ -363,8 +363,7 @@ class _Servers extends \IPS\Node\Model
      */
     protected function get__description()
     {
-        $getGameTitle = $this->game_long ? $this->game_long : $this->game;
-        return $getGameTitle;
+        return $this->game_long ? $this->game_long : $this->game;
     }
 
     /**
@@ -375,15 +374,15 @@ class _Servers extends \IPS\Node\Model
     protected function get__badge()
     {
         if ($this->debug == true) {
-            return array(
+            return [
                 0 => 'ipsBadge ipsBadge_style2',
-                1 => 'aXenServerList_admin_table_servers_debug',
-            );
+                1 => 'aXenServerList_admin_table_servers_tab_debug',
+            ];
         } else if ($this->new == true) {
-            return array(
+            return [
                 0 => 'ipsBadge ipsBadge_negative',
-                1 => 'aXenServerList_admin_table_servers_widget_new',
-            );
+                1 => 'aXenServerList_widget_new',
+            ];
         }
     }
 
@@ -395,7 +394,7 @@ class _Servers extends \IPS\Node\Model
      */
     protected function get__icon()
     {
-        if ($this->top_server == true) {
+        if ($this->top_server) {
             return 'trophy';
         }
     }
@@ -407,7 +406,7 @@ class _Servers extends \IPS\Node\Model
      */
     public function delete()
     {
-        foreach (array('room_name' => "top_server_text_{$this->_id}", 'room_rules' => "debug_text_{$this->id}") as $fieldKey => $langKey) {
+        foreach (['room_name' => "top_server_text_{$this->_id}", 'room_rules' => "debug_text_{$this->id}"] as $fieldKey => $langKey) {
             \IPS\Lang::deleteCustom('axenserverlist', $langKey);
         }
 
