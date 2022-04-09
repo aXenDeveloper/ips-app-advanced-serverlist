@@ -5,7 +5,8 @@
             "front\/servers\/debugTotal",
             "front\/servers\/more",
             "front\/servers\/row",
-            "front\/widgets\/aXenServerListWidget"
+            "front\/widgets\/aXenServerListWidget",
+            "front\/servers\/row"
         ],
         "removed": []
     },
