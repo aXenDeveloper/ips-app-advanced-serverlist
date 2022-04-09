@@ -45,7 +45,7 @@
                 "decimals": null,
                 "values": [],
                 "allow_null": false,
-                "default": null,
+                "default": "",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false

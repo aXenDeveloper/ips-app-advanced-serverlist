@@ -72,7 +72,7 @@ class _aXenServersQueryServers extends \IPS\Task
                                 $dataUpdate = [
                                     'status' => 1,
                                     'current_players' => $data['gq_numplayers'],
-                                    'axenserverlist_max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : $data['gq_numplayers'],
+                                    'max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : $data['gq_numplayers'],
                                     'name_default_text' => $data['gq_hostname'],
                                     'map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
                                     'game_long' => $data['gq_name'],
@@ -91,7 +91,7 @@ class _aXenServersQueryServers extends \IPS\Task
                                 $dataUpdate = [
                                     'status' => 0,
                                     'current_players' => 0,
-                                    'axenserverlist_max_players' => 0,
+                                    'max_players' => 0,
                                     'map' => null,
                                     'game_long' => $data['gq_name'],
                                     'url_connect' => $data['gq_joinlink'],
@@ -117,7 +117,7 @@ class _aXenServersQueryServers extends \IPS\Task
                         $dataUpdate = [
                             'status' => 0,
                             'current_players' => 0,
-                            'axenserverlist_max_players' => 0,
+                            'max_players' => 0,
                             'game_long' => 'Discord',
                             'protocol' => 'discord',
                         ];
@@ -129,7 +129,7 @@ class _aXenServersQueryServers extends \IPS\Task
                     $dataUpdate = [
                         'status' => 1,
                         'current_players' => $dataFromJSON['presence_count'],
-                        'axenserverlist_max_players' => $dataFromJSON['presence_count'],
+                        'max_players' => $dataFromJSON['presence_count'],
                         'name_default_text' => $dataFromJSON['name'],
                         'game_long' => 'Discord',
                         'url_connect' => $dataFromJSON['instant_invite'],

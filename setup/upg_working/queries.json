@@ -791,5 +791,24 @@
                 "auto_increment": false
             }
         ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "ip",
+            {
+                "name": "ip",
+                "type": "VARCHAR",
+                "length": 245,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
     }
 ]
