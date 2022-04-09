@@ -6,7 +6,6 @@
     <li class="aXenServerList_item_title">
       <span class="aXenServerList_item_title:status{{if $row['status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      {{$icons = $row["game"] . '.png';}}
       {{if settings.lazy_load_enabled}}
       <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
       {{else}}

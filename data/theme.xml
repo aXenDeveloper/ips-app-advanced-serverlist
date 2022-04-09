@@ -7,7 +7,7 @@
  <template template_group="servers" template_name="debugTotal" template_data="$servers, $fullWidthPage" template_location="front" template_app="axenserverlist"><![CDATA[{{$totalServersDebug = 0;}}
 
 {{foreach $servers as $row}}
-{{if $row['axenserverlist_debug']}}
+{{if $row['debug']}}
 {{$totalServersDebug += 1;}}
 {{endif}}
 {{endforeach}}
@@ -19,21 +19,21 @@
   <div class="aXenServerList_debug ipsPadding:half">
     <ul class="aXenServerList_debug_list">
       {{foreach $servers as $row}}
-      {{if $row['axenserverlist_debug']}}
+      {{if $row['debug']}}
       <li>
         <span>
-          {{$icons = $row["axenserverlist_game"] . '.png';}}
+          {{$icon = $row["mod_icon"];}}
           {{if settings.lazy_load_enabled}}
-          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
           {{else}}
-            <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+            <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
             {{endif}}
 
-            <span class="aXenServerList_debug:name">{$row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name']}</span>
+            <span class="aXenServerList_debug:name">{$row['name_default'] ? $row['name_default_text'] : $row['name']}</span>
         </span>
 
         <span>
-          {{$topServerLang = $row['axenserverlist_debug_text_YesNo'] ? 'axenserverlist_debug_text_' . $row['axenserverlist_id'] : 'aXenServerList_debug_icon';}}
+          {{$topServerLang = $row['debug_text_YesNo'] ? 'axenserverlist_debug_text_' . $row['id'] : 'aXenServerList_debug_icon';}}
           {lang="$topServerLang"}
         </span>
 
@@ -43,7 +43,8 @@
     </ul>
   </div>
 </div>
-{{endif}}]]></template>
+{{endif}}
+]]></template>
  <template template_group="servers" template_name="footer" template_data="$totalServers, $totalPlayers, $totalPlayersMax" template_location="front" template_app="axenserverlist"><![CDATA[<ul class="ipsList_reset ipsFlex ipsFlex-ai:center ipsFlex-jc:around">
   <li class="ipsPadding:half ipsType_center">
     <span class="ipsBadge ipsBadge_new">
@@ -64,23 +65,23 @@
     </span> {lang="aXenServerList_widget_totalPlayersPercent"}
   </li>
 </ul>]]></template>
- <template template_group="servers" template_name="more" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[<div id="aXenServerList_{$row['axenserverlist_id']}_menu" class="ipsMenu aXenServerListMenu{{if settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerListMenu_fullWidth{{endif}} ipsHide">
+ <template template_group="servers" template_name="more" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[<div id="aXenServerList_{$row['id']}_menu" class="ipsMenu aXenServerListMenu{{if settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerListMenu_fullWidth{{endif}} ipsHide">
   <div class="aXenServerList_item_more_menu ipsPadding:half">
 
-    {{if $row['axenserverlist_debug'] && $row['axenserverlist_debug_text_YesNo'] }}
+    {{if $row['debug'] && $row['debug_text_YesNo'] }}
     <div class="ipsMessage ipsMessage_warning">
-      {{$topServerLang = 'axenserverlist_debug_text_' . $row['axenserverlist_id'];}}
+      {{$topServerLang = 'axenserverlist_debug_text_' . $row['id'];}}
       {lang="$topServerLang"}
     </div>
     {{endif}}
 
-    <ul class="aXenServerList_item_more_info{{if !$row['axenserverlist_forum'] || !$row['axenserverlist_vote'] || !$row['axenserverlist_statistics'] || !$row['axenserverlist_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
-      {{if $row['axenserverlist_owners']}}
+    <ul class="aXenServerList_item_more_info{{if !$row['url_forum'] || !$row['url_vote'] || !$row['url_statistics'] || !$row['url_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
+      {{if $row['owners']}}
       <li class="aXenServerList_item_more_info:owners">
         <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_owners'}</span>
         <span>
           <ul class="ipsList_reset">
-            {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+            {{foreach array_filter(explode(',', $row['owners'])) as $owner}}
             <li>
               {{$member = \IPS\Member::load( $owner );}}
               {$member->link()|raw}
@@ -94,7 +95,7 @@
       <li>
         <span><i class="fa fa-map"></i> {lang='aXenServerList_widget_map'}</span>
         <span>
-          {{if $row['axenserverlist_map']}}{$row['axenserverlist_map']}
+          {{if $row['map']}}{$row['map']}
           {{else}}{lang='aXenServerList_widget_none'}{{endif}}
         </span>
       </li>
@@ -102,15 +103,15 @@
       <li>
         <span><i class="fa fa-server"></i> {lang='aXenServerList_widget_protocol'}</span>
         <span>
-          {{if $row['axenserverlist_protocol']}}{$row['axenserverlist_protocol']}
+          {{if $row['protocol']}}{$row['protocol']}
           {{else}}{lang='aXenServerList_widget_none'}{{endif}}
         </span>
       </li>
 
       <li>
-        <span><i class="fa {{if $row['axenserverlist_password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
+        <span><i class="fa {{if $row['password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
         <span>
-          {{if $row['axenserverlist_password']}}{lang='yes'}
+          {{if $row['password']}}{lang='yes'}
           {{else}}{lang='no'}{{endif}}
         </span>
       </li>
@@ -118,47 +119,47 @@
       <li>
         <span><i class="fa fa-percent"></i> {lang='aXenServerList_widget_percent_players'}</span>
         <span>
-          {$row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0}%
+          {$row['max_players'] ? round( ($row['current_players'] * 100) / $row['max_players'] ) : 0}%
         </span>
       </li>
 
       <li>
         <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_most_players'}</span>
         <span>
-          {$row['axenserverlist_most_players']}
+          {$row['most_players']}
         </span>
       </li>
     </ul>
 
-    {{if $row['axenserverlist_forum'] || $row['axenserverlist_vote'] || $row['axenserverlist_statistics'] || $row['axenserverlist_tv']}}
+    {{if $row['url_forum'] || $row['url_vote'] || $row['url_statistics'] || $row['url_tv']}}
     <ul class="aXenServerList_item_more_menu_links">
-      {{if $row['axenserverlist_vote']}}
+      {{if $row['url_vote']}}
       <li>
-        <a href="{$row['axenserverlist_vote']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow">
+        <a href="{$row['url_vote']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow">
           <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
         </a>
       </li>
       {{endif}}
 
-      {{if $row['axenserverlist_statistics']}}
+      {{if $row['url_statistics']}}
       <li>
-        <a href="{$row['axenserverlist_statistics']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow">
+        <a href="{$row['url_statistics']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow">
           <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
         </a>
       </li>
       {{endif}}
 
-      {{if $row['axenserverlist_tv']}}
+      {{if $row['url_tv']}}
       <li>
-        <a href="{$row['axenserverlist_tv']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow">
+        <a href="{$row['url_tv']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow">
           <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
         </a>
       </li>
       {{endif}}
 
-      {{if $row['axenserverlist_forum']}}
+      {{if $row['url_forum']}}
       <li>
-        <a href="{$row['axenserverlist_forum']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_forum'}">
+        <a href="{$row['url_forum']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_forum'}">
           <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
         </a>
       </li>
@@ -166,56 +167,58 @@
     </ul>
     {{endif}}
   </div>
-</div>]]></template>
- <template template_group="servers" template_name="row" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[<li class="ipsDataItem">
+</div>
+]]></template>
+ <template template_group="servers" template_name="row" template_data="$row" template_location="front" template_app="axenserverlist"><![CDATA[{{$icon = $row["mod_icon"];}}
+
+<li class="ipsDataItem">
   <ul class="ipsList_reset aXenServerList_item">
     <li class="aXenServerList_item_title">
-      <span class="aXenServerList_item_title:status{{if $row['axenserverlist_status']}} aXenServerList_item_title:status-online{{endif}}"></span>
+      <span class="aXenServerList_item_title:status{{if $row['status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      {{$icons = $row["axenserverlist_game"] . '.png';}}
       {{if settings.lazy_load_enabled}}
-      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
       {{else}}
-        <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+        <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
         {{endif}}
 
         <span class="aXenServerList_item_title:name">
-          {{if $row['axenserverlist_debug']}}
+          {{if $row['debug']}}
           <i class="fa fa-exclamation-triangle" data-ipstooltip title="{lang='aXenServerList_debug_icon'}"></i>
           {{endif}}
 
-          {{if $row['axenserverlist_top_server']}}
-          {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
-          <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && isset($row['axenserverlist_top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
+          {{if $row['top_server']}}
+          {{$topServerLang = 'axenserverlist_top_server_text_' . $row['id'];}}
+          <i class="fa fa-trophy" {{if $row['top_server'] && isset($row['top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
           {{endif}}
 
-          {{if $row['axenserverlist_new']}}
-          <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
+          {{if $row['new']}}
+            <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
           {{endif}}
 
-          {$row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name']}
+          {$row['name_default'] ? $row['name_default_text'] : $row['name']}
         </span>
     </li>
 
     <li class="aXenServerList_item:ip">
-      {{if $row['axenserverlist_custom_connect']}}
-      <a href="{$row['axenserverlist_custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      {{if $row['custom_connect']}}
+      <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
-      {{elseif $row['axenserverlist_connect_link']}}
-      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      {{elseif $row['url_connect']}}
+      <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
       {{endif}}
 
-      {{if $row['axenserverlist_game'] == 'discord' && !$row['axenserverlist_ip_custom']}}
+      {{if $row['mod_protocol'] == 'discord' && !$row['ip_custom']}}
       {lang="aXenServerList_widget_clickToConnect"}
-      {{else}}{$row['axenserverlist_ip_custom'] ? $row['axenserverlist_ip_custom'] : $row['axenserverlist_ip']}{{endif}}
+      {{else}}{$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}{{endif}}
     </li>
 
 
     <li class="aXenServerList_item_players">
-      {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+      {{$calcPlayers = $row['max_players'] ? round( ($row['current_players'] * 100) / $row['max_players'] ) : 0;}}
       {{$calcPlayers = $calcPlayers <= 100 ? $calcPlayers : 100;}}
 
       <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
@@ -223,13 +226,13 @@
         <path class="aXenServerList_item_players_svg:fill{{if $calcPlayers > 0 && $calcPlayers <= 20}} aXenServerList_item_players_svg:fill_1_20{{elseif $calcPlayers > 20 && $calcPlayers <= 40 }} aXenServerList_item_players_svg:fill_21_40{{elseif $calcPlayers > 40 && $calcPlayers <= 60 }} aXenServerList_item_players_svg:fill_41_60{{elseif $calcPlayers > 60 && $calcPlayers <= 80 }} aXenServerList_item_players_svg:fill_61_80{{elseif $calcPlayers > 80 }} aXenServerList_item_players_svg:fill_81_100{{endif}}" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(100px - {$calcPlayers}px);"></path>
       </svg>
 
-      <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+      <span>{$row['current_players']} / {$row['max_players']}</span>
     </li>
 
-    {{if $row['axenserverlist_owners']}}
+    {{if $row['owners']}}
     <li class="aXenServerList_item_owners">
       <ul class="aXenServerList_item_owners_ul">
-        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+        {{foreach array_filter(explode(',', $row['owners'])) as $owner}}
         <li>
           {{$member = \IPS\Member::load( $owner );}}
           {$member->link()|raw}
@@ -241,40 +244,40 @@
 
     <li class="aXenServerList_item_more">
       <ul class="aXenServerList_item_more_ul">
-        {{if $row['axenserverlist_vote']}}
+        {{if $row['url_vote']}}
         <li>
-          <a href="{$row['axenserverlist_vote']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
+          <a href="{$row['url_vote']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
             <i class="fa fa-plus"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_statistics']}}
+        {{if $row['url_statistics']}}
         <li>
-          <a href="{$row['axenserverlist_statistics']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
+          <a href="{$row['url_statistics']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
             <i class="fa fa-bar-chart"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_tv']}}
+        {{if $row['url_tv']}}
         <li>
-          <a href="{$row['axenserverlist_tv']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
+          <a href="{$row['url_tv']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
             <i class="fa fa-video-camera"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_forum']}}
+        {{if $row['url_forum']}}
         <li>
-          <a href="{$row['axenserverlist_forum']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
+          <a href="{$row['url_forum']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
             <i class="fa fa-comments"></i>
           </a>
         </li>
         {{endif}}
 
         <li>
-          <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
+          <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
             <i class="fa fa-info-circle"></i>
           </button>
 
@@ -283,7 +286,8 @@
       </ul>
     </li>
   </ul>
-</li>]]></template>
+</li>
+]]></template>
  <template template_group="servers" template_name="title" template_data="$servers, $orientation, $fullWidthPage" template_location="front" template_app="axenserverlist"><![CDATA[<h3 class="ipsType_reset ipsWidget_title ipsFlex ipsFlex-jc:between aXenServerList{{if isset( \IPS\Request::i()->cookie['aXenServerList_widget_hide'] ) && $fullWidthPage}} aXenServerList_hide{{endif}}{{if settings.aXenServerList_settings_scroll && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll']) && settings.aXenServerList_settings_scroll_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual'])) || !settings.aXenServerList_settings_scroll_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_scroll_manual']) && settings.aXenServerList_settings_scroll_default) ) && $fullWidthPage}} aXenServerList_scroll{{endif}}{{if $orientation != 'vertical' && settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerList_fullWidth{{endif}}{{if $orientation == 'vertical'}} aXenServerList_vertical{{endif}}">
   <span>{lang="aXenServerList_widget_title"}</span>
 
@@ -315,23 +319,26 @@
 
   {{if settings.aXenServerList_settings_footer}}
   {{$totalServers += 1;}}
-  {{$totalPlayers += $row['axenserverlist_current_players'];}}
-  {{$totalPlayersMax += $row['axenserverlist_max_players'];}}
+  {{$totalPlayers += $row['current_players'];}}
+  {{$totalPlayersMax += $row['max_players'];}}
   {{endif}}
 
   {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
   {{endforeach}}
 </ul>
 
-{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}]]></template>
+{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}
+]]></template>
  <css css_location="front" css_app="axenserverlist" css_attributes="" css_path="." css_name="widget.css"><![CDATA[.aXenServerList > span {
   margin-right: auto;
 }
 
 {{if settings.aXenServerList_settings_scroll}}
-.aXenServerList_scroll + .aXenServerList_ul_scroll {
-  max-height: {setting='aXenServerList_settings_scroll_height'}px;
-  overflow-y: auto;
+@media screen and (min-width: 980px) {
+  .aXenServerList_scroll + .aXenServerList_ul_scroll {
+    max-height: {setting='aXenServerList_settings_scroll_height'}px;
+    overflow-y: auto;
+  }
 }
 {{endif}}
 
@@ -810,4 +817,5 @@
  <resource name="valheim.png" app="axenserverlist" location="front" path="/icons/">iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC40lEQVQ4jS2T3WscVRjGf+fMmZmd3dnNJpvGNGus6QcEiorVBoshYC4E0b9AvAheCsUL/4NeVxAUFLwQC8UrRfwALwQRxQ+QCqK0ESRdSY1JdrtJNzOzM3POGZkZD5yb5/16zvs8R7D6NEgJ0wSyFKx9jDzdIkufw+QrVEcMUN63NJof4nq3cF1oBGUugtXL4CqYRnA/uk5s3sCzVFfnIIA8hyirCmiG79DvX60a5BkOvUXINUzN588u2K1XLwUsN+DuKCeVLuQG4fu8sOSxdblPO7Br23uTDfzgRslNIh0YDd9kf/hSvy3Z6KSM9g5IsgwKBzQUWrJ+Zo5HWg0G/07g/t4m48P3cRwcZubPcXz8EUXOHyOfOwcReZYxEG2QHjgSMs3FpuXm4ITfpp36yQ/Gl2iGHzt4rWvoYg0vgNkeoTji2otrHHRX2Ll9F4IuT/Qsz7QTPo1a6E4XtIV4CkKEEm2fJwih2YYkZvuw4B/hs3nhIZACrM/L64uc7ndIYlErVRZ350E4GxLpPVxNVx54PrSW+P3vXVYYI5cXIZhytqn44TgEA1gByqnVDVoLijAUlQ9KvcqJruK7vRFPzQzo9To8COCXn3f4ZOxDewaiGPwAjIUCFIF3D0+dR5sKKLvfpsud3RGPqx5jV3OYK45mT4FWtTfKPLc0SDFUiOJrHHm+Qm0BriSzIbsi48l4H20KdNDGeLO1IkkEQkLDA6O/lxjzVuWwMqgkSAV+yE5uuWAjunHKrXFSSypcmJ+Dplvni+K6JE23yfN3cX3qZboVk3uqwZXlFiZL+TFcgLk5sKWrbLl9iJObTNNfZbXANH0NU3yD16i3qyy7p87xxWDIn6mmOH0WhvtwMqnjUv6ENa8gBBKvpCYhmmySp+9VDHyFOVEcPbrEzPoqOCG4/8ts7Aek2ZXSxiXmML9Udy0Brb/E6K8oFU/S4LDX9f5qL07Hk2IHzGdEk9eJo7frL1oA8B+XoyoozcDfBgAAAABJRU5ErkJggg==</resource>
  <resource name="ventrilo.png" app="axenserverlist" location="front" path="/icons/">iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAq9JREFUeNqkk19MUlEcx79XIJSuc1wQ3bAtpk4zkQdpyFMrsx56gabrJZlPPrf17lbrqRfafMIVD/XQzDlJtx7KLUlsTtCZLBQxWAYShFwTEJU/p3sx7sT51tl+55yde76/8/md+z0UIQT/08RnFyKRSE1fX9+z9fV1XVdXVysXinQ6LSoUCpTFYrnR39/vrBDwBHxwm0ojJ45xy/lsNlsgZ9rc3BxxOp26aDQq6IQJH1arddNutxfLglwuR4rFYkWSwNYWYff2sBMJlzRVZZLl5eXbLMu2Go1GKsmyJ/WJxaAoqsxa6luamyHKxE01dQ2Vd+B2ux8ZDD2orpYiv58A5HJ8crrwyhkEo25CHSOHVCLBn/00YhuLT18+eejgdQKBwWC49s4xCY97Cc8nP4LSmHHzwXvMZ5Q4VLUhr9SCaulEg74Hdo/sqi/40yAQzM7OPpZIJHLb2It/yB3A5VtAdyua5TToYhY0LUbYuwmlSomqxgYwjIIVCAKBwIjf7y+RjL8e43ofIPkFuObxwRPGajgDp+cb7kpWUON9g+LaZwT9vksCwdHREamvr6dCoRDadUbodVfgXh3HxtdFLG3s4CAX5ChSuGOyQB8J4f71aML3IxwG9CcJGIbZ4/6AXKPRYGhoCG2d3SWadl0PFyd3lGF/I7D1HU1NaohpxRoJf9kXjJRKpaqnpqbI6Ogoqa2tJbu7uySRZAUv5PP5Ci8MDg4mOKcygg9omj40mUyUSqW64HA4kEwmQfI54QCRSITh4eHSqNVqMTAwMBKPx5OnrSwru5EzVKfNZiNer7fi1N7eXt5JZHp6midqPNfK5YjFYpiYmHg7MzNTKuF0W1hYWDk+Phb2Uuc8Z76sIj/hEilcLtc9n8/XIZPJoFart81ms1UqlV7kPh/wRH8FGADwsr6CsLLZIAAAAABJRU5ErkJggg==</resource>
  <resource name="warsow.png" app="axenserverlist" location="front" path="/icons/">iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADKUlEQVR42mVTa0hTYRh+zmXbcU7bZjNbq3VFxcCiiO5QUKZBjS4/KgzCECOoP9mfsB/1I1IIRmJg80+3H0WRRJExiqLLlC5USpmlaZOc82znzO3MzV16z4HE7IWH73zf937v+7zP+x4GM4xlWYbn+bVWq7WC1sU6nQ6CIPRHIpGOcDjsUxQlO92fmb4h53KLxXLFZNCtKzdEUGzTgxEEfA2l0C0bkGb5N7IsHxNF8eN/AShLBWW9uytfyj2zTIE9TwfGaAQzKx9Zmw2BtA4XvAHc/jIRI9s7Pj7eMRWA47hlhYWFb+vyQ/mbzQnckHPB8TxYjlNZaSuTI8BUMBveXgn9o1JEkqTVyWSyTwtgs9nubzQou5vmxXAubMalV99htphVPcAw/1SJwcFBVFVVwe/3t5MuLlUwB2X/eW3uCDdXn8HVlXVocl9GKBRCc3MzUqkUMpkM0uk04vE42AwPn8+HMWk0PTQ0tJDJy8s7UGIVbj0uCSKeAhqkRTh9/RFKSktmNgiHDx6BdaAclBRPxWvoHew5xNjt9vpyXmq8s0KhCyDFsDip3wvPrdtoaWmB1+uFx+PRWOxZfwQrLVsxMTGBj8kn+DzUVc84nc4TxRDdD1ZHKQCL51IO5LobcLlcaG1tVQVGTU0N2tra4G3+BJvOCeoA3ice4nug5yRTVFS03WJgO56skYHJSVwcno1Td15Dr9dPUScfJBIJ1B09jsR7K/iUAc9jNxEMjVQwOWQOh8OfzWattbW1mlhqjWoH6EyjXllZibKyMjQ2NqLLMww5GUR34lkoGAw6tB5RGQ00oufcbjd27qyiIBnt8V9Tv9Vu7N9RjfnKKvhi9zAS9p+lN+e1AAYys9n8TDAI67Yud4HL6kA9hhJTNMEmqTSVWaFxAb7FOuGXf7yh+y3ELjE1JUS7wGQytTvmODfsWlWNBaZS0oTTBAuIw+gVP6An9BpjkcA7OttHrH7Rs7QagCUsIWwmbCIy24xG4xyaTlbgjQyNK5RkNBuNRjP0D4gk5kvy6yS8IHT/ZWAiOAhLCYsIdkIBtTBXHWWqP057kfCbMEDoU6eaEPsDdBpkVBpZQScAAAAASUVORK5CYII=</resource>
+ <resource name="unknown.png" app="axenserverlist" location="global" path="/icons/">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFBSURBVHgBtVWLcYMwDBW9DsAGZYRskG5ANgidoN2AbpBukK7QCdwNmg08At3AkRMpCB0CGxJd3gWM/N7pYxmALACUiE+EQ4SF+EPsQRsuVgi/glgjclVSwIsP2xgNLDDcVyuuMi42g4WVRqlmkRYob/GlHnHeie8aHeI4SEW/75V8HPCGEadmUb77KK68EwIylzXVRuIgRA4j+2cFOit1wqfldFkCz2DbG+KlAPiZ8Pmnf7s5rAjmjArpb8W0eHMFqIBHVejNaoHQj5JOddDW8M8WcOoMtFMHc42ACwknnnmfIN24Y05F/zxvGRFUiPeQOK+Yt2Dy4vK7nzFvcorQ+4MG3w5yTHTGVEeUsjUhgzdG8EtrG8uZivpFr98wT85RnuTAesSFs9cLPjvHQ2I5n7z8+NhLXwg1wb4iU+D0CDkDLcu/7BXCUNQAAAAASUVORK5CYII=</resource>
 </theme>
