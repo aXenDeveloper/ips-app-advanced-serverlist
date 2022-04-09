@@ -19,8 +19,12 @@ class _Servers extends \IPS\Node\Model
      * Database Table
      */
     public static $databaseTable = 'axenserverlist_servers';
-    public static $databasePrefix = 'axenserverlist_';
     public static $databaseColumnOrder = 'position';
+
+    /**
+     * @brief    [Node] Title prefix.  If specified, will look for a language key with "{$key}_title" as the key
+     */
+    public static $titleLangPrefix = 'aXenServerList_admin_table_servers_';
 
     /**
      * Get URL
@@ -41,15 +45,15 @@ class _Servers extends \IPS\Node\Model
      */
     public function form(&$form)
     {
-        $members = array();
+        $members = [];
         if (!empty($this->owners)) {
             foreach (new \IPS\Patterns\ActiveRecordIterator(\IPS\Db::i()->select('*', 'core_members', array(\IPS\Db::i()->in('member_id', explode(",", $this->owners)))), 'IPS\Member') as $member) {
                 $members[] = $member;
             }
         }
 
-        $form->addTab('axenserverlist_tab_basic');
-        $form->add(new \IPS\Helpers\Form\Select('axenserverlist_game', $this->game, true, array('options' => array(
+        $form->addTab('aXenServerList_admin_table_servers_tab_basic');
+        $form->add(new \IPS\Helpers\Form\Select('aXenServerList_admin_table_servers_game', $this->game, true, array('options' => array(
             'arkse' => 'ARK: Survival Evolved',
             'arma3' => 'Arma3',
             'bf2' => 'Battlefield 2',
@@ -117,71 +121,71 @@ class _Servers extends \IPS\Node\Model
             'warsow' => 'Warsow',
             'won' => 'World Opponent Network',
         ), 'multiple' => false)));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_name', $this->name, true));
-        $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_name_default', $this->name_default, false));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip', $this->ip, true));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_ip_custom', $this->ip_custom, false));
-        $form->add(new \IPS\Helpers\Form\Number('axenserverlist_query_port', $this->query_port == 0 ? null : $this->query_port, false));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_name', $this->name, true));
+        $form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_admin_table_servers_name_default', $this->name_default, false));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_ip', $this->ip, true));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_ip_custom', $this->ip_custom, false));
+        $form->add(new \IPS\Helpers\Form\Number('aXenServerList_admin_table_servers_query_port', $this->query_port == 0 ? null : $this->query_port, false));
 
         $form->add(new \IPS\Helpers\Form\YesNo(
-            'axenserverlist_custom_connect',
+            'aXenServerList_admin_table_servers_custom_connect',
             $this->custom_connect,
             false,
             [
                 'togglesOn' => [
-                    'axenserverlist_custom_connect_link',
+                    'aXenServerList_admin_table_servers_custom_connect_link',
                 ],
             ]
         ));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_custom_connect_link', $this->custom_connect_link, false, [], null, null, null, 'axenserverlist_custom_connect_link'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_custom_connect_link', $this->custom_connect_link, false, [], null, null, null, 'aXenServerList_admin_table_servers_custom_connect_link'));
 
-        $form->addTab('axenserverlist_tab_debug');
+        $form->addTab('aXenServerList_admin_table_servers_tab_debug');
         $form->add(new \IPS\Helpers\Form\YesNo(
-            'axenserverlist_debug',
+            'aXenServerList_admin_table_servers_debug',
             $this->debug,
             false,
             [
                 'togglesOn' => [
-                    'axenserverlist_debug_text_YesNo',
+                    'aXenServerList_admin_table_servers_debug_text_YesNo',
                 ],
             ]
         ));
 
         $form->add(new \IPS\Helpers\Form\YesNo(
-            'axenserverlist_debug_text_YesNo',
+            'aXenServerList_admin_table_servers_debug_text_YesNo',
             $this->debug_text_YesNo,
             false,
             [
                 'togglesOn' => [
-                    'axenserverlist_debug_text',
+                    'aXenServerList_admin_table_servers_debug_text',
                 ],
             ],
             null,
             null,
             null,
-            'axenserverlist_debug_text_YesNo'
+            'aXenServerList_admin_table_servers_debug_text_YesNo'
         ));
 
-        $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_debug_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_debug_text_{$this->id}"), null, null, null, 'axenserverlist_debug_text'));
+        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_debug_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_debug_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_debug_text'));
 
-        $form->addTab('axenserverlist_tab_urls');
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_statistics', $this->statistics, false));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_tv', $this->tv, false));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_vote', $this->vote, false));
-        $form->add(new \IPS\Helpers\Form\Text('axenserverlist_forum', $this->forum, false));
+        $form->addTab('aXenServerList_admin_table_servers_tab_urls');
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_url_statistics', $this->url_statistics, false));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_url_tv', $this->url_tv, false));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_url_vote', $this->url_vote, false));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_url_forum', $this->url_forum, false));
 
-        $form->addTab('axenserverlist_tab_advanced');
-        $form->add(new \IPS\Helpers\Form\Member('axenserverlist_owners', $members, false, array('multiple' => null)));
-        $form->add(new \IPS\Helpers\Form\YesNo('axenserverlist_new', $this->new, false));
+        $form->addTab('aXenServerList_admin_table_servers_tab_advanced');
+        $form->add(new \IPS\Helpers\Form\Member('aXenServerList_admin_table_servers_owners', $members, false, array('multiple' => null)));
+        $form->add(new \IPS\Helpers\Form\YesNo('aXenServerList_admin_table_servers_new', $this->new, false));
         $form->add(new \IPS\Helpers\Form\YesNo(
-            'axenserverlist_top_server',
+            'aXenServerList_admin_table_servers_top_server',
             $this->top_server,
             false,
             array('togglesOn' => array(
-                'axenserverlist_top_server_text',
+                'aXenServerList_admin_table_servers_top_server_text',
             ))
         ));
-        $form->add(new \IPS\Helpers\Form\Translatable('axenserverlist_top_server_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_top_server_text_{$this->id}"), null, null, null, 'axenserverlist_top_server_text'));
+        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_top_server_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_top_server_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_top_server_text'));
     }
 
     /**
@@ -192,15 +196,29 @@ class _Servers extends \IPS\Node\Model
      */
     public function formatFormValues($values)
     {
+        if (!$this->id) {
+            $this->save();
+        }
+
+        $_values = $values;
+        $values = [];
+        foreach ($_values as $k => $v) {
+            if (mb_substr($k, 0, 35) === 'aXenServerList_admin_table_servers_') {
+                $values[mb_substr($k, 35)] = $v;
+            } else {
+                $values[$k] = $v;
+            }
+        }
+
         // Save owners
-        if (!empty($values['axenserverlist_owners'])) {
-            $members = array();
-            foreach ($values['axenserverlist_owners'] as $member) {
+        if (!empty($values['owners'])) {
+            $members = [];
+            foreach ($values['owners'] as $member) {
                 $members[] = $member->member_id;
             }
-            $values['axenserverlist_owners'] = implode(',', $members);
+            $values['owners'] = implode(',', $members);
         } else {
-            $values['axenserverlist_owners'] = null;
+            $values['owners'] = null;
         }
 
         return $values;
@@ -215,14 +233,14 @@ class _Servers extends \IPS\Node\Model
     public function postSaveForm($values)
     {
         // Save Translatable
-        if (isset($values['axenserverlist_top_server_text'])) {
-            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['axenserverlist_top_server_text']);
+        if (isset($values['top_server_text'])) {
+            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['top_server_text']);
         } else {
             \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
         }
 
-        if ($values['axenserverlist_debug_text_YesNo']) {
-            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}", $values['axenserverlist_debug_text']);
+        if ($values['debug_text_YesNo']) {
+            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}", $values['debug_text']);
         } else {
             \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}");
         }
@@ -233,16 +251,16 @@ class _Servers extends \IPS\Node\Model
         $gq->setOption('write_wait', 10);
         $gq->setOption('timeout', 3);
 
-        if ($values['axenserverlist_game'] != 'discord') {
+        if ($values['game'] != 'discord') {
             $server = [
                 'id' => $this->id,
                 'type' => $this->game,
                 'host' => $this->ip,
             ];
 
-            if ($values['axenserverlist_query_port']) {
+            if ($values['query_port']) {
                 $server['options'] = [
-                    'query_port' => $values['axenserverlist_query_port'],
+                    'query_port' => $values['query_port'],
                 ];
             };
 
@@ -255,35 +273,35 @@ class _Servers extends \IPS\Node\Model
                 foreach ($results as $id => $data) {
                     if ($data['gq_online'] == true) {
                         $dataUpdate = [
-                            'axenserverlist_status' => 1,
-                            'axenserverlist_current_players' => $data['gq_numplayers'],
-                            'axenserverlist_max_players' => $data['gq_maxplayers'],
-                            'axenserverlist_name_default_text' => $data['gq_hostname'],
-                            'axenserverlist_map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
-                            'axenserverlist_game_long' => $data['gq_name'],
-                            'axenserverlist_connect_link' => $data['gq_joinlink'],
-                            'axenserverlist_protocol' => $data['gq_protocol'],
-                            'axenserverlist_password' => $data['gq_password'],
+                            'status' => 1,
+                            'current_players' => $data['gq_numplayers'],
+                            'max_players' => $data['gq_maxplayers'],
+                            'name_default_text' => $data['gq_hostname'],
+                            'map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
+                            'game_long' => $data['gq_name'],
+                            'connect_link' => $data['gq_joinlink'],
+                            'protocol' => $data['gq_protocol'],
+                            'password' => $data['gq_password'],
                         ];
 
                         if ($data['gq_numplayers'] > $this->most_players) {
-                            $dataUpdate['axenserverlist_most_players'] = $data['gq_numplayers'];
+                            $dataUpdate['most_players'] = $data['gq_numplayers'];
                         }
 
-                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $this->id]);
+                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
                     } else {
                         $dataUpdate = [
-                            'axenserverlist_status' => 0,
-                            'axenserverlist_current_players' => 0,
-                            'axenserverlist_max_players' => 0,
-                            'axenserverlist_map' => null,
-                            'axenserverlist_game_long' => $data['gq_name'],
-                            'axenserverlist_connect_link' => $data['gq_joinlink'],
-                            'axenserverlist_protocol' => $data['gq_protocol'],
-                            'axenserverlist_password' => $data['gq_password'],
+                            'status' => 0,
+                            'current_players' => 0,
+                            'max_players' => 0,
+                            'map' => null,
+                            'game_long' => $data['gq_name'],
+                            'connect_link' => $data['gq_joinlink'],
+                            'protocol' => $data['gq_protocol'],
+                            'password' => $data['gq_password'],
                         ];
 
-                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $this->id]);
+                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
                     }
                 }
             } catch (\Exception$e) {
@@ -291,34 +309,34 @@ class _Servers extends \IPS\Node\Model
             }
         } else {
             try {
-                $url = "https://discordapp.com/api/guilds/" . $values['axenserverlist_ip'] . "/widget.json";
+                $url = "https://discordapp.com/api/guilds/" . $values['ip'] . "/widget.json";
                 $dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
 
                 if (!$dataFromJSON['name']) {
                     $dataUpdate = [
-                        'axenserverlist_status' => 0,
-                        'axenserverlist_current_players' => 0,
-                        'axenserverlist_max_players' => 0,
-                        'axenserverlist_game_long' => 'Discord',
-                        'axenserverlist_protocol' => 'discord',
+                        'status' => 0,
+                        'current_players' => 0,
+                        'max_players' => 0,
+                        'game_long' => 'Discord',
+                        'protocol' => 'discord',
                     ];
                 }
 
                 $dataUpdate = [
-                    'axenserverlist_status' => 1,
-                    'axenserverlist_current_players' => $dataFromJSON['presence_count'],
-                    'axenserverlist_max_players' => $dataFromJSON['presence_count'],
-                    'axenserverlist_name_default_text' => $dataFromJSON['name'],
-                    'axenserverlist_game_long' => 'Discord',
-                    'axenserverlist_connect_link' => $dataFromJSON['instant_invite'],
-                    'axenserverlist_protocol' => 'discord',
+                    'status' => 1,
+                    'current_players' => $dataFromJSON['presence_count'],
+                    'max_players' => $dataFromJSON['presence_count'],
+                    'name_default_text' => $dataFromJSON['name'],
+                    'game_long' => 'Discord',
+                    'connect_link' => $dataFromJSON['instant_invite'],
+                    'protocol' => 'discord',
                 ];
 
                 if ($dataFromJSON['presence_count'] > $this->most_players) {
-                    $dataUpdate['axenserverlist_most_players'] = $dataFromJSON['presence_count'];
+                    $dataUpdate['most_players'] = $dataFromJSON['presence_count'];
                 }
 
-                \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['axenserverlist_id=?', $this->id]);
+                \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
             } catch (\Exception$e) {
                 \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
             }
@@ -345,8 +363,7 @@ class _Servers extends \IPS\Node\Model
      */
     protected function get__description()
     {
-        $getGameTitle = $this->game_long ? $this->game_long : $this->game;
-        return $getGameTitle;
+        return $this->game_long ? $this->game_long : $this->game;
     }
 
     /**
@@ -357,15 +374,15 @@ class _Servers extends \IPS\Node\Model
     protected function get__badge()
     {
         if ($this->debug == true) {
-            return array(
+            return [
                 0 => 'ipsBadge ipsBadge_style2',
-                1 => 'axenserverlist_debug',
-            );
+                1 => 'aXenServerList_admin_table_servers_tab_debug',
+            ];
         } else if ($this->new == true) {
-            return array(
+            return [
                 0 => 'ipsBadge ipsBadge_negative',
                 1 => 'aXenServerList_widget_new',
-            );
+            ];
         }
     }
 
@@ -377,7 +394,7 @@ class _Servers extends \IPS\Node\Model
      */
     protected function get__icon()
     {
-        if ($this->top_server == true) {
+        if ($this->top_server) {
             return 'trophy';
         }
     }
@@ -389,7 +406,7 @@ class _Servers extends \IPS\Node\Model
      */
     public function delete()
     {
-        foreach (array('room_name' => "axenserverlist_top_server_text_{$this->_id}", 'room_rules' => "axenserverlist_debug_text_{$this->id}") as $fieldKey => $langKey) {
+        foreach (['room_name' => "top_server_text_{$this->_id}", 'room_rules' => "debug_text_{$this->id}"] as $fieldKey => $langKey) {
             \IPS\Lang::deleteCustom('axenserverlist', $langKey);
         }
 
