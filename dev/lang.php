@@ -65,8 +65,8 @@ $lang = array(
     // Servers Node in AdminCP
     // * Basic
     'aXenServerList_admin_table_servers_tab_basic' => 'Basic',
-    'aXenServerList_admin_table_servers_game' => 'Game',
     'aXenServerList_admin_table_servers_name' => 'Custom name',
+    "aXenServerList_admin_table_servers_mod_id" => "Mod",
     'aXenServerList_admin_table_servers_name_default' => 'Get name from the server and display?',
     'aXenServerList_admin_table_servers_name_default_desc' => 'If this option is enable then shows server name instead of custom name.',
     'aXenServerList_admin_table_servers_ip' => 'IP',

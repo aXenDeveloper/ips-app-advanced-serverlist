@@ -373,6 +373,18 @@
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
+            },
+            "mod_id": {
+                "name": "mod_id",
+                "type": "BIGINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         },
         "indexes": {

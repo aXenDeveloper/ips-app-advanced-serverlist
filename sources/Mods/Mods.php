@@ -26,11 +26,6 @@ class _Mods extends \IPS\Node\Model
     public static $nodeTitle = 'menu__axenserverlist_servers_mods';
 
     /**
-     * @brief    [Node] Title prefix.  If specified, will look for a language key with "{$key}_title" as the key
-     */
-    public static $titleLangPrefix = 'aXenServerList_admin_table_mods_';
-
-    /**
      * [Node] Add/Edit Form
      *
      * @param    \IPS\Helpers\Form    $form    The form
@@ -166,12 +161,15 @@ class _Mods extends \IPS\Node\Model
         $_values = $values;
         $values = [];
         foreach ($_values as $k => $v) {
-            if (mb_substr($k, 0, 32) === $this->titleLangPrefix) {
+            if (mb_substr($k, 0, 32) === 'aXenServerList_admin_table_mods_') {
                 $values[mb_substr($k, 32)] = $v;
             } else {
                 $values[$k] = $v;
             }
         }
+
+        // Change protocol to api when custom api is true
+        $values['protocol'] = $values['api'] ? 'api' : $values['protocol'];
 
         return $values;
     }

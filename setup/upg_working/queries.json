@@ -810,5 +810,23 @@
                 "auto_increment": false
             }
         ]
+    },
+    {
+        "method": "addColumn",
+        "params": [
+            "axenserverlist_servers",
+            {
+                "name": "mod_id",
+                "type": "BIGINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
     }
 ]

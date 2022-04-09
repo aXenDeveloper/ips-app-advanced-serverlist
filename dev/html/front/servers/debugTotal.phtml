@@ -17,11 +17,11 @@
       {{if $row['debug']}}
       <li>
         <span>
-          {{$icons = $row["game"] . '.png';}}
+          {{$icon = $row["mod_icon"];}}
           {{if settings.lazy_load_enabled}}
-          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
+          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
           {{else}}
-            <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
+            <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
             {{endif}}
 
             <span class="aXenServerList_debug:name">{$row['name_default'] ? $row['name_default_text'] : $row['name']}</span>
