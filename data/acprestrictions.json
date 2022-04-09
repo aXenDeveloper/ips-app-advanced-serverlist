@@ -5,6 +5,9 @@
         },
         "servers": {
             "servers_manage": "servers_manage"
+        },
+        "mods": {
+            "mods_manage": "mods_manage"
         }
     }
 }

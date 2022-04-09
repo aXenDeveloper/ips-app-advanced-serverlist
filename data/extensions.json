@@ -1,5 +1,8 @@
 {
     "core": {
+        "FileStorage": {
+            "mods": "IPS\\axenserverlist\\extensions\\core\\FileStorage\\mods"
+        },
         "FrontNavigation": {
             "Servers": "IPS\\axenserverlist\\extensions\\core\\FrontNavigation\\Servers"
         }
