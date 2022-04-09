@@ -166,7 +166,7 @@ class _Servers extends \IPS\Node\Model
             'aXenServerList_admin_table_servers_debug_text_YesNo'
         ));
 
-        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_debug_text', null, false, array('app' => 'axenserverlist', 'key' => "aXenServerList_admin_table_servers_debug_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_debug_text'));
+        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_debug_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_debug_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_debug_text'));
 
         $form->addTab('aXenServerList_admin_table_servers_tab_urls');
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_url_statistics', $this->url_statistics, false));
@@ -185,7 +185,7 @@ class _Servers extends \IPS\Node\Model
                 'aXenServerList_admin_table_servers_top_server_text',
             ))
         ));
-        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_top_server_text', null, false, array('app' => 'axenserverlist', 'key' => "aXenServerList_admin_table_servers_top_server_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_top_server_text'));
+        $form->add(new \IPS\Helpers\Form\Translatable('aXenServerList_admin_table_servers_top_server_text', null, false, array('app' => 'axenserverlist', 'key' => "axenserverlist_top_server_text_{$this->id}"), null, null, null, 'aXenServerList_admin_table_servers_top_server_text'));
     }
 
     /**
@@ -234,15 +234,15 @@ class _Servers extends \IPS\Node\Model
     {
         // Save Translatable
         if (isset($values['top_server_text'])) {
-            \IPS\Lang::saveCustom('axenserverlist', "top_server_text_{$this->id}", $values['top_server_text']);
+            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['top_server_text']);
         } else {
-            \IPS\Lang::deleteCustom('axenserverlist', "top_server_text_{$this->id}");
+            \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}");
         }
 
         if ($values['debug_text_YesNo']) {
-            \IPS\Lang::saveCustom('axenserverlist', "debug_text_{$this->id}", $values['debug_text']);
+            \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}", $values['debug_text']);
         } else {
-            \IPS\Lang::deleteCustom('axenserverlist', "debug_text_{$this->id}");
+            \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}");
         }
 
         require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/sources/GameQ/Autoloader.php';
