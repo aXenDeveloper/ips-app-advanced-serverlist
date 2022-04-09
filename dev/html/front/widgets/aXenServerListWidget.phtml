@@ -13,8 +13,8 @@
 
   {{if settings.aXenServerList_settings_footer}}
   {{$totalServers += 1;}}
-  {{$totalPlayers += $row['axenserverlist_current_players'];}}
-  {{$totalPlayersMax += $row['axenserverlist_max_players'];}}
+  {{$totalPlayers += $row['current_players'];}}
+  {{$totalPlayersMax += $row['max_players'];}}
   {{endif}}
 
   {template="row" app="axenserverlist" group="servers" location="front" params="$row"}

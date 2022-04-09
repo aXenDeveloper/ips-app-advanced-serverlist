@@ -2,7 +2,7 @@
 {{$totalServersDebug = 0;}}
 
 {{foreach $servers as $row}}
-{{if $row['axenserverlist_debug']}}
+{{if $row['debug']}}
 {{$totalServersDebug += 1;}}
 {{endif}}
 {{endforeach}}
@@ -14,21 +14,21 @@
   <div class="aXenServerList_debug ipsPadding:half">
     <ul class="aXenServerList_debug_list">
       {{foreach $servers as $row}}
-      {{if $row['axenserverlist_debug']}}
+      {{if $row['debug']}}
       <li>
         <span>
-          {{$icons = $row["axenserverlist_game"] . '.png';}}
+          {{$icons = $row["game"] . '.png';}}
           {{if settings.lazy_load_enabled}}
-          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
           {{else}}
-            <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+            <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_debug:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
             {{endif}}
 
-            <span class="aXenServerList_debug:name">{$row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name']}</span>
+            <span class="aXenServerList_debug:name">{$row['name_default'] ? $row['name_default_text'] : $row['name']}</span>
         </span>
 
         <span>
-          {{$topServerLang = $row['axenserverlist_debug_text_YesNo'] ? 'axenserverlist_debug_text_' . $row['axenserverlist_id'] : 'aXenServerList_debug_icon';}}
+          {{$topServerLang = $row['debug_text_YesNo'] ? 'debug_text_' . $row['id'] : 'aXenServerList_debug_icon';}}
           {lang="$topServerLang"}
         </span>
 

@@ -166,7 +166,7 @@ class _Mods extends \IPS\Node\Model
         $_values = $values;
         $values = [];
         foreach ($_values as $k => $v) {
-            if (mb_substr($k, 0, 32) === 'aXenServerList_admin_table_mods_') {
+            if (mb_substr($k, 0, 32) === $this->titleLangPrefix) {
                 $values[mb_substr($k, 32)] = $v;
             } else {
                 $values[$k] = $v;

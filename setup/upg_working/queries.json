@@ -164,5 +164,632 @@
                 }
             }
         ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_id",
+            {
+                "name": "id",
+                "type": "BIGINT",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "ID Number",
+                "unsigned": true,
+                "auto_increment": true
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_name",
+            {
+                "name": "name",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_position",
+            {
+                "name": "position",
+                "type": "INT",
+                "length": 11,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_ip",
+            {
+                "name": "ip",
+                "type": "VARCHAR",
+                "length": 245,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_owners",
+            {
+                "name": "owners",
+                "type": "VARCHAR",
+                "length": 100,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_statistics",
+            {
+                "name": "statistics",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_status",
+            {
+                "name": "status",
+                "type": "TINYINT",
+                "length": 4,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_current_players",
+            {
+                "name": "current_players",
+                "type": "INT",
+                "length": 11,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_max_players",
+            {
+                "name": "max_players",
+                "type": "INT",
+                "length": 11,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_game",
+            {
+                "name": "game",
+                "type": "VARCHAR",
+                "length": 20,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "csgo",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_tv",
+            {
+                "name": "tv",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "tv",
+            {
+                "name": "url_tv",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "statistics",
+            {
+                "name": "url_statistics",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_vote",
+            {
+                "name": "url_vote",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_forum",
+            {
+                "name": "url_forum",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_map",
+            {
+                "name": "map",
+                "type": "VARCHAR",
+                "length": 100,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_new",
+            {
+                "name": "new",
+                "type": "TINYINT",
+                "length": 4,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_game_long",
+            {
+                "name": "game_long",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_connect_link",
+            {
+                "name": "url_connect",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_top_server",
+            {
+                "name": "top_server",
+                "type": "TINYINT",
+                "length": 4,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_top_server_text",
+            {
+                "name": "top_server_text",
+                "type": "TEXT",
+                "length": 0,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_ip_custom",
+            {
+                "name": "ip_custom",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_name_default_text",
+            {
+                "name": "name_default_text",
+                "type": "VARCHAR",
+                "length": 200,
+                "decimals": null,
+                "values": [],
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_name_default",
+            {
+                "name": "name_default",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_protocol",
+            {
+                "name": "protocol",
+                "type": "VARCHAR",
+                "length": 100,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_query_port",
+            {
+                "name": "query_port",
+                "type": "INT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_password",
+            {
+                "name": "password",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_most_players",
+            {
+                "name": "most_players",
+                "type": "INT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_custom_connect_link",
+            {
+                "name": "custom_connect_link",
+                "type": "VARCHAR",
+                "length": 150,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_custom_connect",
+            {
+                "name": "custom_connect",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_debug_text_YesNo",
+            {
+                "name": "debug_text_YesNo",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_debug_text",
+            {
+                "name": "debug_text",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_servers",
+            "axenserverlist_debug",
+            {
+                "name": "debug",
+                "type": "TINYINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": 0,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
     }
 ]

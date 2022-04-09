@@ -2,52 +2,52 @@
 <li class="ipsDataItem">
   <ul class="ipsList_reset aXenServerList_item">
     <li class="aXenServerList_item_title">
-      <span class="aXenServerList_item_title:status{{if $row['axenserverlist_status']}} aXenServerList_item_title:status-online{{endif}}"></span>
+      <span class="aXenServerList_item_title:status{{if $row['status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      {{$icons = $row["axenserverlist_game"] . '.png';}}
+      {{$icons = $row["game"] . '.png';}}
       {{if settings.lazy_load_enabled}}
-      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
       {{else}}
-        <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['axenserverlist_game_long']}" alt="{$row['axenserverlist_game_long']}">
+        <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
         {{endif}}
 
         <span class="aXenServerList_item_title:name">
-          {{if $row['axenserverlist_debug']}}
+          {{if $row['debug']}}
           <i class="fa fa-exclamation-triangle" data-ipstooltip title="{lang='aXenServerList_debug_icon'}"></i>
           {{endif}}
 
-          {{if $row['axenserverlist_top_server']}}
-          {{$topServerLang = 'axenserverlist_top_server_text_' . $row['axenserverlist_id'];}}
-          <i class="fa fa-trophy" {{if $row['axenserverlist_top_server'] && isset($row['axenserverlist_top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
+          {{if $row['top_server']}}
+          {{$topServerLang = 'top_server_text_' . $row['id'];}}
+          <i class="fa fa-trophy" {{if $row['top_server'] && isset($row['top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
           {{endif}}
 
-          {{if $row['axenserverlist_new']}}
-          <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
+          {{if $row['new']}}
+            <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
           {{endif}}
 
-          {$row['axenserverlist_name_default'] ? $row['axenserverlist_name_default_text'] : $row['axenserverlist_name']}
+          {$row['name_default'] ? $row['name_default_text'] : $row['name']}
         </span>
     </li>
 
     <li class="aXenServerList_item:ip">
-      {{if $row['axenserverlist_custom_connect']}}
-      <a href="{$row['axenserverlist_custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      {{if $row['custom_connect']}}
+      <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['game'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
-      {{elseif $row['axenserverlist_connect_link']}}
-      <a href="{$row['axenserverlist_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['axenserverlist_game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['axenserverlist_game'] == 'discord'}}target="blank" {{endif}}>
+      {{elseif $row['url_connect']}}
+      <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['game'] == 'discord'}}target="blank" {{endif}}>
         <i class="fa fa-link"></i>
       </a>
       {{endif}}
 
-      {{if $row['axenserverlist_game'] == 'discord' && !$row['axenserverlist_ip_custom']}}
+      {{if $row['game'] == 'discord' && !$row['ip_custom']}}
       {lang="aXenServerList_widget_clickToConnect"}
-      {{else}}{$row['axenserverlist_ip_custom'] ? $row['axenserverlist_ip_custom'] : $row['axenserverlist_ip']}{{endif}}
+      {{else}}{$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}{{endif}}
     </li>
 
 
     <li class="aXenServerList_item_players">
-      {{$calcPlayers = $row['axenserverlist_max_players'] ? round( ($row['axenserverlist_current_players'] * 100) / $row['axenserverlist_max_players'] ) : 0;}}
+      {{$calcPlayers = $row['max_players'] ? round( ($row['current_players'] * 100) / $row['max_players'] ) : 0;}}
       {{$calcPlayers = $calcPlayers <= 100 ? $calcPlayers : 100;}}
 
       <svg xmlns="http://www.w3.org/2000/svg" class="aXenServerList_item_players_svg" viewBox="0 0 49 40.22">
@@ -55,13 +55,13 @@
         <path class="aXenServerList_item_players_svg:fill{{if $calcPlayers > 0 && $calcPlayers <= 20}} aXenServerList_item_players_svg:fill_1_20{{elseif $calcPlayers > 20 && $calcPlayers <= 40 }} aXenServerList_item_players_svg:fill_21_40{{elseif $calcPlayers > 40 && $calcPlayers <= 60 }} aXenServerList_item_players_svg:fill_41_60{{elseif $calcPlayers > 60 && $calcPlayers <= 80 }} aXenServerList_item_players_svg:fill_61_80{{elseif $calcPlayers > 80 }} aXenServerList_item_players_svg:fill_81_100{{endif}}" d="M1048.02,1119.34a22.5,22.5,0,1,1,37.15-.28" transform="translate(-1042 -1082)" style="stroke-dashoffset: calc(100px - {$calcPlayers}px);"></path>
       </svg>
 
-      <span>{$row['axenserverlist_current_players']} / {$row['axenserverlist_max_players']}</span>
+      <span>{$row['current_players']} / {$row['max_players']}</span>
     </li>
 
-    {{if $row['axenserverlist_owners']}}
+    {{if $row['owners']}}
     <li class="aXenServerList_item_owners">
       <ul class="aXenServerList_item_owners_ul">
-        {{foreach array_filter(explode(',', $row['axenserverlist_owners'])) as $owner}}
+        {{foreach array_filter(explode(',', $row['owners'])) as $owner}}
         <li>
           {{$member = \IPS\Member::load( $owner );}}
           {$member->link()|raw}
@@ -73,40 +73,40 @@
 
     <li class="aXenServerList_item_more">
       <ul class="aXenServerList_item_more_ul">
-        {{if $row['axenserverlist_vote']}}
+        {{if $row['url_vote']}}
         <li>
-          <a href="{$row['axenserverlist_vote']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
+          <a href="{$row['url_vote']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_vote'}">
             <i class="fa fa-plus"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_statistics']}}
+        {{if $row['url_statistics']}}
         <li>
-          <a href="{$row['axenserverlist_statistics']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
+          <a href="{$row['url_statistics']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_statistics'}">
             <i class="fa fa-bar-chart"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_tv']}}
+        {{if $row['url_tv']}}
         <li>
-          <a href="{$row['axenserverlist_tv']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
+          <a href="{$row['url_tv']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow" data-ipstooltip title="{lang='aXenServerList_widget_tv'}">
             <i class="fa fa-video-camera"></i>
           </a>
         </li>
         {{endif}}
 
-        {{if $row['axenserverlist_forum']}}
+        {{if $row['url_forum']}}
         <li>
-          <a href="{$row['axenserverlist_forum']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
+          <a href="{$row['url_forum']}" class="ipsButton aXenServerListButton {setting='aXenServerList_settings_buttons_forum'}" data-ipstooltip title="{lang='aXenServerList_widget_forum'}">
             <i class="fa fa-comments"></i>
           </a>
         </li>
         {{endif}}
 
         <li>
-          <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['axenserverlist_id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
+          <button class="ipsButton aXenServerListButton ipsButton_normal" id="aXenServerList_{$row['id']}" data-ipsmenu data-ipstooltip title="{lang='aXenServerList_widget_more'}">
             <i class="fa fa-info-circle"></i>
           </button>
 
