@@ -68,11 +68,14 @@ class _Mods extends \IPS\Node\Model
         ));
 
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_url', $this->api_url, true, [], null, null, null, 'aXenServerList_admin_table_mods_api_url'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_status', $this->api_status, true, [], null, null, null, 'aXenServerList_admin_table_mods_api_status'));
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_current_players', $this->api_current_players, true, [], null, null, null, 'aXenServerList_admin_table_mods_api_current_players'));
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_max_players', $this->api_max_players, true, [], null, null, null, 'aXenServerList_admin_table_mods_api_max_players'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_name', $this->api_name, false, [], null, null, null, 'aXenServerList_admin_table_mods_api_name'));
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_password', $this->api_password, false, [], null, null, null, 'aXenServerList_admin_table_mods_api_password'));
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_map', $this->api_map, false, [], null, null, null, 'aXenServerList_admin_table_mods_api_map'));
         $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_platform', $this->api_platform, false, [], null, null, null, 'aXenServerList_admin_table_mods_api_platform'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_mods_api_connect_link', $this->api_connect_link, false, [], null, null, null, 'aXenServerList_admin_table_mods_api_connect_link'));
 
         $form->add(new \IPS\Helpers\Form\Select('aXenServerList_admin_table_mods_protocol', $this->protocol, true, ['options' => [
             'aa3' => "America's Army 3",

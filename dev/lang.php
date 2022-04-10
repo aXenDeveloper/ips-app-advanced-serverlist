@@ -103,12 +103,15 @@ $lang = array(
     'aXenServerList_admin_table_mods_name' => "Name",
     'aXenServerList_admin_table_mods_protocol' => "Protocol",
     'aXenServerList_admin_table_mods_api' => "Custom API",
-    'aXenServerList_admin_table_mods_api_url' => "Custom API Field<br />Address URL ",
-    'aXenServerList_admin_table_mods_api_current_players' => "Custom API Field<br />Current Players ",
+    'aXenServerList_admin_table_mods_api_url' => "Custom API Field<br />Address URL",
+    'aXenServerList_admin_table_mods_api_status' => "Custom API Field<br />Status",
+    'aXenServerList_admin_table_mods_api_current_players' => "Custom API Field<br />Current Players",
     'aXenServerList_admin_table_mods_api_max_players' => "Custom API Field<br />Max Players",
-    'aXenServerList_admin_table_mods_api_password' => "Custom API Field<br />Password ",
-    'aXenServerList_admin_table_mods_api_map' => "Custom API Field<br />Map API ",
-    'aXenServerList_admin_table_mods_api_platform' => "Custom API Field<br />Platform API ",
+    'aXenServerList_admin_table_mods_api_name' => "Custom API Field<br />Name",
+    'aXenServerList_admin_table_mods_api_password' => "Custom API Field<br />Password",
+    'aXenServerList_admin_table_mods_api_map' => "Custom API Field<br />Map API",
+    'aXenServerList_admin_table_mods_api_platform' => "Custom API Field<br />Platform",
+    'aXenServerList_admin_table_mods_api_connect_link' => "Custom API Field<br />Connect Link",
 
     // Widgets
     // * Server List

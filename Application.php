@@ -81,6 +81,14 @@ class _Application extends \IPS\Application
             axenserverlist_servers.query_port,
             axenserverlist_servers.most_players,
             axenserverlist_mods.api_url as mod_api_url,
+            axenserverlist_mods.api_status as mod_api_status,
+            axenserverlist_mods.api_current_players as mod_api_current_players,
+            axenserverlist_mods.api_max_players as mod_api_max_players,
+            axenserverlist_mods.api_name as mod_api_name,
+            axenserverlist_mods.api_password as mod_api_password,
+            axenserverlist_mods.api_map as mod_api_map,
+            axenserverlist_mods.api_platform as mod_api_platform,
+            axenserverlist_mods.api_connect_link as mod_api_connect_link,
             axenserverlist_mods.protocol as mod_protocol',
             'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
     }
@@ -101,7 +109,7 @@ class _Application extends \IPS\Application
         if ($ipWithPortArray[1]) {
             return str_replace(['{ip}', '{port}'], [$ipWithPortArray[0], $ipWithPortArray[1]], $modUrl);
         }
-        return str_replace('{ip}', $ipWithPortArray[0], $modUrl);
 
+        return str_replace('{ip}', $ipWithPortArray[0], $modUrl);
     }
 }
