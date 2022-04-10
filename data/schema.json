@@ -512,18 +512,6 @@
                 "unsigned": false,
                 "auto_increment": false
             },
-            "api_url": {
-                "name": "api_url",
-                "type": "VARCHAR",
-                "length": 255,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": "",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            },
             "name": {
                 "name": "name",
                 "type": "VARCHAR",
@@ -580,6 +568,18 @@
                 "values": null,
                 "allow_null": true,
                 "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            },
+            "api_url": {
+                "name": "api_url",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false

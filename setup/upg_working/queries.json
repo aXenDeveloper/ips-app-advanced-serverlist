@@ -90,5 +90,68 @@
                 "auto_increment": false
             }
         ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_mods",
+            "api_url",
+            {
+                "name": "api_url",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "changeColumn",
+        "params": [
+            "axenserverlist_mods",
+            "api_url",
+            {
+                "name": "api_url",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
+    },
+    {
+        "method": "dropColumn",
+        "params": [
+            "axenserverlist_mods",
+            "api_url"
+        ]
+    },
+    {
+        "method": "addColumn",
+        "params": [
+            "axenserverlist_mods",
+            {
+                "name": "api_url",
+                "type": "VARCHAR",
+                "length": 255,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
+            }
+        ]
     }
 ]

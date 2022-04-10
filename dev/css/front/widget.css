@@ -181,7 +181,7 @@
 }
 
 .aXenServerList_item_players_svg\:none {
-  stroke: rgb(var(--theme-area_background_light));
+  stroke: rgb( var(--theme-area_background) );
   fill-opacity: 0;
   stroke-width: 4;
 }

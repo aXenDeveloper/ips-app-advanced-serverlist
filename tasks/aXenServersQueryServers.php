@@ -51,10 +51,9 @@ class _aXenServersQueryServers extends \IPS\Task
         foreach ($servers as $server) {
             if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
                 $update->server($server, true);
-                return;
+            } else {
+                $update->server($server);
             }
-
-            $update->server($server);
         }
 
         return null;

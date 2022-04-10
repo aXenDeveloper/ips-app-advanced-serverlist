@@ -148,40 +148,4 @@ class _Update
 
         return false;
     }
-
-    //         try {
-    //             $url = "https://discordapp.com/api/guilds/" . $row['ip'] . "/widget.json";
-    //             $dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
-
-    //             if (!$dataFromJSON['name']) {
-    //                 $dataUpdate = [
-    //                     'status' => 0,
-    //                     'current_players' => 0,
-    //                     'max_players' => 0,
-    //                     'game_long' => 'Discord',
-    //                     'protocol' => 'discord',
-    //                 ];
-
-    //                 \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $row['id']]);
-    //                 continue;
-    //             }
-
-    //             $dataUpdate = [
-    //                 'status' => 1,
-    //                 'current_players' => $dataFromJSON['presence_count'],
-    //                 'max_players' => $dataFromJSON['presence_count'],
-    //                 'name_default_text' => $dataFromJSON['name'],
-    //                 'game_long' => 'Discord',
-    //                 'url_connect' => $dataFromJSON['instant_invite'],
-    //                 'protocol' => 'discord',
-    //             ];
-
-    //             if ($dataFromJSON['presence_count'] > $row['most_players']) {
-    //                 $dataUpdate['most_players'] = $dataFromJSON['presence_count'];
-    //             }
-
-    //             \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $row['id']]);
-    //         } catch (\Exception$e) {
-    //             \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-    //         }
 }

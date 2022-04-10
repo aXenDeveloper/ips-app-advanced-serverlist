@@ -58,11 +58,14 @@ class _Mods extends \IPS\Node\Model
                 'togglesOff' => ['aXenServerList_admin_table_mods_protocol'],
                 'togglesOn' => [
                     'aXenServerList_admin_table_mods_api_url',
+                    'aXenServerList_admin_table_mods_api_status',
                     'aXenServerList_admin_table_mods_api_current_players',
                     'aXenServerList_admin_table_mods_api_max_players',
+                    'aXenServerList_admin_table_mods_api_name',
                     'aXenServerList_admin_table_mods_api_password',
                     'aXenServerList_admin_table_mods_api_map',
                     'aXenServerList_admin_table_mods_api_platform',
+                    'aXenServerList_admin_table_mods_api_connect_link',
                 ],
             ]
         ));
@@ -173,6 +176,20 @@ class _Mods extends \IPS\Node\Model
 
         // Change protocol to api when custom api is true
         $values['protocol'] = $values['api'] ? 'api' : $values['protocol'];
+
+        if ($values['protocol'] == 'discord') {
+            $values['api_url'] = 'https://discordapp.com/api/guilds/{ip}/widget.json';
+            $values['api_status'] = 'name';
+            $values['api_current_players'] = 'presence_count';
+            $values['api_max_players'] = 'presence_count';
+            $values['api_name'] = 'name';
+            $values['api_connect_link'] = 'instant_invite';
+        } elseif ($values['protocol'] != 'api') {
+            $values['api_url'] = '';
+            $values['api_status'] = '';
+            $values['api_current_players'] = '';
+            $values['api_max_players'] = '';
+        }
 
         return $values;
     }

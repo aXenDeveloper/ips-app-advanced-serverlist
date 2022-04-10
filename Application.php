@@ -106,7 +106,7 @@ class _Application extends \IPS\Application
 
         $url = '';
         // If has port
-        if ($ipWithPortArray[1]) {
+        if ($ipWithPortArray[1] ?? null) {
             return str_replace(['{ip}', '{port}'], [$ipWithPortArray[0], $ipWithPortArray[1]], $modUrl);
         }
 
