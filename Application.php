@@ -67,4 +67,20 @@ class _Application extends \IPS\Application
             axenserverlist_mods.protocol as mod_protocol',
             'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
     }
+
+    /**
+     * Get servers data and mods from database for task
+     *
+     * @return array
+     */
+    public function getFullDataServersTask()
+    {
+        return \IPS\Db::i()->select(
+            'axenserverlist_servers.id,
+            axenserverlist_servers.ip,
+            axenserverlist_servers.query_port,
+            axenserverlist_servers.most_players,
+            axenserverlist_mods.protocol as mod_protocol',
+            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+    }
 }
