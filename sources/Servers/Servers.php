@@ -373,7 +373,8 @@ class _Servers extends \IPS\Node\Model
      */
     protected function get__description()
     {
-        return \IPS\Db::i()->select('name', 'axenserverlist_mods', ['id=?', $this->mod_id])->first();
+        $mod = \IPS\Db::i()->select('id, name', 'axenserverlist_mods', ['id=?', $this->mod_id])->first();
+        return '#' . $mod['id'] . ' - ' . $mod['name'];
     }
 
     /**

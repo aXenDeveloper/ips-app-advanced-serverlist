@@ -40,14 +40,22 @@ class _aXenServersQueryServers extends \IPS\Task
     {
         require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/sources/GameQ/Autoloader.php';
 
-        $servers = \IPS\Application::load('axenserverlist')->getFullDataServersTask();
+        $servers = [];
+        try
+        {
+            $servers = \IPS\Application::load('axenserverlist')->getFullDataServersTask();
+        } catch (\Exception$e) {
+            \IPS\Log::log($e, '(aXen) Advanced Server List - Task');
+        }
 
         $gq = new \GameQ\GameQ();
         $gq->setOption('write_wait', 10);
 
         foreach ($servers as $server) {
             if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
-                \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID API: ' . $server['id']);
+                $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
+
+                \IPS\Log::log($url, '(aXen) Advanced Server List - Server ID API: ' . $server['id']);
                 return;
             }
 

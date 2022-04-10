@@ -80,7 +80,28 @@ class _Application extends \IPS\Application
             axenserverlist_servers.ip,
             axenserverlist_servers.query_port,
             axenserverlist_servers.most_players,
+            axenserverlist_mods.api_url as mod_api_url,
             axenserverlist_mods.protocol as mod_protocol',
             'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+    }
+
+    /**
+     * Link IP with Custom API URL
+     *
+     * @param string $ip Address IP
+     * @param string $modUrl Custom API URL
+     * @return string
+     */
+    public function linkIpWithUrl($ip, $modUrl)
+    {
+        $ipWithPortArray = explode(':', $ip); // ['ip', 'port']
+
+        $url = '';
+        // If has port
+        if ($ipWithPortArray[1]) {
+            return str_replace(['{ip}', '{port}'], [$ipWithPortArray[0], $ipWithPortArray[1]], $modUrl);
+        }
+        return str_replace('{ip}', $ipWithPortArray[0], $modUrl);
+
     }
 }

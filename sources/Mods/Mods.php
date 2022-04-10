@@ -181,7 +181,7 @@ class _Mods extends \IPS\Node\Model
      */
     protected function get__title()
     {
-        return $this->name;
+        return "#$this->id - $this->name";
     }
 
     /**
