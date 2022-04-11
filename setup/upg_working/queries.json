@@ -1,186 +1,20 @@
 [
     {
-        "method": "createTable",
-        "params": [
-            {
-                "name": "axenserverlist_mods",
-                "columns": {
-                    "id": {
-                        "name": "id",
-                        "type": "BIGINT",
-                        "length": "20",
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": 0,
-                        "comment": "ID Number",
-                        "unsigned": true,
-                        "auto_increment": true
-                    },
-                    "icon": {
-                        "name": "icon",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api": {
-                        "name": "api",
-                        "type": "TINYINT",
-                        "length": null,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": 0,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_current_players": {
-                        "name": "api_current_players",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": "",
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_max_players": {
-                        "name": "api_max_players",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": "",
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_password": {
-                        "name": "api_password",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_map": {
-                        "name": "api_map",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_platform": {
-                        "name": "api_platform",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": true,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "protocol": {
-                        "name": "protocol",
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": "",
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "api_url": {
-                        "name": "api_url",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": "",
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "name": {
-                        "name": "name",
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": null,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    },
-                    "position": {
-                        "name": "position",
-                        "type": "BIGINT",
-                        "length": null,
-                        "decimals": null,
-                        "values": null,
-                        "allow_null": false,
-                        "default": 0,
-                        "comment": "",
-                        "unsigned": false,
-                        "auto_increment": false
-                    }
-                },
-                "indexes": {
-                    "PRIMARY": {
-                        "type": "primary",
-                        "name": "PRIMARY",
-                        "columns": [
-                            "id"
-                        ],
-                        "length": [
-                            null
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
         "method": "changeColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_id",
+            "axenserverlist_mods",
+            "name",
             {
-                "name": "id",
-                "type": "BIGINT",
-                "length": 20,
+                "name": "name",
+                "type": "VARCHAR",
+                "length": 255,
                 "decimals": null,
-                "values": [],
+                "values": null,
                 "allow_null": false,
-                "default": 0,
-                "comment": "ID Number",
-                "unsigned": true,
-                "auto_increment": true
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "auto_increment": false
             }
         ]
     },
@@ -188,34 +22,15 @@
         "method": "changeColumn",
         "params": [
             "axenserverlist_servers",
-            "axenserverlist_name",
+            "name",
             {
                 "name": "name",
                 "type": "VARCHAR",
                 "length": 200,
                 "decimals": null,
                 "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_position",
-            {
-                "name": "position",
-                "type": "INT",
-                "length": 11,
-                "decimals": null,
-                "values": [],
                 "allow_null": false,
-                "default": 0,
+                "default": "",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
@@ -223,18 +38,17 @@
         ]
     },
     {
-        "method": "changeColumn",
+        "method": "addColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_ip",
+            "axenserverlist_mods",
             {
-                "name": "ip",
+                "name": "api_status",
                 "type": "VARCHAR",
-                "length": 245,
+                "length": 255,
                 "decimals": null,
-                "values": [],
+                "values": null,
                 "allow_null": false,
-                "default": null,
+                "default": "",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
@@ -242,16 +56,15 @@
         ]
     },
     {
-        "method": "changeColumn",
+        "method": "addColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_owners",
+            "axenserverlist_mods",
             {
-                "name": "owners",
+                "name": "api_name",
                 "type": "VARCHAR",
-                "length": 100,
+                "length": 255,
                 "decimals": null,
-                "values": [],
+                "values": null,
                 "allow_null": true,
                 "default": null,
                 "comment": "",
@@ -261,111 +74,15 @@
         ]
     },
     {
-        "method": "changeColumn",
+        "method": "addColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_statistics",
+            "axenserverlist_mods",
             {
-                "name": "statistics",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_status",
-            {
-                "name": "status",
-                "type": "TINYINT",
-                "length": 4,
-                "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_current_players",
-            {
-                "name": "current_players",
-                "type": "INT",
-                "length": 11,
-                "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_max_players",
-            {
-                "name": "max_players",
-                "type": "INT",
-                "length": 11,
-                "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_game",
-            {
-                "name": "game",
+                "name": "api_connect_link",
                 "type": "VARCHAR",
-                "length": 20,
+                "length": 255,
                 "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": "csgo",
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_tv",
-            {
-                "name": "tv",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
+                "values": null,
                 "allow_null": true,
                 "default": null,
                 "comment": "",
@@ -377,90 +94,14 @@
     {
         "method": "changeColumn",
         "params": [
-            "axenserverlist_servers",
-            "tv",
+            "axenserverlist_mods",
+            "api_url",
             {
-                "name": "url_tv",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "statistics",
-            {
-                "name": "url_statistics",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_vote",
-            {
-                "name": "url_vote",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_forum",
-            {
-                "name": "url_forum",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_map",
-            {
-                "name": "map",
+                "name": "api_url",
                 "type": "VARCHAR",
-                "length": 100,
+                "length": 255,
                 "decimals": null,
-                "values": [],
+                "values": null,
                 "allow_null": true,
                 "default": null,
                 "comment": "",
@@ -472,111 +113,16 @@
     {
         "method": "changeColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_new",
+            "axenserverlist_mods",
+            "api_url",
             {
-                "name": "new",
-                "type": "TINYINT",
-                "length": 4,
-                "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_game_long",
-            {
-                "name": "game_long",
+                "name": "api_url",
                 "type": "VARCHAR",
-                "length": 200,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_connect_link",
-            {
-                "name": "url_connect",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_top_server",
-            {
-                "name": "top_server",
-                "type": "TINYINT",
-                "length": 4,
-                "decimals": null,
-                "values": [],
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_top_server_text",
-            {
-                "name": "top_server_text",
-                "type": "TEXT",
-                "length": 0,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_ip_custom",
-            {
-                "name": "ip_custom",
-                "type": "TEXT",
-                "length": null,
+                "length": 255,
                 "decimals": null,
                 "values": null,
                 "allow_null": true,
-                "default": null,
+                "default": "",
                 "comment": "",
                 "unsigned": false,
                 "auto_increment": false
@@ -584,225 +130,22 @@
         ]
     },
     {
-        "method": "changeColumn",
+        "method": "dropColumn",
         "params": [
-            "axenserverlist_servers",
-            "axenserverlist_name_default_text",
+            "axenserverlist_mods",
+            "api_url"
+        ]
+    },
+    {
+        "method": "addColumn",
+        "params": [
+            "axenserverlist_mods",
             {
-                "name": "name_default_text",
+                "name": "api_url",
                 "type": "VARCHAR",
-                "length": 200,
-                "decimals": null,
-                "values": [],
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_name_default",
-            {
-                "name": "name_default",
-                "type": "TINYINT",
-                "length": null,
+                "length": 255,
                 "decimals": null,
                 "values": null,
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_protocol",
-            {
-                "name": "protocol",
-                "type": "VARCHAR",
-                "length": 100,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_query_port",
-            {
-                "name": "query_port",
-                "type": "INT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_password",
-            {
-                "name": "password",
-                "type": "TINYINT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_most_players",
-            {
-                "name": "most_players",
-                "type": "INT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_custom_connect_link",
-            {
-                "name": "custom_connect_link",
-                "type": "VARCHAR",
-                "length": 150,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_custom_connect",
-            {
-                "name": "custom_connect",
-                "type": "TINYINT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_debug_text_YesNo",
-            {
-                "name": "debug_text_YesNo",
-                "type": "TINYINT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_debug_text",
-            {
-                "name": "debug_text",
-                "type": "TEXT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": true,
-                "default": null,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "axenserverlist_debug",
-            {
-                "name": "debug",
-                "type": "TINYINT",
-                "length": null,
-                "decimals": null,
-                "values": null,
-                "allow_null": false,
-                "default": 0,
-                "comment": "",
-                "unsigned": false,
-                "auto_increment": false
-            }
-        ]
-    },
-    {
-        "method": "changeColumn",
-        "params": [
-            "axenserverlist_servers",
-            "ip",
-            {
-                "name": "ip",
-                "type": "VARCHAR",
-                "length": 245,
-                "decimals": null,
-                "values": [],
                 "allow_null": false,
                 "default": "",
                 "comment": "",

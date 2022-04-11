@@ -1,0 +1,27 @@
+{
+    "html": {
+        "added": [],
+        "edited": [
+            "front\/servers\/debugTotal",
+            "front\/servers\/more",
+            "front\/servers\/row",
+            "front\/widgets\/aXenServerListWidget",
+            "front\/servers\/row"
+        ],
+        "removed": []
+    },
+    "css": {
+        "added": [],
+        "edited": [
+            "front\/widget.css"
+        ],
+        "removed": []
+    },
+    "resources": {
+        "added": [
+            "global\/icons\/unknown.png"
+        ],
+        "edited": [],
+        "removed": []
+    }
+}

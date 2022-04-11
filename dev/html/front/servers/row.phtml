@@ -1,14 +1,15 @@
 <ips:template parameters="$row" />
+{{$icon = $row["mod_icon"];}}
+
 <li class="ipsDataItem">
   <ul class="ipsList_reset aXenServerList_item">
     <li class="aXenServerList_item_title">
       <span class="aXenServerList_item_title:status{{if $row['status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      {{$icons = $row["game"] . '.png';}}
       {{if settings.lazy_load_enabled}}
-      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
+      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
       {{else}}
-        <img src='{resource="icons/{$icons}" app="axenserverlist" location="front"}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['game_long']}" alt="{$row['game_long']}">
+        <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
         {{endif}}
 
         <span class="aXenServerList_item_title:name">
@@ -25,24 +26,26 @@
             <span class="ipsBadge ipsBadge_negative">{lang="aXenServerList_widget_new"}</span>
           {{endif}}
 
-          {$row['name_default'] ? $row['name_default_text'] : $row['name']}
+          {$row['name_default'] && $row['name_default_text'] ? $row['name_default_text'] : $row['name']}
         </span>
     </li>
 
     <li class="aXenServerList_item:ip">
       {{if $row['custom_connect']}}
-      <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['game'] == 'discord'}}target="blank" {{endif}}>
-        <i class="fa fa-link"></i>
-      </a>
+        <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
+          <i class="fa fa-link"></i>
+        </a>
       {{elseif $row['url_connect']}}
-      <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['game'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['game'] == 'discord'}}target="blank" {{endif}}>
-        <i class="fa fa-link"></i>
-      </a>
+        <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
+          <i class="fa fa-link"></i>
+        </a>
       {{endif}}
 
-      {{if $row['game'] == 'discord' && !$row['ip_custom']}}
-      {lang="aXenServerList_widget_clickToConnect"}
-      {{else}}{$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}{{endif}}
+      {{if $row['mod_protocol'] == 'discord' && !$row['ip_custom']}}
+        {lang="aXenServerList_widget_clickToConnect"}
+      {{else}}
+        {$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}
+      {{endif}}
     </li>
 
 
