@@ -32,18 +32,20 @@
 
     <li class="aXenServerList_item:ip">
       {{if $row['custom_connect']}}
-      <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
-        <i class="fa fa-link"></i>
-      </a>
+        <a href="{$row['custom_connect_link']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
+          <i class="fa fa-link"></i>
+        </a>
       {{elseif $row['url_connect']}}
-      <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
-        <i class="fa fa-link"></i>
-      </a>
+        <a href="{$row['url_connect']}" class="ipsButton aXenServerListButton ipsButton_light{{if $row['mod_protocol'] != 'discord'}} ipsResponsive_showDesktop{{endif}}" data-ipstooltip title="{lang='aXenServerList_widget_connect'}" {{if $row['mod_protocol'] == 'discord'}}target="blank" {{endif}}>
+          <i class="fa fa-link"></i>
+        </a>
       {{endif}}
 
       {{if $row['mod_protocol'] == 'discord' && !$row['ip_custom']}}
-      {lang="aXenServerList_widget_clickToConnect"}
-      {{else}}{$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}{{endif}}
+        {lang="aXenServerList_widget_clickToConnect"}
+      {{else}}
+        {$row['ip_custom'] ? $row['ip_custom'] : $row['ip']}
+      {{endif}}
     </li>
 
 

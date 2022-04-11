@@ -64,6 +64,7 @@ class _Application extends \IPS\Application
             axenserverlist_servers.most_players,
             axenserverlist_mods.name as mod_name,
             axenserverlist_mods.icon as mod_icon,
+            axenserverlist_mods.api_password as mod_api_password,
             axenserverlist_mods.protocol as mod_protocol',
             'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
     }

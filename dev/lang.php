@@ -128,7 +128,6 @@ $lang = array(
     'aXenServerList_widget_toggle_hide' => 'Toggle this widget',
     'aXenServerList_widget_toggle_scroll' => 'Toggle scroll',
     'aXenServerList_widget_map' => 'Map',
-    'aXenServerList_widget_none' => 'N/A',
     'aXenServerList_widget_owners' => 'Owners',
     'aXenServerList_widget_protocol' => 'Protocol',
     'aXenServerList_widget_password' => 'Password',

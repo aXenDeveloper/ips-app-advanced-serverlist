@@ -1,104 +1,98 @@
 <ips:template parameters="$row" />
 <div id="aXenServerList_{$row['id']}_menu" class="ipsMenu aXenServerListMenu{{if settings.aXenServerList_settings_fullWidth && ( (isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth']) && settings.aXenServerList_settings_fullWidth_control && isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual'])) || !settings.aXenServerList_settings_fullWidth_control || (!isset(\IPS\Request::i()->cookie['aXenServerList_widget_fullWidth_manual']) && settings.aXenServerList_settings_fullWidth_default) )}} aXenServerListMenu_fullWidth{{endif}} ipsHide">
   <div class="aXenServerList_item_more_menu ipsPadding:half">
-
     {{if $row['debug'] && $row['debug_text_YesNo'] }}
-    <div class="ipsMessage ipsMessage_warning">
-      {{$topServerLang = 'axenserverlist_debug_text_' . $row['id'];}}
-      {lang="$topServerLang"}
-    </div>
+      <div class="ipsMessage ipsMessage_warning">
+        {{$topServerLang = 'axenserverlist_debug_text_' . $row['id'];}}
+        {lang="$topServerLang"}
+      </div>
     {{endif}}
 
     <ul class="aXenServerList_item_more_info{{if !$row['url_forum'] || !$row['url_vote'] || !$row['url_statistics'] || !$row['url_tv']}} aXenServerList_item_more_info:fullWidth{{endif}}">
       {{if $row['owners']}}
-      <li class="aXenServerList_item_more_info:owners">
-        <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_owners'}</span>
-        <span>
-          <ul class="ipsList_reset">
-            {{foreach array_filter(explode(',', $row['owners'])) as $owner}}
-            <li>
-              {{$member = \IPS\Member::load( $owner );}}
-              {$member->link()|raw}
-            </li>
-            {{endforeach}}
-          </ul>
-        </span>
-      </li>
+        <li class="aXenServerList_item_more_info:owners">
+          <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_owners'}</span>
+          <span>
+            <ul class="ipsList_reset">
+              {{foreach array_filter(explode(',', $row['owners'])) as $owner}}
+              <li>
+                {{$member = \IPS\Member::load( $owner );}}
+                {$member->link()|raw}
+              </li>
+              {{endforeach}}
+            </ul>
+          </span>
+        </li>
+      {{endif}}
+
+      {{if $row['map']}}
+        <li>
+          <span><i class="fa fa-map"></i> {lang='aXenServerList_widget_map'}</span>
+          <span>{$row['map']}</span>
+        </li>
+      {{endif}}
+
+      {{if $row['protocol']}}
+        <li>
+          <span><i class="fa fa-server"></i> {lang='aXenServerList_widget_protocol'}</span>
+          <span>{$row['protocol']}</span>
+        </li>
+      {{endif}}
+
+      {{if $row['mod_api_password']}}
+        <li>
+          <span><i class="fa {{if $row['password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
+          <span>{{if $row['password']}}{lang='yes'}{{else}}{lang='no'}{{endif}}</span>
+        </li>
+      {{endif}}
+
+      {{if $row['mod_protocol'] !== 'discord'}}
+        <li>
+          <span><i class="fa fa-percent"></i> {lang='aXenServerList_widget_percent_players'}</span>
+          <span>{$row['max_players'] ? round( ($row['current_players'] * 100) / $row['max_players'] ) : 0}%</span>
+        </li>
       {{endif}}
 
       <li>
-        <span><i class="fa fa-map"></i> {lang='aXenServerList_widget_map'}</span>
-        <span>
-          {{if $row['map']}}{$row['map']}
-          {{else}}{lang='aXenServerList_widget_none'}{{endif}}
-        </span>
-      </li>
-
-      <li>
-        <span><i class="fa fa-server"></i> {lang='aXenServerList_widget_protocol'}</span>
-        <span>
-          {{if $row['protocol']}}{$row['protocol']}
-          {{else}}{lang='aXenServerList_widget_none'}{{endif}}
-        </span>
-      </li>
-
-      <li>
-        <span><i class="fa {{if $row['password']}}fa-lock{{else}}fa-unlock{{endif}}"></i> {lang='aXenServerList_widget_password'}</span>
-        <span>
-          {{if $row['password']}}{lang='yes'}
-          {{else}}{lang='no'}{{endif}}
-        </span>
-      </li>
-
-      <li>
-        <span><i class="fa fa-percent"></i> {lang='aXenServerList_widget_percent_players'}</span>
-        <span>
-          {$row['max_players'] ? round( ($row['current_players'] * 100) / $row['max_players'] ) : 0}%
-        </span>
-      </li>
-
-      <li>
         <span><i class="fa fa-users"></i> {lang='aXenServerList_widget_most_players'}</span>
-        <span>
-          {$row['most_players']}
-        </span>
+        <span>{$row['most_players']}</span>
       </li>
     </ul>
 
     {{if $row['url_forum'] || $row['url_vote'] || $row['url_statistics'] || $row['url_tv']}}
-    <ul class="aXenServerList_item_more_menu_links">
-      {{if $row['url_vote']}}
-      <li>
-        <a href="{$row['url_vote']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow">
-          <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
-        </a>
-      </li>
-      {{endif}}
+      <ul class="aXenServerList_item_more_menu_links">
+        {{if $row['url_vote']}}
+          <li>
+            <a href="{$row['url_vote']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_vote'}" target="_blank" rel="noopener nofollow">
+              <i class="fa fa-plus"></i> {lang='aXenServerList_widget_vote'}
+            </a>
+          </li>
+        {{endif}}
 
-      {{if $row['url_statistics']}}
-      <li>
-        <a href="{$row['url_statistics']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow">
-          <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
-        </a>
-      </li>
-      {{endif}}
+        {{if $row['url_statistics']}}
+          <li>
+            <a href="{$row['url_statistics']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_statistics'}" target="_blank" rel="noopener nofollow">
+              <i class="fa fa-bar-chart"></i> {lang='aXenServerList_widget_statistics'}
+            </a>
+          </li>
+        {{endif}}
 
-      {{if $row['url_tv']}}
-      <li>
-        <a href="{$row['url_tv']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow">
-          <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
-        </a>
-      </li>
-      {{endif}}
+        {{if $row['url_tv']}}
+          <li>
+            <a href="{$row['url_tv']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_tv'}" target="_blank" rel="noopener nofollow">
+              <i class="fa fa-video-camera"></i> {lang='aXenServerList_widget_tv'}
+            </a>
+          </li>
+        {{endif}}
 
-      {{if $row['url_forum']}}
-      <li>
-        <a href="{$row['url_forum']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_forum'}">
-          <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
-        </a>
-      </li>
-      {{endif}}
-    </ul>
+        {{if $row['url_forum']}}
+          <li>
+            <a href="{$row['url_forum']}" class="ipsButton ipsButton_fullWidth {setting='aXenServerList_settings_buttons_forum'}">
+              <i class="fa fa-comments"></i> {lang='aXenServerList_widget_forum'}
+            </a>
+          </li>
+        {{endif}}
+      </ul>
     {{endif}}
   </div>
 </div>
