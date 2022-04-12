@@ -173,6 +173,14 @@ class _Servers extends \IPS\Node\Model
      */
     public function postSaveForm($values)
     {
+        /* Get mods form Database */
+        $mods = [];
+        try {
+            $mods = \IPS\Db::i()->select('*', 'axenserverlist_mods');
+        } catch (\Exception$e) {
+            \IPS\Output::i()->error('aXenServerList_error_not_mods_found', '(aXen) Advanced Server List/105', 404, '');
+        }
+
         // Save Translatable
         if (isset($values['top_server_text'])) {
             \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['top_server_text']);
@@ -186,7 +194,23 @@ class _Servers extends \IPS\Node\Model
             \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}");
         }
 
-        // TODO: Add check server
+        // Update server status
+        $update = new \IPS\axenserverlist\Servers\Update;
+
+        $server = [];
+        try
+        {
+            $server = \IPS\Application::load('axenserverlist')->getFullDataServersTask($this->id);
+        } catch (\Exception$e) {
+            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $this->id);
+        }
+
+        if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
+            $update->server($server, true);
+        } else {
+            $update->server($server);
+        }
+
     }
 
     /**

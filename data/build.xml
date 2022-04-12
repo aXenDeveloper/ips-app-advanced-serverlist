@@ -24,6 +24,8 @@
  <setting key="aXenServerList_settings_scroll_mobile"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile","default":"1"}]]></setting>
  <setting key="aXenServerList_settings_scroll_mobile_value"><![CDATA[{"key":"aXenServerList_settings_scroll_mobile_value","default":"250"}]]></setting>
  <setting key="aXenServerList_settings_serverQuery_maxQuery"><![CDATA[{"key":"aXenServerList_settings_serverQuery_maxQuery","default":"3"}]]></setting>
+ <setting key="aXenServerList_settings_table_group"><![CDATA[{"key":"aXenServerList_settings_table_group","default":"1"}]]></setting>
+ <setting key="aXenServerList_settings_table_group_icon"><![CDATA[{"key":"aXenServerList_settings_table_group_icon","default":"1"}]]></setting>
  <widget key="aXenServerListWidget"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":false,"menu_style":"menu","embeddable":true}]]></widget>
  <hook key="loadJSandCSS"><![CDATA[{"type":"C","class":"\\IPS\\Dispatcher\\Standard"}]]></hook>
 </build>

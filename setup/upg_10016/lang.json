@@ -40,7 +40,16 @@
             "aXenServerList_admin_table_mods_api_max_players",
             "aXenServerList_admin_table_mods_api_password",
             "aXenServerList_admin_table_mods_api_map",
-            "aXenServerList_admin_table_mods_api_platform"
+            "aXenServerList_admin_table_mods_api_platform",
+            "aXenServerList_settings_table_group",
+            "aXenServerList_settings_table_group_icon",
+            "aXenServerList_settings_table_group_icon_only_category",
+            "aXenServerList_settings_table_group_icon_only_server",
+            "aXenServerList_settings_table_group_icon_all",
+            "aXenServerList_admin_table_servers_debug_text",
+            "aXenServerList_admin_table_mods_api_status",
+            "aXenServerList_admin_table_mods_api_name",
+            "aXenServerList_admin_table_mods_api_connect_link"
         ],
         "edited": [],
         "removed": [
@@ -72,7 +81,9 @@
             "axenserverlist_tab_debug",
             "axenserverlist_custom_connect",
             "axenserverlist_custom_connect_link",
-            "axenserverlist_custom_connect_link_desc"
+            "axenserverlist_custom_connect_link_desc",
+            "axenserverlist_debug_text",
+            "aXenServerList_widget_none"
         ]
     },
     "js": {
