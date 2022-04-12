@@ -74,6 +74,22 @@
   list-style: none;
 }
 
+/* ========== Group Header ========== */
+.aXenServerList_groupHeader {
+  background-color: rgb( var(--theme-area_background_light) );
+  padding: 16px;
+  line-height: 1;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.aXenServerList_groupHeader\:icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
 /* ========== Item ========== */
 .aXenServerList_item {
   display: flex;
@@ -101,7 +117,7 @@
   background-color: var(--positive-dark);
 }
 
-.aXenServerList_item_title\:img {
+.aXenServerList_item_title\:icon {
   margin-left: 10px;
   width: 16px;
   height: 16px;
@@ -296,7 +312,7 @@
 }
 
 /* ========== Debug ========== */
-.aXenServerList_debug\:img {
+.aXenServerList_debug\:icon {
   width: 16px;
   height: 16px;
   object-fit: contain;

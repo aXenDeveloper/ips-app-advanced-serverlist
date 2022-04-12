@@ -45,12 +45,6 @@ class _servers extends \IPS\Node\Controller
             'link' => \IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers&do=refresh'),
             'title' => 'menu__axenserverlist_servers_servers_refresh',
         );
-
-        \IPS\Output::i()->sidebar['actions']['test'] = array(
-            'icon' => 'test',
-            'link' => \IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers&do=test'),
-            'title' => 'test',
-        );
     }
 
     /**
@@ -75,33 +69,6 @@ class _servers extends \IPS\Node\Controller
             \IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers'), 'aXenServerList_popup_refresh');
         } catch (\Exception$e) {
             \IPS\Log::debug($e, '(aXen) Advanced Server List - Update data servers');
-        }
-    }
-
-    /**
-     * Refresh server list
-     *
-     * @return    void
-     */
-    protected function test()
-    {
-        $update = new \IPS\axenserverlist\Servers\Update;
-
-        $servers = [];
-        try
-        {
-            $servers = \IPS\Application::load('axenserverlist')->getFullDataServersTask();
-        } catch (\Exception$e) {
-            \IPS\Log::log($e, '(aXen) Advanced Server List - Task');
-        }
-
-        foreach ($servers as $server) {
-            if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
-                $update->server($server, true);
-            } else {
-                $update->server($server);
-            }
-
         }
     }
 

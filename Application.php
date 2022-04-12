@@ -62,36 +62,52 @@ class _Application extends \IPS\Application
             axenserverlist_servers.custom_connect_link,
             axenserverlist_servers.owners,
             axenserverlist_servers.most_players,
+            axenserverlist_mods.id as mod_id,
             axenserverlist_mods.name as mod_name,
             axenserverlist_mods.icon as mod_icon,
             axenserverlist_mods.api_password as mod_api_password,
             axenserverlist_mods.protocol as mod_protocol',
-            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC')->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
     }
 
     /**
      * Get servers data and mods from database for task
      *
+     * @param string ID
+     * @return void
+     */
+    public function getFullDataServersTask($id = null)
+    {
+        $data = 'axenserverlist_servers.id,
+        axenserverlist_servers.ip,
+        axenserverlist_servers.query_port,
+        axenserverlist_servers.most_players,
+        axenserverlist_mods.api_url as mod_api_url,
+        axenserverlist_mods.api_status as mod_api_status,
+        axenserverlist_mods.api_current_players as mod_api_current_players,
+        axenserverlist_mods.api_max_players as mod_api_max_players,
+        axenserverlist_mods.api_name as mod_api_name,
+        axenserverlist_mods.api_password as mod_api_password,
+        axenserverlist_mods.api_map as mod_api_map,
+        axenserverlist_mods.api_platform as mod_api_platform,
+        axenserverlist_mods.api_connect_link as mod_api_connect_link,
+        axenserverlist_mods.protocol as mod_protocol';
+
+        if ($id) {
+            return \IPS\Db::i()->select($data, 'axenserverlist_servers', ['axenserverlist_servers.id=?', $id])->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id')->first();
+        }
+
+        return \IPS\Db::i()->select($data, 'axenserverlist_servers', null, 'axenserverlist_servers.position ASC')->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+    }
+
+    /**
+     * Get mods
+     *
      * @return array
      */
-    public function getFullDataServersTask()
+    public function getMods()
     {
-        return \IPS\Db::i()->select(
-            'axenserverlist_servers.id,
-            axenserverlist_servers.ip,
-            axenserverlist_servers.query_port,
-            axenserverlist_servers.most_players,
-            axenserverlist_mods.api_url as mod_api_url,
-            axenserverlist_mods.api_status as mod_api_status,
-            axenserverlist_mods.api_current_players as mod_api_current_players,
-            axenserverlist_mods.api_max_players as mod_api_max_players,
-            axenserverlist_mods.api_name as mod_api_name,
-            axenserverlist_mods.api_password as mod_api_password,
-            axenserverlist_mods.api_map as mod_api_map,
-            axenserverlist_mods.api_platform as mod_api_platform,
-            axenserverlist_mods.api_connect_link as mod_api_connect_link,
-            axenserverlist_mods.protocol as mod_protocol',
-            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+        return \IPS\Db::i()->select('*', 'axenserverlist_mods', null, 'position ASC');
     }
 
     /**

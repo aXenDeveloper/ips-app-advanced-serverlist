@@ -173,6 +173,14 @@ class _Servers extends \IPS\Node\Model
      */
     public function postSaveForm($values)
     {
+        /* Get mods form Database */
+        $mods = [];
+        try {
+            $mods = \IPS\Db::i()->select('*', 'axenserverlist_mods');
+        } catch (\Exception$e) {
+            \IPS\Output::i()->error('aXenServerList_error_not_mods_found', '(aXen) Advanced Server List/105', 404, '');
+        }
+
         // Save Translatable
         if (isset($values['top_server_text'])) {
             \IPS\Lang::saveCustom('axenserverlist', "axenserverlist_top_server_text_{$this->id}", $values['top_server_text']);
@@ -186,102 +194,23 @@ class _Servers extends \IPS\Node\Model
             \IPS\Lang::deleteCustom('axenserverlist', "axenserverlist_debug_text_{$this->id}");
         }
 
-        require_once \IPS\Application::getRootPath() . '/applications/axenserverlist/sources/GameQ/Autoloader.php';
+        // Update server status
+        $update = new \IPS\axenserverlist\Servers\Update;
 
-        $gq = new \GameQ\GameQ();
-        $gq->setOption('write_wait', 10);
-        $gq->setOption('timeout', 3);
+        $server = [];
+        try
+        {
+            $server = \IPS\Application::load('axenserverlist')->getFullDataServersTask($this->id);
+        } catch (\Exception$e) {
+            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $this->id);
+        }
 
-        // if ($values['game'] != 'discord') {
-        //     $server = [
-        //         'id' => $this->id,
-        //         'type' => $this->game,
-        //         'host' => $this->ip,
-        //     ];
+        if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
+            $update->server($server, true);
+        } else {
+            $update->server($server);
+        }
 
-        //     if ($values['query_port']) {
-        //         $server['options'] = [
-        //             'query_port' => $values['query_port'],
-        //         ];
-        //     };
-
-        //     try {
-        //         $gq->clearServers();
-        //         $gq->addServer($server);
-
-        //         $results = $gq->process();
-
-        //         foreach ($results as $id => $data) {
-        //             if ($data['gq_online'] == true) {
-        //                 $dataUpdate = [
-        //                     'status' => 1,
-        //                     'current_players' => $data['gq_numplayers'],
-        //                     'max_players' => $data['gq_maxplayers'],
-        //                     'name_default_text' => $data['gq_hostname'],
-        //                     'map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
-        //                     'game_long' => $data['gq_name'],
-        //                     'connect_link' => $data['gq_joinlink'],
-        //                     'protocol' => $data['gq_protocol'],
-        //                     'password' => $data['gq_password'],
-        //                 ];
-
-        //                 if ($data['gq_numplayers'] > $this->most_players) {
-        //                     $dataUpdate['most_players'] = $data['gq_numplayers'];
-        //                 }
-
-        //                 \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
-        //             } else {
-        //                 $dataUpdate = [
-        //                     'status' => 0,
-        //                     'current_players' => 0,
-        //                     'max_players' => 0,
-        //                     'map' => null,
-        //                     'game_long' => $data['gq_name'],
-        //                     'connect_link' => $data['gq_joinlink'],
-        //                     'protocol' => $data['gq_protocol'],
-        //                     'password' => $data['gq_password'],
-        //                 ];
-
-        //                 \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
-        //             }
-        //         }
-        //     } catch (\Exception$e) {
-        //         \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-        //     }
-        // } else {
-        //     try {
-        //         $url = "https://discordapp.com/api/guilds/" . $values['ip'] . "/widget.json";
-        //         $dataFromJSON = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
-
-        //         if (!$dataFromJSON['name']) {
-        //             $dataUpdate = [
-        //                 'status' => 0,
-        //                 'current_players' => 0,
-        //                 'max_players' => 0,
-        //                 'game_long' => 'Discord',
-        //                 'protocol' => 'discord',
-        //             ];
-        //         }
-
-        //         $dataUpdate = [
-        //             'status' => 1,
-        //             'current_players' => $dataFromJSON['presence_count'],
-        //             'max_players' => $dataFromJSON['presence_count'],
-        //             'name_default_text' => $dataFromJSON['name'],
-        //             'game_long' => 'Discord',
-        //             'connect_link' => $dataFromJSON['instant_invite'],
-        //             'protocol' => 'discord',
-        //         ];
-
-        //         if ($dataFromJSON['presence_count'] > $this->most_players) {
-        //             $dataUpdate['most_players'] = $dataFromJSON['presence_count'];
-        //         }
-
-        //         \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $this->id]);
-        //     } catch (\Exception$e) {
-        //         \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-        //     }
-        // }
     }
 
     /**

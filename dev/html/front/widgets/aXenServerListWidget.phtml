@@ -1,24 +1,47 @@
-<ips:template parameters="$servers, $orientation, $fullWidthPage" />
-
+<ips:template parameters="$servers, $mods, $orientation, $fullWidthPage" />
 {{if settings.aXenServerList_settings_footer}}
-{{$totalServers = 0;}}
-{{$totalPlayers = 0;}}
-{{$totalPlayersMax = 0;}}
+  {{$totalServers = 0;}}
+  {{$totalPlayers = 0;}}
+  {{$totalPlayersMax = 0;}}
 {{endif}}
 
 {template="title" app="axenserverlist" group="servers" location="front" params="$servers, $orientation, $fullWidthPage"}
 
 <ul class="aXenServerList_ul{{if $fullWidthPage}} aXenServerList_ul_scroll{{endif}}">
-  {{foreach $servers as $row}}
+  {{if \IPS\Settings::i()->aXenServerList_settings_table_group}}
+    {{foreach $mods as $mod}}
+      {{$icon = $mod["icon"];}}
+      <li class="ipsDataItem aXenServerList_groupHeader">
+        {{if \IPS\Settings::i()->aXenServerList_settings_table_group_icon == 0 || \IPS\Settings::i()->aXenServerList_settings_table_group_icon == 2}}
+          <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_groupHeader:icon" data-ipstooltip _title="{$mod['name']}" alt="{$mod['name']}"/>
+        {{endif}}
 
-  {{if settings.aXenServerList_settings_footer}}
-  {{$totalServers += 1;}}
-  {{$totalPlayers += $row['current_players'];}}
-  {{$totalPlayersMax += $row['max_players'];}}
+        <span>{$mod['name']}</span>
+      </li>
+
+      {{foreach $servers as $server}}
+        {{if $server['mod_id'] === $mod['id']}}
+          {{if settings.aXenServerList_settings_footer}}
+            {{$totalServers += 1;}}
+            {{$totalPlayers += $server['current_players'];}}
+            {{$totalPlayersMax += $server['max_players'];}}
+          {{endif}}
+
+          {template="item" app="axenserverlist" group="servers" location="front" params="$server"}
+        {{endif}}
+      {{endforeach}}
+    {{endforeach}}
+  {{else}}
+    {{foreach $servers as $server}}
+      {{if settings.aXenServerList_settings_footer}}
+        {{$totalServers += 1;}}
+        {{$totalPlayers += $server['current_players'];}}
+        {{$totalPlayersMax += $server['max_players'];}}
+      {{endif}}
+
+      {template="item" app="axenserverlist" group="servers" location="front" params="$server"}
+    {{endforeach}}
   {{endif}}
-
-  {template="row" app="axenserverlist" group="servers" location="front" params="$row"}
-  {{endforeach}}
 </ul>
 
-{template="footer" app="axenserverlist" group="servers" location="front" if="settings.aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}
+{template="footer" app="axenserverlist" group="servers" location="front" if="\IPS\Settings::i()->aXenServerList_settings_footer" params="$totalServers, $totalPlayers, $totalPlayersMax"}

@@ -6,11 +6,13 @@
     <li class="aXenServerList_item_title">
       <span class="aXenServerList_item_title:status{{if $row['status']}} aXenServerList_item_title:status-online{{endif}}"></span>
 
-      {{if settings.lazy_load_enabled}}
-      <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
-      {{else}}
-        <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:img" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
+      {{if (\IPS\Settings::i()->aXenServerList_settings_table_group && (\IPS\Settings::i()->aXenServerList_settings_table_group_icon == 1 || \IPS\Settings::i()->aXenServerList_settings_table_group_icon == 2)) || !\IPS\Settings::i()->aXenServerList_settings_table_group}}
+        {{if settings.lazy_load_enabled}}
+          <img src='{expression="\IPS\Text\Parser::blankImage()"}' data-src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:icon" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
+        {{else}}
+          <img src='{{if $icon}}{file="$icon" extension="axenserverlist_mods"}{{else}}{resource="icons/unknown.png" app="axenserverlist" location="global"}{{endif}}' class="aXenServerList_item_title:icon" data-ipstooltip _title="{$row['mod_name']}" alt="{$row['mod_name']}">
         {{endif}}
+      {{endif}}
 
         <span class="aXenServerList_item_title:name">
           {{if $row['debug']}}
@@ -19,7 +21,7 @@
 
           {{if $row['top_server']}}
           {{$topServerLang = 'axenserverlist_top_server_text_' . $row['id'];}}
-          <i class="fa fa-trophy" {{if $row['top_server'] && isset($row['top_server_text'])}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
+          <i class="fa fa-trophy" {{if $row['top_server']}}data-ipstooltip title="{lang='{$topServerLang}'}" {{endif}}></i>
           {{endif}}
 
           {{if $row['new']}}

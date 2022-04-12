@@ -1,18 +1,26 @@
 {
     "html": {
-        "added": [],
-        "edited": [
-            "front\/servers\/debugTotal",
-            "front\/servers\/more",
-            "front\/servers\/row",
-            "front\/widgets\/aXenServerListWidget",
-            "front\/servers\/row"
+        "added": [
+            "front\/servers\/item"
         ],
-        "removed": []
+        "edited": {
+            "0": "front\/servers\/debugTotal",
+            "1": "front\/servers\/more",
+            "3": "front\/widgets\/aXenServerListWidget",
+            "4": "front\/servers\/row",
+            "5": "front\/pages\/aXenServerListPage",
+            "6": "front\/servers\/debugTotal",
+            "7": "front\/servers\/more",
+            "8": "front\/widgets\/aXenServerListWidget"
+        },
+        "removed": [
+            "front\/servers\/row"
+        ]
     },
     "css": {
         "added": [],
         "edited": [
+            "front\/widget.css",
             "front\/widget.css"
         ],
         "removed": []
