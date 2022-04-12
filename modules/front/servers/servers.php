@@ -23,7 +23,7 @@ class _servers extends \IPS\Dispatcher\Controller
     public function execute()
     {
         \IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('module__axenserverlist_servers');
-        \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate('pages', 'axenserverlist', 'front')->aXenServerListPage(\IPS\Application::load('axenserverlist')->getFullDataServers(), 'horizontal');
+        \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate('pages', 'axenserverlist', 'front')->aXenServerListPage(\IPS\Application::load('axenserverlist')->getFullDataServers(), \IPS\Application::load('axenserverlist')->getMods(), 'horizontal');
         parent::execute();
     }
 

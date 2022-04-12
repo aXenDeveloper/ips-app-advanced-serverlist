@@ -82,5 +82,13 @@
     {
         "key": "aXenServerList_settings_serverQuery_maxQuery",
         "default": "3"
+    },
+    {
+        "key": "aXenServerList_settings_table_group",
+        "default": "1"
+    },
+    {
+        "key": "aXenServerList_settings_table_group_icon",
+        "default": "1"
     }
 ]

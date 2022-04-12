@@ -62,11 +62,12 @@ class _Application extends \IPS\Application
             axenserverlist_servers.custom_connect_link,
             axenserverlist_servers.owners,
             axenserverlist_servers.most_players,
+            axenserverlist_mods.id as mod_id,
             axenserverlist_mods.name as mod_name,
             axenserverlist_mods.icon as mod_icon,
             axenserverlist_mods.api_password as mod_api_password,
             axenserverlist_mods.protocol as mod_protocol',
-            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC')->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
     }
 
     /**
@@ -91,7 +92,17 @@ class _Application extends \IPS\Application
             axenserverlist_mods.api_platform as mod_api_platform,
             axenserverlist_mods.api_connect_link as mod_api_connect_link,
             axenserverlist_mods.protocol as mod_protocol',
-            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC', null, null)->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+            'axenserverlist_servers', null, 'axenserverlist_servers.position ASC')->join('axenserverlist_mods', 'axenserverlist_mods.id=axenserverlist_servers.mod_id');
+    }
+
+    /**
+     * Get mods
+     *
+     * @return array
+     */
+    public function getMods()
+    {
+        return \IPS\Db::i()->select('*', 'axenserverlist_mods', null, 'position ASC');
     }
 
     /**

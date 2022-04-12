@@ -42,6 +42,11 @@ $lang = array(
     'aXenServerList_settings_fullWidth_default' => 'Enable table in 2 columns (full width) by default?',
     'aXenServerList_settings_footer' => 'Enable footer?',
     'aXenServerList_settings_footer_desc' => 'Footer have statistic: Total servers, Total players, Filled servers.',
+    "aXenServerList_settings_table_group" => "Enable server grouping?",
+    "aXenServerList_settings_table_group_icon" => "Display icon mod",
+    "aXenServerList_settings_table_group_icon_only_category" => "Only in Category",
+    "aXenServerList_settings_table_group_icon_only_server" => "Only in Server",
+    "aXenServerList_settings_table_group_icon_all" => "Category & Server",
     // Server query
     'axenserverlist_header_buttons' => 'Buttons',
     'aXenServerList_settings_buttons_vote' => 'Vote',
@@ -80,9 +85,9 @@ $lang = array(
     // * Debug
     'aXenServerList_admin_table_servers_tab_debug' => 'Debug mode',
     'aXenServerList_admin_table_servers_debug' => 'Enable debug mode?',
-    'aXenServerList_admin_table_servers_debug_text_YesNo' => '[Debug mode] Enable reason?',
+    'aXenServerList_admin_table_servers_debug_text_YesNo' => 'Enable reason?',
     'aXenServerList_admin_table_servers_debug_text_YesNo_desc' => 'The reason will appear in the more tab for the given server and in the summary at the top of the table.',
-    'axenserverlist_debug_text' => '[Debug mode] Reason',
+    'aXenServerList_admin_table_servers_debug_text' => 'Reason',
     // * URLs
     'aXenServerList_admin_table_servers_tab_urls' => 'URLs',
     'aXenServerList_admin_table_servers_url_statistics' => 'Statistics URL',
