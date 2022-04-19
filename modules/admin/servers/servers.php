@@ -73,6 +73,32 @@ class _servers extends \IPS\Node\Controller
     }
 
     /**
+     * Debug
+     *
+     * @return    void
+     */
+    public function debug()
+    {
+        $id = \IPS\Request::i()->id;
+
+        /* Get data form Database */
+        $server = [];
+        try {
+            $server = \IPS\Application::load('axenserverlist')->getFullDataServersTask($id);
+        } catch (\Exception$e) {
+            if (\IPS\Request::i()->id) {
+                \IPS\Output::i()->error('page_not_found', '(aXen) Advanced Server List/103', 404, '');
+            }
+        }
+
+        // Update server status
+        $update = new \IPS\axenserverlist\Servers\Update;
+
+        \IPS\Log::log($update->server($server, null, true), '(aXen) Advanced Server List - Debug Server ID: ' . $id);
+        \IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=core&module=support&controller=systemLogs'), 'aXenServerList_popup_debug_add');
+    }
+
+    /**
      * Execute
      *
      * @return    void

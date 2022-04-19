@@ -271,6 +271,27 @@ class _Servers extends \IPS\Node\Model
     }
 
     /**
+     * [Node] Get buttons to display in tree
+     * Example code explains return value
+     *
+     * @param    string    $url        Base URL
+     * @param    bool    $subnode    Is this a subnode?
+     * @return    array
+     */
+    public function getButtons($url, $subnode = false)
+    {
+        $buttons = parent::getButtons($url, $subnode);
+
+        $buttons['debug'] = array(
+            'icon' => 'bug',
+            'title' => 'aXenServerList_admin_table_servers_buttons_debug',
+            'link' => \IPS\Http\Url::internal("app=axenserverlist&module=servers&controller=servers&do=debug&id={$this->id}"),
+        );
+
+        return $buttons;
+    }
+
+    /**
      * [ActiveRecord] Delete Record
      *
      * @return    void
@@ -283,5 +304,4 @@ class _Servers extends \IPS\Node\Model
 
         return parent::delete();
     }
-
 }

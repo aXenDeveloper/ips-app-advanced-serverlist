@@ -88,6 +88,7 @@ $lang = array(
     'aXenServerList_admin_table_servers_debug_text_YesNo' => 'Enable reason?',
     'aXenServerList_admin_table_servers_debug_text_YesNo_desc' => 'The reason will appear in the more tab for the given server and in the summary at the top of the table.',
     'aXenServerList_admin_table_servers_debug_text' => 'Reason',
+    'aXenServerList_admin_table_servers_buttons_debug' => "Debug Server",
     // * URLs
     'aXenServerList_admin_table_servers_tab_urls' => 'URLs',
     'aXenServerList_admin_table_servers_url_statistics' => 'Statistics URL',
@@ -148,4 +149,5 @@ $lang = array(
     // Others
     'aXenServerList_debug_icon' => 'Debug mode is enabled on this server',
     'aXenServerList_popup_refresh' => 'Servers data updated',
+    'aXenServerList_popup_debug_add' => 'Added server log',
 );

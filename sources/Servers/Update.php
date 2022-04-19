@@ -17,7 +17,7 @@ class _Update
         $this->gq->setOption('write_wait', 10);
     }
 
-    public function server($server, $api = false)
+    public function server($server, $api = null, $debug = null)
     {
         if ($api) {
             $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
@@ -60,6 +60,10 @@ class _Update
                 $dataUpdate['most_players'] = $this->searchArray($data, $server['mod_api_current_players']);
             }
 
+            if ($debug) {
+                return $data;
+            }
+
             \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
 
             return;
@@ -82,8 +86,13 @@ class _Update
             for ($i = 0; $i < 3; $i++) {
                 $this->gq->clearServers();
                 $this->gq->addServer($currentServer);
+                $results = $this->gq->process();
 
-                foreach ($this->gq->process() as $id => $data) {
+                if ($debug) {
+                    return $results;
+                }
+
+                foreach ($results as $id => $data) {
                     if ($data['gq_online'] == true) {
                         $dataUpdate = [
                             'status' => 1,
