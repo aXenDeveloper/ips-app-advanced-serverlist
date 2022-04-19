@@ -38,6 +38,8 @@ Server table showing server information about the status, name, number of player
 
 ## 💻 Compatible servers
 
+- America's Army 3
+- America's Army: Proving Grounds
 - ARK: Survival Evolved
 - Arma3
 - Battlefield 2
@@ -100,7 +102,6 @@ Server table showing server information about the status, name, number of player
 - Unturned
 - Unreal Tournament 3
 - Unreal Tournament 2004
-- Valheim
 - Ventrilo
 - Warsow
 - World Opponent Network
@@ -115,8 +116,17 @@ Server table showing server information about the status, name, number of player
 
 ## 🔨 Configuration
 
-1. Go to: AdminCP -> Advanced Server List -> Servers -> **Create new**,
-2. First you have to choice a game in **Game**,
+### Mods
+
+1. Go to: AdminCP -> Community -> Advanced Server List -> Mods -> **Create new**,
+2. Provide a name mod in **Name**,
+3. Choose a protocol mod in **Protocol**,
+4. Click **save**.
+
+### Servers
+
+1. Go to: AdminCP -> Community -> Advanced Server List -> Servers -> **Create new**,
+2. First you have to choice mod in **Mod**,
 3. Provide a custom name in **Custom name** for example: _JailBreak_,
 4. Provide a address IP in **IP** for example: **145.239.16.78:27015**.  
    ❗❗ Some servers like **TeamSpeak 3** require a **Query port**!
@@ -145,9 +155,25 @@ b_virtualserver_client_list
 b_virtualserver_channel_list
 ```
 
-## 🔧 Debug tool
+## 🔧 Custom API
 
-If server is offline you can see what's is going on by debug tool [===> Click <===](https://github.com/aXenDeveloper/ips-app-advanced-serverlist-debug).
+From version _2.0.0_, the table supports your own custom API. To activate your custom API follow the instructions:
+
+1. Go to: AdminCP -> Community -> Advanced Server List -> Mods -> **Create new**,
+2. Provide a name mod in **Name**,
+3. Choose a **Custom API**,
+4. Provide address URL in **Address URL** for example: _https://query.li/api/csgo/{ip}/{port}_,
+5. Provide a fields form your Custom API.  
+   If your API return JSON for example:
+   ```
+   {
+      data: {
+         "status": 1
+      }
+   }
+   ```
+   then your **field** equal **status**,
+6. Click **save**.
 
 ## 🛠️ Update
 
