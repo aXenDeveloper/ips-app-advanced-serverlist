@@ -34,7 +34,7 @@ Server table showing server information about the status, name, number of player
 - PHP 7.3+ - For IPS 4.5
 - PHP 7.4+ - For IPS 4.6
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
-- ❗❗ Unlocked external ports on the website server
+- ❗❗ Unlocked external ports on the website server (UDP)
 
 ## 💻 Compatible servers
 

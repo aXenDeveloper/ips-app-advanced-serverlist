@@ -89,6 +89,7 @@
   <word key="aXenServerList_admin_table_mods_protocol" js="0">Protocol</word>
   <word key="aXenServerList_admin_table_mods_api" js="0">Custom API</word>
   <word key="aXenServerList_admin_table_mods_api_url" js="0"><![CDATA[Custom API Field<br />Address URL]]></word>
+  <word key="aXenServerList_admin_table_mods_api_url_desc" js="0"><![CDATA[The URL must be able to add a variable to the URL.<br />So e.g. https://query.li/api/csgo/<span style="font-weight: bold;">{ip}</span>/<span style="font-weight: bold;">{port}</span><br /><span style="font-weight: bold;">Make sure the url contains {ip} or {ip} along with {port}.</span>]]></word>
   <word key="aXenServerList_admin_table_mods_api_status" js="0"><![CDATA[Custom API Field<br />Status]]></word>
   <word key="aXenServerList_admin_table_mods_api_current_players" js="0"><![CDATA[Custom API Field<br />Current Players]]></word>
   <word key="aXenServerList_admin_table_mods_api_max_players" js="0"><![CDATA[Custom API Field<br />Max Players]]></word>

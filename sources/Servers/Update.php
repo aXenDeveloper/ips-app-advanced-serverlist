@@ -77,7 +77,7 @@ class _Update
             ];
 
             if ($server['query_port']) {
-                $server['options'] = [
+                $currentServer['options'] = [
                     'query_port' => $server['query_port'],
                 ];
             };

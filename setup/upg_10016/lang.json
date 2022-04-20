@@ -51,7 +51,8 @@
             "aXenServerList_admin_table_mods_api_name",
             "aXenServerList_admin_table_mods_api_connect_link",
             "aXenServerList_admin_table_servers_buttons_debug",
-            "aXenServerList_popup_debug_add"
+            "aXenServerList_popup_debug_add",
+            "aXenServerList_admin_table_mods_api_url_desc"
         ],
         "edited": [],
         "removed": [
