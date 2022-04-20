@@ -71,6 +71,7 @@
   <word key="aXenServerList_admin_table_servers_debug_text_YesNo" js="0">Enable reason?</word>
   <word key="aXenServerList_admin_table_servers_debug_text_YesNo_desc" js="0">The reason will appear in the more tab for the given server and in the summary at the top of the table.</word>
   <word key="aXenServerList_admin_table_servers_debug_text" js="0">Reason</word>
+  <word key="aXenServerList_admin_table_servers_buttons_debug" js="0">Debug Server</word>
   <word key="aXenServerList_admin_table_servers_tab_urls" js="0">URLs</word>
   <word key="aXenServerList_admin_table_servers_url_statistics" js="0">Statistics URL</word>
   <word key="aXenServerList_admin_table_servers_url_tv" js="0">TV URL</word>
@@ -88,6 +89,7 @@
   <word key="aXenServerList_admin_table_mods_protocol" js="0">Protocol</word>
   <word key="aXenServerList_admin_table_mods_api" js="0">Custom API</word>
   <word key="aXenServerList_admin_table_mods_api_url" js="0"><![CDATA[Custom API Field<br />Address URL]]></word>
+  <word key="aXenServerList_admin_table_mods_api_url_desc" js="0"><![CDATA[The URL must be able to add a variable to the URL.<br />So e.g. https://query.li/api/csgo/<span style="font-weight: bold;">{ip}</span>/<span style="font-weight: bold;">{port}</span><br /><span style="font-weight: bold;">Make sure the url contains {ip} or {ip} along with {port}.</span>]]></word>
   <word key="aXenServerList_admin_table_mods_api_status" js="0"><![CDATA[Custom API Field<br />Status]]></word>
   <word key="aXenServerList_admin_table_mods_api_current_players" js="0"><![CDATA[Custom API Field<br />Current Players]]></word>
   <word key="aXenServerList_admin_table_mods_api_max_players" js="0"><![CDATA[Custom API Field<br />Max Players]]></word>
@@ -122,5 +124,6 @@
   <word key="aXenServerList_widget_toggle_debug" js="0">Show servers with Debug mode</word>
   <word key="aXenServerList_debug_icon" js="0">Debug mode is enabled on this server</word>
   <word key="aXenServerList_popup_refresh" js="0">Servers data updated</word>
+  <word key="aXenServerList_popup_debug_add" js="0">Added server log</word>
  </app>
 </language>

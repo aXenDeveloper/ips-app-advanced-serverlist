@@ -88,6 +88,7 @@ $lang = array(
     'aXenServerList_admin_table_servers_debug_text_YesNo' => 'Enable reason?',
     'aXenServerList_admin_table_servers_debug_text_YesNo_desc' => 'The reason will appear in the more tab for the given server and in the summary at the top of the table.',
     'aXenServerList_admin_table_servers_debug_text' => 'Reason',
+    'aXenServerList_admin_table_servers_buttons_debug' => "Debug Server",
     // * URLs
     'aXenServerList_admin_table_servers_tab_urls' => 'URLs',
     'aXenServerList_admin_table_servers_url_statistics' => 'Statistics URL',
@@ -109,6 +110,7 @@ $lang = array(
     'aXenServerList_admin_table_mods_protocol' => "Protocol",
     'aXenServerList_admin_table_mods_api' => "Custom API",
     'aXenServerList_admin_table_mods_api_url' => "Custom API Field<br />Address URL",
+    'aXenServerList_admin_table_mods_api_url_desc' => 'The URL must be able to add a variable to the URL.<br />So e.g. https://query.li/api/csgo/<span style="font-weight: bold;">{ip}</span>/<span style="font-weight: bold;">{port}</span><br /><span style="font-weight: bold;">Make sure the url contains {ip} or {ip} along with {port}.</span>',
     'aXenServerList_admin_table_mods_api_status' => "Custom API Field<br />Status",
     'aXenServerList_admin_table_mods_api_current_players' => "Custom API Field<br />Current Players",
     'aXenServerList_admin_table_mods_api_max_players' => "Custom API Field<br />Max Players",
@@ -148,4 +150,5 @@ $lang = array(
     // Others
     'aXenServerList_debug_icon' => 'Debug mode is enabled on this server',
     'aXenServerList_popup_refresh' => 'Servers data updated',
+    'aXenServerList_popup_debug_add' => 'Added server log',
 );
