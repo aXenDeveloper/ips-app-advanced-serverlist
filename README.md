@@ -194,6 +194,8 @@ From version _2.0.0_, the table supports your own custom API. To activate your c
 ![8](https://files.axendev.net/projects/ips/applications/serverlist/8.png)
 ![9](https://files.axendev.net/projects/ips/applications/serverlist/9.png)
 ![10](https://files.axendev.net/projects/ips/applications/serverlist/10.png)
+![11](https://files.axendev.net/projects/ips/applications/serverlist/11.png)
+![12](https://files.axendev.net/projects/ips/applications/serverlist/12.png)
 
 ## 🔌 Download from other sources
 
