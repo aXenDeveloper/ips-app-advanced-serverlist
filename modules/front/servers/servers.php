@@ -22,8 +22,6 @@ class _servers extends \IPS\Dispatcher\Controller
      */
     public function execute()
     {
-        \IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('module__axenserverlist_servers');
-        \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate('pages', 'axenserverlist', 'front')->aXenServerListPage(\IPS\Application::load('axenserverlist')->getFullDataServers(), \IPS\Application::load('axenserverlist')->getMods(), 'horizontal');
         parent::execute();
     }
 
@@ -34,7 +32,9 @@ class _servers extends \IPS\Dispatcher\Controller
      */
     protected function manage()
     {
-        // This is the default method if no 'do' parameter is specified
+        \IPS\Output::i()->title = \IPS\Member::loggedIn()->language()->addToStack('module__axenserverlist_servers');
+        \IPS\Output::i()->jsFiles = array_merge(\IPS\Output::i()->jsFiles, \IPS\Output::i()->js('front_axenserverlist.js', 'axenserverlist', 'front'));
+        \IPS\Output::i()->output = \IPS\Theme::i()->getTemplate('pages', 'axenserverlist', 'front')->aXenServerListPage(\IPS\Application::load('axenserverlist')->getFullDataServers(), \IPS\Application::load('axenserverlist')->getMods(), 'horizontal');
     }
 
     // Create new methods with the same name as the 'do' parameter which should execute it

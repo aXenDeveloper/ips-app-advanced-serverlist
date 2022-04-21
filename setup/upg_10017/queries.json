@@ -1,5 +1,5 @@
-[
-    {
+{
+    "1": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_mods",
@@ -18,7 +18,7 @@
             }
         ]
     },
-    {
+    "2": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_servers",
@@ -37,7 +37,7 @@
             }
         ]
     },
-    {
+    "3": {
         "method": "addColumn",
         "params": [
             "axenserverlist_mods",
@@ -55,7 +55,7 @@
             }
         ]
     },
-    {
+    "4": {
         "method": "addColumn",
         "params": [
             "axenserverlist_mods",
@@ -73,7 +73,7 @@
             }
         ]
     },
-    {
+    "5": {
         "method": "addColumn",
         "params": [
             "axenserverlist_mods",
@@ -91,7 +91,7 @@
             }
         ]
     },
-    {
+    "6": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_mods",
@@ -110,7 +110,7 @@
             }
         ]
     },
-    {
+    "7": {
         "method": "changeColumn",
         "params": [
             "axenserverlist_mods",
@@ -129,14 +129,14 @@
             }
         ]
     },
-    {
+    "8": {
         "method": "dropColumn",
         "params": [
             "axenserverlist_mods",
             "api_url"
         ]
     },
-    {
+    "9": {
         "method": "addColumn",
         "params": [
             "axenserverlist_mods",
@@ -154,4 +154,4 @@
             }
         ]
     }
-]
+}
