@@ -114,6 +114,7 @@ class _Mods extends \IPS\Node\Model
             'gta5m' => 'GTA: FiveM',
             'samp' => 'GTA: San Andreas Multiplayer',
             'gtan' => 'Grand Theft Auto Network',
+            'gtmp' => 'Grand Theft Multiplayer',
             'hl2dm' => 'Half Life 2: Deathmatch',
             'hurtworld' => 'Hurtworld',
             'insurgency' => 'Insurgency',
