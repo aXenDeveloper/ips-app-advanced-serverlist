@@ -223,7 +223,7 @@ class _Servers extends \IPS\Node\Model
         $getName = $this->name_default && $this->name_default_text ? $this->name_default_text : $this->name;
         $getIP = $this->ip_custom ? $this->ip_custom : $this->ip;
 
-        return "{$getName} - {$getIP}";
+        return "#{$this->id} {$getName} - {$getIP}";
     }
 
     /**
