@@ -93,6 +93,7 @@ class _aXenServerListWidget extends \IPS\Widget
      */
     public function render()
     {
+        \IPS\Output::i()->jsFiles = array_merge(\IPS\Output::i()->jsFiles, \IPS\Output::i()->js('front_axenserverlist.js', 'axenserverlist', 'front'));
         return $this->output(\IPS\Application::load('axenserverlist')->getFullDataServers(), \IPS\Application::load('axenserverlist')->getMods(), $this->orientation, true);
     }
 }

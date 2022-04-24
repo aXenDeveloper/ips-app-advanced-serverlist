@@ -94,7 +94,12 @@ class _servers extends \IPS\Node\Controller
         // Update server status
         $update = new \IPS\axenserverlist\Servers\Update;
 
-        \IPS\Log::log($update->server($server, null, true), '(aXen) Advanced Server List - Debug Server ID: ' . $id);
+        if ($server['mod_protocol'] == 'api' || $server['mod_protocol'] == 'discord') {
+            \IPS\Log::log($update->server($server, true, true), '(aXen) Advanced Server List - Debug Server ID: ' . $id);
+        } else {
+            \IPS\Log::log($update->server($server, null, true), '(aXen) Advanced Server List - Debug Server ID: ' . $id);
+        }
+
         \IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=core&module=support&controller=systemLogs'), 'aXenServerList_popup_debug_add');
     }
 

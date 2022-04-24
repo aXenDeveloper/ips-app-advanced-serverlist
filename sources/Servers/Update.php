@@ -21,6 +21,11 @@ class _Update
     {
         if ($api) {
             $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
+            if (!$url) {
+                \IPS\Log::log('Invalid server URL!', '(aXen) Advanced Server List - Debug Server ID: ' . $server['id']);
+                return;
+            }
+
             $data = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
 
             $dataUpdate = [
@@ -97,7 +102,7 @@ class _Update
                         $dataUpdate = [
                             'status' => 1,
                             'current_players' => $data['gq_numplayers'] ? $data['gq_numplayers'] : 0,
-                            'max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : $data['gq_numplayers'],
+                            'max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : 0,
                             'name_default_text' => $data['gq_hostname'],
                             'map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
                             'url_connect' => $data['gq_joinlink'],
