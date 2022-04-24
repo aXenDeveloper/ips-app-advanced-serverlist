@@ -21,6 +21,11 @@ class _Update
     {
         if ($api) {
             $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
+            if (!$url) {
+                \IPS\Log::log('Invalid server URL!', '(aXen) Advanced Server List - Debug Server ID: ' . $server['id']);
+                return;
+            }
+
             $data = \IPS\Http\Url::external($url)->request()->get()->decodeJson();
 
             $dataUpdate = [
