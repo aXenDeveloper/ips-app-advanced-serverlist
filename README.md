@@ -64,7 +64,8 @@ Server table showing server information about the status, name, number of player
 - Discord
 - Garry's Mod
 - GRAV Online
-- GTA Five M
+- GTA: Five M
+- GTA: San Andreas Multiplayer
 - Grand Theft Auto Network
 - Half Life 2: Deathmatch
 - Hurtworld
@@ -87,7 +88,6 @@ Server table showing server information about the status, name, number of player
 - Quake Live
 - Red Orchestra 2
 - Rust
-- San Andreas Multiplayer
 - 7 Days to Die
 - The Ship
 - Squad
@@ -95,7 +95,9 @@ Server table showing server information about the status, name, number of player
 - Teamspeak 3
 - Teeworlds Server
 - Terraria
+- Team Fortress Classic
 - Team Fortress 2
+- Team Fortress 2 Classic
 - Tibia
 - Tshock
 - Unreal 2

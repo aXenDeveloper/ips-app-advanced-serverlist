@@ -6,32 +6,24 @@
 namespace GameQ\Protocols;
 
 /**
- * Class Codbo3
+ * Class Tf2clasic
  *
  * @package GameQ\Protocols
- * @author  Austin Bischoff <austin@codebeard.com>
+ * @author Austin Bischoff <austin@codebeard.com>
  */
-class Codbo3 extends Source
+class Tf2clasic extends Source
 {
-
     /**
      * String name of this protocol class
      *
      * @type string
      */
-    protected $name = 'codbo3';
+    protected $name = 'tf2clasic';
 
     /**
      * Longer string name of this protocol class
      *
      * @type string
      */
-    protected $name_long = "Call of Duty: Black Ops 3";
-
-    /**
-     * query_port = client_port + 2
-     *
-     * @type int
-     */
-    protected $port_diff = 2;
+    protected $name_long = "Team Fortress 2 Classic";
 }
