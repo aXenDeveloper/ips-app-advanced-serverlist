@@ -247,7 +247,8 @@ class _Mods extends \IPS\Node\Model
     public function delete()
     {
         \IPS\File::get('axenserverlist_mods', $this->icon)->delete();
+        \IPS\Db::i()->delete('axenserverlist_servers', ['mod_id=?', $this->id]);
 
-        return parent::delete();
+        parent::delete();
     }
 }
