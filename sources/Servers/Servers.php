@@ -78,7 +78,7 @@ class _Servers extends \IPS\Node\Model
                 ],
             ]
         ));
-        $form->add(new \IPS\Helpers\Form\Url('aXenServerList_admin_table_servers_custom_connect_link', $this->custom_connect_link, false, [], null, null, null, 'aXenServerList_admin_table_servers_custom_connect_link'));
+        $form->add(new \IPS\Helpers\Form\Text('aXenServerList_admin_table_servers_custom_connect_link', $this->custom_connect_link, false, [], null, null, null, 'aXenServerList_admin_table_servers_custom_connect_link'));
 
         $form->addTab('aXenServerList_admin_table_servers_tab_debug');
         $form->add(new \IPS\Helpers\Form\YesNo(
