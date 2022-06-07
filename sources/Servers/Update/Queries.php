@@ -57,7 +57,7 @@ class _Queries
         };
 
         // Try 3 times
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i <= 3; $i++) {
             $this->gq->clearServers();
             $this->gq->addServer($currentServer);
             $results = $this->gq->process();
