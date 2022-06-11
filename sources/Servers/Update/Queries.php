@@ -61,13 +61,13 @@ class _Queries
             $this->gq->clearServers();
             $this->gq->addServer($currentServer);
             $results = $this->gq->process();
-
+            
             if ($debug) {
                 return $results;
             }
-
+            
             foreach ($results as $id => $data) {
-                if ($data['gq_online'] == true) {
+                if ($data['gq_online']) {
                     $dataUpdate = [
                         'status' => 1,
                         'current_players' => $data['gq_numplayers'] ? $data['gq_numplayers'] : 0,
@@ -78,15 +78,23 @@ class _Queries
                         'protocol' => $data['gq_protocol'],
                         'password' => $data['gq_password'],
                     ];
-
+                    
                     // Update most players
                     if ($data['gq_numplayers'] > $server['most_players']) {
                         $dataUpdate['most_players'] = $data['gq_numplayers'];
                     }
-
-                    \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+                    
+                    try {
+                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+                    } catch (\Exception$e) {
+                        \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+                    }
+                    
                     continue 2;
                 } else {
+                    \IPS\Log::log($i, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+                    \IPS\Log::log($data, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+
                     $dataUpdate = [
                         'status' => 0,
                         'current_players' => 0,
@@ -97,7 +105,11 @@ class _Queries
                     ];
 
                     if ($i == 3) {
-                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+                        try {
+                            \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+                        } catch (\Exception$e) {
+                            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+                        }
                     }
                 }
             }
@@ -155,7 +167,11 @@ class _Queries
             return $data;
         }
 
-        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+        try {
+            \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+        } catch (\Exception$e) {
+            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+        }
     }
 
     protected function getDataFromGtaFiveM($server, $debug)
@@ -181,7 +197,11 @@ class _Queries
             $dataUpdate['most_players'] = $countPlayers;
         }
 
-        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+        try {
+            \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+        } catch (\Exception$e) {
+            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+        }
         return $dataInfo;
     }
 }
