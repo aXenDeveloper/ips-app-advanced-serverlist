@@ -58,60 +58,43 @@ class _Queries
 
         // Try 3 times
         for ($i = 0; $i <= 3; $i++) {
-            $this->gq->clearServers();
-            $this->gq->addServer($currentServer);
-            $results = $this->gq->process();
-            
+            $results = null;
+
+            try {
+                $this->gq->clearServers();
+                $this->gq->addServer($currentServer);
+                $results = $this->gq->process();
+            } catch (\Exception$e) {
+                \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
+            }
+
             if ($debug) {
                 return $results;
             }
-            
-            foreach ($results as $id => $data) {
-                if ($data['gq_online']) {
-                    $dataUpdate = [
-                        'status' => 1,
-                        'current_players' => $data['gq_numplayers'] ? $data['gq_numplayers'] : 0,
-                        'max_players' => $data['gq_maxplayers'] ? $data['gq_maxplayers'] : 0,
-                        'name_default_text' => $data['gq_hostname'],
-                        'map' => isset($data['gq_mapname']) ? $data['gq_mapname'] : null,
-                        'url_connect' => $data['gq_joinlink'],
-                        'protocol' => $data['gq_protocol'],
-                        'password' => $data['gq_password'],
-                    ];
-                    
-                    // Update most players
-                    if ($data['gq_numplayers'] > $server['most_players']) {
-                        $dataUpdate['most_players'] = $data['gq_numplayers'];
-                    }
-                    
-                    try {
-                        \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
-                    } catch (\Exception$e) {
-                        \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-                    }
-                    
-                    continue 2;
-                } else {
-                    // TODO: Remove this
-                    \IPS\Log::log($i, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-                    \IPS\Log::log($data, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
 
-                    $dataUpdate = [
-                        'status' => 0,
-                        'current_players' => 0,
-                        'max_players' => 0,
-                        'map' => null,
-                        'url_connect' => $data['gq_joinlink'],
-                        'protocol' => $data['gq_protocol'],
-                    ];
+            $players = $this->searchArray($results, 'gq_numplayers');
+            $maxPlayers = $this->searchArray($results, 'gq_maxplayers');
+            $map = $this->searchArray($results, 'gq_mapname');
 
-                    if ($i == 3) {
-                        try {
-                            \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
-                        } catch (\Exception$e) {
-                            \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
-                        }
-                    }
+            $dataUpdate = [
+                'status' => !!$this->searchArray($results, 'gq_online'),
+                'current_players' => $players ? $players : 0,
+                'max_players' => $maxPlayers ? $maxPlayers : 0,
+                'map' => isset($map) ? $map : null,
+                'url_connect' => $this->searchArray($results, 'gq_joinlink'),
+                'protocol' => $this->searchArray($results, 'gq_protocol'),
+                'password' => $this->searchArray($results, 'gq_password'),
+            ];
+
+            if (!!$this->searchArray($results, 'gq_online')) {
+                $dataUpdate['name_default_text'] = $this->searchArray($results, 'gq_hostname');
+            }
+
+            if (!!$this->searchArray($results, 'gq_online') || $i == 3) {
+                try {
+                    \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
+                } catch (\Exception$e) {
+                    \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
                 }
             }
         }
@@ -121,7 +104,7 @@ class _Queries
     {
         $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
         if (!$url) {
-            \IPS\Log::log('Invalid server URL!', '(aXen) Advanced Server List - Debug Server ID: ' . $server['id']);
+            \IPS\Log::log('Invalid server URL!', '(aXen) Advanced Server List - Server ID: ' . $server['id']);
             return;
         }
 
