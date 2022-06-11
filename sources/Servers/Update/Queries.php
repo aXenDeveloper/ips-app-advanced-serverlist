@@ -92,6 +92,7 @@ class _Queries
                     
                     continue 2;
                 } else {
+                    // TODO: Remove this
                     \IPS\Log::log($i, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
                     \IPS\Log::log($data, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
 
