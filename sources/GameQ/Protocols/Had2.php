@@ -19,31 +19,57 @@
 namespace GameQ\Protocols;
 
 /**
- * Class 7 Days to Die
+ * Hidden & Dangerous 2 Protocol Class
  *
- * @package GameQ\Protocols
- * @author Austin Bischoff <austin@codebeard.com>
+ * @author Wilson Jesus <>
  */
-class Sevendaystodie extends Source
+class Had2 extends Gamespy2
 {
+
     /**
      * String name of this protocol class
      *
      * @type string
      */
-    protected $name = 'sevendaystodie';
+    protected $name = 'had2';
 
     /**
      * Longer string name of this protocol class
      *
      * @type string
      */
-    protected $name_long = "7 Days to Die";
+    protected $name_long = "Hidden & Dangerous 2";
 
     /**
-     * query_port = client_port + 0
+     * The difference between the client port and query port
      *
      * @type int
      */
-    protected $port_diff = 0;
+    protected $port_diff = 3;
+
+    /**
+     * Normalize settings for this protocol
+     *
+     * @type array
+     */
+    protected $normalize = [
+        // General
+        'general' => [
+            // target       => source
+            'dedicated'  => 'isdedicated',
+            'gametype'   => 'gametype',
+            'hostname'   => 'hostname',
+            'mapname'    => 'mapname',
+            'maxplayers' => 'maxplayers',
+            'numplayers' => 'numplayers',
+            'password'   => 'password',
+        ],
+        // Individual
+        'player'  => [
+            'name'  => 'player',
+            'score' => 'score',
+            'deaths' => 'deaths',
+            'ping' => 'ping',
+        ],
+    ];
 }

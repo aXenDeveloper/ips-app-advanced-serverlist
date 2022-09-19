@@ -42,12 +42,21 @@ Server table showing server information about the status, name, number of player
 - America's Army: Proving Grounds
 - ARK: Survival Evolved
 - Arma3
+- Armed Assault 2: Operation Arrowhead
+- All-Seeing Eye
+- Atlas
+- Avorion
+- Barotrauma
+- Battalion 1944
 - Battlefield 2
 - Battlefield 3
 - Battlefield 4
 - Battlefield 1942
 - Battlefield Bad Company 2
 - Battlefield Hardline
+- Black Mesa
+- Brink
+- Citadel
 - Call of Duty
 - Call of Duty 2
 - Call of Duty 4
@@ -55,58 +64,113 @@ Server table showing server information about the status, name, number of player
 - Call of Duty: World at War
 - Conan Exiles
 - Contagion
+- Crysis
+- Crysis 2
+- Crysis Wars
+- Counter-Strike 2d
+- Counter-Strike 1.5
 - Counter-Strike 1.6
 - Counter-Strike: Condition Zero
 - Counter-Strike: Global Offensive
 - Counter-Strike: Source
+- Dark and Light
 - DayZ Standalone
 - DayZ Mod
 - Discord
+- Day of Defeat
+- Day of Defeat: Source
+- Doom 3
+- Days of War
+- ECO Global Survival
+- Empyrion - Galactic Survival
+- Wolfenstein Enemy Territory
+- Enemy Territory Quake Wars
+- Fortress Forever
+- Frontlines Fuel of War
+- Fistful of Frags
+- GameSpy Server
+- GameSpy2 Server
+- GameSpy3 Server
 - Garry's Mod
 - GRAV Online
 - GTA: Five M
 - GTA: San Andreas Multiplayer
+- Grand Theft Auto Rage
 - Grand Theft Auto Network
+- Hidden & Dangerous 2
+- Halo: Combat Evolved
+- Half Life
 - Half Life 2: Deathmatch
+- Hell Let Loose
 - Hurtworld
 - Insurgency
+- Insurgency: Sandstorm
 - Star Wars Jedi Knight: Jedi Academy
 - Star Wars Jedi Knight II: Jedi Outcast
 - Just Cause 2 Multiplayer
 - Just Cause 3
 - Killing Floor
 - Killing Floor 2
+- Kingpin: Life of Crime
 - Left 4 Dead
 - Left 4 Dead 2
 - Minecraft
+- MinecraftPE
+- Miscreated
+- Modiverse
 - Medal of honor: Allied Assault
+- MORDHAU
 - Multi Theft Auto
 - Mumble Server
+- No More Room in Hell
 - Natural Selection 2
-- Quake 2 Server
-- Quake 3 Server
+- Open Fortress
+- PixARK
+- Post Scriptum
+- Project Reality: Battlefield 2
+- Quake 2
+- Quake 3
+- Quake 4
 - Quake Live
 - Red Orchestra 2
+- Red Orchestra: Ostfront 41-45
+- rFactor 2
+- Rising Storm 2
 - Rust
+- San Andreas Multiplayer
+- Sven Co-op
+- Serious Sam
 - 7 Days to Die
 - The Ship
+- Solder of Fortune II
+- Soldat
+- Space Engineers
 - Squad
 - StarMade
+- Stormworks
+- SWAT 4
+- Teamspeak 2
 - Teamspeak 3
 - Teeworlds Server
 - Terraria
 - Team Fortress Classic
 - Team Fortress 2
 - Team Fortress 2 Classic
+- The Forrest
 - Tibia
 - Tshock
 - Unreal 2
 - Unturned
+- Unreal Tournament
 - Unreal Tournament 3
 - Unreal Tournament 2004
+- Valheim
+- V Rising
 - Ventrilo
 - Warsow
 - World Opponent Network
+- Wurm Unlimited
+- Project Zomboid
 
 ## 🧰 Install
 
