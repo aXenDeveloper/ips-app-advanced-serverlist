@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <javascript app="axenserverlist">
- <file javascript_app="axenserverlist" javascript_location="front" javascript_path="controllers/axenserverlist" javascript_name="aXenServerList.js" javascript_type="controller" javascript_version="10019" javascript_position="1000050"><![CDATA[// Toogle hide
+ <file javascript_app="axenserverlist" javascript_location="front" javascript_path="controllers/axenserverlist" javascript_name="aXenServerList.js" javascript_type="controller" javascript_version="10022" javascript_position="1000050"><![CDATA[// Toogle hide
 document.querySelector('.aXenServerList_toggle_hide')?.addEventListener('click', e => {
   e.preventDefault();
   const serverList = document.querySelector('.aXenServerList');
