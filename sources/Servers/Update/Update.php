@@ -9,15 +9,17 @@ class _Update extends \IPS\axenserverlist\Servers\Update\Queries
     {
         try {
             if ($api) {
-                return $this->getDataFromCustomApi($server, $debug);
+                $this->getDataFromCustomApi($server, $debug);
+                return;
             }
 
             if ($server['mod_protocol'] == 'gta5m') {
-                return $this->getDataFromGtaFiveM($server, $debug);
+                $this->getDataFromGtaFiveM($server, $debug);
+                return;
             }
 
-            return $this->getDataFromGameQ($server, $debug);
-        } catch (\Exception$e) {
+            $this->getDataFromGameQ($server, $debug);
+        } catch (\Exception $e) {
             \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
         }
     }

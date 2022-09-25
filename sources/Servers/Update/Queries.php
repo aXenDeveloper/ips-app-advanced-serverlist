@@ -42,6 +42,13 @@ class _Queries
         return false;
     }
 
+    /**
+     * Get data from GameQ lib
+     *
+     * @param object $server
+     * @param boolean $debug
+     * @return void
+     */
     protected function getDataFromGameQ($server, $debug)
     {
         $currentServer = [
@@ -64,7 +71,7 @@ class _Queries
                 $this->gq->clearServers();
                 $this->gq->addServer($currentServer);
                 $results = $this->gq->process();
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
             }
 
@@ -93,13 +100,20 @@ class _Queries
             if (!!$this->searchArray($results, 'gq_online') || $i == 3) {
                 try {
                     \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
-                } catch (\Exception$e) {
+                } catch (\Exception $e) {
                     \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
                 }
             }
         }
     }
 
+    /**
+     * Get data from Custom API
+     *
+     * @param object $server
+     * @param boolean $debug
+     * @return void
+     */
     protected function getDataFromCustomApi($server, $debug)
     {
         $url = \IPS\Application::load('axenserverlist')->linkIpWithUrl($server['ip'], $server['mod_api_url']);
@@ -153,18 +167,25 @@ class _Queries
 
         try {
             \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
         }
     }
 
+    /**
+     * Data from GTA FiveM server
+     *
+     * @param object $server
+     * @param boolean $debug
+     * @return void
+     */
     protected function getDataFromGtaFiveM($server, $debug)
     {
         $dataInfo = \IPS\Http\Url::external("http://{$server['ip']}/info.json")->request()->get()->decodeJson();
         $dataPlayers = \IPS\Http\Url::external("http://{$server['ip']}/players.json")->request()->get()->decodeJson();
 
         $countPlayers = 0;
-        foreach ($dataPlayers as $player) {
+        foreach ($dataPlayers as $_player) {
             $countPlayers += 1;
         }
 
@@ -181,11 +202,14 @@ class _Queries
             $dataUpdate['most_players'] = $countPlayers;
         }
 
+        if ($debug) {
+            return $dataInfo;
+        }
+
         try {
             \IPS\Db::i()->update('axenserverlist_servers', $dataUpdate, ['id=?', $server['id']]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             \IPS\Log::log($e, '(aXen) Advanced Server List - Server ID: ' . $server['id']);
         }
-        return $dataInfo;
     }
 }

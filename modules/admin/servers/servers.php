@@ -36,7 +36,6 @@ class _servers extends \IPS\Node\Controller
             'icon' => 'plus',
             'title' => 'menu__axenserverlist_servers_servers',
             'link' => $this->url->setQueryString('do', 'form'),
-            'data' => ['ipsDialog' => '', 'ipsDialog-title' => \IPS\Member::loggedIn()->language()->addToStack('menu__axenserverlist_servers_servers')],
             'primary' => true,
         ];
 
@@ -67,7 +66,7 @@ class _servers extends \IPS\Node\Controller
             }
 
             \IPS\Output::i()->redirect(\IPS\Http\Url::internal('app=axenserverlist&module=servers&controller=servers'), 'aXenServerList_popup_refresh');
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             \IPS\Log::debug($e, '(aXen) Advanced Server List - Update data servers');
         }
     }
@@ -85,7 +84,7 @@ class _servers extends \IPS\Node\Controller
         $server = [];
         try {
             $server = \IPS\Application::load('axenserverlist')->getFullDataServersTask($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             if (\IPS\Request::i()->id) {
                 \IPS\Output::i()->error('page_not_found', '(aXen) Advanced Server List/103', 404, '');
             }
