@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -17,8 +18,6 @@
  */
 
 namespace GameQ;
-
-use GameQ\Exception\Server as Exception;
 
 /**
  * Server class to represent each server entity
@@ -101,19 +100,19 @@ class Server
      *
      * @param array $server_info
      *
-     * @throws \GameQ\Exception\Server
+     * @throws \Exception
      */
     public function __construct(array $server_info = [])
     {
 
         // Check for server type
         if (!array_key_exists(self::SERVER_TYPE, $server_info) || empty($server_info[self::SERVER_TYPE])) {
-            throw new Exception("Missing server info key '" . self::SERVER_TYPE . "'!");
+            throw new \Exception("Missing server info key '" . self::SERVER_TYPE . "'!");
         }
 
         // Check for server host
         if (!array_key_exists(self::SERVER_HOST, $server_info) || empty($server_info[self::SERVER_HOST])) {
-            throw new Exception("Missing server info key '" . self::SERVER_HOST . "'!");
+            throw new \Exception("Missing server info key '" . self::SERVER_HOST . "'!");
         }
 
         // IP address and port check
@@ -142,7 +141,7 @@ class Server
 
             $this->protocol = $class->newInstanceArgs([$this->options]);
         } catch (\ReflectionException $e) {
-            throw new Exception("Unable to locate Protocols class for '{$server_info[self::SERVER_TYPE]}'!");
+            throw new \Exception("Unable to locate Protocols class for '{$server_info[self::SERVER_TYPE]}'!");
         }
 
         // Check and set any server options
@@ -156,7 +155,7 @@ class Server
      *
      * @param $ip_address
      *
-     * @throws \GameQ\Exception\Server
+     * @throws \Exception
      */
     protected function checkAndSetIpPort($ip_address)
     {
@@ -177,15 +176,15 @@ class Server
                 unset($server_addr);
             } else {
                 // Just the IPv6 address, no port defined, fail
-                throw new Exception(
+                throw new \Exception(
                     "The host address '{$ip_address}' is missing the port.  All "
-                    . "servers must have a port defined!"
+                        . "servers must have a port defined!"
                 );
             }
 
             // Now let's validate the IPv6 value sent, remove the square brackets ([]) first
             if (!filter_var(trim($this->ip, '[]'), FILTER_VALIDATE_IP, ['flags' => FILTER_FLAG_IPV6,])) {
-                throw new Exception("The IPv6 address '{$this->ip}' is invalid.");
+                throw new \Exception("The IPv6 address '{$this->ip}' is invalid.");
             }
         } else {
             // We have IPv4 with a port defined
@@ -196,21 +195,21 @@ class Server
                 $this->port_client = (int)$this->port_client;
             } else {
                 // No port, fail
-                throw new Exception(
+                throw new \Exception(
                     "The host address '{$ip_address}' is missing the port. All "
-                    . "servers must have a port defined!"
+                        . "servers must have a port defined!"
                 );
             }
 
             // Validate the IPv4 value, if FALSE is not a valid IP, maybe a hostname.
-            if (! filter_var($this->ip, FILTER_VALIDATE_IP, ['flags' => FILTER_FLAG_IPV4,])) {
+            if (!filter_var($this->ip, FILTER_VALIDATE_IP, ['flags' => FILTER_FLAG_IPV4,])) {
                 // Try to resolve the hostname to IPv4
                 $resolved = gethostbyname($this->ip);
 
                 // When gethostbyname() fails it returns the original string
                 if ($this->ip === $resolved) {
                     // so if ip and the result from gethostbyname() are equal this failed.
-                    throw new Exception("Unable to resolve the host '{$this->ip}' to an IP address.");
+                    throw new \Exception("Unable to resolve the host '{$this->ip}' to an IP address.");
                 } else {
                     $this->ip = $resolved;
                 }

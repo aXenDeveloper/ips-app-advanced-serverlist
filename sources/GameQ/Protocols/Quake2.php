@@ -6,7 +6,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Quake2 Protocol Class
@@ -105,7 +104,7 @@ class Quake2 extends Protocol
 
         // Figure out which packet response this is
         if (empty($header) || !array_key_exists($header, $this->responses)) {
-            throw new Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
+            throw new \Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
         }
 
         return call_user_func_array([$this, $this->responses[$header]], [$buffer]);

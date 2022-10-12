@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -15,9 +16,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace GameQ\Protocols;
 
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Result;
 use GameQ\Server;
 
@@ -132,10 +133,10 @@ class Gtar extends Http
 
         // Return should be JSON, let's validate
         if (!isset($matches[0]) || ($json = json_decode($matches[0])) === null) {
-            throw new Exception("JSON response from Gtar protocol is invalid.");
+            throw new \Exception("JSON response from Gtar protocol is invalid.");
         }
 
-        $address = $this->realIp.':'.$this->realPortQuery;
+        $address = $this->realIp . ':' . $this->realPortQuery;
         $server = $json->$address;
 
         if (empty($server)) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -49,7 +50,7 @@ class Cs16 extends Source
      * @param array $packets
      *
      * @return string
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processPackets($packet_id, array $packets = [])
     {

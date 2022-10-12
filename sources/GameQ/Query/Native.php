@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -18,7 +19,6 @@
 
 namespace GameQ\Query;
 
-use GameQ\Exception\Query as Exception;
 
 /**
  * Native way of querying servers
@@ -31,7 +31,7 @@ class Native extends Core
      * Get the current socket or create one and return
      *
      * @return resource|null
-     * @throws \GameQ\Exception\Query
+     * @throws \Exception
      */
     public function get()
     {
@@ -64,7 +64,7 @@ class Native extends Core
             // Send the packet
             return fwrite($this->socket, $data);
         } catch (\Exception $e) {
-            throw new Exception($e->getMessage(), $e->getCode(), $e);
+            throw new \Exception($e->getMessage(), $e->getCode(), $e);
         }
     }
 
@@ -123,7 +123,7 @@ class Native extends Core
             $this->socket = null;
 
             // Something bad happened, throw query exception
-            throw new Exception(
+            throw new \Exception(
                 __METHOD__ . " - Error creating socket to server {$this->ip}:{$this->port}. Error: " . $errstr,
                 $errno
             );

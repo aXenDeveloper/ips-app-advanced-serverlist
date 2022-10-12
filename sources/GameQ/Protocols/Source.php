@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -19,7 +20,6 @@
 namespace GameQ\Protocols;
 
 use GameQ\Buffer;
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Protocol;
 use GameQ\Result;
 
@@ -134,7 +134,7 @@ class Source extends Protocol
      * @param \GameQ\Buffer $challenge_buffer
      *
      * @return bool
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function challengeParseAndApply(Buffer $challenge_buffer)
     {
@@ -150,7 +150,7 @@ class Source extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -204,7 +204,7 @@ class Source extends Protocol
 
             // Figure out which packet response this is
             if (!array_key_exists($response_type, $this->responses)) {
-                throw new Exception(__METHOD__ . " response type '{$response_type}' is not valid");
+                throw new \Exception(__METHOD__ . " response type '{$response_type}' is not valid");
             }
 
             // Now we need to call the proper method
@@ -235,7 +235,7 @@ class Source extends Protocol
      * @param array $packets
      *
      * @return string
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processPackets($packet_id, array $packets = [])
     {
@@ -273,7 +273,7 @@ class Source extends Protocol
                     // Check to see if we have Bzip2 installed
                     if (!function_exists('bzdecompress')) {
                         // @codeCoverageIgnoreStart
-                        throw new Exception(
+                        throw new \Exception(
                             'Bzip2 is not installed.  See http://www.php.net/manual/en/book.bzip2.php for more info.',
                             0
                         );
@@ -292,7 +292,7 @@ class Source extends Protocol
                     // Now verify the length
                     if (strlen($result) != $packet_length) {
                         // @codeCoverageIgnoreStart
-                        throw new Exception(
+                        throw new \Exception(
                             "Checksum for compressed packet failed! Length expected: {$packet_length}, length
                             returned: " . strlen($result)
                         );
@@ -339,7 +339,7 @@ class Source extends Protocol
      * @param \GameQ\Buffer $buffer
      *
      * @return mixed
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processDetails(Buffer $buffer)
     {
@@ -412,7 +412,7 @@ class Source extends Protocol
      * @param \GameQ\Buffer $buffer
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processDetailsGoldSource(Buffer $buffer)
     {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -20,7 +21,6 @@ namespace GameQ\Protocols;
 
 use GameQ\Protocol;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Mumble Protocol class
@@ -116,14 +116,14 @@ class Mumble extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
 
         // Try to json_decode, make it into an array
         if (($data = json_decode(implode('', $this->packets_response), true)) === null) {
-            throw new Exception(__METHOD__ . " Unable to decode JSON data.");
+            throw new \Exception(__METHOD__ . " Unable to decode JSON data.");
         }
 
         // Set the result to a new result instance

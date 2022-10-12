@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -18,7 +19,6 @@
 
 namespace GameQ\Protocols;
 
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Result;
 
 /**
@@ -106,7 +106,7 @@ class Eco extends Http
 
         // Return should be JSON, let's validate
         if (!isset($matches[0]) || ($json = json_decode($matches[0])) === null) {
-            throw new Exception("JSON response from Eco server is invalid.");
+            throw new \Exception("JSON response from Eco server is invalid.");
         }
 
         $result = new Result();

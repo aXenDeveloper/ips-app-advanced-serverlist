@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * OpenTTD Protocol Class
@@ -111,7 +111,7 @@ class Openttd extends Protocol
         // Header
         // Figure out which packet response this is
         if ($packetLength != $length) {
-            throw new Exception(__METHOD__ . " response type '" . bin2hex($length) . "' is not valid");
+            throw new \Exception(__METHOD__ . " response type '" . bin2hex($length) . "' is not valid");
         }
 
         return call_user_func_array([$this, 'processServerInfo'], [$buffer]);
@@ -128,7 +128,7 @@ class Openttd extends Protocol
     {
         // Set the result to a new result instance
         $result = new Result();
-       
+
         $protocol_version = $buffer->readInt8();
         $result->add('protocol_version', $protocol_version);
 
@@ -138,9 +138,9 @@ class Openttd extends Protocol
                 $result->add('num_grfs', $num_grfs);
                 //$buffer->skip ($num_grfs * 20); #skip grfs id and md5 hash
 
-                for ($i=0; $i<$num_grfs; $i++) {
-                    $result->add('grfs_'.$i.'_ID', strtoupper(bin2hex($buffer->read(4))));
-                    $result->add('grfs_'.$i.'_MD5', strtoupper(bin2hex($buffer->read(16))));
+                for ($i = 0; $i < $num_grfs; $i++) {
+                    $result->add('grfs_' . $i . '_ID', strtoupper(bin2hex($buffer->read(4))));
+                    $result->add('grfs_' . $i . '_MD5', strtoupper(bin2hex($buffer->read(16))));
                 }
                 // No break, cascades all the down even if case is meet
             case 3:
@@ -155,17 +155,17 @@ class Openttd extends Protocol
             case 1:
                 $result->add('hostname', $buffer->readString());
                 $result->add('version', $buffer->readString());
-                
+
                 $language = $buffer->readInt8();
                 $result->add('language', $language);
-                $result->add('language_icon', '//media.openttd.org/images/server/'.$language.'_lang.gif');
+                $result->add('language_icon', '//media.openttd.org/images/server/' . $language . '_lang.gif');
 
                 $result->add('password', $buffer->readInt8());
                 $result->add('max_clients', $buffer->readInt8());
                 $result->add('clients', $buffer->readInt8());
                 $result->add('spectators', $buffer->readInt8());
                 if ($protocol_version < 3) {
-                    $days = ( 365 * 1920 + 1920 / 4 - 1920 / 100 + 1920 / 400 );
+                    $days = (365 * 1920 + 1920 / 4 - 1920 / 100 + 1920 / 400);
                     $result->add('game_date', $buffer->readInt16() + $days);
                     $result->add('start_date', $buffer->readInt16() + $days);
                 }

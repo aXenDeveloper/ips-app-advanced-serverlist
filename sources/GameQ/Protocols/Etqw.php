@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -19,7 +20,6 @@
 namespace GameQ\Protocols;
 
 use GameQ\Buffer;
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Protocol;
 use GameQ\Result;
 
@@ -101,7 +101,7 @@ class Etqw extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -113,7 +113,7 @@ class Etqw extends Protocol
 
         // Figure out which packet response this is
         if (!array_key_exists($response_type, $this->responses)) {
-            throw new Exception(__METHOD__ . " response type '{$response_type}' is not valid");
+            throw new \Exception(__METHOD__ . " response type '{$response_type}' is not valid");
         }
 
         // Offload the call

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -56,7 +57,7 @@ class Warsow extends Quake3
      * @param Buffer $buffer
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processPlayers(Buffer $buffer)
     {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -22,7 +23,6 @@ use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
 use GameQ\Server;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Teamspeak 2 Protocol Class
@@ -116,16 +116,17 @@ class Teamspeak2 extends Protocol
      *
      * @param \GameQ\Server $server
      *
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function beforeSend(Server $server)
     {
 
         // Check to make sure we have a query_port because it is required
-        if (!isset($this->options[Server::SERVER_OPTIONS_QUERY_PORT])
+        if (
+            !isset($this->options[Server::SERVER_OPTIONS_QUERY_PORT])
             || empty($this->options[Server::SERVER_OPTIONS_QUERY_PORT])
         ) {
-            throw new Exception(__METHOD__ . " Missing required setting '" . Server::SERVER_OPTIONS_QUERY_PORT . "'.");
+            throw new \Exception(__METHOD__ . " Missing required setting '" . Server::SERVER_OPTIONS_QUERY_PORT . "'.");
         }
 
         // Let's loop the packets and set the proper pieces
@@ -139,7 +140,7 @@ class Teamspeak2 extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -149,7 +150,7 @@ class Teamspeak2 extends Protocol
 
         // Check the header [TS]
         if (($header = trim($buffer->readString("\n"))) !== '[TS]') {
-            throw new Exception(__METHOD__ . " Expected header '{$header}' does not match expected '[TS]'.");
+            throw new \Exception(__METHOD__ . " Expected header '{$header}' does not match expected '[TS]'.");
         }
 
         // Split this buffer as the data blocks are bound by "OK" and drop any empty values

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Battlefield 3 Protocol Class
@@ -43,7 +43,7 @@ class Bf3 extends Protocol
         self::PACKET_STATUS  => "\x00\x00\x00\x21\x1b\x00\x00\x00\x01\x00\x00\x00\x0a\x00\x00\x00serverInfo\x00",
         self::PACKET_VERSION => "\x00\x00\x00\x22\x18\x00\x00\x00\x01\x00\x00\x00\x07\x00\x00\x00version\x00",
         self::PACKET_PLAYERS =>
-            "\x00\x00\x00\x23\x24\x00\x00\x00\x02\x00\x00\x00\x0b\x00\x00\x00listPlayers\x00\x03\x00\x00\x00\x61ll\x00",
+        "\x00\x00\x00\x23\x24\x00\x00\x00\x02\x00\x00\x00\x0b\x00\x00\x00listPlayers\x00\x03\x00\x00\x00\x61ll\x00",
     ];
 
     /**
@@ -130,7 +130,7 @@ class Bf3 extends Protocol
      * Process the response for the StarMade server
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -177,7 +177,7 @@ class Bf3 extends Protocol
             // Check to make sure the expected length matches the real length
             // Subtract 4 for the sequence_id pulled out earlier
             if ($packetLength != ($buffer->readInt32() - 4)) {
-                throw new Exception(__METHOD__ . " packet length does not match expected length!");
+                throw new \Exception(__METHOD__ . " packet length does not match expected length!");
             }
 
             // Now we need to call the proper method
