@@ -30,8 +30,7 @@ Server table showing server information about the status, name, number of player
 
 ## 🏷️ Requirements
 
-- [IPS Community Suite: 4.6 or 4.7 version](https://invisioncommunity.com/)
-- PHP 7.4+ - For IPS 4.6
+- [IPS Community Suite: 4.7 version](https://invisioncommunity.com/)
 - PHP 8.0+ - For IPS 4.7
 - [Bzip2](https://www.php.net/manual/en/book.bzip2.php) - Used for A2S Compressed responses,
 - ❗❗ Unlocked external ports on the website server (UDP)
