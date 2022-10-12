@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -22,7 +23,6 @@ use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
 use GameQ\Server;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * San Andreas Multiplayer Protocol Class (samp)
@@ -140,7 +140,7 @@ class Samp extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -158,12 +158,12 @@ class Samp extends Protocol
 
             // Check the header, should be SAMP
             if (($header = $buffer->read(4)) !== 'SAMP') {
-                throw new Exception(__METHOD__ . " header response '{$header}' is not valid");
+                throw new \Exception(__METHOD__ . " header response '{$header}' is not valid");
             }
 
             // Check to make sure the server response code matches what we sent
             if ($buffer->read($serverCodeLength) !== $this->server_code) {
-                throw new Exception(__METHOD__ . " code check failed.");
+                throw new \Exception(__METHOD__ . " code check failed.");
             }
 
             // Figure out what packet response this is for
@@ -171,7 +171,7 @@ class Samp extends Protocol
 
             // Figure out which packet response this is
             if (!array_key_exists($response_type, $this->responses)) {
-                throw new Exception(__METHOD__ . " response type '{$response_type}' is not valid");
+                throw new \Exception(__METHOD__ . " response type '{$response_type}' is not valid");
             }
 
             // Now we need to call the proper method
@@ -196,7 +196,7 @@ class Samp extends Protocol
      * @param \GameQ\Buffer $buffer
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processStatus(Buffer $buffer)
     {

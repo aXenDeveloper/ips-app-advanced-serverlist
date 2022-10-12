@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -87,7 +88,7 @@ class Gamespy3 extends Protocol
      * @param \GameQ\Buffer $challenge_buffer
      *
      * @return bool
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function challengeParseAndApply(Buffer $challenge_buffer)
     {

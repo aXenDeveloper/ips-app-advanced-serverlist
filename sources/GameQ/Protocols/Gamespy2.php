@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -18,7 +19,6 @@
 
 namespace GameQ\Protocols;
 
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
@@ -143,7 +143,7 @@ class Gamespy2 extends Protocol
         foreach ($packets as $header => $packetGroup) {
             // Figure out which packet response this is
             if (!array_key_exists($header, $this->responses)) {
-                throw new Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
+                throw new \Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
             }
 
             // Now we need to call the proper method

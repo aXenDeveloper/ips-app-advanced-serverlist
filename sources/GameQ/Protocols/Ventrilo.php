@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -20,7 +21,6 @@ namespace GameQ\Protocols;
 
 use GameQ\Protocol;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Ventrilo Protocol Class
@@ -45,7 +45,7 @@ class Ventrilo extends Protocol
      */
     protected $packets = [
         self::PACKET_ALL =>
-            "V\xc8\xf4\xf9`\xa2\x1e\xa5M\xfb\x03\xccQN\xa1\x10\x95\xaf\xb2g\x17g\x812\xfbW\xfd\x8e\xd2\x22r\x034z\xbb\x98",
+        "V\xc8\xf4\xf9`\xa2\x1e\xa5M\xfb\x03\xccQN\xa1\x10\x95\xaf\xb2g\x17g\x812\xfbW\xfd\x8e\xd2\x22r\x034z\xbb\x98",
     ];
 
     /**
@@ -634,7 +634,7 @@ class Ventrilo extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -711,17 +711,17 @@ class Ventrilo extends Protocol
                         $this->processChannel($value, $channelFields, $result);
                         break;
 
-                    // Find the number of fields for the channels
+                        // Find the number of fields for the channels
                     case 'channelfields':
                         $channelFields = count(explode(',', $value));
                         break;
 
-                    // Find the number of fields for the players
+                        // Find the number of fields for the players
                     case 'clientfields':
                         $playerFields = count(explode(',', $value));
                         break;
 
-                    // By default we just add they key as an item
+                        // By default we just add they key as an item
                     default:
                         $result->add($key, utf8_encode($value));
                         break;
@@ -746,7 +746,7 @@ class Ventrilo extends Protocol
      * @param array $packets
      *
      * @return string
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function decryptPackets(array $packets = [])
     {
@@ -770,7 +770,7 @@ class Ventrilo extends Protocol
             $a2 = $key >> 8;
 
             if ($a1 == 0) {
-                throw new Exception(__METHOD__ . ": Header key is invalid");
+                throw new \Exception(__METHOD__ . ": Header key is invalid");
             }
 
             $table = $this->head_encrypt_table;
@@ -802,7 +802,7 @@ class Ventrilo extends Protocol
 
             // Check to make sure the number of packets match
             if ($header_items['totpck'] != count($packets)) {
-                throw new Exception(__METHOD__ . ": Too few packets received");
+                throw new \Exception(__METHOD__ . ": Too few packets received");
             }
 
             # Data :
@@ -811,7 +811,7 @@ class Ventrilo extends Protocol
             $a2 = $header_items['datakey'] >> 8;
 
             if ($a1 == 0) {
-                throw new Exception(__METHOD__ . ": Data key is invalid");
+                throw new \Exception(__METHOD__ . ": Data key is invalid");
             }
 
             $chars = unpack("C*", substr($packet, 20));

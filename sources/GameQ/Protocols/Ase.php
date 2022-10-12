@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -101,7 +102,7 @@ class Ase extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -110,7 +111,7 @@ class Ase extends Protocol
 
         // Check for valid response
         if ($buffer->getLength() < 4) {
-            throw new \GameQ\Exception\Protocol(sprintf('%s The response from the server was empty.', __METHOD__));
+            throw new \Exception(sprintf('%s The response from the server was empty.', __METHOD__));
         }
 
         // Read the header
@@ -118,7 +119,7 @@ class Ase extends Protocol
 
         // Verify header
         if ($header !== 'EYE1') {
-            throw new \GameQ\Exception\Protocol(sprintf('%s The response header "%s" does not match expected "EYE1"', __METHOD__, $header));
+            throw new \Exception(sprintf('%s The response header "%s" does not match expected "EYE1"', __METHOD__, $header));
         }
 
         // Create a new result

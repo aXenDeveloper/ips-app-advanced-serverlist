@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -19,9 +20,7 @@
 namespace GameQ\Protocols;
 
 use GameQ\Protocol;
-use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Tibia Protocol Class
@@ -103,7 +102,7 @@ class Tibia extends Protocol
      * Process the response for the Tibia server
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -112,7 +111,7 @@ class Tibia extends Protocol
 
         // Check to make sure this is will decode into a valid XML Document
         if (($xmlDoc = @simplexml_load_string($xmlString)) === false) {
-            throw new Exception(__METHOD__ . " Unable to load XML string.");
+            throw new \Exception(__METHOD__ . " Unable to load XML string.");
         }
 
         // Set the result to a new result instance

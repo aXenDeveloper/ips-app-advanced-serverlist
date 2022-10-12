@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Unreal 2 Protocol class
@@ -103,7 +103,7 @@ class Unreal2 extends Protocol
      * Process the response
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -130,7 +130,7 @@ class Unreal2 extends Protocol
         foreach ($packets as $header => $packetGroup) {
             // Figure out which packet response this is
             if (!array_key_exists($header, $this->responses)) {
-                throw new Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
+                throw new \Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
             }
 
             // Now we need to call the proper method
@@ -155,7 +155,7 @@ class Unreal2 extends Protocol
      * @param \GameQ\Buffer $buffer
      *
      * @return mixed
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processDetails(Buffer $buffer)
     {

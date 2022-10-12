@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -17,9 +18,6 @@
  */
 
 namespace GameQ;
-
-use GameQ\Exception\Protocol as ProtocolException;
-use GameQ\Exception\Query as QueryException;
 
 /**
  * Base GameQ Class
@@ -420,7 +418,7 @@ class GameQ
                         'server_id' => $server_id,
                         'socket'    => $socket,
                     ];
-                } catch (QueryException $exception) {
+                } catch (\Exception $exception) {
                     // Check to see if we are in debug, if so bubble up the exception
                     if ($this->debug) {
                         throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
@@ -521,7 +519,7 @@ class GameQ
                     'server_id' => $server_id,
                     'socket'    => $socket,
                 ];
-            } catch (QueryException $exception) {
+            } catch (\Exception $exception) {
                 // Check to see if we are in debug, if so bubble up the exception
                 if ($this->debug) {
                     throw new \Exception($exception->getMessage(), $exception->getCode(), $exception);
@@ -596,7 +594,7 @@ class GameQ
 
             // Check for online before we do anything else
             $results['gq_online'] = (count($results) > 0);
-        } catch (ProtocolException $e) {
+        } catch (\Exception $e) {
             // Check to see if we are in debug, if so bubble up the exception
             if ($this->debug) {
                 throw new \Exception($e->getMessage(), $e->getCode(), $e);

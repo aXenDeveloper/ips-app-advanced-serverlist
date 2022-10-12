@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use \GameQ\Exception\Protocol as Exception;
 
 /**
  * GameSpy Protocol class
@@ -86,7 +86,7 @@ class Gamespy extends Protocol
             if (($match = preg_match("#^(.*)\\\\queryid\\\\([^\\\\]+)(\\\\|$)#", $response, $matches)) === false
                 || $match != 1
             ) {
-                throw new Exception(__METHOD__ . " An error occurred while parsing the packets for 'queryid'");
+                throw new \Exception(__METHOD__ . " An error occurred while parsing the packets for 'queryid'");
             }
 
             // Multiply so we move the decimal point out of the way, if there is one

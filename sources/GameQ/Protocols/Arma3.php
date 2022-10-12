@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -108,7 +109,7 @@ class Arma3 extends Source
      * @param Buffer $buffer
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     protected function processRules(Buffer $buffer)
     {
@@ -175,7 +176,7 @@ class Arma3 extends Source
 
         // Add mod count
         $result->add('mod_count', $modCount);
-        
+
         // Loop over the mods
         while ($modCount) {
             // Read the mods hash
@@ -186,7 +187,7 @@ class Arma3 extends Source
 
             // Determine isDLC by flag, first bit in upper nibble
             $result->addSub('mods', 'dlc', ($infoByte & 0b00010000) === 0b00010000);
-            
+
             // Read the steam id of the mod/CDLC (might be less than 4 bytes)
             $result->addSub('mods', 'steam_id', $responseBuffer->readInt32($infoByte & 0x0F));
 

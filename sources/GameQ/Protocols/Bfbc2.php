@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Battlefield Bad Company 2 Protocol Class
@@ -132,7 +132,7 @@ class Bfbc2 extends Protocol
      * Process the response for the StarMade server
      *
      * @return array
-     * @throws \GameQ\Exception\Protocol
+     * @throws \Exception
      */
     public function processResponse()
     {
@@ -157,7 +157,7 @@ class Bfbc2 extends Protocol
             // Check to make sure the expected length matches the real length
             // Subtract 4 for the header burn
             if ($packetLength != ($buffer->readInt32() - 4)) {
-                throw new Exception(__METHOD__ . " packet length does not match expected length!");
+                throw new \Exception(__METHOD__ . " packet length does not match expected length!");
             }
 
             // We assume the packets are coming back in the same order as sent, this maybe incorrect...

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -21,7 +22,6 @@ namespace GameQ\Protocols;
 use GameQ\Protocol;
 use GameQ\Buffer;
 use GameQ\Result;
-use GameQ\Exception\Protocol as Exception;
 
 /**
  * Doom3 Protocol Class
@@ -120,7 +120,7 @@ class Doom3 extends Protocol
         // Header
         // Figure out which packet response this is
         if (empty($header) || !array_key_exists($header, $this->responses)) {
-            throw new Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
+            throw new \Exception(__METHOD__ . " response type '" . bin2hex($header) . "' is not valid");
         }
 
         return call_user_func_array([$this, $this->responses[$header]], [$buffer]);

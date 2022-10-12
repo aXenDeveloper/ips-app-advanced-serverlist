@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of GameQ.
  *
@@ -15,9 +16,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace GameQ\Protocols;
 
-use GameQ\Exception\Protocol as Exception;
 use GameQ\Result;
 
 /**
@@ -99,18 +100,18 @@ class Tshock extends Http
         if (empty($this->packets_response)) {
             return [];
         }
-        
+
         // Implode and rip out the JSON
         preg_match('/\{(.*)\}/ms', implode('', $this->packets_response), $matches);
 
         // Return should be JSON, let's validate
         if (!isset($matches[0]) || ($json = json_decode($matches[0])) === null) {
-            throw new Exception("JSON response from Tshock protocol is invalid.");
+            throw new \Exception("JSON response from Tshock protocol is invalid.");
         }
 
         // Check the status response
         if ($json->status != 200) {
-            throw new Exception("JSON status from Tshock protocol response was '{$json->status}', expected '200'.");
+            throw new \Exception("JSON status from Tshock protocol response was '{$json->status}', expected '200'.");
         }
 
         $result = new Result();
