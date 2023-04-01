@@ -113,7 +113,9 @@ class _Servers extends \IPS\Node\Model
         $form->add(new \IPS\Helpers\Form\Url('aXenServerList_admin_table_servers_url_statistics', $this->url_statistics, false));
         $form->add(new \IPS\Helpers\Form\Url('aXenServerList_admin_table_servers_url_tv', $this->url_tv, false));
         $form->add(new \IPS\Helpers\Form\Url('aXenServerList_admin_table_servers_url_vote', $this->url_vote, false));
-        $form->add(new \IPS\Helpers\Form\Url('aXenServerList_admin_table_servers_url_forum', $this->url_forum, false));
+        $form->add( new \IPS\Helpers\Form\Node( 'aXenServerList_admin_table_servers_forum_id', $this->forum_id, FALSE, array(
+			'class'		      	=> '\IPS\forums\Forum'
+		) ) );
 
         $form->addTab('aXenServerList_admin_table_servers_tab_advanced');
         $form->add(new \IPS\Helpers\Form\Member('aXenServerList_admin_table_servers_owners', $members, false, array('multiple' => null)));
@@ -149,6 +151,17 @@ class _Servers extends \IPS\Node\Model
             } else {
                 $values[$k] = $v;
             }
+        }
+
+        /**
+         * $values['forum_id'] returns \IPS\forums\Forum object
+         * Saves Forum ID & URL respectively for specified forum
+         * 
+         * added by szalik.dev
+         */
+        if(isset($values['forum_id'])) {
+            $values['url_forum'] = $values['forum_id']->url();
+            $values['forum_id'] = $values['forum_id']->id;
         }
 
         // Save owners

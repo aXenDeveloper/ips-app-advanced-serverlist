@@ -95,6 +95,7 @@ $lang = array(
     'aXenServerList_admin_table_servers_url_tv' => 'TV URL',
     'aXenServerList_admin_table_servers_url_vote' => 'Vote URL',
     'aXenServerList_admin_table_servers_url_forum' => 'Forum URL',
+    'aXenServerList_admin_table_servers_forum_id' => 'Server Forum',
     // * Advanced
     'aXenServerList_admin_table_servers_tab_advanced' => 'Advanced',
     'aXenServerList_admin_table_servers_owners' => 'Owners',

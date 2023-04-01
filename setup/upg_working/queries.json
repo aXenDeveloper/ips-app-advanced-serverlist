@@ -1,0 +1,20 @@
+[
+    {
+        "method": "addColumn",
+        "params": [
+            "axenserverlist_servers",
+            {
+                "name": "forum_id",
+                "type": "BIGINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": true,
+                "auto_increment": false
+            }
+        ]
+    }
+]
