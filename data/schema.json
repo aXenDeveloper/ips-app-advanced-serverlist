@@ -393,7 +393,7 @@
                 "decimals": null,
                 "values": null,
                 "allow_null": true,
-                "default": null,
+                "default": "0",
                 "comment": "",
                 "unsigned": true,
                 "auto_increment": false

@@ -159,9 +159,13 @@ class _Servers extends \IPS\Node\Model
          * 
          * added by szalik.dev
          */
-        if(isset($values['forum_id'])) {
+
+        if(!empty($values['forum_id'])) {
             $values['url_forum'] = $values['forum_id']->url();
             $values['forum_id'] = $values['forum_id']->id;
+        }
+        else {
+            $values['forum_id'] = 0; // prevents error when creating new server and not setting forum_id
         }
 
         // Save owners
