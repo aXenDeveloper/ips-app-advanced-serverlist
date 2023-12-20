@@ -42,6 +42,13 @@ class Killingfloor2 extends Source
     protected $name_long = "Killing Floor 2";
 
     /**
+     * New logic for steam connect link
+     *
+     * @type string
+     */
+    protected $join_link = "steam://run/232090//+connect %s:%d/";
+
+    /**
      * query_port = client_port + 19238
      * 27015 = 7777 + 19238
      *
